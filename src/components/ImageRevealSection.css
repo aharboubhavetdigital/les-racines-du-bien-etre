@@ -1,0 +1,188 @@
+.image-reveal-wrapper {
+  --reveal-ink: #181614;
+  --reveal-paper: #F6F3EC;
+  --reveal-muted: #9C9488;
+  --reveal-line: rgba(246, 243, 236, 0.14);
+  --reveal-signal: #617467;
+  --reveal-accent: #8C9B7E;
+
+  position: relative;
+  width: 100%;
+  background-color: var(--reveal-ink);
+  color: var(--reveal-paper);
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.image-reveal-wrapper section {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
+/* Intro & Outro Editorial Bookends */
+.image-reveal-wrapper .intro,
+.image-reveal-wrapper .outro {
+  padding: clamp(2rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--reveal-ink);
+  color: var(--reveal-paper);
+  z-index: 10;
+}
+
+.image-reveal-wrapper .center-copy {
+  max-width: 54rem;
+  margin: 0 auto;
+}
+
+.image-reveal-wrapper .center-copy h2 {
+  font-family: "Cinzel", "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--reveal-paper);
+  margin-bottom: 1.25rem;
+}
+
+.image-reveal-wrapper .center-copy h2.intro-lowercase-heading {
+  font-family: "Playfair Display", Georgia, "Cinzel", serif;
+  font-size: clamp(1.6rem, 3.4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+  color: var(--reveal-paper);
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.image-reveal-wrapper .reveal-cta-btn {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.image-reveal-wrapper .center-copy p {
+  font-family: "DM Mono", monospace;
+  font-size: clamp(0.9rem, 1.3vw, 1.15rem);
+  color: var(--reveal-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+/* Spotlight pinned stage */
+.image-reveal-wrapper .spotlight {
+  position: relative;
+  background-color: var(--reveal-ink);
+}
+
+.image-reveal-wrapper .spotlight-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  will-change: clip-path;
+  overflow: hidden;
+}
+
+.image-reveal-wrapper .spotlight-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-reveal-wrapper .spotlight-caption {
+  position: absolute;
+  bottom: clamp(1.5rem, 3.5vw, 3rem);
+  left: clamp(1.5rem, 3.5vw, 3rem);
+  z-index: 5;
+  background: rgba(24, 22, 20, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(246, 243, 236, 0.16);
+  padding: 0.85rem 1.4rem;
+  border-radius: 0.5rem;
+  pointer-events: none;
+  max-width: calc(100% - 3rem);
+}
+
+.image-reveal-wrapper .spotlight-caption-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--reveal-signal);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.image-reveal-wrapper .spotlight-caption-title {
+  font-family: "Cinzel", "Playfair Display", Georgia, serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: #FFFFFF;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Dissolve Grid */
+.image-reveal-wrapper .dissolve-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.image-reveal-wrapper .dissolve-cell {
+  position: absolute;
+  background-color: var(--reveal-signal);
+  visibility: hidden;
+  font-family: "DM Mono", monospace;
+  font-weight: 600;
+  line-height: 1;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .image-reveal-wrapper .spotlight-caption {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    max-width: calc(100% - 2rem);
+    padding: 0.65rem 0.95rem;
+  }
+
+  .image-reveal-wrapper .spotlight-caption-tag {
+    font-size: 0.65rem;
+  }
+
+  .image-reveal-wrapper .spotlight-caption-title {
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+
+  .image-reveal-wrapper .center-copy h2.intro-lowercase-heading {
+    font-size: 1.35rem;
+    line-height: 1.4;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Les Racines du Bien-Être",
+  "description": "Naturopathie • Réflexologie plantaire & faciale — Marque et cabinet de bien-être holistique d'inspiration éditoriale française.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

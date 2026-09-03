@@ -1,0 +1,169 @@
+.scroll-pinned-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ded8c8;
+  font-family: "EB Garamond", Garamond, "Apple Garamond", Georgia, serif;
+}
+
+.scroll-pinned-wrapper .sticky {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ded8c8;
+}
+
+.scroll-pinned-wrapper .sticky-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  will-change: transform;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scroll-pinned-wrapper .sticky-header h1 {
+  margin: 0;
+  color: #000000;
+  font-size: 30vw;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 100%;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.scroll-pinned-wrapper .sticky-subtitle {
+  margin: 0.2em 0 0 0;
+  font-size: clamp(1.5rem, 3.5vw, 4rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #4A5545;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.scroll-pinned-wrapper .card {
+  position: absolute;
+  top: 10%;
+  left: 100%;
+  width: 325px;
+  height: 500px;
+  background-color: #000000;
+  border-radius: 1em;
+  padding: 0.5em;
+  will-change: transform;
+  z-index: 2;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+}
+
+.scroll-pinned-wrapper .card .card-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 0.5em;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.scroll-pinned-wrapper .card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scroll-pinned-wrapper .card-content {
+  width: 100%;
+  height: 275px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+.scroll-pinned-wrapper .card-content h2 {
+  font-size: 36px;
+  line-height: 1.1;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.scroll-pinned-wrapper .card-content p {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 300;
+  letter-spacing: -0.005em;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .scroll-pinned-wrapper .sticky-header h1 {
+    font-size: 38vw;
+  }
+
+  .scroll-pinned-wrapper .card {
+    top: 14%;
+    width: min(84vw, 290px);
+    height: 420px;
+    padding: 0.4em;
+  }
+
+  .scroll-pinned-wrapper .card .card-img {
+    height: 160px;
+  }
+
+  .scroll-pinned-wrapper .card-content {
+    height: 230px;
+    padding: 0.4em;
+  }
+
+  .scroll-pinned-wrapper .card-content h2 {
+    font-size: 24px;
+  }
+
+  .scroll-pinned-wrapper .card-content p {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-pinned-wrapper .card {
+    top: 16%;
+    width: min(86vw, 270px);
+    height: 390px;
+  }
+
+  .scroll-pinned-wrapper .card .card-img {
+    height: 145px;
+  }
+
+  .scroll-pinned-wrapper .card-content {
+    height: 215px;
+  }
+
+  .scroll-pinned-wrapper .card-content h2 {
+    font-size: 21px;
+  }
+
+  .scroll-pinned-wrapper .card-content p {
+    font-size: 13px;
+  }
+}
