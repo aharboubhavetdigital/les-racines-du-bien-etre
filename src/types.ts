@@ -28,7 +28,7 @@ export interface Service {
   fullDescription: string;
   duration: string;
   price: number;
-  category: 'naturopathie' | 'reflexologie-plantaire' | 'reflexologie-faciale' | 'hygiene-de-vie';
+  category: 'naturopathie' | 'reflexologie-plantaire' | 'reflexologie-faciale' | 'hygiene-de-vie' | 'spa-jacuzzi' | string;
   benefits: string[];
   protocolSteps: string[];
   image: string;

@@ -18,7 +18,7 @@ export interface PageItem {
 
 const defaultPages: PageItem[] = [
   {
-    leftBgImage: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85',
+    leftBgImage: 'https://cdn.al-ain.com/lg/images/2024/1/08/143-163237-most-beautiful-landscapes-world-10.jpeg',
     rightBgImage: null,
     leftContent: null,
     rightContent: {
@@ -220,8 +220,8 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
         return (
           <div
             key={idx}
-            className={`absolute inset-0 z-10 transition-opacity duration-500 ${
-              isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto'
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+              isActive ? 'opacity-100 z-20 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
             {/* MOBILE LAYOUT (lg:hidden) */}
@@ -229,7 +229,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
               {/* Mobile Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-[0.35] contrast-[1.05]"
-                style={{ backgroundImage: `url(${bgImage})` }}
+                style={{ backgroundImage: `url("${bgImage}")` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40" />
 
@@ -271,7 +271,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
                     !page.leftBgImage ? 'bg-[#1a1c1a] border-r border-white/10' : ''
                   }`}
                   style={{
-                    backgroundImage: page.leftBgImage ? `url(${page.leftBgImage})` : undefined,
+                    backgroundImage: page.leftBgImage ? `url("${page.leftBgImage}")` : undefined,
                   }}
                 >
                   {page.leftBgImage && (
@@ -314,7 +314,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
                     !page.rightBgImage ? 'bg-[#16161a] border-l border-white/10' : ''
                   }`}
                   style={{
-                    backgroundImage: page.rightBgImage ? `url(${page.rightBgImage})` : undefined,
+                    backgroundImage: page.rightBgImage ? `url("${page.rightBgImage}")` : undefined,
                   }}
                 >
                   {page.rightBgImage && (

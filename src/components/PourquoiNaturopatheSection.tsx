@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heart, Leaf, ShieldCheck, Sparkles } from 'lucide-react';
 import ScrollAdventure, { PageItem } from './ui/animated-scroll';
+import firefly1Img from '../assets/images/Firefly (1).jpg';
 
 const customParcoursPages: PageItem[] = [
   {
@@ -33,7 +34,7 @@ const customParcoursPages: PageItem[] = [
     rightContent: null,
   },
   {
-    leftBgImage: 'https://modo3.com/thumbs/fit630x300/74633/1630515027/%D8%A3%D9%86%D9%88%D8%A7%D8%B9_%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D8%A7%D8%AA.jpg',
+    leftBgImage: firefly1Img,
     rightBgImage: null,
     leftContent: null,
     rightContent: {
@@ -75,6 +76,19 @@ export const PourquoiNaturopatheSection: React.FC = () => {
       {/* ANIMATED SCROLL ADVENTURE SPLIT-SCREEN EFFECT */}
       <section className="relative w-full">
         <ScrollAdventure customPages={customParcoursPages} />
+      </section>
+
+      {/* EDITORIAL QUOTE BANNER UNDER SCROLL ADVENTURE SECTION */}
+      <section className="relative w-full py-16 sm:py-20 px-6 sm:px-12 bg-[#121215] border-t border-b border-white/10 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="inline-block font-mono text-[11px] tracking-[0.25em] uppercase text-[#AEB9A9] font-semibold">
+            PHILOSOPHIE & ENGAGEMENT
+          </span>
+          <blockquote className="font-serif-editorial text-xl sm:text-3xl lg:text-4xl font-light italic text-white leading-relaxed tracking-tight">
+            « J'ai toujours été sensible à la nature, à l'alimentation, aux plantes et aux approches naturelles, mais je voulais aller plus loin. »
+          </blockquote>
+          <div className="w-12 h-[1px] bg-[#AEB9A9]/40 mx-auto pt-2" />
+        </div>
       </section>
 
       {/* PILLARS SECTION */}

@@ -3,12 +3,12 @@ import fireflyImg from '../assets/images/Firefly (2).jpg';
 
 export const SERVICES_DATA: Service[] = [
   {
-    id: 'naturopathie',
-    title: 'Naturopathie',
+    id: 'la-naturopathie',
+    title: 'La naturopathie',
     subtitle: 'Bilan de vitalité & accompagnement personnalisé',
     description: 'Comprendre votre équilibre et mettre en place des habitudes adaptées à votre quotidien.',
     fullDescription: 'La naturopathie holistique considère l’individu dans sa globalité physique, émotionnelle et environnementale. À travers un bilan approfondi, nous identifions la cause profonde de vos déséquilibres (fatigue chronique, troubles digestifs, stress, désordres hormonaux) pour restaurer votre vitalité naturelle.',
-    duration: '1h15',
+    duration: '1h00',
     price: 85,
     category: 'naturopathie',
     benefits: [
@@ -25,6 +25,28 @@ export const SERVICES_DATA: Service[] = [
     ],
     image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85',
     quote: '« La médecine de demain consistera à donner à chacun l’envie et les outils de prendre soin de son propre équilibre. »'
+  },
+  {
+    id: 'massage-bien-etre',
+    title: 'Massage bien-être',
+    subtitle: 'Soin manuel & relaxation profonde',
+    description: 'Un moment de détente manuelle adapté à votre confort, dans un cadre non thérapeutique.',
+    fullDescription: 'Un massage relaxant complet du corps aux huiles botaniques tièdes, conçu pour dénouer les tensions musculaires, réduire le stress et favoriser un lâcher-prise total.',
+    duration: '1h00',
+    price: 75,
+    category: 'soin-manuel',
+    benefits: [
+      'Relâchement des tensions musculaires',
+      'Apaisement du système nerveux',
+      'Amélioration de la circulation et élimination du stress'
+    ],
+    protocolSteps: [
+      'Accueil et échange sur vos besoins',
+      'Massage relaxant aux huiles bio',
+      'Temps de réveil et conseils de réhydratation'
+    ],
+    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
+    quote: '« Le massage est le langage silencieux qui apaise le corps et l’esprit. »'
   },
   {
     id: 'reflexologie-plantaire',
@@ -56,7 +78,7 @@ export const SERVICES_DATA: Service[] = [
     subtitle: 'Soin doux & lissage des tensions du visage',
     description: 'Un soin doux et précis autour du visage pour accompagner votre bien-être.',
     fullDescription: 'Inspiré de la réflexologie Dien Chan et du soin Kobido holistique, ce massage facial stimule les points réflexes et les trajets lymphatiques du visage. Il favorise l’éclat naturel du teint tout en apportant une relaxation nerveuse d’une grande finesse.',
-    duration: '45 min',
+    duration: '1h00',
     price: 65,
     category: 'reflexologie-faciale',
     benefits: [
@@ -75,12 +97,78 @@ export const SERVICES_DATA: Service[] = [
     quote: '« Le visage est le reflet de nos équilibres intérieurs : un soin doux ravive sa lumière native. »'
   },
   {
-    id: 'hygiene-de-vie',
-    title: 'Hygiène de vie',
+    id: 'bilan-de-vitalite',
+    title: 'Bilan de vitalité',
+    subtitle: 'Première consultation globale',
+    description: 'Le premier rendez-vous pour comprendre votre histoire, vos habitudes et vos priorités.',
+    fullDescription: 'Une analyse complète de votre terrain biologique et émotionnel afin de co-construire votre plan de santé naturelle.',
+    duration: '1h00',
+    price: 85,
+    category: 'naturopathie',
+    benefits: [
+      'Évaluation globale de votre hygiène de vie',
+      'Bilan naturopathique personnalisé',
+      'Fiche de conseils sur-mesure'
+    ],
+    protocolSteps: [
+      'Anamnèse approfondie',
+      'Analyse des fonctions d’élimination',
+      'Recommandations alimentaires et phyto'
+    ],
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+    quote: '« Écouter son corps est la première étape vers la vitalité. »'
+  },
+  {
+    id: 'programme-de-vitalite',
+    title: 'Programme de vitalité',
+    subtitle: 'Plan d’action individualisé',
+    description: 'Un programme individualisé, réaliste et adapté à ce que vous pouvez mettre en place.',
+    fullDescription: 'Un plan d’action concret et structuré sur plusieurs semaines pour optimiser votre vitalité au quotidien.',
+    duration: '1h00',
+    price: 70,
+    category: 'naturopathie',
+    benefits: [
+      'Plan d’action clair et progressif',
+      'Optimisation de l’énergie vitale',
+      'Adaptation aux contraintes de votre quotidien'
+    ],
+    protocolSteps: [
+      'Définition des objectifs',
+      'Mise en place des piliers naturopathiques',
+      'Transmission du guide personnalisé'
+    ],
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+    quote: '« La régularité des gestes simples crée les grands équilibres. »'
+  },
+  {
+    id: 'suivi-personnalise',
+    title: 'Suivi personnalisé',
+    subtitle: 'Accompagnement continu',
+    description: 'Une continuité entre les rendez-vous avec des points réguliers et des encouragements.',
+    fullDescription: 'Consultation de suivi pour faire le point sur vos progrès, ajuster le programme et approfondir votre autonomie.',
+    duration: '1h00',
+    price: 60,
+    category: 'naturopathie',
+    benefits: [
+      'Ajustement des conseils naturopathiques',
+      'Ancrage des nouvelles habitudes',
+      'Soutien motivant et écoute attentive'
+    ],
+    protocolSteps: [
+      'Retour sur l’expérience écoulée',
+      'Adaptations ciblées',
+      'Prochaine feuille de route'
+    ],
+    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80',
+    quote: '« Avancer pas à pas vers un bien-être serein et durable. »'
+  },
+  {
+    id: 'moyens-naturels',
+    title: 'Moyens naturels & hygiène de vie',
     subtitle: 'Conseils personnalisés & routines de saison',
-    description: 'Des conseils personnalisés pour construire un quotidien plus équilibré, naturellement.',
+    description: 'Alimentation, activité, gestion du stress et moyens naturels en complément.',
     fullDescription: 'L’équilibre ne s’obtient pas par la rigidité, mais par l’écoute harmonieuse de vos rythmes de vie. Cette séance thématique se concentre sur la création de routines durables : alimentation vivante, chronobiologie, respiration guidée et rituels saisonniers.',
-    duration: '50 min',
+    duration: '1h00',
     price: 60,
     category: 'hygiene-de-vie',
     benefits: [
@@ -97,6 +185,30 @@ export const SERVICES_DATA: Service[] = [
     ],
     image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85',
     quote: '« La simplicité des rituels quotidiens est le fondement de la santé durable. »'
+  },
+  {
+    id: 'location-jacuzzi-5-places',
+    title: 'Location de jacuzzi – 5 places',
+    subtitle: 'Espace spa privatif & relaxation hydrothérapique',
+    description: 'Privatisez notre jacuzzi 5 places pour une séance de détente et d’hydromassage intense en toute intimité.',
+    fullDescription: 'Profitez d’un espace spa privatif pensé pour relâcher les tensions musculaires et favoriser un apaisement mental profond. Notre jacuzzi ergonomique 5 places dispose de buses d’hydromassage réglables, d’une eau chauffée à 37,5°C et d’un éclairage de chromothérapie apaisant.',
+    duration: '1h30',
+    price: 90,
+    category: 'spa-jacuzzi',
+    benefits: [
+      'Relâchement musculaire et décompression des articulations',
+      'Stimulation de la circulation sanguine et lymphatique',
+      'Ambiance privatisée avec musique douce et aromathérapie',
+      'Accès jusqu’à 5 personnes en formule solo, duo ou groupe'
+    ],
+    protocolSteps: [
+      'Accueil personnalisé et présentation des équipements du spa',
+      'Session d’hydromassage privatisée avec chromothérapie',
+      'Mise à disposition de serviettes moelleuses et tisane bio',
+      'Espace retour au calme et réhydratation'
+    ],
+    image: 'https://viskanspa.fr/media/cache/adv_content_block_boxed/2020/07/2502-spa-jade-5-places-pas-cher-qualite-europe-detente-massage-expedition-france.jpg',
+    quote: '« L’eau chaude et le massage doux ramènent le corps à un état de fluidité et d’apaisement originel. »'
   }
 ];
 

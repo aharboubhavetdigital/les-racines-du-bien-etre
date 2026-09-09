@@ -124,6 +124,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
         { id: 'massage-bien-etre', name: 'Massage bien-être' },
         { id: 'reflexologie-plantaire', name: 'Réflexologie plantaire' },
         { id: 'reflexologie-faciale', name: 'Réflexologie faciale' },
+        { id: 'location-jacuzzi-5-places', name: 'Location de jacuzzi – 5 places' },
         { id: 'suivi-personnalise', name: 'Suivi personnalisé' },
       ],
     },

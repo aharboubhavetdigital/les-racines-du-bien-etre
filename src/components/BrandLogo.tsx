@@ -1,6 +1,6 @@
 import React from 'react';
 import logoV4Url from '../assets/images/logo v4 .svg';
-import logoV5Png from '../assets/images/logo v5 .png';
+import logoRectanglePng from '../assets/images/logo rectangle .png';
 
 export interface BrandLogoProps {
   variant?: 'dark' | 'light' | 'original';
@@ -23,13 +23,13 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 }) => {
   // Height sizing for the desktop logo image
   const logoHeight = {
-    sm: 'h-10 sm:h-12',
-    md: 'h-16 sm:h-20 md:h-22',
-    lg: 'h-20 sm:h-24 md:h-28 lg:h-32',
-    xl: 'h-32 sm:h-44 md:h-52'
+    sm: 'h-9 sm:h-[72px]',
+    md: 'h-13 sm:h-16 md:h-[76px]',
+    lg: 'h-16 sm:h-20 md:h-24',
+    xl: 'h-28 sm:h-36 md:h-44'
   }[size];
 
-  // Balanced mobile height sizing for mobile logo v5 on phone screens
+  // Balanced mobile height sizing for mobile logo rectangle on phone screens
   const mobileLogoHeight = {
     sm: 'h-9 sm:h-10',
     md: 'h-12 sm:h-14',
@@ -54,9 +54,9 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     <div className={`inline-flex items-center select-none ${className}`}>
       {useMobileV5 ? (
         <>
-          {/* Mobile Logo: logo v5 .png (minimized compact scale) */}
+          {/* Mobile Logo: logo rectangle .png */}
           <img
-            src={logoV5Png}
+            src={logoRectanglePng}
             alt="Les Racines du Bien-Être"
             className={`block md:hidden ${mobileLogoHeight} w-auto object-contain ${getVariantFilter()}`}
           />

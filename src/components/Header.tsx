@@ -130,12 +130,12 @@ export const Header: React.FC<HeaderProps> = ({
             <a
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero', 'home')}
-              className="flex items-center cursor-pointer transition-transform active:scale-98"
+              className="flex items-center cursor-pointer"
             >
               <BrandLogo
                 variant="light"
-                size={scrolled ? "md" : "lg"}
-                className="py-0.5 transition-all duration-500 transform hover:scale-105"
+                size={scrolled ? "sm" : "md"}
+                className="py-0.5 transition-all duration-300"
               />
             </a>
           </div>

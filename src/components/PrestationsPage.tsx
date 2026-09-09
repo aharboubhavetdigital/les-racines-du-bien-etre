@@ -43,6 +43,10 @@ const STREAM_IMAGES = [
     alt: 'Soin holistique',
   },
   {
+    src: 'https://viskanspa.fr/media/cache/adv_content_block_boxed/2020/07/2502-spa-jade-5-places-pas-cher-qualite-europe-detente-massage-expedition-france.jpg',
+    alt: 'Location de jacuzzi – 5 places',
+  },
+  {
     src: 'https://images.unsplash.com/photo-1512290900673-700200411392?auto=format&fit=crop&w=800&q=80',
     alt: 'Plantes & huiles essentielles',
   },
@@ -130,6 +134,15 @@ export const PRESTATIONS_DATA: PrestationItem[] = [
     title: 'Moyens naturels & hygiène de vie',
     description: 'Alimentation, activité, gestion du stress et moyens naturels en complément.',
     image: 'https://www.katerijouveaux.com/wp-content/uploads/2022/11/naturopathie-kateri-jouveaux-antioxidants-scaled.jpg'
+  },
+  {
+    id: 'location-jacuzzi-5-places',
+    number: '09',
+    category: 'Espace spa & relaxation',
+    categoryLabel: '09 · Espace spa & relaxation',
+    title: 'Location de jacuzzi – 5 places',
+    description: 'Privatisez notre jacuzzi d’hydrothérapie 5 places pour une séance d’hydromassage, de détente et de bien-être en toute intimité.',
+    image: 'https://viskanspa.fr/media/cache/adv_content_block_boxed/2020/07/2502-spa-jade-5-places-pas-cher-qualite-europe-detente-massage-expedition-france.jpg'
   }
 ];
 
@@ -495,6 +508,109 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
               <div className="pt-4 border-t border-[#20352B]/10 font-mono text-[11px] uppercase tracking-wider text-[#55695B] font-medium">
                 Autonomie &amp; Équilibre Durable
               </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          SECTION 4 — FEATURE HIGHLIGHT CASE: LOCATION DE JACUZZI – 5 PLACES
+          ========================================== */}
+      <section id="location-jacuzzi-5-places-section" className="w-full bg-[#181D1A] text-white py-20 sm:py-28 px-6 sm:px-12 lg:px-16 relative overflow-hidden">
+        {/* Decorative blur glow background */}
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#536859]/20 rounded-full blur-3xl pointer-events-none -translate-y-1/2 -translate-x-1/3" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#8BB28A]/15 rounded-full blur-3xl pointer-events-none translate-y-1/3 translate-x-1/3" />
+
+        <div className="max-w-7xl mx-auto relative z-10 space-y-12">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* LEFT IMAGE / BANNER WITH BADGE */}
+            <div className="lg:col-span-6 relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+                <img
+                  src="https://viskanspa.fr/media/cache/adv_content_block_boxed/2020/07/2502-spa-jade-5-places-pas-cher-qualite-europe-detente-massage-expedition-france.jpg"
+                  alt="Location de jacuzzi – 5 places"
+                  className="w-full h-[380px] sm:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#181D1A]/80 via-transparent to-transparent" />
+                
+                {/* Floating pill badge */}
+                <div className="absolute top-6 left-6 px-4 py-2 bg-[#20352B]/90 backdrop-blur-md border border-white/20 rounded-full font-mono text-xs tracking-[0.2em] text-[#D6E0D3] uppercase font-semibold">
+                  ✨ ESPACE SPA PRIVATIF · 5 PLACES
+                </div>
+
+                <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15">
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#D6E0D3] block mb-1">EAU CHAUFFÉE À 37,5°C &amp; HYDROTHÉRAPIE</span>
+                  <p className="font-sans text-xs sm:text-sm text-white/90 font-light">Une immersion sensorielle unique pour décompresser en solo, duo ou petit groupe.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT DETAILS COLUMN */}
+            <div className="lg:col-span-6 space-y-8">
+              <div>
+                <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#AEB9A9] font-semibold block mb-3">
+                  EXPÉRIENCE SPA &amp; BIEN-ÊTRE
+                </span>
+                <h2 className="font-serif text-3xl sm:text-5xl font-light text-white leading-tight mb-4">
+                  Location de jacuzzi <br />
+                  <span className="italic font-normal text-[#D6E0D3]">— 5 places privatisées.</span>
+                </h2>
+                <p className="font-sans text-sm sm:text-base text-white/80 font-light leading-relaxed">
+                  Profitez d’un moment d’hydromassage et de relaxation absolue en toute intimité. Notre jacuzzi haut de gamme 5 places combine chromothérapie, buses de massage ciblées et eau à température idéale pour évacuer la fatigue et relâcher les tensions musculaires.
+                </p>
+              </div>
+
+              {/* HIGHLIGHT POINTS */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-1">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#D6E0D3]">
+                    <span>💧</span>
+                    <span>5 Assises Ergonomiques</span>
+                  </div>
+                  <p className="font-sans text-xs text-white/70 font-light">Buses orientables et massages lombaires &amp; cervicales.</p>
+                </div>
+
+                <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-1">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#D6E0D3]">
+                    <span>🌿</span>
+                    <span>Ambiance &amp; Aromathérapie</span>
+                  </div>
+                  <p className="font-sans text-xs text-white/70 font-light">Lumière d’ambiance apaisante et tisanes naturelles incluses.</p>
+                </div>
+
+                <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-1">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#D6E0D3]">
+                    <span>🔒</span>
+                    <span>100% Privatif &amp; Intime</span>
+                  </div>
+                  <p className="font-sans text-xs text-white/70 font-light">Espace totalement dédié à votre groupe pendant le créneau.</p>
+                </div>
+
+                <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-1">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#D6E0D3]">
+                    <span>⏱️</span>
+                    <span>Formules Flexibles</span>
+                  </div>
+                  <p className="font-sans text-xs text-white/70 font-light">Séances de 1h, 1h30 ou formules combinées avec soin.</p>
+                </div>
+              </div>
+
+              {/* BOOKING BUTTON */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <button
+                  onClick={() => onOpenBooking('location-jacuzzi-5-places')}
+                  className="px-8 py-4 bg-white text-[#181D1A] hover:bg-[#F2F6F3] text-xs font-semibold tracking-widest uppercase rounded-full shadow-lg transition-all cursor-pointer hover:shadow-xl hover:scale-[1.02] flex items-center justify-center gap-3"
+                >
+                  <Calendar className="w-4 h-4 text-[#506456]" />
+                  <span>Réserver le jacuzzi (5 places)</span>
+                </button>
+              </div>
+
             </div>
 
           </div>
