@@ -41,7 +41,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onOpenBooking }) => {
             transition={{ delay: 0.4, duration: 0.7, ease: "easeInOut" }}
             className="font-sans text-base sm:text-lg text-white/80 font-light max-w-2xl mx-auto leading-relaxed"
           >
-            Le premier rendez-vous permet de poser le cadre, d'explorer vos habits et de définir la suite adaptée.
+            Le premier rendez-vous permet de poser le cadre, d'explorer vos habitudes et de définir la suite adaptée.
           </motion.p>
 
           {/* Action Button */}

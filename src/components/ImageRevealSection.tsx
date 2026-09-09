@@ -6,6 +6,7 @@ import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_178
 import phytotherapieImg from '../assets/images/phytotherapie_herboristerie_naturopathie_1788191340631.jpg';
 import vitaliteNatureImg from '../assets/images/vitalite_reconnexion_nature_1788191355171.jpg';
 import bilanVitalite2Img from '../assets/images/bilan_vitalite_1788190672705.jpg';
+import fireflyImg from '../assets/images/Firefly (2).jpg';
 
 interface SpotlightItem {
   tag: string;
@@ -52,7 +53,7 @@ const NATUROPATHIE_GALLERY_ITEMS: SpotlightItem[] = [
   {
     tag: 'PILIER 07 // RITUELS DE BOTANIQUE',
     title: 'Infusions de fleurs séchées, décoctions & remèdes ancestraux',
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
+    image: fireflyImg
   },
   {
     tag: 'PILIER 08 // ÉCLAT NATUREL & KOBIDO',
@@ -91,7 +92,7 @@ export function ImageRevealSection() {
       <section className="intro bg-[#0A0908] py-20 sm:py-28 px-6 text-center text-white relative z-10 border-b border-white/10">
         <div className="max-w-4xl mx-auto space-y-6">
           <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#AEB9A9]">
-            Notre Vision Holistique
+            Une vision holistique
           </span>
           <h2 className="font-serif-editorial text-2xl sm:text-4xl md:text-5xl font-light text-[#FAF8F5] leading-relaxed italic">
             « Vous rendre autonome dans la responsabilité de votre bien-être, avec des conseils que vous comprenez et que vous pouvez réellement mettre en place. »

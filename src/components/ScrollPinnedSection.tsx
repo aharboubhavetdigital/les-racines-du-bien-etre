@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import fireflyImg from '../assets/images/Firefly (2).jpg';
 import './ScrollPinnedSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -26,7 +27,7 @@ const CARDS_DATA: ProductCardData[] = [
   {
     title: 'Un suivi rapproché',
     description: 'De courts échanges par SMS peuvent soutenir les avancées entre les rendez-vous.',
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=85'
+    image: fireflyImg
   }
 ];
 

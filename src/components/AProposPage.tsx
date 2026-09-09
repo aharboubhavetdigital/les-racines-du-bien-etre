@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, ArrowUpRight, ChevronRight } from 'lucide-react';
+import { Calendar, ArrowUpRight, ChevronRight, ArrowLeft } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { FractalBloomCanvas } from './ui/fractal-bloom-tree';
 import { PourquoiNaturopatheSection } from './PourquoiNaturopatheSection';
@@ -47,16 +47,18 @@ export const AProposPage: React.FC<AProposPageProps> = ({
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="flex items-center justify-center gap-2 font-mono text-xs tracking-[0.2em] text-white/70 uppercase"
+            className="flex items-center justify-center gap-3 font-mono text-xs tracking-[0.2em] text-white/70 uppercase"
           >
             <button
               onClick={() => onNavigateHome('#hero')}
-              className="hover:text-white transition-colors cursor-pointer border-b border-transparent hover:border-white/50 pb-0.5"
+              className="inline-flex items-center gap-1.5 hover:text-white transition-all duration-300 cursor-pointer group bg-white/15 hover:bg-white/30 text-white font-medium px-3.5 py-1.5 rounded-full border border-white/20 shadow-xs"
+              title="Retour à l'accueil"
             >
-              ACCUEIL
+              <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-[#AEB9A9]" />
+              <span>ACCUEIL</span>
             </button>
             <span>—</span>
-            <span className="text-white font-medium">ANNE-LAURE JOURDAN</span>
+            <span className="text-white font-semibold">ANNE-LAURE JOURDAN</span>
           </motion.div>
 
           {/* Main Content */}

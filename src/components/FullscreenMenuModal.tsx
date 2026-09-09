@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { X, Calendar, Phone, Mail, ArrowUpRight, ChevronDown, ArrowLeft } from 'lucide-react';
+import { X, Calendar, ArrowUpRight, ChevronDown, ArrowLeft } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+import logoRectanglePng from '../assets/images/logo rectangle .png';
 
 export interface SubMenuItem {
   id: string;
@@ -190,20 +191,33 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       <div className="w-full lg:w-[58%] h-full flex flex-col justify-between p-5 sm:p-8 lg:p-10 xl:p-12 overflow-y-auto lg:overflow-hidden bg-[#FAF8F5] text-[#1C1A17] z-10 border-r border-[#E5E0D8]">
         
         {/* Top Header with Brand */}
-        <div className="flex items-center justify-between mb-2 sm:mb-4 lg:mb-6 shrink-0">
+        <div className="flex items-center justify-between gap-3 mb-2 sm:mb-4 lg:mb-6 shrink-0 pb-3 border-b border-[#E8E3DA]">
           <div className="flex items-center gap-3">
             <button
               onClick={() => {
                 onClose();
+                if (window.history && window.history.pushState) {
+                  window.history.pushState(null, '', '/');
+                }
                 onNavigate('home');
               }}
               className="flex items-center gap-2 group cursor-pointer focus:outline-none"
               title="Retour à l'accueil"
             >
-              <BrandLogo showText={false} className="w-8 h-8 sm:w-9 sm:h-9 transition-transform group-hover:scale-105" />
-              <span className="font-serif text-sm sm:text-base font-medium tracking-tight text-[#1C1A17] hidden sm:inline-block">
-                Les Racines du Bien-Être
-              </span>
+              {/* Mobile Phone Logo: logo rectangle .png */}
+              <img
+                src={logoRectanglePng}
+                alt="Les Racines du Bien-Être"
+                className="block sm:hidden h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              />
+
+              {/* Desktop Logo */}
+              <div className="hidden sm:flex items-center gap-2">
+                <BrandLogo showText={false} className="w-8 h-8 sm:w-9 sm:h-9 transition-transform group-hover:scale-105" />
+                <span className="font-serif text-sm sm:text-base font-medium tracking-tight text-[#1C1A17]">
+                  Les Racines du Bien-Être
+                </span>
+              </div>
             </button>
           </div>
 
@@ -294,39 +308,26 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
               </div>
             );
           })}
-        </div>
 
-        {/* Bottom Footer Details */}
-        <div className="pt-3 border-t border-[#E8E3DA] flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] sm:text-xs text-neutral-500 gap-2 shrink-0">
-          <div>
-            <span className="font-medium text-neutral-700">Saint-Lô &amp; Vallée de la Vire</span> • 2 Lieux d’Accueil
-          </div>
-          <div className="flex items-center gap-4">
-            <a href="tel:0612345678" className="hover:text-[#20352B] transition-colors flex items-center gap-1">
-              <Phone className="w-3.5 h-3.5 text-[#344E41]" />
-              06 12 34 56 78
-            </a>
-            <span>•</span>
+          {/* Back to Home Button placed under Boutique div */}
+          <div className="pt-4 sm:pt-6 shrink-0">
             <button
               onClick={() => {
                 onClose();
-                onOpenBooking();
+                if (window.history && window.history.pushState) {
+                  window.history.pushState(null, '', '/');
+                }
+                onNavigate('home');
               }}
-              className="hover:text-[#20352B] transition-colors flex items-center gap-1 cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#20352B] hover:bg-[#2A4237] text-white font-medium text-xs sm:text-sm transition-all duration-300 cursor-pointer shadow-md hover:shadow-lg group"
+              title="Retour à l'accueil"
             >
-              <Mail className="w-3.5 h-3.5 text-[#344E41]" />
-              Contact
-            </button>
-            <span>•</span>
-            <button
-              onClick={onClose}
-              className="hover:text-[#20352B] font-medium text-[#344E41] flex items-center gap-1 cursor-pointer underline underline-offset-2"
-            >
-              <ArrowLeft className="w-3 h-3" />
-              Retour page
+              <ArrowLeft className="w-4 h-4 text-[#AEB9A9] transition-transform group-hover:-translate-x-1" />
+              <span>Retour à l'accueil</span>
             </button>
           </div>
         </div>
+
 
       </div>
 

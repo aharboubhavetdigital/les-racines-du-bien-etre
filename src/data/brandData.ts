@@ -1,4 +1,5 @@
 import { Service, Product, JournalArticle, Testimonial } from '../types';
+import fireflyImg from '../assets/images/Firefly (2).jpg';
 
 export const SERVICES_DATA: Service[] = [
   {
@@ -46,7 +47,7 @@ export const SERVICES_DATA: Service[] = [
       'Travail réflexe ciblé selon vos besoins du moment',
       'Réveil musculaire doux et conseils d’ancrage'
     ],
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=85',
+    image: fireflyImg,
     quote: '« Les pieds soutiennent la terre que nous foulons ; en prendre soin, c’est réenraciner l’esprit. »'
   },
   {
@@ -194,7 +195,7 @@ export const ARTICLES_DATA: JournalArticle[] = [
     readTime: '5 min',
     date: '02 Août 2026',
     author: 'Élise Vernier — Réflexologue',
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=85',
+    image: fireflyImg,
     contentParagraphs: [
       'La plante de nos pieds comporte plus de 7200 terminaisons nerveuses. Lorsqu’elles sont stimulées avec une pression appropriée, un message réflexe est transmis au cerveau via la moelle épinière.',
       'Cette stimulation active le système nerveux parasympathique — le frein de notre organisme —, entraînant la baisse immédiate du taux de cortisol sanguin et du rythme cardiaque.',

@@ -118,29 +118,33 @@ export const Header: React.FC<HeaderProps> = ({
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#131210]/90 backdrop-blur-xl border-b border-white/10 py-4 sm:py-5 shadow-2xl'
-          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-6 sm:py-7 lg:py-8'
+          ? 'bg-[#131210]/90 backdrop-blur-xl border-b border-white/10 py-3 sm:py-4 shadow-2xl'
+          : 'bg-gradient-to-b from-black/85 via-black/45 to-transparent py-4 sm:py-6 lg:py-7'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Left Logo */}
-          <div className="flex items-center shrink-0">
+          {/* Left Brand Logo (Auto Layout) */}
+          <div className="flex items-center shrink-0 min-w-0">
             <a
               href="#hero"
               onClick={(e) => handleNavClick(e, '#hero', 'home')}
-              className="flex items-center cursor-pointer"
+              className="flex items-center cursor-pointer transition-transform active:scale-98"
             >
-              <BrandLogo variant="light" size="md" className="py-1" />
+              <BrandLogo
+                variant="light"
+                size={scrolled ? "md" : "lg"}
+                className="py-0.5 transition-all duration-500 transform hover:scale-105"
+              />
             </a>
           </div>
 
-          {/* Right Actions: Rendez-vous Button & Dropdown Menu Button */}
+          {/* Right Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
             <button
               onClick={() => onOpenBooking()}
-              className="px-6 py-3 rounded-full bg-[#344E41] text-white text-xs sm:text-sm font-semibold tracking-[0.12em] uppercase shadow-md whitespace-nowrap shrink-0 cursor-pointer flex items-center gap-2"
+              className="px-6 py-3 rounded-full bg-[#344E41] hover:bg-[#2C4337] text-white text-xs sm:text-sm font-semibold tracking-[0.12em] uppercase shadow-md whitespace-nowrap shrink-0 cursor-pointer flex items-center gap-2 transition-all"
             >
               <Calendar className="w-4 h-4 text-[#AEB9A9]" />
               <span>Prendre un rendez-vous</span>
@@ -150,7 +154,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="relative">
               <button
                 onClick={() => setNavMenuOpen(!navMenuOpen)}
-                className="w-12 h-12 rounded-full bg-white/10 cursor-pointer shadow-lg flex items-center justify-center"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 cursor-pointer shadow-lg flex items-center justify-center transition-all"
                 aria-label="Menu"
                 title="Menu"
               >
@@ -175,42 +179,29 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </div>
 
-          {/* Mobile Actions & Menu Trigger */}
-          <div className="flex lg:hidden items-center space-x-3">
-            {/* Mobile Cart Button */}
-            <button
-              onClick={onOpenCart}
-              className="relative inline-flex items-center gap-1.5 px-3.5 py-2 border border-white/20 rounded-full bg-white/5 text-white text-xs font-medium"
-              aria-label="Voir le panier"
-            >
-              <ShoppingBag className="w-4 h-4 text-[#AEB9A9]" />
-              {cartItemCount > 0 && (
-                <span className="bg-[#AEB9A9] text-[#131210] text-[11px] font-bold px-2 py-0.5 rounded-full font-mono">
-                  {cartItemCount}
-                </span>
-              )}
-            </button>
-
-            {/* Mobile Hamburger / Close */}
+          {/* Phone Mobile Auto Layout Actions (Menu only) */}
+          <div className="flex lg:hidden items-center justify-end shrink-0">
+            {/* Mobile Hamburger Button */}
             <button
               onClick={() => setNavMenuOpen(!navMenuOpen)}
-              className="p-2.5 text-white focus:outline-hidden cursor-pointer"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 cursor-pointer shadow-sm flex items-center justify-center transition-all active:scale-95 hover:bg-white/20"
               aria-label="Menu"
+              title="Menu"
             >
-              <div className="w-6 h-5 flex flex-col justify-between items-center relative">
+              <div className="w-5 h-4 flex flex-col justify-between items-center relative">
                 <span
-                  className={`block h-[2px] w-full bg-white rounded-full transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
-                    navMenuOpen ? 'rotate-45 translate-y-[9px]' : ''
+                  className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
+                    navMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
                   }`}
                 />
                 <span
-                  className={`block h-[2px] w-full bg-white rounded-full transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+                  className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
                     navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
                   }`}
                 />
                 <span
-                  className={`block h-[2px] w-full bg-white rounded-full transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
-                    navMenuOpen ? '-rotate-45 -translate-y-[9px]' : ''
+                  className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
+                    navMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
                   }`}
                 />
               </div>

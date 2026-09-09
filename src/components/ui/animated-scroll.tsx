@@ -62,7 +62,7 @@ const defaultPages: PageItem[] = [
 interface ScrollAdventureProps {
   customPages?: PageItem[];
   className?: string;
-  autoPlayInterval?: number; // In milliseconds, default 4000
+  autoPlayInterval?: number; // In milliseconds, default 4500
 }
 
 export default function ScrollAdventure({ customPages, className = '', autoPlayInterval = 4500 }: ScrollAdventureProps) {
@@ -72,6 +72,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
   const animTime = 800;
   const scrolling = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const touchStartY = useRef<number | null>(null);
   const [isHovered, setIsHovered] = useState(false);
 
   const navigateUp = () => {
@@ -82,6 +83,31 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
   const navigateDown = () => {
     setCurrentPage((p) => (p < numOfPages ? p + 1 : 1));
     return true;
+  };
+
+  // Touch swipe support for mobile devices
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartY.current === null) return;
+    const touchEndY = e.changedTouches[0].clientY;
+    const diffY = touchStartY.current - touchEndY;
+
+    if (Math.abs(diffY) > 35) {
+      if (scrolling.current) return;
+      scrolling.current = true;
+      if (diffY > 0) {
+        navigateDown();
+      } else {
+        navigateUp();
+      }
+      setTimeout(() => {
+        scrolling.current = false;
+      }, animTime);
+    }
+    touchStartY.current = null;
   };
 
   // Automatic autoplay effect
@@ -102,7 +128,6 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
   }, [isHovered, numOfPages, autoPlayInterval]);
 
   const handleWheel = (e: WheelEvent) => {
-    // Only intercept wheel if the container is currently in viewport or hovered
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const inView = rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
@@ -167,17 +192,19 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
       ref={containerRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative overflow-hidden h-[85vh] min-h-[600px] bg-[#16161a] select-none ${className}`}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      className={`relative overflow-hidden h-[540px] sm:h-[600px] lg:h-[85vh] lg:min-h-[600px] bg-[#16161a] select-none ${className}`}
     >
       {pages.map((page, i) => {
         const idx = i + 1;
         const isActive = currentPage === idx;
         const isPast = idx < currentPage;
 
-        // Calculate offsets:
-        // When idx < currentPage (past): left goes up (-100%), right goes down (100%)
-        // When idx > currentPage (future): left stays down (100%), right stays up (-100%)
-        // When idx === currentPage (active): both translate to 0
+        const bgImage = page.leftBgImage || page.rightBgImage || 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85';
+        const content = page.rightContent || page.leftContent;
+
+        // Desktop offsets
         const leftTrans = isActive
           ? 'translateY(0)'
           : isPast
@@ -191,91 +218,132 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
           : 'translateY(-100%)';
 
         return (
-          <div key={idx} className="absolute inset-0 z-10">
-            {/* Left Half */}
-            <div
-              className="absolute top-0 left-0 w-full lg:w-1/2 h-1/2 lg:h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.77,0,0.175,1)] z-10"
-              style={{ transform: leftTrans }}
-            >
+          <div
+            key={idx}
+            className={`absolute inset-0 z-10 transition-opacity duration-500 ${
+              isActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto'
+            }`}
+          >
+            {/* MOBILE LAYOUT (lg:hidden) */}
+            <div className="block lg:hidden w-full h-full relative overflow-hidden bg-[#16161a]">
+              {/* Mobile Background Image */}
               <div
-                className={`w-full h-full bg-cover bg-center bg-no-repeat relative flex flex-col justify-center ${
-                  !page.leftBgImage ? 'bg-[#1a1c1a] border-r border-white/10' : ''
-                }`}
-                style={{
-                  backgroundImage: page.leftBgImage ? `url(${page.leftBgImage})` : undefined,
-                }}
-              >
-                {/* Dark Overlay for Image background */}
-                {page.leftBgImage && (
-                  <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-                )}
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-[0.35] contrast-[1.05]"
+                style={{ backgroundImage: `url(${bgImage})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40" />
 
-                <div className="relative z-20 flex flex-col items-center justify-center h-full text-white p-8 sm:p-12 lg:p-16 text-center max-w-xl mx-auto">
-                  {page.leftContent && (
-                    <>
-                      {page.leftContent.tag && (
-                        <span className="inline-block font-mono text-xs tracking-[0.25em] uppercase text-[#AEB9A9] mb-4 font-semibold">
-                          {page.leftContent.tag}
-                        </span>
-                      )}
-                      <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 leading-tight">
-                        {page.leftContent.heading}
-                      </h2>
-                      {typeof page.leftContent.description === 'string' ? (
-                        <p className="font-sans text-base sm:text-lg text-white/85 font-light leading-relaxed">
-                          {page.leftContent.description}
-                        </p>
-                      ) : (
-                        <div className="font-sans text-base sm:text-lg text-white/85 font-light leading-relaxed">
-                          {page.leftContent.description}
-                        </div>
-                      )}
-                    </>
-                  )}
-                </div>
+              {/* Mobile Content */}
+              <div className="relative z-20 flex flex-col justify-center items-center h-full text-white p-6 sm:p-10 text-center max-w-lg mx-auto">
+                {content && (
+                  <>
+                    {content.tag && (
+                      <span className="inline-block font-mono text-[11px] tracking-[0.25em] uppercase text-[#AEB9A9] mb-3 font-semibold">
+                        {content.tag}
+                      </span>
+                    )}
+                    <h2 className="font-serif text-2xl sm:text-3xl font-light text-white mb-4 leading-tight">
+                      {content.heading}
+                    </h2>
+                    {typeof content.description === 'string' ? (
+                      <p className="font-sans text-sm sm:text-base text-white/90 font-light leading-relaxed">
+                        {content.description}
+                      </p>
+                    ) : (
+                      <div className="font-sans text-sm sm:text-base text-white/90 font-light leading-relaxed">
+                        {content.description}
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
             </div>
 
-            {/* Right Half */}
-            <div
-              className="absolute bottom-0 lg:top-0 right-0 w-full lg:w-1/2 h-1/2 lg:h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.77,0,0.175,1)] z-10"
-              style={{ transform: rightTrans }}
-            >
+            {/* DESKTOP SPLIT SLIDER (hidden lg:block) */}
+            <div className="hidden lg:block w-full h-full">
+              {/* Left Half */}
               <div
-                className={`w-full h-full bg-cover bg-center bg-no-repeat relative flex flex-col justify-center ${
-                  !page.rightBgImage ? 'bg-[#16161a] border-l border-white/10' : ''
-                }`}
-                style={{
-                  backgroundImage: page.rightBgImage ? `url(${page.rightBgImage})` : undefined,
-                }}
+                className="absolute top-0 left-0 w-1/2 h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.77,0,0.175,1)] z-10"
+                style={{ transform: leftTrans }}
               >
-                {/* Dark Overlay for Image background */}
-                {page.rightBgImage && (
-                  <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-                )}
-
-                <div className="relative z-20 flex flex-col items-center justify-center h-full text-white p-8 sm:p-12 lg:p-16 text-center max-w-xl mx-auto">
-                  {page.rightContent && (
-                    <>
-                      {page.rightContent.tag && (
-                        <span className="inline-block font-mono text-xs tracking-[0.25em] uppercase text-[#AEB9A9] mb-4 font-semibold">
-                          {page.rightContent.tag}
-                        </span>
-                      )}
-                      <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 leading-tight">
-                        {page.rightContent.heading}
-                      </h2>
-                      {typeof page.rightContent.description === 'string' ? (
-                        <p className="font-sans text-base sm:text-lg text-white/85 font-light leading-relaxed">
-                          {page.rightContent.description}
-                        </p>
-                      ) : (
-                        <div className="font-sans text-base sm:text-lg text-white/85 font-light leading-relaxed">
-                          {page.rightContent.description}
-                        </div>
-                      )}
-                    </>
+                <div
+                  className={`w-full h-full bg-cover bg-center bg-no-repeat relative flex flex-col justify-center ${
+                    !page.leftBgImage ? 'bg-[#1a1c1a] border-r border-white/10' : ''
+                  }`}
+                  style={{
+                    backgroundImage: page.leftBgImage ? `url(${page.leftBgImage})` : undefined,
+                  }}
+                >
+                  {page.leftBgImage && (
+                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
                   )}
+
+                  <div className="relative z-20 flex flex-col items-center justify-center h-full text-white p-8 sm:p-12 lg:p-16 text-center max-w-xl mx-auto">
+                    {page.leftContent && (
+                      <>
+                        {page.leftContent.tag && (
+                          <span className="inline-block font-mono text-xs tracking-[0.25em] uppercase text-[#AEB9A9] mb-4 font-semibold">
+                            {page.leftContent.tag}
+                          </span>
+                        )}
+                        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 leading-tight">
+                          {page.leftContent.heading}
+                        </h2>
+                        {typeof page.leftContent.description === 'string' ? (
+                          <p className="font-sans text-base sm:text-lg text-white/85 font-light leading-relaxed">
+                            {page.leftContent.description}
+                          </p>
+                        ) : (
+                          <div className="font-sans text-base sm:text-lg text-white/85 font-light leading-relaxed">
+                            {page.leftContent.description}
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Half */}
+              <div
+                className="absolute top-0 right-0 w-1/2 h-full transition-transform duration-[800ms] ease-[cubic-bezier(0.77,0,0.175,1)] z-10"
+                style={{ transform: rightTrans }}
+              >
+                <div
+                  className={`w-full h-full bg-cover bg-center bg-no-repeat relative flex flex-col justify-center ${
+                    !page.rightBgImage ? 'bg-[#16161a] border-l border-white/10' : ''
+                  }`}
+                  style={{
+                    backgroundImage: page.rightBgImage ? `url(${page.rightBgImage})` : undefined,
+                  }}
+                >
+                  {page.rightBgImage && (
+                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+                  )}
+
+                  <div className="relative z-20 flex flex-col items-center justify-center h-full text-white p-8 sm:p-12 lg:p-16 text-center max-w-xl mx-auto">
+                    {page.rightContent && (
+                      <>
+                        {page.rightContent.tag && (
+                          <span className="inline-block font-mono text-xs tracking-[0.25em] uppercase text-[#AEB9A9] mb-4 font-semibold">
+                            {page.rightContent.tag}
+                          </span>
+                        )}
+                        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 leading-tight">
+                          {page.rightContent.heading}
+                        </h2>
+                        {typeof page.rightContent.description === 'string' ? (
+                          <p className="font-sans text-base sm:text-lg text-white/85 font-light leading-relaxed">
+                            {page.rightContent.description}
+                          </p>
+                        ) : (
+                          <div className="font-sans text-base sm:text-lg text-white/85 font-light leading-relaxed">
+                            {page.rightContent.description}
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -284,11 +352,11 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
       })}
 
       {/* Navigation Controls Overlay */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-4">
+      <div className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-3 sm:gap-4">
         <button
           onClick={navigateUp}
           disabled={currentPage === 1}
-          className={`w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all ${
+          className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all ${
             currentPage === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/20 hover:scale-110 cursor-pointer'
           }`}
           aria-label="Page précédente"
@@ -297,7 +365,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
         </button>
 
         {/* Page Dots */}
-        <div className="flex flex-col gap-2.5 my-2">
+        <div className="flex flex-col gap-2 my-1">
           {pages.map((_, i) => (
             <button
               key={i}
@@ -308,7 +376,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
                 setTimeout(() => (scrolling.current = false), animTime);
               }}
               className={`w-2.5 transition-all duration-300 rounded-full cursor-pointer ${
-                currentPage === i + 1 ? 'h-7 bg-[#AEB9A9]' : 'h-2.5 bg-white/40 hover:bg-white/70'
+                currentPage === i + 1 ? 'h-6 sm:h-7 bg-[#AEB9A9]' : 'h-2.5 bg-white/40 hover:bg-white/70'
               }`}
               aria-label={`Aller à la page ${i + 1}`}
             />
@@ -318,7 +386,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
         <button
           onClick={navigateDown}
           disabled={currentPage === numOfPages}
-          className={`w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all ${
+          className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-all ${
             currentPage === numOfPages ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white/20 hover:scale-110 cursor-pointer'
           }`}
           aria-label="Page suivante"
@@ -328,7 +396,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
       </div>
 
       {/* Page Counter Badge */}
-      <div className="absolute left-8 bottom-8 z-30 font-mono text-xs tracking-[0.2em] text-white/70 bg-black/40 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full">
+      <div className="absolute left-4 sm:left-8 bottom-4 sm:bottom-8 z-30 font-mono text-xs tracking-[0.2em] text-white/70 bg-black/50 backdrop-blur-md border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full">
         <span className="text-[#AEB9A9] font-bold">0{currentPage}</span> / 0{numOfPages}
       </div>
     </div>

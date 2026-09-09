@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { Calendar, ArrowUpRight } from 'lucide-react';
+import { Calendar, ArrowUpRight, ArrowLeft } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ImageStreamHero } from './ui/image-stream-hero';
+import reflexologiePlantaireNewImg from '../assets/images/reflexologie_plantaire_new.png';
+import whatsAppImg from '../assets/images/WhatsApp Image 2026-08-22 .jpeg';
+import firefly1Img from '../assets/images/Firefly (1).jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,67 +60,76 @@ export interface PrestationItem {
 
 export const PRESTATIONS_DATA: PrestationItem[] = [
   {
-    id: 'massage-bien-etre',
+    id: 'la-naturopathie',
     number: '01',
+    category: 'Naturopathie & vitalité',
+    categoryLabel: '01 · Naturopathie & vitalité',
+    title: 'La naturopathie',
+    description: 'Une approche holistique et naturelle pour comprendre votre terrain, restaurer votre énergie vitale et vivre en pleine santé.',
+    image: 'https://www.sante-sur-le-net.com/wp-content/uploads/2018/10/naturopathie.jpg'
+  },
+  {
+    id: 'massage-bien-etre',
+    number: '02',
     category: 'Soin manuel & relaxation',
-    categoryLabel: '01 · Soin manuel & relaxation',
+    categoryLabel: '02 · Soin manuel & relaxation',
     title: 'Massage bien-être',
     description: 'Un moment de détente manuelle adapté à votre confort, dans un cadre non thérapeutique.',
     image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'reflexologie-plantaire',
-    number: '02',
-    category: 'Soin manuel & relaxation',
-    categoryLabel: '02 · Soin manuel & relaxation',
-    title: 'Réflexologie plantaire',
-    description: 'Une technique manuelle douce intégrée à une démarche globale de bien-être.',
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'reflexologie-faciale',
     number: '03',
     category: 'Soin manuel & relaxation',
     categoryLabel: '03 · Soin manuel & relaxation',
+    title: 'Réflexologie plantaire',
+    description: 'Une technique manuelle douce intégrée à une démarche globale de bien-être.',
+    image: 'https://www.centre-europeen-formation.fr/wp-content/uploads/2023/12/reflexologie-plantaire.jpeg'
+  },
+  {
+    id: 'reflexologie-faciale',
+    number: '04',
+    category: 'Soin manuel & relaxation',
+    categoryLabel: '04 · Soin manuel & relaxation',
     title: 'Réflexologie faciale',
     description: "Une pratique manuelle proposée selon vos besoins et le cadre de l'accompagnement.",
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80'
+    image: whatsAppImg
   },
   {
     id: 'bilan-de-vitalite',
-    number: '04',
+    number: '05',
     category: 'Naturopathie & vitalité',
-    categoryLabel: '04 · Naturopathie & vitalité',
+    categoryLabel: '05 · Naturopathie & vitalité',
     title: 'Bilan de vitalité',
     description: 'Le premier rendez-vous pour comprendre votre histoire, vos habitudes et vos priorités.',
     image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'programme-de-vitalite',
-    number: '05',
+    number: '06',
     category: 'Naturopathie & vitalité',
-    categoryLabel: '05 · Naturopathie & vitalité',
+    categoryLabel: '06 · Naturopathie & vitalité',
     title: 'Programme de vitalité',
     description: 'Un programme individualisé, réaliste et adapté à ce que vous pouvez mettre en place.',
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'suivi-personnalise',
-    number: '06',
-    category: 'Naturopathie & vitalité',
-    categoryLabel: '06 · Naturopathie & vitalité',
-    title: 'Suivi personnalisé',
-    description: 'Une continuité entre les rendez-vous avec des points réguliers et des encouragements.',
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'moyens-naturels',
     number: '07',
     category: 'Naturopathie & vitalité',
     categoryLabel: '07 · Naturopathie & vitalité',
+    title: 'Suivi personnalisé',
+    description: 'Une continuité entre les rendez-vous avec des points réguliers et des encouragements.',
+    image: firefly1Img
+  },
+  {
+    id: 'moyens-naturels',
+    number: '08',
+    category: 'Naturopathie & vitalité',
+    categoryLabel: '08 · Naturopathie & vitalité',
     title: 'Moyens naturels & hygiène de vie',
     description: 'Alimentation, activité, gestion du stress et moyens naturels en complément.',
-    image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=1200&q=80'
+    image: 'https://www.katerijouveaux.com/wp-content/uploads/2022/11/naturopathie-kateri-jouveaux-antioxidants-scaled.jpg'
   }
 ];
 
@@ -207,7 +219,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
 
   return (
     <div ref={pageRef} className="min-h-screen bg-[#F8F6F1] text-[#20352B]">
-      
+
       {/* ==========================================
           SECTION 1 — HERO & QUICK LIST (DARK SAGE GREEN BACKGROUND WITH IMAGE STREAM EFFECT)
           ========================================== */}
@@ -218,21 +230,23 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
         className="w-full bg-[#536859] text-white pt-28 pb-20 sm:pt-36 sm:pb-28 px-6 sm:px-12 lg:px-16"
       >
         <div ref={heroRef} className="max-w-7xl mx-auto relative z-10">
-          
+
           {/* BREADCRUMB */}
           <div className="hero-anim mb-10 flex items-center gap-3 font-mono text-xs tracking-[0.25em] uppercase text-white/70">
             <button
               onClick={() => onNavigateHome?.()}
-              className="hover:text-white transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 hover:text-white transition-all duration-300 cursor-pointer group bg-white/15 hover:bg-white/30 text-white font-medium px-3.5 py-1.5 rounded-full border border-white/20 shadow-xs"
+              title="Retour à l'accueil"
             >
-              ACCUEIL
+              <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-[#C5D0C2]" />
+              <span>ACCUEIL</span>
             </button>
             <span>—</span>
-            <span className="text-white">PRESTATIONS</span>
+            <span className="text-white font-semibold">PRESTATIONS</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start backdrop-blur-md bg-[#536859]/75 p-6 sm:p-10 lg:p-12 rounded-3xl border border-white/15 shadow-2xl">
-            
+
             {/* LEFT COLUMN */}
             <div className="lg:col-span-6 space-y-8">
               <span className="hero-anim inline-block font-mono text-xs tracking-[0.3em] uppercase text-[#C5D0C2] font-medium">
@@ -303,7 +317,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
           ========================================== */}
       <section className="w-full bg-[#F8F6F1] text-[#20352B] py-20 sm:py-28 px-6 sm:px-12 lg:px-16 border-b border-[#20352B]/10">
         <div className="max-w-7xl mx-auto space-y-16">
-          
+
           {/* HEADER */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-8 border-b border-[#20352B]/15">
             <div className="lg:col-span-3">
@@ -332,7 +346,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
           {/* GRID OF CARDS (2-COLUMNS ON DESKTOP, CARD 7 IS FULL-WIDTH) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {PRESTATIONS_DATA.map((item, index) => {
-              const isFullWidth = index === 6; // Item 07 spans full row
+              const isFullWidth = index === PRESTATIONS_DATA.length - 1 && PRESTATIONS_DATA.length % 2 !== 0;
               return (
                 <div
                   key={item.id}
@@ -341,11 +355,10 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
                     if (el) cardsRef.current[index] = el;
                   }}
                   onClick={() => handleItemClick(item)}
-                  className={`group relative p-8 sm:p-10 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden ${
-                    isFullWidth
+                  className={`group relative p-8 sm:p-10 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden ${isFullWidth
                       ? 'md:col-span-2 bg-[#E7ECE5] border-[#20352B]/20 hover:border-[#20352B]/40 hover:shadow-xl'
                       : 'bg-white border-[#20352B]/15 hover:border-[#20352B]/40 hover:shadow-xl'
-                  }`}
+                    }`}
                 >
                   {/* IMAGE THUMBNAIL / BANNER */}
                   <div className="relative w-full h-52 sm:h-60 rounded-xl overflow-hidden mb-8">
@@ -394,54 +407,98 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
       </section>
 
       {/* ==========================================
-          SECTION 3 — "EN QUELQUES MOTS"
+          SECTION 3 — "EN QUELQUES MOTS" (REDESIGNED FOR EASY READING & ELEGANCE)
           ========================================== */}
       <section className="w-full bg-[#F4F2EC] text-[#20352B] py-20 sm:py-28 px-6 sm:px-12 lg:px-16 border-b border-[#20352B]/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            
-            {/* LEFT SIDE */}
-            <div className="lg:col-span-4 space-y-4">
-              <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#6F8275] font-medium block">
-                EN QUELQUES MOTS
-              </span>
-              <p className="font-sans text-sm sm:text-base text-[#20352B]/80 font-light leading-relaxed">
-                Une démarche claire, individualisée et toujours située dans les limites du champ d'accompagnement.
-              </p>
-            </div>
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
+          
+          {/* HEADER */}
+          <div className="max-w-3xl space-y-4">
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#55695B] font-semibold block">
+              EN QUELQUES MOTS
+            </span>
+            <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#20352B] leading-tight">
+              Une démarche <span className="italic text-[#55695B] font-normal">claire</span>, progressive &amp; bienveillante.
+            </h2>
+            <p className="font-sans text-sm sm:text-base text-[#20352B]/80 font-light leading-relaxed max-w-2xl">
+              Chaque accompagnement est conçu pour vous offrir des clés concrètes et adaptées à votre quotidien, dans un cadre sécurisant et transparent.
+            </p>
+          </div>
 
-            {/* RIGHT SIDE STEPS */}
-            <div className="lg:col-span-8 space-y-10 divide-y divide-[#20352B]/15">
-              
-              {/* STEP 01 */}
-              <div className="space-y-3 pt-0">
-                <span className="font-mono text-xs font-semibold text-[#6F8275] block">
-                  01
-                </span>
+          {/* 3-CARD PROCESS GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            
+            {/* CARD 01 */}
+            <div className="bg-[#FAF8F5] border border-[#20352B]/12 p-8 sm:p-10 rounded-2xl space-y-5 shadow-xs hover:shadow-md hover:border-[#55695B]/30 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="w-10 h-10 rounded-full bg-[#55695B]/10 text-[#55695B] font-mono text-sm font-bold flex items-center justify-center">
+                    01
+                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6F8275]">
+                    ÉTAPE INITIALE
+                  </span>
+                </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#20352B]">
                   Commencer par comprendre
                 </h3>
-                <p className="font-sans text-sm sm:text-base text-[#20352B]/75 font-light leading-relaxed max-w-2xl">
-                  Le bilan de vitalité ouvre le parcours. Il permet d'explorer vos habitudes, votre rythme et les priorités que vous souhaitez travailler.
+                <p className="font-sans text-sm text-[#20352B]/80 font-light leading-relaxed">
+                  Le bilan de vitalité ouvre le parcours. Il permet d'explorer en profondeur vos habitudes, votre hygiène de vie, votre rythme et les priorités que vous souhaitez soutenir.
                 </p>
               </div>
+              <div className="pt-4 border-t border-[#20352B]/10 font-mono text-[11px] uppercase tracking-wider text-[#55695B] font-medium">
+                Écoute &amp; Analyse Globale
+              </div>
+            </div>
 
-              {/* STEP 02 */}
-              <div className="space-y-3 pt-8">
-                <span className="font-mono text-xs font-semibold text-[#6F8275] block">
-                  02
-                </span>
+            {/* CARD 02 */}
+            <div className="bg-[#FAF8F5] border border-[#20352B]/12 p-8 sm:p-10 rounded-2xl space-y-5 shadow-xs hover:shadow-md hover:border-[#55695B]/30 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="w-10 h-10 rounded-full bg-[#55695B]/10 text-[#55695B] font-mono text-sm font-bold flex items-center justify-center">
+                    02
+                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6F8275]">
+                    ACTION SUR-MESURE
+                  </span>
+                </div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#20352B]">
-                  Construire un programme réaliste
+                  Construire un programme
                 </h3>
-                <p className="font-sans text-sm sm:text-base text-[#20352B]/75 font-light leading-relaxed max-w-2xl">
-                  Les pistes proposées sont individualisées. Elles concernent notamment l'alimentation, l'activité physique, le stress, le sommeil ou la récupération.
+                <p className="font-sans text-sm text-[#20352B]/80 font-light leading-relaxed">
+                  Les conseils proposés sont 100% individualisés : nutrition bienveillante, gestion du stress, hygiène de sommeil, réflexologie et rituels botaniques simples.
                 </p>
               </div>
+              <div className="pt-4 border-t border-[#20352B]/10 font-mono text-[11px] uppercase tracking-wider text-[#55695B] font-medium">
+                Recommandations Pratiques
+              </div>
+            </div>
 
+            {/* CARD 03 */}
+            <div className="bg-[#FAF8F5] border border-[#20352B]/12 p-8 sm:p-10 rounded-2xl space-y-5 shadow-xs hover:shadow-md hover:border-[#55695B]/30 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="w-10 h-10 rounded-full bg-[#55695B]/10 text-[#55695B] font-mono text-sm font-bold flex items-center justify-center">
+                    03
+                  </span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6F8275]">
+                    SUIVI &amp; CONTINUITÉ
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#20352B]">
+                  Ajuster &amp; Ancrer le bien-être
+                </h3>
+                <p className="font-sans text-sm text-[#20352B]/80 font-light leading-relaxed">
+                  Chaque démarche s'inscrit dans la durée. Nous ajustons les conseils selon vos ressentis pour pérenniser vos habitudes en autonomie et sérénité.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-[#20352B]/10 font-mono text-[11px] uppercase tracking-wider text-[#55695B] font-medium">
+                Autonomie &amp; Équilibre Durable
+              </div>
             </div>
 
           </div>
+
         </div>
       </section>
 

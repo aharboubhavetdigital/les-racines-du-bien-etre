@@ -7,6 +7,7 @@ import React, {
   useState,
   useCallback,
 } from "react";
+import fireflyImg from '../../assets/images/Firefly (2).jpg';
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 interface ImageCardItem {
@@ -16,6 +17,7 @@ interface ImageCardItem {
 }
 
 interface ImageCardProps {
+  key?: string;
   item: ImageCardItem;
   onLoad?: () => void;
 }
@@ -76,7 +78,7 @@ export default function ParallaxUnfurlingGallery({
         tag: "Naturopathie"
       },
       {
-        src: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
+        src: fireflyImg,
         title: "Réflexologie plantaire & détente absolue",
         tag: "Soin corporel"
       },

@@ -4,7 +4,7 @@ import ScrollAdventure, { PageItem } from './ui/animated-scroll';
 
 const customParcoursPages: PageItem[] = [
   {
-    leftBgImage: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85',
+    leftBgImage: 'https://cdn.al-ain.com/lg/images/2024/1/08/143-163237-most-beautiful-landscapes-world-10.jpeg',
     rightBgImage: null,
     leftContent: null,
     rightContent: {
@@ -15,14 +15,14 @@ const customParcoursPages: PageItem[] = [
   },
   {
     leftBgImage: null,
-    rightBgImage: 'https://racines-v2.vercel.app/images/reflexologie-plantaire.jpeg',
+    rightBgImage: 'https://cdn.salla.sa/xAggK/d1d5530d-93d5-40e3-a523-572857112a76-1000x1000-PItztw06C7UxXmSOd6iHzEVc5AXK3lQ1kT2CHtDz.png',
     leftContent: {
       tag: '02 — ÉQUILIBRE & APPROCHE GLOBALE',
       heading: 'Comprendre l’origine des déséquilibres',
       description: (
         <div className="space-y-4">
           <p>
-            La naturopathie s’est d’abord imposed à moi pour des raisons personnelles. Stress, sommeil, irritabilité… j’avais besoin de mieux comprendre mon corps et de découvrir des solutions naturelles pour retrouver un meilleur équilibre.
+            La naturopathie s’est d’abord imposée à moi pour des raisons personnelles. Stress, sommeil, irritabilité… j’avais besoin de mieux comprendre mon corps et de découvrir des solutions naturelles pour retrouver un meilleur équilibre.
           </p>
           <blockquote className="border-l-2 border-[#AEB9A9] pl-4 py-1 italic font-serif text-white">
             « Cette formation a profondément changé ma manière de prendre soin de moi. »
@@ -33,7 +33,7 @@ const customParcoursPages: PageItem[] = [
     rightContent: null,
   },
   {
-    leftBgImage: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=85',
+    leftBgImage: 'https://modo3.com/thumbs/fit630x300/74633/1630515027/%D8%A3%D9%86%D9%88%D8%A7%D8%B9_%D8%A7%D9%84%D9%86%D8%A8%D8%A7%D8%AA%D8%A7%D8%AA.jpg',
     rightBgImage: null,
     leftContent: null,
     rightContent: {
@@ -44,7 +44,7 @@ const customParcoursPages: PageItem[] = [
   },
   {
     leftBgImage: null,
-    rightBgImage: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=85',
+    rightBgImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD4FBp-o-9heXf_H55jOP-xrV8LuVweW2zXBNAX7MBt-WAdCXAB2FsGKNc&s=10',
     leftContent: {
       tag: '04 — LES RACINES DU BIEN-ÊTRE',
       heading: 'Une approche humaine & sur-mesure',

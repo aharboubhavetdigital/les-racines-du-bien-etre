@@ -1,6 +1,8 @@
 import React from 'react';
 import { ExpandingCards, CardItem } from './ui/expanding-cards';
 import { Activity, BookOpen, Sparkles, Waves, Sprout, Heart } from 'lucide-react';
+import firefly1Img from '../assets/images/Firefly (1).jpg';
+import firefly2Img from '../assets/images/Firefly (2).jpg';
 
 interface ParcoursSectionProps {
   onOpenBooking?: (serviceName?: string) => void;
@@ -24,14 +26,14 @@ const PARCOURS_CARDS: CardItem[] = [
   {
     id: "suivi-rapproche",
     title: "03. Suivi rapproché",
-    description: "Accompagnement régulier pour consolider les acquis, ajuster la cure selon les ressentis et répondre à l'évolution naturelle de votre corps.",
-    imgSrc: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    description: "Accompagnement régulier pour consolider les acquis, Réajuster les objectifs selon les ressentis et répondre à l'évolution naturelle de votre corps.",
+    imgSrc: firefly2Img,
     icon: <Sparkles className="w-6 h-6" />,
   },
   {
     id: "soins-manuels",
     title: "04. Soins manuels & Réflexologie",
-    description: "Réflexologie plantaire et massages bien-être pour libérer le système nerveux, stimuler les émonctoires et dénouer les tensions physiques.",
+    description: "Réflexologie plantaire et faciale, associée à des massages bien-être, pour favoriser la détente du système nerveux, stimuler les émonctoires et libérer les tensions physiques.",
     imgSrc: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80",
     icon: <Waves className="w-6 h-6" />,
   },
@@ -46,7 +48,7 @@ const PARCOURS_CARDS: CardItem[] = [
     id: "ancrage-serenite",
     title: "06. Ancrage & Sérénité",
     description: "Ancrage durable des habitudes saines pour vivre en pleine santé, en autonomie et en parfaite harmonie avec vos cycles.",
-    imgSrc: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+    imgSrc: firefly1Img,
     icon: <Heart className="w-6 h-6" />,
   },
 ];

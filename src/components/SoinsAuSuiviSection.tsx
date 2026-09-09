@@ -5,6 +5,7 @@ import nutritionVivanteImg from '../assets/images/nutrition_vivante_naturopathie
 import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg';
 import phytotherapieImg from '../assets/images/phytotherapie_herboristerie_naturopathie_1788191340631.jpg';
 import vitaliteNatureImg from '../assets/images/vitalite_reconnexion_nature_1788191355171.jpg';
+import whatsAppImg from '../assets/images/WhatsApp Image 2026-08-22 .jpeg';
 
 interface SoinsAuSuiviSectionProps {
   onSelectService?: (serviceName: string) => void;
@@ -50,7 +51,7 @@ const CARE_CARDS: CareCardItem[] = [
     title: 'Réflexologie faciale',
     description: 'Une pratique manuelle apaisante proposée selon vos besoins spécifiques et le cadre de votre bilan.',
     ctaText: 'Réserver un soin',
-    imageUrl: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+    imageUrl: whatsAppImg,
     gradient: 'taupe'
   },
   {

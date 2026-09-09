@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Calendar, MapPin, Clock, Sparkles, ArrowUpRight, Compass, Waves, Building2, CheckCircle2, ChevronRight, Phone, Mail } from 'lucide-react';
+import { Calendar, MapPin, Clock, Sparkles, ArrowUpRight, Compass, Waves, Building2, CheckCircle2, ChevronRight, Phone, Mail, ArrowLeft } from 'lucide-react';
 import gsap from 'gsap';
 
 interface LieuxPageProps {
@@ -158,15 +158,17 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
         >
           {/* Top Breadcrumb & Tag */}
           <div className="space-y-6 pt-4 sm:pt-6">
-            <div className="gsap-hero-el flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-white/80 uppercase">
+            <div className="gsap-hero-el flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] text-white/80 uppercase">
               <button
                 onClick={() => onNavigateHome('#hero')}
-                className="hover:text-white transition-colors cursor-pointer border-b border-transparent hover:border-white/50 pb-0.5"
+                className="inline-flex items-center gap-1.5 hover:text-white transition-all duration-300 cursor-pointer group bg-white/15 hover:bg-white/30 text-white font-medium px-3.5 py-1.5 rounded-full border border-white/20 shadow-xs"
+                title="Retour à l'accueil"
               >
-                ACCUEIL
+                <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-[#D8CFBF]" />
+                <span>ACCUEIL</span>
               </button>
               <span className="opacity-60">—</span>
-              <span className="text-white font-medium">DEUX ATMOSPHÈRES</span>
+              <span className="text-white font-semibold">DEUX ATMOSPHÈRES</span>
             </div>
 
             <span className="gsap-hero-el block font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
@@ -252,146 +254,167 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
       </section>
 
       {/* 2. SECTION 2 — EXACT FIDELITY TO SCREENSHOT 2 WITH EDITORIAL TYPOGRAPHY & 3D REVEAL */}
-      <section className="py-20 sm:py-28 lg:py-36 px-6 sm:px-12 lg:px-16 xl:px-24 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column: Context / "EN QUELQUES MOTS" */}
-          <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-4">
-            <span className="font-mono text-xs tracking-[0.25em] text-[#736355] uppercase font-semibold block">
+      {/* 2. SECTION 2 — MODERN & ULTRA READABLE LOCATIONS & PRACTICAL INFO GRID */}
+      <section className="py-16 sm:py-24 lg:py-32 px-6 sm:px-12 lg:px-16 xl:px-24 max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 sm:mb-16 pb-8 border-b border-[#D8CFBF]/60">
+          <div className="space-y-3 max-w-2xl">
+            <span className="font-mono text-xs tracking-[0.25em] text-[#506456] uppercase font-bold block">
               EN QUELQUES MOTS
             </span>
-
-            <p className="font-sans text-base sm:text-lg text-[#403B35] font-light leading-relaxed max-w-sm">
-              Une démarche claire, individualisée et toujours située dans les limites du champ d'accompagnement.
+            <h2 className="font-serif-editorial text-3xl sm:text-4xl lg:text-5xl text-[#1C1A17] font-normal tracking-tight">
+              Une démarche claire & deux cadres adaptés.
+            </h2>
+            <p className="font-sans text-base sm:text-lg text-[#555048] font-light leading-relaxed">
+              Une approche individualisée, toujours située dans les limites du champ d'accompagnement.
             </p>
-
-            <div className="pt-6 border-t border-[#E8E3DA] space-y-3">
-              <div className="flex items-center gap-2.5 text-xs text-[#605A52]">
-                <CheckCircle2 className="w-4 h-4 text-[#506456]" />
-                <span>Prise de rendez-vous simple & personnalisée</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs text-[#605A52]">
-                <CheckCircle2 className="w-4 h-4 text-[#506456]" />
-                <span>Choix du lieu lors de la confirmation</span>
-              </div>
-            </div>
           </div>
 
-          {/* Right Column: 01, 02, 03 Numbered Items with Clean Dividers */}
-          <div className="lg:col-span-8 space-y-0">
-            
-            {/* Item 01: Institut Belle et Zen — Saint-Lô */}
-            <div
-              ref={(el) => {
-                if (el) listItemsRef.current[0] = el;
-              }}
-              className="py-10 sm:py-12 border-b border-[#D8CFBF]/70 group transition-all duration-300"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-8 items-baseline">
-                <span className="sm:col-span-2 font-mono text-xs sm:text-sm tracking-widest text-[#736355] font-medium">
+          {/* Quick Badges */}
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#506456]/10 text-[#506456] text-xs font-medium border border-[#506456]/20">
+              <CheckCircle2 className="w-4 h-4 text-[#506456]" />
+              <span>Rendez-vous simple & sur-mesure</span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#736355]/10 text-[#736355] text-xs font-medium border border-[#736355]/20">
+              <CheckCircle2 className="w-4 h-4 text-[#736355]" />
+              <span>Choix du lieu à la confirmation</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 3 Modern Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          
+          {/* Card 01: Saint-Lô */}
+          <div
+            ref={(el) => {
+              if (el) listItemsRef.current[0] = el;
+            }}
+            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#506456] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+          >
+            <div className="space-y-5">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
                   01
                 </span>
-                
-                <div className="sm:col-span-10 space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <h2 className="font-serif-editorial text-2xl sm:text-3xl lg:text-4xl text-[#1C1A17] font-normal tracking-tight group-hover:text-[#506456] transition-colors">
-                      Institut Belle et Zen — Saint-Lô
-                    </h2>
-                    <span className="text-[11px] font-mono tracking-wider px-2.5 py-1 rounded-md bg-[#506456]/10 text-[#506456] font-medium">
-                      Centre-Ville
-                    </span>
-                  </div>
-
-                  <p className="font-sans text-sm sm:text-base text-[#555048] font-light leading-relaxed">
-                    Un environnement professionnel, pratique et confortable, dans une ambiance cohérente avec l'univers du bien-être.
-                  </p>
-
-                  <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-[#736355]">
-                    <span className="flex items-center gap-1.5">
-                      <Building2 className="w-3.5 h-3.5 text-[#506456]" />
-                      Consultations & Soins manuels
-                    </span>
-                    <span>•</span>
-                    <span>Accès rapide & stationnement à proximité</span>
-                  </div>
-                </div>
+                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#506456]/10 text-[#506456] font-semibold border border-[#506456]/20">
+                  Centre-Ville
+                </span>
               </div>
+
+              <div className="space-y-2">
+                <h3 className="font-serif-editorial text-2xl sm:text-3xl text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors">
+                  Institut Belle et Zen
+                </h3>
+                <p className="font-mono text-xs text-[#736355]">Saint-Lô</p>
+              </div>
+
+              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
+                Un environnement professionnel, pratique et confortable, dans une ambiance feutrée en parfaite cohérence avec l'univers du bien-être.
+              </p>
             </div>
 
-            {/* Item 02: Le Chant des Oiseaux */}
-            <div
-              ref={(el) => {
-                if (el) listItemsRef.current[1] = el;
-              }}
-              className="py-10 sm:py-12 border-b border-[#D8CFBF]/70 group transition-all duration-300"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-8 items-baseline">
-                <span className="sm:col-span-2 font-mono text-xs sm:text-sm tracking-widest text-[#736355] font-medium">
+            <div className="pt-6 mt-6 border-t border-[#F0EBE1] space-y-2.5 text-xs text-[#605A52]">
+              <div className="flex items-center gap-2">
+                <Building2 className="w-4 h-4 text-[#506456] shrink-0" />
+                <span>Consultations & Soins manuels</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#506456] shrink-0" />
+                <span>Accès rapide & stationnement proche</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 02: Le Chant des Oiseaux */}
+          <div
+            ref={(el) => {
+              if (el) listItemsRef.current[1] = el;
+            }}
+            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#736355] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+          >
+            <div className="space-y-5">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
                   02
                 </span>
-                
-                <div className="sm:col-span-10 space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <h2 className="font-serif-editorial text-2xl sm:text-3xl lg:text-4xl text-[#1C1A17] font-normal tracking-tight group-hover:text-[#506456] transition-colors">
-                      Le Chant des Oiseaux
-                    </h2>
-                    <span className="text-[11px] font-mono tracking-wider px-2.5 py-1 rounded-md bg-[#736355]/10 text-[#736355] font-medium">
-                      Bord de l'eau
-                    </span>
-                  </div>
-
-                  <p className="font-sans text-sm sm:text-base text-[#555048] font-light leading-relaxed">
-                    Un lieu apaisant et ressourçant au bord de l'eau, qui pourra également accueillir des ateliers lorsque leur programmation sera validée.
-                  </p>
-
-                  <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-[#736355]">
-                    <span className="flex items-center gap-1.5">
-                      <Waves className="w-3.5 h-3.5 text-[#506456]" />
-                      Immersion naturelle & Silence
-                    </span>
-                    <span>•</span>
-                    <span>Futur accueil d'ateliers & masterclasses</span>
-                  </div>
-                </div>
+                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#736355]/10 text-[#736355] font-semibold border border-[#736355]/20">
+                  Bord de l'eau
+                </span>
               </div>
+
+              <div className="space-y-2">
+                <h3 className="font-serif-editorial text-2xl sm:text-3xl text-[#1C1A17] font-normal group-hover:text-[#736355] transition-colors">
+                  Le Chant des Oiseaux
+                </h3>
+                <p className="font-mono text-xs text-[#736355]">Vallée de la Vire</p>
+              </div>
+
+              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
+                Un lieu apaisant et ressourçant au bord de l'eau, conçu pour la déconnexion et l'accueil de futurs ateliers et masterclasses.
+              </p>
             </div>
 
-            {/* Item 03: Informations pratiques */}
-            <div
-              ref={(el) => {
-                if (el) listItemsRef.current[2] = el;
-              }}
-              className="py-10 sm:py-12 border-b border-[#D8CFBF]/70 group transition-all duration-300"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-8 items-baseline">
-                <span className="sm:col-span-2 font-mono text-xs sm:text-sm tracking-widest text-[#736355] font-medium">
+            <div className="pt-6 mt-6 border-t border-[#F0EBE1] space-y-2.5 text-xs text-[#605A52]">
+              <div className="flex items-center gap-2">
+                <Waves className="w-4 h-4 text-[#506456] shrink-0" />
+                <span>Immersion naturelle & silence</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#506456] shrink-0" />
+                <span>Futur accueil d'ateliers thématiques</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 03: Informations Pratiques */}
+          <div
+            ref={(el) => {
+              if (el) listItemsRef.current[2] = el;
+            }}
+            className="group relative bg-[#20352B] text-white rounded-3xl p-8 sm:p-10 border border-[#20352B] shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+          >
+            <div className="space-y-5">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs tracking-widest text-[#AEB9A9] font-bold">
                   03
                 </span>
-                
-                <div className="sm:col-span-10 space-y-3">
-                  <h2 className="font-serif-editorial text-2xl sm:text-3xl lg:text-4xl text-[#1C1A17] font-normal tracking-tight group-hover:text-[#506456] transition-colors">
-                    Informations pratiques
-                  </h2>
-
-                  <p className="font-sans text-sm sm:text-base text-[#555048] font-light leading-relaxed">
-                    Les adresses précises, horaires et modalités d'accès seront ajoutés après validation par la praticienne.
-                  </p>
-
-                  <div className="pt-3 flex flex-wrap items-center gap-6 text-xs text-[#736355]">
-                    <a href="tel:0612345678" className="inline-flex items-center gap-1.5 hover:text-[#506456] transition-colors">
-                      <Phone className="w-3.5 h-3.5 text-[#506456]" />
-                      06 12 34 56 78
-                    </a>
-                    <a href="mailto:contact@lesracinesdubienetre.fr" className="inline-flex items-center gap-1.5 hover:text-[#506456] transition-colors">
-                      <Mail className="w-3.5 h-3.5 text-[#506456]" />
-                      contact@lesracinesdubienetre.fr
-                    </a>
-                  </div>
-                </div>
+                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-white/10 text-white font-semibold border border-white/20">
+                  Contact
+                </span>
               </div>
+
+              <div className="space-y-2">
+                <h3 className="font-serif-editorial text-2xl sm:text-3xl text-white font-normal">
+                  Informations pratiques
+                </h3>
+                <p className="font-mono text-xs text-[#AEB9A9]">Saint-Lô & environs</p>
+              </div>
+
+              <p className="font-sans text-sm text-white/80 font-light leading-relaxed">
+                Adresses précises et accès fournis dès la confirmation de votre rendez-vous. Pour toute question, contactez le cabinet.
+              </p>
             </div>
 
+            <div className="pt-6 mt-6 border-t border-white/15 space-y-3">
+              <a
+                href="tel:0612345678"
+                className="flex items-center gap-3 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white transition-all duration-200 text-xs font-medium"
+              >
+                <Phone className="w-4 h-4 text-[#AEB9A9]" />
+                <span>06 12 34 56 78</span>
+              </a>
+              <a
+                href="mailto:contact@lesracinesdubienetre.fr"
+                className="flex items-center gap-3 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white transition-all duration-200 text-xs font-medium truncate"
+              >
+                <Mail className="w-4 h-4 text-[#AEB9A9] shrink-0" />
+                <span className="truncate">contact@lesracinesdubienetre.fr</span>
+              </a>
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -541,8 +564,9 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
 
             <button
               onClick={() => onNavigateHome('#hero')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wider uppercase border border-white/20 transition-all duration-300 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wider uppercase border border-white/20 transition-all duration-300 cursor-pointer group"
             >
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
               <span>Retour à l'accueil</span>
             </button>
           </div>

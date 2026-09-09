@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, Activity, ArrowRight, ChevronDown } from 'lucide-react';
-import droneVideoUrl from '../assets/drone_orbit_360_202609031738.mp4';
+import { Calendar, ArrowRight, ChevronDown } from 'lucide-react';
+import droneVideoUrl from '../assets/images/video 1.mp4';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,8 +14,6 @@ interface ScrollVideoHeroProps {
   onNavigateToBoutique?: () => void;
 }
 
-const TOTAL_FRAMES = 240;
-
 export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
   onOpenBooking,
   onOpenQuiz,
@@ -23,8 +21,7 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Sequential Step Refs
   const titleRef = useRef<HTMLDivElement>(null);
@@ -33,163 +30,57 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
   const ctaRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const imagesRef = useRef<HTMLImageElement[]>([]);
-  const currentFrameRef = useRef<{ frame: number }>({ frame: 0 });
-  const useVideoFallbackRef = useRef<boolean>(false);
-
-  // 1. Preload WebP frames with fallback to video scrubbing
-  useEffect(() => {
-    let loadedCount = 0;
-    let failedCount = 0;
-    const images: HTMLImageElement[] = [];
-
-    // Create backup video element for fallback scrubbing
-    const videoEl = document.createElement('video');
-    videoEl.src = droneVideoUrl;
-    videoEl.muted = true;
-    videoEl.playsInline = true;
-    videoEl.preload = 'auto';
-    videoRef.current = videoEl;
-
-    for (let i = 1; i <= TOTAL_FRAMES; i++) {
-      const img = new Image();
-      const frameNum = String(i).padStart(3, '0');
-      img.src = `/frames/frame_${frameNum}.webp`;
-
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount + failedCount === TOTAL_FRAMES) {
-          if (loadedCount > TOTAL_FRAMES * 0.5) {
-            setImagesLoaded(true);
-          } else {
-            useVideoFallbackRef.current = true;
-            setImagesLoaded(true);
-          }
-        }
-      };
-
-      img.onerror = () => {
-        failedCount++;
-        if (loadedCount + failedCount === TOTAL_FRAMES) {
-          useVideoFallbackRef.current = true;
-          setImagesLoaded(true);
-        }
-      };
-
-      images.push(img);
-    }
-    imagesRef.current = images;
-
-    if (images[0]) {
-      images[0].onload = () => drawFrame(0);
-    }
-  }, []);
-
-  // 2. Draw frame on Canvas with object-fit: cover and high-DPI scaling
-  const drawFrame = (index: number) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    const dpr = window.devicePixelRatio || 1;
-
-    if (canvas.width !== windowWidth * dpr || canvas.height !== windowHeight * dpr) {
-      canvas.width = windowWidth * dpr;
-      canvas.height = windowHeight * dpr;
-    }
-
-    ctx.save();
-    ctx.scale(dpr, dpr);
-
-    const img = imagesRef.current[index];
-    const video = videoRef.current;
-
-    let sourceWidth = 1920;
-    let sourceHeight = 1080;
-    let drawableSource: HTMLImageElement | HTMLVideoElement | null = null;
-
-    if (!useVideoFallbackRef.current && img && img.complete && img.naturalWidth > 0) {
-      drawableSource = img;
-      sourceWidth = img.naturalWidth;
-      sourceHeight = img.naturalHeight;
-    } else if (video && video.readyState >= 2) {
-      drawableSource = video;
-      sourceWidth = video.videoWidth || 1920;
-      sourceHeight = video.videoHeight || 1080;
-
-      // Sync video currentTime to frame index
-      if (video.duration) {
-        const targetTime = (index / (TOTAL_FRAMES - 1)) * video.duration;
-        if (Math.abs(video.currentTime - targetTime) > 0.05) {
-          video.currentTime = targetTime;
-        }
-      }
-    }
-
-    if (drawableSource) {
-      const imgRatio = sourceWidth / sourceHeight;
-      const windowRatio = windowWidth / windowHeight;
-
-      let drawWidth = windowWidth;
-      let drawHeight = windowHeight;
-      let offsetX = 0;
-      let offsetY = 0;
-
-      if (windowRatio > imgRatio) {
-        drawHeight = windowWidth / imgRatio;
-        offsetY = (windowHeight - drawHeight) / 2;
-      } else {
-        drawWidth = windowHeight * imgRatio;
-        offsetX = (windowWidth - drawWidth) / 2;
-      }
-
-      ctx.clearRect(0, 0, windowWidth, windowHeight);
-      ctx.drawImage(drawableSource, offsetX, offsetY, drawWidth, drawHeight);
-    } else {
-      ctx.fillStyle = '#0A0908';
-      ctx.fillRect(0, 0, windowWidth, windowHeight);
-    }
-
-    ctx.restore();
-  };
-
-  // 3. GSAP ScrollTrigger timeline: Canvas Frame Scrubbing + Sequential 1-by-1 Text Reveal
   useEffect(() => {
     const container = containerRef.current;
     const sticky = stickyRef.current;
-    if (!container || !sticky) return;
+    const video = videoRef.current;
+    if (!container || !sticky || !video) return;
 
-    const handleResize = () => {
-      drawFrame(Math.round(currentFrameRef.current.frame));
-    };
-    window.addEventListener('resize', handleResize);
+    video.pause();
+    video.muted = true;
+    video.playsInline = true;
+
+    let targetTime = 0;
+    let animFrameId: number;
 
     const ctx = gsap.context(() => {
-      const obj = currentFrameRef.current;
+      // 1. Dedicated ScrollTrigger for smooth Video Time Scrubbing
+      ScrollTrigger.create({
+        trigger: container,
+        start: 'top top',
+        end: '+=500%',
+        pin: sticky,
+        pinSpacing: true,
+        scrub: 0.3,
+        anticipatePin: 1,
+        onUpdate: (self) => {
+          if (video.duration && !isNaN(video.duration)) {
+            targetTime = self.progress * video.duration;
+          }
+        },
+      });
+
+      // 2. High-performance RAF lerp loop for ultra-smooth video scrubbing on desktop
+      const updateVideoTime = () => {
+        if (video.duration && !isNaN(video.duration)) {
+          const delta = targetTime - video.currentTime;
+          if (Math.abs(delta) > 0.005) {
+            video.currentTime += delta * 0.12;
+          }
+        }
+        animFrameId = requestAnimationFrame(updateVideoTime);
+      };
+      updateVideoTime();
+
+      // 3. Text Reveal Timeline (Step 1, Step 2, Step 3)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
           start: 'top top',
           end: '+=500%',
-          pin: sticky,
-          scrub: 0.2,
-          anticipatePin: 1,
-          onUpdate: (self) => {
-            const frameIndex = Math.min(
-              TOTAL_FRAMES - 1,
-              Math.max(0, Math.round(obj.frame))
-            );
-            drawFrame(frameIndex);
-          },
+          scrub: 0.3,
         },
       });
-
-      // Canvas Frame Scrubbing track across 600vh scroll
-      tl.to(obj, { frame: TOTAL_FRAMES - 1, snap: 'frame', ease: 'none', duration: 1 }, 0);
 
       // Initial Hidden States
       if (titleRef.current) gsap.set(titleRef.current, { opacity: 0, y: 45, filter: 'blur(12px)' });
@@ -224,13 +115,11 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
       }
     }, container);
 
-    drawFrame(0);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animFrameId);
       ctx.revert();
     };
-  }, [imagesLoaded]);
+  }, []);
 
   return (
     <section
@@ -243,10 +132,14 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
         ref={stickyRef}
         className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-[#0A0908]"
       >
-        {/* Canvas WebP / Video Frame Renderer */}
-        <canvas
-          ref={canvasRef}
-          className="w-full h-full object-cover block"
+        {/* Video Element for video 1.mp4 (Pure Scroll Scrubbing) */}
+        <video
+          ref={videoRef}
+          src={droneVideoUrl}
+          preload="auto"
+          muted
+          playsInline
+          className="w-full h-full object-cover block absolute inset-0"
           style={{ width: '100vw', height: '100vh' }}
         />
 
@@ -298,14 +191,6 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
                 <Calendar className="w-4 h-4 text-[#AEB9A9] group-hover:rotate-12 transition-transform duration-300" />
                 <span>Réserver un rendez-vous</span>
                 <ArrowRight className="w-4 h-4 text-[#AEB9A9] group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-
-              <button
-                onClick={onOpenQuiz}
-                className="group relative px-8 py-4 sm:px-9 sm:py-4.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-light text-sm sm:text-base tracking-wider transition-all duration-300 hover:border-white/60 flex items-center gap-2.5 cursor-pointer"
-              >
-                <Activity className="w-4 h-4 text-[#AEB9A9] group-hover:scale-110 transition-transform" />
-                <span>Test de Vitalité (2 min)</span>
               </button>
             </div>
           </div>
