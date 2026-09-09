@@ -5,6 +5,7 @@ import { ScrollVideoHero } from './components/ScrollVideoHero';
 import { ScrollPinnedSection } from './components/ScrollPinnedSection';
 import { ImageRevealSection } from './components/ImageRevealSection';
 import { EnsembleVivantSection } from './components/EnsembleVivantSection';
+import { StatementStripSection } from './components/StatementStripSection';
 import { SoinsAuSuiviSection } from './components/SoinsAuSuiviSection';
 import { ParcoursSection } from './components/ParcoursSection';
 import { SpiralGallerySection } from './components/SpiralGallerySection';
@@ -200,6 +201,9 @@ export default function App() {
             <EnsembleVivantSection
               onOpenBooking={handleOpenBooking}
             />
+
+            {/* MARQUEE STRIP — PROMESSE */}
+            <StatementStripSection />
 
             {/* DES SOINS MANUELS AU SUIVI */}
             <SoinsAuSuiviSection

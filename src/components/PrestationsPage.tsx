@@ -3,11 +3,19 @@ import { Calendar, ArrowUpRight, ArrowLeft } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ImageStreamHero } from './ui/image-stream-hero';
+import { StatementStripSection } from './StatementStripSection';
 import reflexologiePlantaireNewImg from '../assets/images/reflexologie_plantaire_new.png';
 import whatsAppImg from '../assets/images/WhatsApp Image 2026-08-22 .jpeg';
 import firefly1Img from '../assets/images/Firefly (1).jpg';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const PRESTATIONS_STRIP_ITEMS = [
+  "Massage bien-être & Réflexologie",
+  "Bilan de vitalité & Suivi sur-mesure",
+  "Soins holistiques & Équilibre naturel",
+  "Retrouver vitalité et sérénité",
+];
 
 const STREAM_IMAGES = [
   {
@@ -324,6 +332,9 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
 
         </div>
       </ImageStreamHero>
+
+      {/* STATEMENT STRIP — PRESTATIONS */}
+      <StatementStripSection items={PRESTATIONS_STRIP_ITEMS} />
 
       {/* ==========================================
           SECTION 2 — "LA CARTE COMPLÈTE" GRID (OFF-WHITE BACKGROUND)

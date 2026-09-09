@@ -112,3 +112,33 @@
   background: #AEB9A9;
 }
 
+/* Statement Strip / Promesse Marquee */
+.statement-strip {
+  background-color: #5B6C5F;
+  overflow: hidden;
+  position: relative;
+}
+
+.statement-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  width: max-content;
+  white-space: nowrap;
+  animation: statement-marquee 28s linear infinite;
+}
+
+.statement-strip:hover .statement-track {
+  animation-play-state: paused;
+}
+
+@keyframes statement-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
