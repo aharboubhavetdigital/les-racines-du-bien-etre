@@ -73,9 +73,9 @@ export const TreatmentSteps: React.FC<TreatmentStepsProps> = ({
 
           <button
             onClick={onOpenBooking}
-            className="w-full sm:w-auto px-8 py-4 rounded-full border border-[#181D1A]/30 text-[#181D1A] hover:bg-[#181D1A] hover:text-white transition-all duration-300 font-mono text-xs tracking-[0.18em] uppercase flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white transition-all duration-300 font-mono text-xs tracking-[0.18em] uppercase flex items-center justify-center gap-2 cursor-pointer shadow-md"
           >
-            <Calendar className="w-4 h-4" />
+            <Calendar className="w-4 h-4 text-white" />
             Prendre rendez-vous
           </button>
         </div>

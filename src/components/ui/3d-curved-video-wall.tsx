@@ -187,11 +187,12 @@ export const CurvedVideoWall: React.FC<CurvedVideoWallProps> = ({
       }
     }
 
-    // Mouse Tracking & Easing
+    // Mouse & Touch Tracking & Easing
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
+    let userInteracted = false;
 
     let headerRotationX = 0;
     let headerRotationY = 0;
@@ -199,7 +200,16 @@ export const CurvedVideoWall: React.FC<CurvedVideoWallProps> = ({
 
     const lookAtTarget = new THREE.Vector3(0, 0, 0);
 
+    const isMobileDevice = () => {
+      return (
+        window.innerWidth < 768 ||
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0
+      );
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
+      userInteracted = true;
       mouseX = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
       mouseY = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
 
@@ -208,13 +218,44 @@ export const CurvedVideoWall: React.FC<CurvedVideoWallProps> = ({
       headerTranslateZ = Math.abs(mouseX * mouseY) * 40;
     };
 
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        userInteracted = true;
+        const touch = e.touches[0];
+        mouseX = (touch.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+        mouseY = (touch.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+
+        headerRotationX = -mouseY * 18;
+        headerRotationY = mouseX * 18;
+        headerTranslateZ = Math.abs(mouseX * mouseY) * 25;
+      }
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
     // Animation Loop
     let animationFrameId: number;
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
+
+      const time = performance.now() * 0.001;
+      const isMobile = isMobileDevice();
+
+      // Continuous slow organic auto-animation for mobile/phone or idle state
+      if (isMobile || !userInteracted) {
+        const autoTime = time * 0.5; // Smooth slow tempo
+        const autoX = Math.sin(autoTime * 0.8) * 0.45;
+        const autoY = Math.cos(autoTime * 0.6) * 0.35;
+
+        mouseX = autoX;
+        mouseY = autoY;
+
+        headerRotationX = -mouseY * 15;
+        headerRotationY = mouseX * 15;
+        headerTranslateZ = Math.abs(mouseX * mouseY) * 20;
+      }
 
       // 1. Header CSS-3D Tilt
       if (headerRef.current) {
@@ -240,7 +281,6 @@ export const CurvedVideoWall: React.FC<CurvedVideoWallProps> = ({
       camera.lookAt(lookAtTarget);
 
       // 3. Per-plane Parallax & Oscillation
-      const time = performance.now() * 0.001;
       const mouseDistance = Math.sqrt(targetX * targetX + targetY * targetY);
 
       planes.forEach((plane) => {
@@ -297,6 +337,7 @@ export const CurvedVideoWall: React.FC<CurvedVideoWallProps> = ({
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("resize", handleResize);
 
       videosToClean.forEach((v) => {
@@ -358,7 +399,7 @@ export const CurvedVideoWall: React.FC<CurvedVideoWallProps> = ({
             onClick={onDiscoverClick}
             className="pointer-events-auto px-9 py-4 rounded-[12px] bg-[#344E41] hover:bg-[#2C4237] text-white text-xs sm:text-sm font-semibold tracking-[0.14em] uppercase transition-all duration-300 shadow-2xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 cursor-pointer border border-[#AEB9A9]/30 group"
           >
-            <span>Découvrir le catalogue</span>
+            <span>Découvrir</span>
             <ArrowDown className="w-4 h-4 text-[#AEB9A9] group-hover:text-white transition-transform duration-300 group-hover:translate-y-1" />
           </button>
         )}

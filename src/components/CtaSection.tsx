@@ -53,9 +53,9 @@ export const CtaSection: React.FC<CtaSectionProps> = ({ onOpenBooking }) => {
           >
             <button
               onClick={onOpenBooking}
-              className="w-full sm:w-auto px-9 py-4 bg-white hover:bg-[#F2F6F3] text-gray-900 text-xs font-semibold tracking-[0.2em] uppercase rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer hover:scale-[1.03]"
+              className="w-full sm:w-auto px-9 py-4 bg-[#8BB28A] hover:bg-[#7AA179] text-white text-xs font-semibold tracking-[0.2em] uppercase rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer hover:scale-[1.03]"
             >
-              <Calendar className="w-4 h-4 text-[#55695B]" />
+              <Calendar className="w-4 h-4 text-white" />
               <span>Prendre rendez-vous</span>
             </button>
           </motion.div>

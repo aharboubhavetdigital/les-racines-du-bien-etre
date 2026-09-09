@@ -41,25 +41,6 @@ export const AProposPage: React.FC<AProposPageProps> = ({
         {/* Center Content Block */}
         <div className="max-w-4xl mx-auto px-6 sm:px-12 flex flex-col items-center justify-between space-y-10 relative z-10 my-auto w-full">
           
-          {/* Top Breadcrumb */}
-          <motion.div
-            custom={0}
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex items-center justify-center gap-3 font-mono text-xs tracking-[0.2em] text-white/70 uppercase"
-          >
-            <button
-              onClick={() => onNavigateHome('#hero')}
-              className="inline-flex items-center gap-1.5 hover:text-white transition-all duration-300 cursor-pointer group bg-white/15 hover:bg-white/30 text-white font-medium px-3.5 py-1.5 rounded-full border border-white/20 shadow-xs"
-              title="Retour à l'accueil"
-            >
-              <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-[#AEB9A9]" />
-              <span>ACCUEIL</span>
-            </button>
-            <span>—</span>
-            <span className="text-white font-semibold">ANNE-LAURE JOURDAN</span>
-          </motion.div>
 
           {/* Main Content */}
           <div className="space-y-6 max-w-3xl mx-auto flex flex-col items-center">
@@ -102,9 +83,9 @@ export const AProposPage: React.FC<AProposPageProps> = ({
             >
               <button
                 onClick={() => onOpenBooking('bilan-vitalite')}
-                className="inline-flex items-center gap-2.5 px-7 py-4 bg-white text-[#181D1A] hover:bg-[#F2F6F3] text-xs font-semibold tracking-wide uppercase rounded-full shadow-lg transition-all cursor-pointer hover:shadow-xl hover:scale-[1.03]"
+                className="inline-flex items-center gap-2.5 px-7 py-4 bg-[#8BB28A] hover:bg-[#7AA179] text-white text-xs font-semibold tracking-wide uppercase rounded-full shadow-lg transition-all cursor-pointer hover:shadow-xl hover:scale-[1.03]"
               >
-                <Calendar className="w-4 h-4 text-[#506456]" />
+                <Calendar className="w-4 h-4 text-white" />
                 <span>Prendre rendez-vous</span>
               </button>
             </motion.div>

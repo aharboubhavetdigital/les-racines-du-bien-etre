@@ -184,9 +184,9 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
                 handleClose();
                 onOpenBooking(soin.bookingServiceId || soin.id);
               }}
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#181D1A] text-white hover:bg-[#2A382E] transition-all duration-300 font-mono text-xs tracking-[0.18em] uppercase flex items-center justify-center gap-2 cursor-pointer shadow-xl"
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white transition-all duration-300 font-mono text-xs tracking-[0.18em] uppercase flex items-center justify-center gap-2 cursor-pointer shadow-xl"
             >
-              <Calendar className="w-4 h-4 text-[#AEB9A9]" />
+              <Calendar className="w-4 h-4 text-white" />
               Prendre rendez-vous pour ce soin
             </button>
           </div>

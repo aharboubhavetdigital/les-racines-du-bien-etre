@@ -40,32 +40,48 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
     video.muted = true;
     video.playsInline = true;
 
-    let targetTime = 0;
+    let targetProgress = 0;
+    let currentProgress = 0;
+    let isSeeking = false;
     let animFrameId: number;
 
+    const handleSeeking = () => {
+      isSeeking = true;
+    };
+    const handleSeeked = () => {
+      isSeeking = false;
+    };
+    const handleMetadata = () => {
+      ScrollTrigger.refresh();
+    };
+
+    video.addEventListener('seeking', handleSeeking);
+    video.addEventListener('seeked', handleSeeked);
+    video.addEventListener('loadedmetadata', handleMetadata);
+    video.addEventListener('canplay', handleMetadata);
+    video.load();
+
     const ctx = gsap.context(() => {
-      // 1. Dedicated ScrollTrigger for smooth Video Time Scrubbing
+      // 1. Dedicated ScrollTrigger for calculating scroll progress (0 to 1)
       ScrollTrigger.create({
         trigger: container,
         start: 'top top',
-        end: '+=500%',
-        pin: sticky,
-        pinSpacing: true,
-        scrub: 0.3,
-        anticipatePin: 1,
+        end: 'bottom bottom',
+        scrub: 0.2,
         onUpdate: (self) => {
-          if (video.duration && !isNaN(video.duration)) {
-            targetTime = self.progress * video.duration;
-          }
+          targetProgress = self.progress;
         },
       });
 
-      // 2. High-performance RAF lerp loop for ultra-smooth video scrubbing on desktop
+      // 2. High-performance RAF lerp loop with seeking guard for smooth bidirectional video scrubbing
       const updateVideoTime = () => {
-        if (video.duration && !isNaN(video.duration)) {
-          const delta = targetTime - video.currentTime;
-          if (Math.abs(delta) > 0.005) {
-            video.currentTime += delta * 0.12;
+        if (video && video.duration && !isNaN(video.duration) && video.duration > 0) {
+          currentProgress += (targetProgress - currentProgress) * 0.15;
+          const targetTime = Math.min(video.duration - 0.05, Math.max(0, currentProgress * video.duration));
+
+          if (!isSeeking && Math.abs(video.currentTime - targetTime) > 0.02) {
+            isSeeking = true;
+            video.currentTime = targetTime;
           }
         }
         animFrameId = requestAnimationFrame(updateVideoTime);
@@ -77,7 +93,7 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
         scrollTrigger: {
           trigger: container,
           start: 'top top',
-          end: '+=500%',
+          end: 'bottom bottom',
           scrub: 0.3,
         },
       });
@@ -117,6 +133,10 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
 
     return () => {
       cancelAnimationFrame(animFrameId);
+      video.removeEventListener('seeking', handleSeeking);
+      video.removeEventListener('seeked', handleSeeked);
+      video.removeEventListener('loadedmetadata', handleMetadata);
+      video.removeEventListener('canplay', handleMetadata);
       ctx.revert();
     };
   }, []);
@@ -186,11 +206,11 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <button
                 onClick={() => onOpenBooking?.()}
-                className="group relative px-8 py-4 sm:px-10 sm:py-4.5 rounded-full bg-[#344E41] hover:bg-[#2A3F34] text-white font-medium text-sm sm:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_10px_30px_rgba(52,78,65,0.4)] hover:scale-105 active:scale-95 flex items-center gap-3 cursor-pointer"
+                className="group relative px-8 py-4 sm:px-10 sm:py-4.5 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white font-medium text-sm sm:text-base tracking-wider uppercase transition-all duration-300 shadow-[0_10px_30px_rgba(139,178,138,0.4)] hover:scale-105 active:scale-95 flex items-center gap-3 cursor-pointer"
               >
-                <Calendar className="w-4 h-4 text-[#AEB9A9] group-hover:rotate-12 transition-transform duration-300" />
+                <Calendar className="w-4 h-4 text-white group-hover:rotate-12 transition-transform duration-300" />
                 <span>Réserver un rendez-vous</span>
-                <ArrowRight className="w-4 h-4 text-[#AEB9A9] group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </div>
           </div>

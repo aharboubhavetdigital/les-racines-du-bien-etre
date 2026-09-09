@@ -191,9 +191,9 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
           <div className="gsap-hero-el pt-8 sm:pt-12">
             <button
               onClick={() => onOpenBooking('bilan-vitalite')}
-              className="group inline-flex items-center gap-3 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-white text-[#1C1A17] hover:bg-[#F3ECE4] active:scale-[0.98] text-xs sm:text-sm font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              className="group inline-flex items-center gap-3 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white active:scale-[0.98] text-xs sm:text-sm font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
             >
-              <Calendar className="w-4 h-4 text-[#506456] transition-transform group-hover:scale-110" />
+              <Calendar className="w-4 h-4 text-white transition-transform group-hover:scale-110" />
               <span>Prendre rendez-vous</span>
             </button>
           </div>

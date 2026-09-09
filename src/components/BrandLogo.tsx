@@ -31,7 +31,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
   // Balanced mobile height sizing for mobile logo rectangle on phone screens
   const mobileLogoHeight = {
-    sm: 'h-9 sm:h-10',
+    sm: 'h-[42px]',
     md: 'h-12 sm:h-14',
     lg: 'h-14 sm:h-16',
     xl: 'h-18 sm:h-22'

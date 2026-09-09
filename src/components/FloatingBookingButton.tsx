@@ -165,17 +165,17 @@ export const FloatingBookingButton: React.FC<FloatingBookingButtonProps> = ({
             onClick={onOpenBooking}
             onMouseEnter={() => handleMouseEnter(bookingBtnRef.current)}
             onMouseLeave={() => handleMouseLeave(bookingBtnRef.current)}
-            className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#AEB9A9] hover:bg-[#c2cdc0] text-[#131210] flex items-center justify-center shadow-xl hover:shadow-[0_8px_25px_rgba(174,185,169,0.5)] transition-shadow duration-300 border border-white/40 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#AEB9A9] focus:ring-offset-2 focus:ring-offset-[#131210]"
+            className="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white flex items-center justify-center shadow-xl hover:shadow-[0_8px_25px_rgba(139,178,138,0.5)] transition-shadow duration-300 border border-white/40 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8BB28A] focus:ring-offset-2 focus:ring-offset-[#131210]"
             aria-label="Prendre rendez-vous"
             title="Prendre rendez-vous"
           >
             {/* Pulsing Status Dot */}
             <span className="absolute top-3 right-3 flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#131210] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#131210]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white" />
             </span>
 
-            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-[#131210] transition-transform duration-300 group-hover:scale-110" />
+            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:scale-110" />
 
             {/* Hover Tooltip (Desktop) */}
             <span className="hidden sm:inline-block absolute right-full mr-3 px-3 py-1.5 rounded-lg bg-[#181614]/95 backdrop-blur-md text-white text-xs font-medium tracking-wider uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-white/10 shadow-xl">

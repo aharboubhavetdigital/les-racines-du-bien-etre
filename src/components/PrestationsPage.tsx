@@ -280,9 +280,9 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
               <div className="hero-anim pt-2">
                 <button
                   onClick={() => onOpenBooking()}
-                  className="px-7 py-3.5 rounded-full bg-white text-[#536859] hover:bg-[#F8F6F1] font-mono text-xs font-semibold tracking-[0.18em] uppercase flex items-center gap-3 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
+                  className="px-7 py-3.5 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white font-mono text-xs font-semibold tracking-[0.18em] uppercase flex items-center gap-3 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <Calendar className="w-4 h-4 text-[#536859]" />
+                  <Calendar className="w-4 h-4 text-white" />
                   <span>Prendre rendez-vous</span>
                 </button>
               </div>

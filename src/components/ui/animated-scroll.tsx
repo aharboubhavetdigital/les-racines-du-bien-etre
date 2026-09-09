@@ -395,10 +395,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
         </button>
       </div>
 
-      {/* Page Counter Badge */}
-      <div className="absolute left-4 sm:left-8 bottom-4 sm:bottom-8 z-30 font-mono text-xs tracking-[0.2em] text-white/70 bg-black/50 backdrop-blur-md border border-white/10 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full">
-        <span className="text-[#AEB9A9] font-bold">0{currentPage}</span> / 0{numOfPages}
-      </div>
+
     </div>
   );
 }

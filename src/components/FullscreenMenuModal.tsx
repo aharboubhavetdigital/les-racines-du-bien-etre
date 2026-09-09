@@ -360,9 +360,9 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
               onClose();
               onOpenBooking();
             }}
-            className="px-5 py-2.5 rounded-full bg-[#20352B] hover:bg-[#2A4237] text-white text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300 shadow-lg cursor-pointer flex items-center gap-2 border border-white/20"
+            className="px-5 py-2.5 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300 shadow-lg cursor-pointer flex items-center gap-2 border border-white/20"
           >
-            <Calendar className="w-3.5 h-3.5 text-[#AEB9A9]" />
+            <Calendar className="w-3.5 h-3.5 text-white" />
             <span>Réserver</span>
           </button>
 

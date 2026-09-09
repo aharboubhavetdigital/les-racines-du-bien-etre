@@ -123,9 +123,9 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 onClose();
                 onOpenBooking(service.id);
               }}
-              className="px-6 py-3 bg-white hover:bg-white/90 text-gray-900 text-xs font-semibold tracking-[0.2em] uppercase rounded-full transition-colors flex items-center gap-2 shadow-md cursor-pointer"
+              className="px-6 py-3 bg-[#8BB28A] hover:bg-[#7AA179] text-white text-xs font-semibold tracking-[0.2em] uppercase rounded-full transition-colors flex items-center gap-2 shadow-md cursor-pointer"
             >
-              <Calendar className="w-4 h-4" />
+              <Calendar className="w-4 h-4 text-white" />
               <span>Réserver cette séance</span>
             </button>
           </div>

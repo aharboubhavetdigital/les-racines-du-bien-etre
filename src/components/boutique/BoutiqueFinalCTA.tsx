@@ -41,7 +41,7 @@ export const BoutiqueFinalCTA: React.FC<BoutiqueFinalCTAProps> = ({
         <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-6">
           <button
             onClick={onOpenBooking}
-            className="w-full sm:w-auto px-10 py-5 rounded-full bg-[#AEB9A9] text-[#131210] hover:bg-[#c2cdc0] transition-all duration-300 font-mono text-xs tracking-[0.2em] uppercase shadow-xl hover:shadow-[0_0_30px_rgba(174,185,169,0.4)] flex items-center justify-center gap-3 group cursor-pointer"
+            className="w-full sm:w-auto px-10 py-5 rounded-full bg-[#8BB28A] text-white hover:bg-[#7AA179] transition-all duration-300 font-mono text-xs tracking-[0.2em] uppercase shadow-xl hover:shadow-[0_0_30px_rgba(139,178,138,0.4)] flex items-center justify-center gap-3 group cursor-pointer"
           >
             <span>Prendre rendez-vous</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
