@@ -42,7 +42,7 @@ export const BOUTIQUE_PRODUCTS: Product[] = [
     description: 'Une huile de soin fictive imaginée pour accompagner un moment calme en fin de journée.',
     ingredients: ['Huile de Chèvrefeuille', 'Mavérat de Camomille', 'Huile essentielle de Lavande fine', 'Vitamine E'],
     usage: 'Appliquer 4 gouttes en effleurages doux sur le visage et le cou avant le sommeil.',
-    image: 'https://images.unsplash.com/photo-1608248597263-000796df9c11?auto=format&fit=crop&w=800&q=85',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLIcyzzs-0h3oERMaM9zvmzI5TdUNWAUlQasZPx0iFXSPqzs-o37iWNac&s=10',
     isBestseller: true,
     route: '/boutique/huile-botanique-rituel-du-soir'
   },

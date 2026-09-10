@@ -252,7 +252,7 @@ export const PRODUCTS_DATA: Product[] = [
     description: 'Une huile de soin imaginée pour accompagner un moment calme en fin de journée.',
     ingredients: ['Huile de Jojoba bio', 'Macérat de Calendula bio', 'Huile essentielle de Lavande fine AOP'],
     usage: 'Appliquer 4 à 5 gouttes sur le visage et le cou en automassage lent avant le coucher.',
-    image: 'https://images.unsplash.com/photo-1608248597263-000796df9c11?auto=format&fit=crop&w=800&q=85'
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLIcyzzs-0h3oERMaM9zvmzI5TdUNWAUlQasZPx0iFXSPqzs-o37iWNac&s=10'
   },
   {
     id: 'huile-massage-ancrage',
