@@ -153,22 +153,25 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="relative">
               <button
                 onClick={() => setNavMenuOpen(!navMenuOpen)}
-                className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 cursor-pointer shadow-lg flex items-center justify-center transition-all"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 border border-white/15 cursor-pointer shadow-lg flex items-center justify-center transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
                 aria-label="Menu"
                 title="Menu"
               >
-                <div className="w-5 h-4 flex flex-col justify-between items-center relative">
+                <div className="w-5 h-3.5 flex flex-col justify-between items-center relative">
                   <span
-                    className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${navMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
-                      }`}
+                    className={`block h-[2px] w-5 bg-[#AEB9A9] rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
+                      navMenuOpen ? 'translate-y-[6px] rotate-45 bg-white' : 'group-hover:scale-x-110'
+                    }`}
                   />
                   <span
-                    className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
-                      }`}
+                    className={`block h-[2px] w-5 bg-[#AEB9A9] rounded-full transition-all duration-200 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+                      navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+                    }`}
                   />
                   <span
-                    className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${navMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
-                      }`}
+                    className={`block h-[2px] w-5 bg-[#AEB9A9] rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
+                      navMenuOpen ? '-translate-y-[6px] -rotate-45 bg-white' : 'group-hover:scale-x-90'
+                    }`}
                   />
                 </div>
               </button>
@@ -180,22 +183,25 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setNavMenuOpen(!navMenuOpen)}
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 cursor-pointer shadow-sm flex items-center justify-center transition-all active:scale-95 hover:bg-white/20"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 cursor-pointer shadow-sm flex items-center justify-center transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] active:scale-95 hover:bg-white/20 group"
               aria-label="Menu"
               title="Menu"
             >
-              <div className="w-5 h-4 flex flex-col justify-between items-center relative">
+              <div className="w-4.5 h-3.5 flex flex-col justify-between items-center relative">
                 <span
-                  className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${navMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
-                    }`}
+                  className={`block h-[2px] w-4.5 bg-[#AEB9A9] rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
+                    navMenuOpen ? 'translate-y-[6px] rotate-45 bg-white' : ''
+                  }`}
                 />
                 <span
-                  className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-500 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
-                    }`}
+                  className={`block h-[2px] w-4.5 bg-[#AEB9A9] rounded-full transition-all duration-200 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
+                    navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+                  }`}
                 />
                 <span
-                  className={`block h-[2px] w-full bg-[#AEB9A9] rounded-full transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${navMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
-                    }`}
+                  className={`block h-[2px] w-4.5 bg-[#AEB9A9] rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
+                    navMenuOpen ? '-translate-y-[6px] -rotate-45 bg-white' : ''
+                  }`}
                 />
               </div>
             </button>

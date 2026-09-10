@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import { X, Calendar, ArrowUpRight, ChevronDown, ArrowLeft } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import logoRectanglePng from '../assets/images/logo rectangle .png';
@@ -34,17 +35,104 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
 }) => {
   const [activeItemIndex, setActiveItemIndex] = useState<number>(0);
   const [prestationsSubOpen, setPrestationsSubOpen] = useState<boolean>(false);
+  const [isClosing, setIsClosing] = useState<boolean>(false);
+
+  const modalRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
+
+  // Smooth reverse animation helper before closing/navigating
+  const handleSmoothClose = (afterCloseAction?: () => void) => {
+    if (isClosing) return;
+    setIsClosing(true);
+
+    if (timelineRef.current) {
+      timelineRef.current.reverse().then(() => {
+        setIsClosing(false);
+        onClose();
+        afterCloseAction?.();
+      });
+    } else {
+      setIsClosing(false);
+      onClose();
+      afterCloseAction?.();
+    }
+  };
 
   // Close on Escape key press
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
+      if (e.key === 'Escape' && isOpen && !isClosing) {
+        handleSmoothClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen, isClosing]);
+
+  // GSAP Entrance & Circular Expansion Animation
+  useEffect(() => {
+    if (!isOpen || !modalRef.current) return;
+    const modal = modalRef.current;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { ease: 'power3.inOut' }
+      });
+
+      // 1. Soft Circular Expansion originating from top-right menu button
+      tl.fromTo(
+        modal,
+        {
+          clipPath: 'circle(0% at calc(100% - 48px) 36px)',
+          opacity: 1,
+        },
+        {
+          clipPath: 'circle(160% at calc(100% - 48px) 36px)',
+          duration: 0.68,
+          ease: 'power3.inOut',
+        }
+      );
+
+      // 2. Staggered upward fade-in for navigation items
+      const menuItemsEls = modal.querySelectorAll('.stagger-menu-item');
+      if (menuItemsEls.length > 0) {
+        tl.fromTo(
+          menuItemsEls,
+          { opacity: 0, y: 35, filter: 'blur(6px)' },
+          {
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            duration: 0.48,
+            stagger: 0.06,
+            ease: 'power2.out',
+          },
+          '-=0.45'
+        );
+      }
+
+      // 3. Staggered fade-in for headers & details
+      const detailEls = modal.querySelectorAll('.stagger-menu-detail');
+      if (detailEls.length > 0) {
+        tl.fromTo(
+          detailEls,
+          { opacity: 0, y: 18 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: 'power2.out',
+          },
+          '-=0.4'
+        );
+      }
+
+      timelineRef.current = tl;
+    }, modal);
+
+    return () => ctx.revert();
+  }, [isOpen]);
 
   // Lock body scroll and preserve scroll position when modal is open
   useEffect(() => {
@@ -87,11 +175,12 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       tag: '(1) CABINET & VISION',
       image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85',
       action: () => {
-        onClose();
-        if (window.history && window.history.pushState) {
-          window.history.pushState(null, '', '/');
-        }
-        onNavigate('home');
+        handleSmoothClose(() => {
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', '/');
+          }
+          onNavigate('home');
+        });
       },
     },
     {
@@ -102,11 +191,12 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       tag: '(2) PARCOURS & PHILOSOPHIE',
       image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85',
       action: () => {
-        onClose();
-        if (window.history && window.history.pushState) {
-          window.history.pushState(null, '', '/#apropos');
-        }
-        onNavigate('apropos');
+        handleSmoothClose(() => {
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', '/#apropos');
+          }
+          onNavigate('apropos');
+        });
       },
     },
     {
@@ -136,11 +226,12 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       tag: '(4) SANCTUAIRES & LIEUX DE SOIN',
       image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=85',
       action: () => {
-        onClose();
-        if (window.history && window.history.pushState) {
-          window.history.pushState(null, '', '/lieux');
-        }
-        onNavigate('lieux');
+        handleSmoothClose(() => {
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', '/lieux');
+          }
+          onNavigate('lieux');
+        });
       },
     },
     {
@@ -151,11 +242,12 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       tag: '(5) BIBLIOTHÈQUE PÉDAGOGIQUE & REPÈRES',
       image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1200&q=85',
       action: () => {
-        onClose();
-        if (window.history && window.history.pushState) {
-          window.history.pushState(null, '', '/ressources');
-        }
-        onNavigate('ressources');
+        handleSmoothClose(() => {
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', '/ressources');
+          }
+          onNavigate('ressources');
+        });
       },
     },
     {
@@ -166,11 +258,12 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       tag: '(6) BOUTIQUE & CARTE CADEAU',
       image: 'https://www.maisoncerezy.fr/wp-content/uploads/2024/03/istockphoto-1441979693-612x612-1.jpg',
       action: () => {
-        onClose();
-        if (window.history && window.history.pushState) {
-          window.history.pushState(null, '', '/boutique');
-        }
-        onNavigate('boutique');
+        handleSmoothClose(() => {
+          if (window.history && window.history.pushState) {
+            window.history.pushState(null, '', '/boutique');
+          }
+          onNavigate('boutique');
+        });
       },
     },
   ];
@@ -178,29 +271,35 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
   const activeItem = menuItems[activeItemIndex] || menuItems[0];
 
   const handleSubItemClick = (subId: string) => {
-    onClose();
-    onNavigate('prestations', subId);
+    handleSmoothClose(() => {
+      onNavigate('prestations', subId);
+    });
   };
 
   return (
     <div
+      ref={modalRef}
       id="fullscreen-menu-modal"
-      className="fixed inset-0 z-50 flex flex-col lg:flex-row overflow-hidden bg-[#FAF8F5] animate-fade-in font-sans select-none"
+      className="fixed inset-0 z-50 flex flex-col lg:flex-row overflow-hidden bg-[#FAF8F5]/98 backdrop-blur-2xl font-sans select-none shadow-2xl"
+      style={{
+        clipPath: 'circle(0% at calc(100% - 48px) 36px)',
+      }}
     >
       
       {/* LEFT PANEL - Menu Items & Details */}
       <div className="w-full lg:w-[58%] h-full flex flex-col justify-between p-5 sm:p-8 lg:p-10 xl:p-12 overflow-y-auto lg:overflow-hidden bg-[#FAF8F5] text-[#1C1A17] z-10 border-r border-[#E5E0D8]">
         
         {/* Top Header with Brand */}
-        <div className="flex items-center justify-between gap-3 mb-2 sm:mb-4 lg:mb-6 shrink-0 pb-3 border-b border-[#E8E3DA]">
+        <div className="stagger-menu-detail flex items-center justify-between gap-3 mb-2 sm:mb-4 lg:mb-6 shrink-0 pb-3 border-b border-[#E8E3DA]">
           <div className="flex items-center gap-3">
             <button
               onClick={() => {
-                onClose();
-                if (window.history && window.history.pushState) {
-                  window.history.pushState(null, '', '/');
-                }
-                onNavigate('home');
+                handleSmoothClose(() => {
+                  if (window.history && window.history.pushState) {
+                    window.history.pushState(null, '', '/');
+                  }
+                  onNavigate('home');
+                });
               }}
               className="flex items-center gap-2 group cursor-pointer focus:outline-none"
               title="Retour à l'accueil"
@@ -224,7 +323,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
 
           {/* Close button on mobile only */}
           <button
-            onClick={onClose}
+            onClick={() => handleSmoothClose()}
             className="lg:hidden p-2 rounded-full bg-[#1C1A17]/5 text-[#1C1A17] hover:bg-[#1C1A17]/10 transition-colors cursor-pointer"
             aria-label="Fermer le menu"
           >
@@ -247,7 +346,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
                     setPrestationsSubOpen(true);
                   }
                 }}
-                className={`group border-b border-[#E8E3DA] pb-2 sm:pb-3 transition-all duration-300 ${
+                className={`stagger-menu-item group border-b border-[#E8E3DA] pb-2 sm:pb-3 transition-all duration-300 ${
                   isHovered ? 'border-[#20352B]' : ''
                 }`}
               >
@@ -291,7 +390,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
 
                 {/* Dropdown panel for Prestations */}
                 {isPrestations && (prestationsSubOpen || isHovered) && (
-                  <div className="nav-dropdown-panel mt-2.5 ml-6 sm:ml-8 pl-3 border-l-2 border-[#344E41]/30 py-1 space-y-1.5 animate-fade-in">
+                  <div className="nav-dropdown-panel mt-2.5 ml-6 sm:ml-8 pl-3 border-l-2 border-[#344E41]/30 py-1 space-y-1.5">
                     {item.subItems?.map((sub) => (
                       <button
                         key={sub.id}
@@ -311,14 +410,15 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
           })}
 
           {/* Back to Home Button placed under Boutique div */}
-          <div className="pt-4 sm:pt-6 shrink-0">
+          <div className="stagger-menu-detail pt-4 sm:pt-6 shrink-0">
             <button
               onClick={() => {
-                onClose();
-                if (window.history && window.history.pushState) {
-                  window.history.pushState(null, '', '/');
-                }
-                onNavigate('home');
+                handleSmoothClose(() => {
+                  if (window.history && window.history.pushState) {
+                    window.history.pushState(null, '', '/');
+                  }
+                  onNavigate('home');
+                });
               }}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#20352B] hover:bg-[#2A4237] text-white font-medium text-xs sm:text-sm transition-all duration-300 cursor-pointer shadow-md hover:shadow-lg group"
               title="Retour à l'accueil"
@@ -339,7 +439,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
         {menuItems.map((item, index) => (
           <div
             key={item.id}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+            className={`absolute inset-0 transition-all duration-400 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
               activeItemIndex === index ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
           >
@@ -354,11 +454,12 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
         ))}
 
         {/* Top Right Bar: Réserver Button + Exit / Fermer Button */}
-        <div className="relative z-20 flex items-center justify-end gap-3 ml-auto">
+        <div className="stagger-menu-detail relative z-20 flex items-center justify-end gap-3 ml-auto">
           <button
             onClick={() => {
-              onClose();
-              onOpenBooking();
+              handleSmoothClose(() => {
+                onOpenBooking();
+              });
             }}
             className="px-5 py-2.5 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300 shadow-lg cursor-pointer flex items-center gap-2 border border-white/20"
           >
@@ -371,7 +472,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
           {/* Dedicated Exit Button on Right panel */}
           <button
             id="menu-exit-button-right"
-            onClick={onClose}
+            onClick={() => handleSmoothClose()}
             className="p-2.5 rounded-full bg-black/60 hover:bg-black/80 active:bg-black text-white border border-white/30 transition-all duration-300 cursor-pointer backdrop-blur-md shadow-lg group"
             aria-label="Fermer le menu"
             title="Fermer et retourner à la page"
@@ -381,7 +482,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
         </div>
 
         {/* Bottom Preview Overlay Info */}
-        <div className="relative z-20 text-white space-y-3 max-w-lg mt-auto pt-12">
+        <div className="stagger-menu-detail relative z-20 text-white space-y-3 max-w-lg mt-auto pt-12">
           <span className="inline-block font-mono text-xs tracking-[0.25em] uppercase text-[#AEB9A9] font-bold">
             {activeItem.tag}
           </span>
@@ -395,11 +496,12 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
             <button
               onClick={() => {
                 if (activeItem.id === 'prestations') {
-                  onClose();
-                  if (window.history && window.history.pushState) {
-                    window.history.pushState(null, '', '/prestations');
-                  }
-                  onNavigate('prestations');
+                  handleSmoothClose(() => {
+                    if (window.history && window.history.pushState) {
+                      window.history.pushState(null, '', '/prestations');
+                    }
+                    onNavigate('prestations');
+                  });
                 } else {
                   activeItem.action();
                 }
@@ -417,4 +519,3 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
     </div>
   );
 };
-

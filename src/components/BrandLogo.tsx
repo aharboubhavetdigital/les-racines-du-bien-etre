@@ -1,6 +1,5 @@
 import React from 'react';
-import logoV4Url from '../assets/images/logo v4 .svg';
-import logoRectanglePng from '../assets/images/logo rectangle .png';
+import logoV10Png from '../assets/images/logo v10.png';
 
 export interface BrandLogoProps {
   variant?: 'dark' | 'light' | 'original';
@@ -21,20 +20,12 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   useMobileV5 = true,
   className = ''
 }) => {
-  // Height sizing for the desktop logo image
+  // Height sizing for desktop & phone logo image
   const logoHeight = {
-    sm: 'h-9 sm:h-[72px]',
-    md: 'h-13 sm:h-16 md:h-[76px]',
-    lg: 'h-16 sm:h-20 md:h-24',
-    xl: 'h-28 sm:h-36 md:h-44'
-  }[size];
-
-  // Balanced mobile height sizing for mobile logo rectangle on phone screens
-  const mobileLogoHeight = {
-    sm: 'h-[42px]',
-    md: 'h-12 sm:h-14',
-    lg: 'h-14 sm:h-16',
-    xl: 'h-18 sm:h-22'
+    sm: 'h-[40px] sm:h-16 md:h-[76px]',
+    md: 'h-[52px] sm:h-20 md:h-[92px]',
+    lg: 'h-[80px] sm:h-24 md:h-[110px]',
+    xl: 'h-28 sm:h-36 md:h-[160px]'
   }[size];
 
   // Optional filter adjustments for dark vs light variants
@@ -52,29 +43,13 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
-      {useMobileV5 ? (
-        <>
-          {/* Mobile Logo: logo rectangle .png */}
-          <img
-            src={logoRectanglePng}
-            alt="Les Racines du Bien-Être"
-            className={`block md:hidden ${mobileLogoHeight} w-auto object-contain ${getVariantFilter()}`}
-          />
-          {/* Desktop Logo: logo v4 .svg */}
-          <img
-            src={logoV4Url}
-            alt="Les Racines du Bien-Être"
-            className={`hidden md:block ${logoHeight} w-auto object-contain ${getVariantFilter()}`}
-          />
-        </>
-      ) : (
-        <img
-          src={logoV4Url}
-          alt="Les Racines du Bien-Être"
-          className={`${logoHeight} w-auto object-contain ${getVariantFilter()}`}
-        />
-      )}
+      <img
+        src={logoV10Png}
+        alt="Les Racines du Bien-Être"
+        className={`${logoHeight} w-auto object-contain ${getVariantFilter()}`}
+      />
     </div>
   );
 };
+
 
