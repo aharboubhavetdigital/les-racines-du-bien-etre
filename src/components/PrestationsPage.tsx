@@ -353,7 +353,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
             </div>
           </div>
 
-          {/* GRID OF CARDS (2-COLUMNS ON DESKTOP, CARD 7 IS FULL-WIDTH) */}
+          {/* GRID OF CARDS (2-COLUMNS ON DESKTOP, MATCHING EDITORIAL SCREENSHOT) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {PRESTATIONS_DATA.map((item, index) => {
               const isFullWidth = index === PRESTATIONS_DATA.length - 1 && PRESTATIONS_DATA.length % 2 !== 0;
@@ -365,48 +365,51 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
                     if (el) cardsRef.current[index] = el;
                   }}
                   onClick={() => handleItemClick(item)}
-                  className={`group relative p-8 sm:p-10 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden ${isFullWidth
-                      ? 'md:col-span-2 bg-[#E7ECE5] border-[#20352B]/20 hover:border-[#20352B]/40 hover:shadow-xl'
-                      : 'bg-white border-[#20352B]/15 hover:border-[#20352B]/40 hover:shadow-xl'
-                    }`}
+                  className={`group relative p-6 sm:p-8 rounded-[20px] bg-white border border-[#E2DDD3] hover:border-[#55695B]/40 hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden ${
+                    isFullWidth ? 'md:col-span-2' : ''
+                  }`}
                 >
-                  {/* IMAGE THUMBNAIL / BANNER */}
-                  <div className="relative w-full h-52 sm:h-60 rounded-xl overflow-hidden mb-8">
+                  {/* IMAGE THUMBNAIL / BANNER WITH TOP-LEFT PILL BADGE */}
+                  <div className="relative w-full h-52 sm:h-60 rounded-xl overflow-hidden mb-6">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#20352B]/40 via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-xs font-mono text-[10px] tracking-[0.2em] uppercase text-[#20352B] font-medium">
-                      {item.categoryLabel}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                    
+                    {/* Floating Pill Badge top-left */}
+                    <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase text-[#20352B] font-semibold border border-white/50 shadow-xs">
+                      {item.category.toUpperCase()}
                     </div>
                   </div>
 
-                  <div className="space-y-4">
-                    {/* TOP LINE */}
-                    <div className="flex items-center justify-between font-mono text-xs tracking-[0.18em] text-[#6F8275] uppercase">
-                      <span>{item.number} — PRESTATION</span>
-                      <div className="w-9 h-9 rounded-full border border-[#20352B]/20 flex items-center justify-center text-[#20352B] group-hover:bg-[#20352B] group-hover:text-white transition-all">
-                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </div>
+                  {/* CARD BODY */}
+                  <div className="space-y-3">
+                    {/* NUMBER + DASH */}
+                    <div className="flex items-center gap-2 font-mono text-xs tracking-wider text-[#8A9A86] uppercase font-semibold">
+                      <span>{item.number}</span>
+                      <span className="w-6 h-[1px] bg-[#8A9A86]" />
                     </div>
 
                     {/* TITLE */}
-                    <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#20352B] group-hover:text-[#6F8275] transition-colors">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#20352B] group-hover:text-[#55695B] transition-colors leading-tight">
                       {item.title}
                     </h3>
 
                     {/* DESCRIPTION */}
-                    <p className="font-sans text-sm text-[#20352B]/80 font-light leading-relaxed max-w-xl">
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed max-w-xl">
                       {item.description}
                     </p>
                   </div>
 
-                  <div className="pt-8 mt-6 border-t border-[#20352B]/10 flex items-center justify-between font-mono text-xs tracking-[0.16em] uppercase text-[#20352B] font-medium group-hover:text-[#6F8275]">
+                  {/* CARD FOOTER */}
+                  <div className="pt-6 mt-6 border-t border-[#E7E3DA] flex items-center justify-between font-mono text-[11px] tracking-[0.18em] uppercase text-[#20352B]/90 font-medium group-hover:text-[#55695B] transition-colors">
                     <span>Découvrir la prestation</span>
-                    <span className="text-lg leading-none">↗</span>
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#A8B8A5]/30 text-[#20352B] group-hover:bg-[#55695B] group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+                      <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
                   </div>
                 </div>
               );
