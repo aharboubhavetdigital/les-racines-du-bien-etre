@@ -150,7 +150,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
               <div className="px-6 pb-6 pt-2">
                 <button
                   onClick={() => handleAdd(product)}
-                  className={`w-full py-3 px-4 rounded-full text-xs font-semibold tracking-[0.18em] uppercase flex items-center justify-center gap-2 transition-all duration-300 ${
+                  className={`w-full py-3 px-4 rounded-full text-xs font-semibold tracking-[0.08em] uppercase whitespace-nowrap flex items-center justify-center gap-2 transition-all duration-300 ${
                     addedId === product.id
                       ? 'bg-[#AEB9A9] text-gray-900'
                       : 'bg-white text-gray-900 hover:bg-white/90 shadow-md'
@@ -158,13 +158,13 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
                 >
                   {addedId === product.id ? (
                     <>
-                      <Check className="w-4 h-4" />
-                      <span>Ajouté au panier</span>
+                      <Check className="w-4 h-4 shrink-0" />
+                      <span className="whitespace-nowrap">Ajouté au panier</span>
                     </>
                   ) : (
                     <>
-                      <ShoppingBag className="w-4 h-4" />
-                      <span>Ajouter au panier</span>
+                      <ShoppingBag className="w-4 h-4 shrink-0" />
+                      <span className="whitespace-nowrap">Ajouter au panier</span>
                     </>
                   )}
                 </button>

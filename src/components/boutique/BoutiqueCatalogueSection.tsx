@@ -213,7 +213,7 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
                     {/* PRIMARY CTA: AJOUTER AU PANIER */}
                     <button
                       onClick={(e) => handleAddToCart(product, e)}
-                      className={`flex-1 py-3 px-2.5 sm:px-3.5 rounded-full font-mono text-[11px] sm:text-xs font-semibold tracking-[0.06em] uppercase whitespace-nowrap flex items-center justify-center gap-1.5 transition-all cursor-pointer min-w-0 ${
+                      className={`flex-1 py-3 px-2 sm:px-3.5 rounded-full font-mono text-[10px] sm:text-xs font-semibold tracking-[0.04em] uppercase whitespace-nowrap flex items-center justify-center gap-1.5 transition-all cursor-pointer shrink-0 ${
                         isAdded
                           ? 'bg-[#6F8275] text-white'
                           : 'bg-[#20352B] hover:bg-[#182820] text-white shadow-xs'
@@ -222,12 +222,12 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
                       {isAdded ? (
                         <>
                           <Check className="w-3.5 h-3.5 shrink-0" />
-                          <span className="truncate">Ajouté</span>
+                          <span className="whitespace-nowrap">Ajouté</span>
                         </>
                       ) : (
                         <>
                           <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
-                          <span className="truncate">Ajouter au panier</span>
+                          <span className="whitespace-nowrap">Ajouter au panier</span>
                         </>
                       )}
                     </button>

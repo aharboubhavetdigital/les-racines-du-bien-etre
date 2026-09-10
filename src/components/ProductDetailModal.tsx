@@ -107,13 +107,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               >
                 {added ? (
                   <>
-                    <Check className="w-4 h-4 text-[#344E41]" />
-                    <span>Ajouté au panier</span>
+                    <Check className="w-4 h-4 text-[#344E41] shrink-0" />
+                    <span className="whitespace-nowrap">Ajouté au panier</span>
                   </>
                 ) : (
                   <>
-                    <ShoppingBag className="w-4 h-4" />
-                    <span>Ajouter au panier</span>
+                    <ShoppingBag className="w-4 h-4 shrink-0" />
+                    <span className="whitespace-nowrap">Ajouter au panier</span>
                   </>
                 )}
               </button>
