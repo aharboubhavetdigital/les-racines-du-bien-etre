@@ -1,6 +1,46 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Calendar, ArrowUpRight, CheckCircle2, Sparkles, Compass, BookOpen, Heart, Activity, Moon, Utensils, Feather, Compass as CompassIcon, ChevronRight, ArrowLeft } from 'lucide-react';
 import gsap from 'gsap';
+import { HaloReel, type HaloReelItem } from './ui/halo-reel';
+
+const HALO_REEL_ITEMS: HaloReelItem[] = [
+  {
+    src: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
+    alt: 'Séance de relaxation et méditation',
+    title: 'ÉQUILIBRE',
+    subtitle: 'Hygiène de vie'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80',
+    alt: 'Soins naturels et huiles essentielles',
+    title: 'HUILES',
+    subtitle: 'Plantes & Énergies'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1512290900676-26c2a7a795b1?auto=format&fit=crop&w=800&q=80',
+    alt: 'Tisanes et phytothérapie',
+    title: 'PHYTOTHÉRAPIE',
+    subtitle: 'Herboristerie'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+    alt: 'Gestion du stress et respiration',
+    title: 'SOMMEIL',
+    subtitle: 'Rythmes naturels'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
+    alt: 'Micronutrition et compléments',
+    title: 'VITALITÉ',
+    subtitle: 'Micronutrition'
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80',
+    alt: 'Feuillage vert et nature',
+    title: 'HARMONIE',
+    subtitle: 'Nature & Santé'
+  }
+];
 
 interface RessourcesPageProps {
   onNavigateHome: (targetSection?: string) => void;
@@ -186,58 +226,40 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
           </div>
         </div>
 
-        {/* Right Half: Visual Nature Photo & 3D Interactive Depth Container */}
+        {/* Right Half: HaloReel Orbit Auto-Animation Carousel */}
         <div
           ref={heroRightRef}
-          onMouseMove={handleHeroImageMove}
-          onMouseLeave={handleHeroImageLeave}
-          className="w-full lg:w-1/2 min-h-[420px] sm:min-h-[520px] lg:min-h-full relative flex items-center justify-center p-4 sm:p-8 lg:p-12 overflow-hidden"
-          style={{ perspective: '1200px' }}
+          className="w-full lg:w-1/2 min-h-[460px] sm:min-h-[540px] lg:min-h-[600px] relative flex items-center justify-center overflow-hidden p-2 sm:p-6"
         >
-          {/* Interactive 3D Card Container */}
-          <div
-            ref={imageCardRef}
-            onMouseEnter={() => setIsHoveringImage(true)}
-            onMouseLeave={() => setIsHoveringImage(false)}
-            className="relative w-full h-full min-h-[420px] sm:min-h-[520px] lg:h-[88%] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transition-shadow duration-500 border border-white/15 bg-[#20352B]"
-            style={{ transformStyle: 'preserve-3d' }}
-          >
-            {/* Lush Sunlight Leaves Photography */}
-            <img
-              src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1600&q=85"
-              alt="Feuillage vert baigné de lumière naturelle"
-              referrerPolicy="no-referrer"
-              className={`w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.05] transition-transform duration-700 ease-out ${
-                isHoveringImage ? 'scale-105' : 'scale-100'
-              }`}
-            />
-
-            {/* Subtle Vignette & Natural Gradients */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
-
-            {/* Floating 3D Depth Badge: Bottom Left */}
-            <div
-              className="absolute bottom-6 left-6 right-6 sm:right-auto bg-black/40 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/20 text-white transition-transform duration-300 pointer-events-none"
-              style={{ transform: 'translateZ(30px)' }}
-            >
-              <div className="flex items-center gap-2 text-[#D8CFBF] font-mono text-[10px] tracking-widest uppercase mb-1">
-                <BookOpen className="w-3.5 h-3.5" />
-                <span>Bibliothèque Pédagogique</span>
+          <HaloReel
+            items={HALO_REEL_ITEMS}
+            aria-label="Ressources et thématiques du bien-être"
+            centerLabel={
+              <div className="flex flex-col items-center justify-center text-center space-y-1.5 z-0 pointer-events-none px-4">
+                <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
+                  LES RACINES
+                </span>
+                <span className="font-serif-editorial text-2xl sm:text-4xl font-light text-white tracking-tight leading-none drop-shadow-md">
+                  Du Bien-Être
+                </span>
+                <span className="font-mono text-[9px] sm:text-[10px] text-white/70 tracking-widest uppercase">
+                  Bibliothèque Vitalité
+                </span>
               </div>
-              <p className="font-serif-editorial text-sm sm:text-base font-normal text-white">
-                Conseils & observations pour un quotidien équilibré
-              </p>
-            </div>
-
-            {/* Floating 3D Badge: Top Right */}
-            <div
-              className="absolute top-6 right-6 bg-white/90 text-[#1C1A17] backdrop-blur-md px-3.5 py-1.5 rounded-full text-[11px] font-medium tracking-wide shadow-lg border border-white/40 flex items-center gap-1.5"
-              style={{ transform: 'translateZ(25px)' }}
-            >
-              <span className="w-2 h-2 rounded-full bg-[#506456] animate-pulse" />
-              <span>6 repères essentiels</span>
-            </div>
-          </div>
+            }
+            cardWidth={140}
+            cardHeight={190}
+            minScale={0.42}
+            radiusXRatio={0.38}
+            radiusYRatio={0.32}
+            autoPlay={true}
+            holdDuration={800}
+            stepDuration={900}
+            pauseOnHover={false}
+            draggable={false}
+            showCenterLabel={true}
+            className="w-full h-[450px] sm:h-[520px] lg:h-[580px]"
+          />
         </div>
       </section>
 
