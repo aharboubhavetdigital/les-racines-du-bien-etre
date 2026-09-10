@@ -117,8 +117,8 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[3000] transition-all duration-500 ${scrolled
-        ? 'bg-white/90 backdrop-blur-xl border-b border-[#E5DFD5] py-3 sm:py-4 shadow-md'
-        : 'bg-gradient-to-b from-white/[0.86] via-white/[0.86] to-white/20 backdrop-blur-md py-4 sm:py-5 lg:py-6'
+        ? 'bg-white/90 backdrop-blur-xl border-b border-[#E5DFD5] py-2.5 sm:py-3 shadow-md'
+        : 'bg-gradient-to-b from-white/[0.86] via-white/[0.86] to-white/20 backdrop-blur-md py-3.5 sm:py-4 lg:py-4'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
