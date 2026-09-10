@@ -248,30 +248,30 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 0)}
               onMouseLeave={() => handleCardMouseLeave(0)}
-              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
+              className="group relative bg-white rounded-[28px] overflow-hidden p-5 sm:p-6 lg:p-7 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
-                <div className="flex-1 flex flex-col justify-between space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-between h-full">
+                <div className="flex-1 min-w-0 flex flex-col justify-between space-y-3 sm:space-y-4">
                   <div>
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">01</span>
-                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
-                      <span className="font-mono text-[11px] tracking-wider px-3.5 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider shrink-0">01</span>
+                      <span className="h-[1px] w-5 sm:w-7 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3] truncate">
                         Observation
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                    <h3 className="font-serif text-xl sm:text-2xl lg:text-[23px] font-normal text-[#20352B] leading-snug mt-3 group-hover:text-[#506456] transition-colors">
                       Observer avant de vouloir corriger
                     </h3>
 
-                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-2.5">
                       Pendant quelques jours, noter simplement ses horaires, ses repas, son niveau d’énergie perçu, ses pauses et ses temps de récupération peut aider à faire apparaître des régularités sans se surveiller.
                     </p>
                   </div>
                 </div>
 
-                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80"
                     alt="Observation"
@@ -289,41 +289,41 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 1)}
               onMouseLeave={() => handleCardMouseLeave(1)}
-              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
+              className="group relative bg-white rounded-[28px] overflow-hidden p-5 sm:p-6 lg:p-7 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
-                <div className="flex-1 flex flex-col justify-between space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-between h-full">
+                <div className="flex-1 min-w-0 flex flex-col justify-between space-y-3 sm:space-y-4">
                   <div>
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">02</span>
-                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
-                      <span className="font-mono text-[11px] tracking-wider px-3.5 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider shrink-0">02</span>
+                      <span className="h-[1px] w-5 sm:w-7 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3] truncate">
                         Récupération
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                    <h3 className="font-serif text-xl sm:text-2xl lg:text-[23px] font-normal text-[#20352B] leading-snug mt-3 group-hover:text-[#506456] transition-colors">
                       Sommeil et récupération
                     </h3>
 
-                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-2.5">
                       La récupération ne dépend pas d'une seule astuce. Les horaires, la lumière, les écrans et l'environnement de la chambre peuvent être observés ensemble.
                     </p>
                   </div>
 
-                  <ul className="space-y-2 pt-3.5 border-t border-[#20352B]/10 text-xs text-[#20352B]/80 font-light">
+                  <ul className="space-y-1.5 pt-3 border-t border-[#20352B]/10 text-xs text-[#20352B]/80 font-light">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
-                      <span>Transition activité / repos</span>
+                      <span className="truncate">Transition activité / repos</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
-                      <span>Horaires réguliers & vraies pauses</span>
+                      <span className="truncate">Horaires réguliers & vraies pauses</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
                     alt="Récupération"
@@ -341,41 +341,41 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 2)}
               onMouseLeave={() => handleCardMouseLeave(2)}
-              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
+              className="group relative bg-white rounded-[28px] overflow-hidden p-5 sm:p-6 lg:p-7 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
-                <div className="flex-1 flex flex-col justify-between space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-between h-full">
+                <div className="flex-1 min-w-0 flex flex-col justify-between space-y-3 sm:space-y-4">
                   <div>
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">03</span>
-                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
-                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider shrink-0">03</span>
+                      <span className="h-[1px] w-5 sm:w-7 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3] truncate">
                         Équilibre
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                    <h3 className="font-serif text-xl sm:text-2xl lg:text-[23px] font-normal text-[#20352B] leading-snug mt-3 group-hover:text-[#506456] transition-colors">
                       Stress et équilibre émotionnel
                     </h3>
 
-                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-2.5">
                       Identifier ce qui sollicite le plus, reconnaître les signaux d’alerte et mettre en place des pratiques courtes et répétables au quotidien.
                     </p>
                   </div>
 
-                  <ul className="space-y-2 pt-3.5 border-t border-[#20352B]/10 text-xs text-[#20352B]/80 font-light">
+                  <ul className="space-y-1.5 pt-3 border-t border-[#20352B]/10 text-xs text-[#20352B]/80 font-light">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
-                      <span>Respiration et relaxation</span>
+                      <span className="truncate">Respiration et relaxation</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
-                      <span>Pauses sans écran</span>
+                      <span className="truncate">Pauses sans écran</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80"
                     alt="Équilibre"
@@ -393,30 +393,30 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 3)}
               onMouseLeave={() => handleCardMouseLeave(3)}
-              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
+              className="group relative bg-white rounded-[28px] overflow-hidden p-5 sm:p-6 lg:p-7 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
-                <div className="flex-1 flex flex-col justify-between space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-between h-full">
+                <div className="flex-1 min-w-0 flex flex-col justify-between space-y-3 sm:space-y-4">
                   <div>
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">04</span>
-                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
-                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider shrink-0">04</span>
+                      <span className="h-[1px] w-5 sm:w-7 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3] truncate">
                         Vitalité
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                    <h3 className="font-serif text-xl sm:text-2xl lg:text-[23px] font-normal text-[#20352B] leading-snug mt-3 group-hover:text-[#506456] transition-colors">
                       Alimentation et hydratation
                     </h3>
 
-                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-2.5">
                       Avant de chercher un régime idéal, observer la régularité, la variété, les sensations, le contexte des repas et l’hydratation régulière.
                     </p>
                   </div>
                 </div>
 
-                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src="https://images.unsplash.com/photo-1534531141161-e49d137061d4?auto=format&fit=crop&w=600&q=80"
                     alt="Vitalité"
@@ -434,30 +434,30 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 4)}
               onMouseLeave={() => handleCardMouseLeave(4)}
-              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
+              className="group relative bg-white rounded-[28px] overflow-hidden p-5 sm:p-6 lg:p-7 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
-                <div className="flex-1 flex flex-col justify-between space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-between h-full">
+                <div className="flex-1 min-w-0 flex flex-col justify-between space-y-3 sm:space-y-4">
                   <div>
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">05</span>
-                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
-                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider shrink-0">05</span>
+                      <span className="h-[1px] w-5 sm:w-7 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3] truncate">
                         Mouvement
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                    <h3 className="font-serif text-xl sm:text-2xl lg:text-[23px] font-normal text-[#20352B] leading-snug mt-3 group-hover:text-[#506456] transition-colors">
                       Mouvement et vie quotidienne
                     </h3>
 
-                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-2.5">
                       Marche, mobilité douce et interruptions régulières de la sédentarité forment une base physique accessible et pérenne.
                     </p>
                   </div>
                 </div>
 
-                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80"
                     alt="Mouvement"
@@ -475,10 +475,10 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 5)}
               onMouseLeave={() => handleCardMouseLeave(5)}
-              className="group relative bg-[#162920] text-white rounded-[28px] p-6 sm:p-8 border border-[#162920] shadow-[0_12px_35px_rgba(22,41,32,0.25)] hover:shadow-[0_20px_45px_rgba(22,41,32,0.35)] transition-all duration-400 flex flex-col justify-between overflow-hidden"
+              className="group relative bg-[#162920] text-white rounded-[28px] overflow-hidden p-5 sm:p-6 lg:p-7 border border-[#162920] shadow-[0_12px_35px_rgba(22,41,32,0.25)] hover:shadow-[0_20px_45px_rgba(22,41,32,0.35)] transition-all duration-400 flex flex-col justify-between"
             >
               {/* Right Side Botanical Branch Visual Overlay */}
-              <div className="absolute top-0 right-0 w-[160px] sm:w-[190px] h-full pointer-events-none opacity-45 group-hover:opacity-60 transition-opacity">
+              <div className="absolute top-0 right-0 w-[140px] sm:w-[170px] h-full pointer-events-none opacity-40 group-hover:opacity-55 transition-opacity">
                 <svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#A8B7A7]">
                   <path d="M130 10C130 100 180 180 145 290" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                   <path d="M130 35C100 25 70 40 60 60C75 70 105 60 128 40" fill="currentColor" fillOpacity="0.5" />
@@ -490,33 +490,33 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               </div>
 
               <div className="flex flex-col justify-between h-full space-y-4 relative z-10">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-[#A8B7A7] font-semibold tracking-wider">06</span>
-                    <span className="h-[1px] w-6 sm:w-8 bg-white/20 shrink-0" />
-                    <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-white/10 text-white font-semibold border border-white/20">
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center gap-2.5">
+                    <span className="font-mono text-xs text-[#A8B7A7] font-semibold tracking-wider shrink-0">06</span>
+                    <span className="h-[1px] w-5 sm:w-7 bg-white/20 shrink-0" />
+                    <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-white/10 text-white font-semibold border border-white/20 truncate">
                       Durabilité
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-white leading-snug">
+                  <h3 className="font-serif text-xl sm:text-2xl lg:text-[23px] font-normal text-white leading-snug">
                     Installer une habitude durable
                   </h3>
 
-                  <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-[260px] sm:max-w-none">
+                  <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-[240px] sm:max-w-none">
                     Un changement durable est précis, simple à répéter et ancré dans un moment déjà présent dans votre journée.
                   </p>
                 </div>
 
                 <div>
-                  <ul className="space-y-2 pt-3.5 border-t border-white/15 text-xs text-white/90 font-light mb-3">
+                  <ul className="space-y-1.5 pt-3 border-t border-white/15 text-xs text-white/90 font-light mb-3">
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
-                      <span>Priorité unique & version minimale</span>
+                      <span className="truncate">Priorité unique & version minimale</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
-                      <span>Ajustements bienveillants sans perfectionnisme</span>
+                      <span className="truncate">Ajustements bienveillants sans perfectionnisme</span>
                     </li>
                   </ul>
 
