@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight } from 'lucide-react';
+import { Leaf, Droplet, Home, ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +12,8 @@ export interface CategoryUniverse {
   categoryFilter: 'Compléments alimentaires' | 'Huiles' | 'Maison & rituel';
   description: string;
   image: string;
-  ctaText: string;
+  icon: React.ElementType;
+  buttonBg: string;
 }
 
 const UNIVERSES: CategoryUniverse[] = [
@@ -23,7 +24,8 @@ const UNIVERSES: CategoryUniverse[] = [
     categoryFilter: 'Compléments alimentaires',
     description: 'Des gélules et compléments naturels présentés avec clarté, précautions et transparence.',
     image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1000&q=85',
-    ctaText: 'EXPLORER'
+    icon: Leaf,
+    buttonBg: 'bg-[#3D5245] hover:bg-[#20352B]'
   },
   {
     id: 'huiles',
@@ -32,7 +34,8 @@ const UNIVERSES: CategoryUniverse[] = [
     categoryFilter: 'Huiles',
     description: 'Des textures sensorielles et huiles essentielles pour accompagner les gestes de bien-être.',
     image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1000&q=85',
-    ctaText: 'EXPLORER'
+    icon: Droplet,
+    buttonBg: 'bg-[#8C7355] hover:bg-[#735D43]'
   },
   {
     id: 'maison-rituel',
@@ -41,7 +44,8 @@ const UNIVERSES: CategoryUniverse[] = [
     categoryFilter: 'Maison & rituel',
     description: 'Des objets simples pour créer des temps de pause dans le quotidien.',
     image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=85',
-    ctaText: 'EXPLORER'
+    icon: Home,
+    buttonBg: 'bg-[#3D5245] hover:bg-[#20352B]'
   }
 ];
 
@@ -126,59 +130,63 @@ export const BoutiqueCategoryUniverses: React.FC<BoutiqueCategoryUniversesProps>
           </div>
         </div>
 
-        {/* 3 LARGE IMAGE CARDS MATCHING IMAGE 2 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {UNIVERSES.map((universe, index) => (
-            <div
-              key={universe.id}
-              ref={(el) => {
-                if (el) cardsRef.current[index] = el;
-              }}
-              onClick={() => handleUniverseClick(universe.categoryFilter)}
-              className="group relative min-h-[480px] sm:min-h-[540px] lg:min-h-[580px] rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer bg-[#181D1A] border border-white/10 shadow-lg flex flex-col justify-between p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-white/30"
-            >
-              {/* FULL-HEIGHT BACKGROUND IMAGE */}
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <img
-                  src={universe.image}
-                  alt={universe.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.08] transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                {/* DARK GRADIENT OVERLAY FOR DYNAMIC LEGIBILITY & DEEP MOOD */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
-              </div>
-
-              {/* TOP BAR: CIRCULAR BADGES */}
-              <div className="relative z-10 flex justify-between items-center">
-                {/* TOP LEFT NUMBER BADGE */}
-                <div className="w-10 h-10 rounded-full border border-white/30 bg-white/20 backdrop-blur-md flex items-center justify-center font-mono text-xs font-semibold text-white tracking-wider shadow-xs">
-                  {universe.number}
+        {/* 3 PREMIUM BOTANICAL EDITORIAL CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch">
+          {UNIVERSES.map((universe, index) => {
+            const Icon = universe.icon;
+            return (
+              <div
+                key={universe.id}
+                ref={(el) => {
+                  if (el) cardsRef.current[index] = el;
+                }}
+                onClick={() => handleUniverseClick(universe.categoryFilter)}
+                className="group relative rounded-[20px] overflow-hidden cursor-pointer bg-[#F8F7F3] border border-[#E3DEC3]/60 shadow-xs hover:shadow-xl flex flex-col justify-between transition-all duration-450 ease-out hover:-translate-y-1.5"
+              >
+                {/* TOP 60% IMAGE CONTAINER */}
+                <div className="relative h-[250px] sm:h-[270px] lg:h-[290px] w-full overflow-hidden rounded-t-[20px]">
+                  <img
+                    src={universe.image}
+                    alt={universe.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover filter brightness-[0.96] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                  />
+                  {/* TOP-LEFT NUMBER BADGE */}
+                  <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-xs text-[#20352B] font-mono text-xs font-semibold flex items-center justify-center shadow-xs border border-black/5">
+                    {universe.number}
+                  </div>
                 </div>
 
-                {/* TOP RIGHT ARROW BADGE */}
-                <div className="w-10 h-10 rounded-full border border-white/30 bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-[#181D1A] group-hover:scale-110 shadow-xs">
-                  <ArrowUpRight className="w-4 h-4" />
+                {/* BOTTOM 40% CONTENT CONTAINER */}
+                <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 space-y-4 bg-[#F8F7F3]">
+                  <div className="space-y-2.5">
+                    {/* TITLE & BOTANICAL ICON */}
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-serif text-2xl sm:text-3xl text-[#20352B] font-normal leading-snug">
+                        {universe.title}
+                      </h3>
+                      <Icon className="w-6 h-6 text-[#20352B]/60 stroke-[1.25] shrink-0 mt-1" />
+                    </div>
+
+                    {/* DESCRIPTION */}
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed">
+                      {universe.description}
+                    </p>
+                  </div>
+
+                  {/* PILL CTA BUTTON */}
+                  <div className="pt-2">
+                    <button
+                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white font-mono text-xs tracking-[0.14em] uppercase font-semibold transition-all duration-300 shadow-xs cursor-pointer ${universe.buttonBg}`}
+                    >
+                      <span>DÉCOUVRIR</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              {/* BOTTOM: TITLE, DESCRIPTION, EXPLORER CTA */}
-              <div className="relative z-10 space-y-3 sm:space-y-4">
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-white leading-tight">
-                  {universe.title}
-                </h3>
-
-                <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-xs sm:max-w-sm">
-                  {universe.description}
-                </p>
-
-                <div className="pt-2 flex items-center gap-2 font-mono text-xs tracking-[0.2em] uppercase text-white font-medium group-hover:text-[#AEB9A9] transition-colors">
-                  <span>{universe.ctaText}</span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
