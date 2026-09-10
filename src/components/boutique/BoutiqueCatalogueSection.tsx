@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Product } from '../../types';
-import { ShoppingBag, ArrowUpRight, Check } from 'lucide-react';
+import { ShoppingBag, ArrowUpRight, Check, Leaf, Pill, Droplet, Coffee } from 'lucide-react';
 import gsap from 'gsap';
 
 interface BoutiqueCatalogueSectionProps {
@@ -12,10 +12,11 @@ interface BoutiqueCatalogueSectionProps {
 }
 
 const CATEGORY_FILTERS = [
-  'Tout',
-  'Compléments alimentaires',
-  'Huiles',
-  'Maison & rituel'
+  { id: 'tous', label: 'Tous', categoryValue: 'Tout', icon: Leaf },
+  { id: 'complements', label: 'Compléments', categoryValue: 'Compléments alimentaires', icon: Pill },
+  { id: 'huiles', label: 'Huiles', categoryValue: 'Huiles', icon: Droplet },
+  { id: 'infusions', label: 'Infusions', categoryValue: 'Infusions', icon: Coffee },
+  { id: 'maison-rituel', label: 'Maison & rituel', categoryValue: 'Maison & rituel', icon: ShoppingBag },
 ];
 
 export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> = ({
@@ -34,7 +35,8 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
     : products.filter(
         (p) =>
           p.fullCategory?.toLowerCase() === selectedCategory.toLowerCase() ||
-          p.category?.toLowerCase() === selectedCategory.toLowerCase()
+          p.category?.toLowerCase() === selectedCategory.toLowerCase() ||
+          (selectedCategory.toLowerCase() === 'infusions' && (p.category === 'infusions' || p.fullCategory?.toLowerCase().includes('infusion')))
       );
 
   // Animate grid cards when category changes
@@ -76,7 +78,7 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
     >
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
         
-        {/* CATALOGUE HEADER & FILTERS */}
+        {/* CATALOGUE HEADER & CIRCULAR ICON FILTERS */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 border-b border-[#20352B]/15">
           {/* TITLE */}
           <div className="space-y-3 max-w-xl">
@@ -91,21 +93,38 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
             </h2>
           </div>
 
-          {/* FILTER PILL BUTTONS */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          {/* CIRCULAR ICON CATEGORY FILTER BAR */}
+          <div className="flex items-center gap-5 sm:gap-7 overflow-x-auto pb-2 pt-1 no-scrollbar shrink-0">
             {CATEGORY_FILTERS.map((cat) => {
-              const isActive = (selectedCategory || 'Tout') === cat;
+              const isActive = (selectedCategory || 'Tout').toLowerCase() === cat.categoryValue.toLowerCase() ||
+                (selectedCategory === 'Tout' && cat.categoryValue === 'Tout');
+              const IconComp = cat.icon;
+
               return (
                 <button
-                  key={cat}
-                  onClick={() => onSelectCategory(cat)}
-                  className={`px-5 py-2.5 rounded-full font-mono text-xs tracking-[0.1em] uppercase transition-all duration-300 cursor-pointer ${
-                    isActive
-                      ? 'bg-[#20352B] text-white shadow-md border border-[#20352B]'
-                      : 'bg-white/80 hover:bg-white text-[#20352B] border border-[#20352B]/25 hover:border-[#20352B]'
-                  }`}
+                  key={cat.id}
+                  onClick={() => onSelectCategory(cat.categoryValue)}
+                  className="group flex flex-col items-center gap-2 cursor-pointer shrink-0 transition-all duration-300 focus:outline-none"
                 >
-                  {cat}
+                  {/* Circle Icon Container */}
+                  <div
+                    className={`w-14 h-14 sm:w-15 sm:h-15 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      isActive
+                        ? 'bg-[#506456] text-white shadow-lg ring-4 ring-[#506456]/20 scale-105'
+                        : 'bg-[#EFF3EE] hover:bg-[#E2E8E0] text-[#344E41] border border-[#D0DDD0] shadow-xs group-hover:scale-105'
+                    }`}
+                  >
+                    <IconComp className={`w-6 h-6 sm:w-6.5 sm:h-6.5 transition-transform duration-300 ${isActive ? 'text-white' : 'text-[#344E41] group-hover:scale-110'}`} />
+                  </div>
+
+                  {/* Label below */}
+                  <span
+                    className={`font-sans text-xs sm:text-sm transition-colors duration-300 whitespace-nowrap ${
+                      isActive ? 'font-semibold text-[#1C1A17]' : 'font-medium text-[#555048] group-hover:text-[#1C1A17]'
+                    }`}
+                  >
+                    {cat.label}
+                  </span>
                 </button>
               );
             })}

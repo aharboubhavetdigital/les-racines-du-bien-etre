@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight, Pill, Droplet, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,7 +110,7 @@ export const BoutiqueCategoryUniverses: React.FC<BoutiqueCategoryUniversesProps>
       className="w-full bg-[#E7ECE5] text-[#20352B] py-20 sm:py-28 px-6 sm:px-12 lg:px-16 border-b border-[#20352B]/15"
     >
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
-        
+
         {/* TOP EDITORIAL HEADING */}
         <div className="universe-heading grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
           <div className="md:col-span-4">
@@ -149,16 +149,10 @@ export const BoutiqueCategoryUniverses: React.FC<BoutiqueCategoryUniversesProps>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
               </div>
 
-              {/* TOP: CIRCULAR OUTLINE ICON BADGE */}
+              {/* TOP: CIRCULAR OUTLINE NUMBER BADGE */}
               <div className="relative z-10 flex justify-between items-center">
-                <div className="w-11 h-11 rounded-full border border-white/40 backdrop-blur-xs bg-black/20 flex items-center justify-center text-white">
-                  {universe.id === 'complements' ? (
-                    <Pill className="w-5 h-5" />
-                  ) : universe.id === 'huiles' ? (
-                    <Droplet className="w-5 h-5" />
-                  ) : (
-                    <Sparkles className="w-5 h-5" />
-                  )}
+                <div className="w-11 h-11 rounded-full border border-white/40 backdrop-blur-xs bg-black/20 flex items-center justify-center font-mono text-xs font-semibold text-white tracking-wider">
+                  {universe.number}
                 </div>
                 <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xs border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <ArrowUpRight className="w-4 h-4" />
