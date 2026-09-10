@@ -46,13 +46,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
       <div className="relative w-full max-w-2xl bg-white text-[#344E41] rounded-2xl shadow-2xl border border-[#344E41]/20 overflow-hidden my-auto max-h-[92vh] sm:max-h-[90vh] flex flex-col">
 
         {/* Header */}
-        <div className="p-3.5 sm:p-4 bg-[#344E41]/5 border-b border-[#344E41]/10 flex items-center justify-between shrink-0">
-          <span className="font-sans text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-[#344E41]">
+        <div className="p-3.5 sm:p-4 bg-[#344E41]/5 border-b border-[#344E41]/10 flex items-center justify-between shrink-0 gap-2">
+          <span className="font-sans text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-[#344E41] truncate min-w-0">
             Fiche Produit • Apothicairerie
           </span>
           <button
             onClick={onClose}
-            className="p-1.5 text-[#344E41]/60 hover:text-[#344E41] transition-colors cursor-pointer rounded-full hover:bg-[#344E41]/10"
+            className="p-1.5 text-[#344E41]/60 hover:text-[#344E41] transition-colors cursor-pointer rounded-full hover:bg-[#344E41]/10 shrink-0"
             aria-label="Fermer"
           >
             <X className="w-5 h-5" />
@@ -64,7 +64,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 items-center">
 
             {/* Image */}
-            <div className="aspect-square w-full max-w-[240px] sm:max-w-none mx-auto rounded-xl overflow-hidden border border-[#344E41]/15 bg-[#344E41]/5 shadow-xs">
+            <div className="aspect-square w-full max-w-[200px] sm:max-w-none mx-auto rounded-xl overflow-hidden border border-[#344E41]/15 bg-[#344E41]/5 shadow-xs">
               <img
                 src={product.image}
                 alt={product.name}
@@ -121,11 +121,22 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
           {/* Ingredients & Fiche Technique Container */}
           <div className="p-3.5 sm:p-4 bg-[#344E41]/5 border border-[#344E41]/15 rounded-xl space-y-3 transition-all duration-300">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5">
-              <h4 className="font-sans text-xs font-semibold tracking-wider uppercase text-[#344E41] flex items-center gap-1.5">
-                <Leaf className="w-3.5 h-3.5 text-[#344E41] shrink-0" />
-                Ingrédients & Composition Bio
-              </h4>
+            <h4 className="font-sans text-xs font-semibold tracking-wider uppercase text-[#344E41] flex items-center gap-1.5">
+              <Leaf className="w-3.5 h-3.5 text-[#344E41] shrink-0" />
+              Ingrédients & Composition Bio
+            </h4>
+
+            {/* Ingredients Pills */}
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-0.5">
+              {product.ingredients.map((ing, i) => (
+                <span key={i} className="px-2.5 py-1 bg-[#344E41]/10 border border-[#344E41]/20 rounded-full font-sans text-[10px] sm:text-[11px] text-[#344E41] font-medium transition-colors hover:bg-[#344E41]/20">
+                  {ing}
+                </span>
+              ))}
+            </div>
+
+            {/* Button "Voir plus (Fiche technique)" placed cleanly below ingredients */}
+            <div className="pt-1 flex justify-start sm:justify-end">
               <button
                 type="button"
                 onClick={() => setShowTechSpecs(!showTechSpecs)}
@@ -139,14 +150,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <span>{showTechSpecs ? 'Masquer la fiche' : 'Voir plus (Fiche technique)'}</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-500 ease-in-out ${showTechSpecs ? 'rotate-180 text-[#344E41]' : 'text-white'}`} />
               </button>
-            </div>
-
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
-              {product.ingredients.map((ing, i) => (
-                <span key={i} className="px-2.5 py-1 bg-[#344E41]/10 border border-[#344E41]/20 rounded-full font-sans text-[10px] sm:text-[11px] text-[#344E41] font-medium transition-colors hover:bg-[#344E41]/20">
-                  {ing}
-                </span>
-              ))}
             </div>
 
             {/* Fiche Technique Totale du Produit (Smooth Accordion Slide & Fade) */}
