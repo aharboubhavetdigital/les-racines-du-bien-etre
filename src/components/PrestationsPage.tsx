@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Calendar, ArrowUpRight, ArrowLeft } from 'lucide-react';
+import { Calendar, ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ImageStreamHero } from './ui/image-stream-hero';
@@ -438,75 +438,156 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
             </p>
           </div>
 
-          {/* 3-CARD PROCESS GRID */}
+          {/* 3-CARD PROCESS GRID (MATCHING EDITORIAL SCREENSHOT DESIGN) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             
             {/* CARD 01 */}
-            <div className="bg-[#FAF8F5] border border-[#20352B]/12 p-8 sm:p-10 rounded-2xl space-y-5 shadow-xs hover:shadow-md hover:border-[#55695B]/30 transition-all duration-300 flex flex-col justify-between">
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-full bg-[#55695B]/10 text-[#55695B] font-mono text-sm font-bold flex items-center justify-center">
-                    01
-                  </span>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6F8275]">
-                    ÉTAPE INITIALE
-                  </span>
+            <div className="group relative bg-white border border-[#E2DDD3] rounded-[22px] overflow-hidden hover:border-[#55695B]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer">
+              {/* TOP IMAGE BANNER WITH BADGES */}
+              <div className="relative w-full h-48 sm:h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
+                  alt="Commencer par comprendre"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                
+                {/* Floating Top-Left Number Circle */}
+                <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-xs font-bold flex items-center justify-center shadow-xs border border-white/40">
+                  01
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#20352B]">
-                  Commencer par comprendre
-                </h3>
-                <p className="font-sans text-sm text-[#20352B]/80 font-light leading-relaxed">
-                  Le bilan de vitalité ouvre le parcours. Il permet d'explorer en profondeur vos habitudes, votre hygiène de vie, votre rythme et les priorités que vous souhaitez soutenir.
-                </p>
+
+                {/* Floating Top-Right Stage Pill */}
+                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-semibold shadow-xs border border-white/40">
+                  ÉTAPE INITIALE
+                </div>
               </div>
-              <div className="pt-4 border-t border-[#20352B]/10 font-mono text-[11px] uppercase tracking-wider text-[#55695B] font-medium">
-                Écoute &amp; Analyse Globale
+
+              {/* CARD BODY */}
+              <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow relative overflow-hidden space-y-4">
+                {/* Botanical Leaf Drawing Watermark */}
+                <div className="absolute right-2 bottom-12 pointer-events-none opacity-20 text-[#8A9A86] w-24 h-28">
+                  <svg viewBox="0 0 80 120" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-full h-full">
+                    <path d="M40 110 C40 80 40 40 40 10 M40 90 C25 80 15 65 20 50 C25 35 40 40 40 40 M40 70 C55 60 65 45 60 30 C55 15 40 20 40 20 M40 50 C30 40 25 25 30 15 C35 5 40 10 40 10" />
+                  </svg>
+                </div>
+
+                <div className="space-y-3 relative z-10">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#20352B] group-hover:text-[#55695B] transition-colors leading-tight">
+                    Commencer par comprendre
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed pr-4">
+                    Le bilan de la situation et de votre parcours permet d'identifier vos besoins, vos habitudes et votre rythme, afin de construire un accompagnement vraiment adapté.
+                  </p>
+                </div>
+
+                {/* CARD FOOTER */}
+                <div className="pt-5 mt-4 border-t border-[#E7E3DA] flex items-center justify-between font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase text-[#20352B]/90 font-semibold group-hover:text-[#55695B] transition-colors relative z-10">
+                  <span>ÉCOUTE &amp; ANALYSE GLOBALE</span>
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#55695B]/30 text-[#20352B] group-hover:bg-[#55695B] group-hover:border-[#55695B] group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* CARD 02 */}
-            <div className="bg-[#FAF8F5] border border-[#20352B]/12 p-8 sm:p-10 rounded-2xl space-y-5 shadow-xs hover:shadow-md hover:border-[#55695B]/30 transition-all duration-300 flex flex-col justify-between">
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-full bg-[#55695B]/10 text-[#55695B] font-mono text-sm font-bold flex items-center justify-center">
-                    02
-                  </span>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6F8275]">
-                    ACTION SUR-MESURE
-                  </span>
+            <div className="group relative bg-white border border-[#E2DDD3] rounded-[22px] overflow-hidden hover:border-[#55695B]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer">
+              {/* TOP IMAGE BANNER WITH BADGES */}
+              <div className="relative w-full h-48 sm:h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80"
+                  alt="Construire un programme"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                
+                {/* Floating Top-Left Number Circle */}
+                <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-xs font-bold flex items-center justify-center shadow-xs border border-white/40">
+                  02
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#20352B]">
-                  Construire un programme
-                </h3>
-                <p className="font-sans text-sm text-[#20352B]/80 font-light leading-relaxed">
-                  Les conseils proposés sont 100% individualisés : nutrition bienveillante, gestion du stress, hygiène de sommeil, réflexologie et rituels botaniques simples.
-                </p>
+
+                {/* Floating Top-Right Stage Pill */}
+                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-semibold shadow-xs border border-white/40">
+                  ACTION SUR-MESURE
+                </div>
               </div>
-              <div className="pt-4 border-t border-[#20352B]/10 font-mono text-[11px] uppercase tracking-wider text-[#55695B] font-medium">
-                Recommandations Pratiques
+
+              {/* CARD BODY */}
+              <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow relative overflow-hidden space-y-4">
+                {/* Botanical Leaf Drawing Watermark */}
+                <div className="absolute right-2 bottom-12 pointer-events-none opacity-20 text-[#8A9A86] w-24 h-28">
+                  <svg viewBox="0 0 80 120" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-full h-full">
+                    <path d="M40 110 C40 80 40 40 40 10 M40 90 C25 80 15 65 20 50 C25 35 40 40 40 40 M40 70 C55 60 65 45 60 30 C55 15 40 20 40 20 M40 50 C30 40 25 25 30 15 C35 5 40 10 40 10" />
+                  </svg>
+                </div>
+
+                <div className="space-y-3 relative z-10">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#20352B] group-hover:text-[#55695B] transition-colors leading-tight">
+                    Construire un programme
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed pr-4">
+                    Le programme est 100% individualisé : nutrition, hygiène de vie, gestion du stress, soins naturels, réflexologie et autres ressources selon vos objectifs.
+                  </p>
+                </div>
+
+                {/* CARD FOOTER */}
+                <div className="pt-5 mt-4 border-t border-[#E7E3DA] flex items-center justify-between font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase text-[#20352B]/90 font-semibold group-hover:text-[#55695B] transition-colors relative z-10">
+                  <span>RECOMMANDATIONS PRATIQUES</span>
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#55695B]/30 text-[#20352B] group-hover:bg-[#55695B] group-hover:border-[#55695B] group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* CARD 03 */}
-            <div className="bg-[#FAF8F5] border border-[#20352B]/12 p-8 sm:p-10 rounded-2xl space-y-5 shadow-xs hover:shadow-md hover:border-[#55695B]/30 transition-all duration-300 flex flex-col justify-between">
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="w-10 h-10 rounded-full bg-[#55695B]/10 text-[#55695B] font-mono text-sm font-bold flex items-center justify-center">
-                    03
-                  </span>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6F8275]">
-                    SUIVI &amp; CONTINUITÉ
-                  </span>
+            <div className="group relative bg-white border border-[#E2DDD3] rounded-[22px] overflow-hidden hover:border-[#55695B]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer">
+              {/* TOP IMAGE BANNER WITH BADGES */}
+              <div className="relative w-full h-48 sm:h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+                  alt="Ajuster & Ancrer le bien-être"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                
+                {/* Floating Top-Left Number Circle */}
+                <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-xs font-bold flex items-center justify-center shadow-xs border border-white/40">
+                  03
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#20352B]">
-                  Ajuster &amp; Ancrer le bien-être
-                </h3>
-                <p className="font-sans text-sm text-[#20352B]/80 font-light leading-relaxed">
-                  Chaque démarche s'inscrit dans la durée. Nous ajustons les conseils selon vos ressentis pour pérenniser vos habitudes en autonomie et sérénité.
-                </p>
+
+                {/* Floating Top-Right Stage Pill */}
+                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-semibold shadow-xs border border-white/40">
+                  SUIVI &amp; CONTINUITÉ
+                </div>
               </div>
-              <div className="pt-4 border-t border-[#20352B]/10 font-mono text-[11px] uppercase tracking-wider text-[#55695B] font-medium">
-                Autonomie &amp; Équilibre Durable
+
+              {/* CARD BODY */}
+              <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow relative overflow-hidden space-y-4">
+                {/* Botanical Leaf Drawing Watermark */}
+                <div className="absolute right-2 bottom-12 pointer-events-none opacity-20 text-[#8A9A86] w-24 h-28">
+                  <svg viewBox="0 0 80 120" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-full h-full">
+                    <path d="M40 110 C40 80 40 40 40 10 M40 90 C25 80 15 65 20 50 C25 35 40 40 40 40 M40 70 C55 60 65 45 60 30 C55 15 40 20 40 20 M40 50 C30 40 25 25 30 15 C35 5 40 10 40 10" />
+                  </svg>
+                </div>
+
+                <div className="space-y-3 relative z-10">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#20352B] group-hover:text-[#55695B] transition-colors leading-tight">
+                    Ajuster &amp; Ancrer le bien-être
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed pr-4">
+                    Un suivi régulier permet d'ajuster la démarche en fonction de vos ressentis et de vos progrès, pour ancrer durablement de nouvelles habitudes en toute sérénité.
+                  </p>
+                </div>
+
+                {/* CARD FOOTER */}
+                <div className="pt-5 mt-4 border-t border-[#E7E3DA] flex items-center justify-between font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase text-[#20352B]/90 font-semibold group-hover:text-[#55695B] transition-colors relative z-10">
+                  <span>AUTONOMIE &amp; ÉQUILIBRE DURABLE</span>
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#55695B]/30 text-[#20352B] group-hover:bg-[#55695B] group-hover:border-[#55695B] group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </div>
+                </div>
               </div>
             </div>
 
