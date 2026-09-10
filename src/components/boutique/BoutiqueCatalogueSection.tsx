@@ -94,7 +94,7 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
           </div>
 
           {/* CIRCULAR ICON CATEGORY FILTER BAR */}
-          <div className="flex items-center gap-5 sm:gap-7 overflow-x-auto pb-2 pt-1 no-scrollbar shrink-0">
+          <div className="flex items-center gap-4 sm:gap-6 overflow-x-auto p-3 no-scrollbar shrink-0 -mx-2 px-2">
             {CATEGORY_FILTERS.map((cat) => {
               const isActive = (selectedCategory || 'Tout').toLowerCase() === cat.categoryValue.toLowerCase() ||
                 (selectedCategory === 'Tout' && cat.categoryValue === 'Tout');
@@ -106,15 +106,20 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
                   onClick={() => onSelectCategory(cat.categoryValue)}
                   className="group flex flex-col items-center gap-2 cursor-pointer shrink-0 transition-all duration-300 focus:outline-none"
                 >
-                  {/* Circle Icon Container */}
-                  <div
-                    className={`w-14 h-14 sm:w-15 sm:h-15 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      isActive
-                        ? 'bg-[#506456] text-white shadow-lg ring-4 ring-[#506456]/20 scale-105'
-                        : 'bg-[#EFF3EE] hover:bg-[#E2E8E0] text-[#344E41] border border-[#D0DDD0] shadow-xs group-hover:scale-105'
-                    }`}
-                  >
-                    <IconComp className={`w-6 h-6 sm:w-6.5 sm:h-6.5 transition-transform duration-300 ${isActive ? 'text-white' : 'text-[#344E41] group-hover:scale-110'}`} />
+                  {/* Outer halo wrapper prevents clipping */}
+                  <div className={`p-1 rounded-full transition-all duration-300 ${
+                    isActive ? 'bg-[#506456]/25 shadow-sm' : 'bg-transparent'
+                  }`}>
+                    {/* Inner Circle Icon Container */}
+                    <div
+                      className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
+                        isActive
+                          ? 'bg-[#506456] text-white shadow-md'
+                          : 'bg-[#EFF3EE] hover:bg-[#E2E8E0] text-[#344E41] border border-[#D0DDD0] shadow-xs group-hover:scale-105'
+                      }`}
+                    >
+                      <IconComp className={`w-5.5 h-5.5 sm:w-6 sm:h-6 transition-transform duration-300 ${isActive ? 'text-white' : 'text-[#344E41] group-hover:scale-110'}`} />
+                    </div>
                   </div>
 
                   {/* Label below */}
