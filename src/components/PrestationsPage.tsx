@@ -443,7 +443,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
             
             {/* CARD 01 */}
             <div className="group relative bg-white border border-[#E2DDD3] rounded-[22px] overflow-hidden hover:border-[#55695B]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer">
-              {/* TOP IMAGE BANNER WITH BADGES */}
+              {/* TOP IMAGE BANNER WITH NUMBER BADGE */}
               <div className="relative w-full h-48 sm:h-52 overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
@@ -455,11 +455,6 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
                 {/* Floating Top-Left Number Circle */}
                 <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-xs font-bold flex items-center justify-center shadow-xs border border-white/40">
                   01
-                </div>
-
-                {/* Floating Top-Right Stage Pill */}
-                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-semibold shadow-xs border border-white/40">
-                  ÉTAPE INITIALE
                 </div>
               </div>
 
@@ -493,7 +488,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
 
             {/* CARD 02 */}
             <div className="group relative bg-white border border-[#E2DDD3] rounded-[22px] overflow-hidden hover:border-[#55695B]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer">
-              {/* TOP IMAGE BANNER WITH BADGES */}
+              {/* TOP IMAGE BANNER WITH NUMBER BADGE */}
               <div className="relative w-full h-48 sm:h-52 overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80"
@@ -505,11 +500,6 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
                 {/* Floating Top-Left Number Circle */}
                 <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-xs font-bold flex items-center justify-center shadow-xs border border-white/40">
                   02
-                </div>
-
-                {/* Floating Top-Right Stage Pill */}
-                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-semibold shadow-xs border border-white/40">
-                  ACTION SUR-MESURE
                 </div>
               </div>
 
@@ -543,7 +533,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
 
             {/* CARD 03 */}
             <div className="group relative bg-white border border-[#E2DDD3] rounded-[22px] overflow-hidden hover:border-[#55695B]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer">
-              {/* TOP IMAGE BANNER WITH BADGES */}
+              {/* TOP IMAGE BANNER WITH NUMBER BADGE */}
               <div className="relative w-full h-48 sm:h-52 overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
@@ -555,11 +545,6 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
                 {/* Floating Top-Left Number Circle */}
                 <div className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-xs font-bold flex items-center justify-center shadow-xs border border-white/40">
                   03
-                </div>
-
-                {/* Floating Top-Right Stage Pill */}
-                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-[#20352B] font-mono text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-semibold shadow-xs border border-white/40">
-                  SUIVI &amp; CONTINUITÉ
                 </div>
               </div>
 
@@ -608,7 +593,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* LEFT IMAGE / BANNER WITH BADGE */}
+            {/* LEFT IMAGE / BANNER */}
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
                 <img
@@ -617,17 +602,6 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
                   className="w-full h-[380px] sm:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#181D1A]/80 via-transparent to-transparent" />
-                
-                {/* Floating pill badge */}
-                <div className="absolute top-6 left-6 px-4 py-2 bg-[#20352B]/90 backdrop-blur-md border border-white/20 rounded-full font-mono text-xs tracking-[0.2em] text-[#D6E0D3] uppercase font-semibold">
-                  ✨ ESPACE SPA PRIVATIF · 5 PLACES
-                </div>
-
-                <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15">
-                  <span className="font-mono text-xs uppercase tracking-widest text-[#D6E0D3] block mb-1">EAU CHAUFFÉE À 37,5°C &amp; HYDROTHÉRAPIE</span>
-                  <p className="font-sans text-xs sm:text-sm text-white/90 font-light">Une immersion sensorielle unique pour décompresser en solo, duo ou petit groupe.</p>
-                </div>
               </div>
             </div>
 

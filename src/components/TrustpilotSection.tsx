@@ -80,10 +80,6 @@ export function TrustpilotSection() {
         {/* TOP HEADER / TRUSTPILOT SCORE BADGE */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-[#2A2824] gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00b67a]/10 border border-[#00b67a]/25 text-[#00b67a] text-xs font-semibold tracking-wider uppercase mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#00b67a] animate-pulse" />
-              Avis Clients Vérifiés
-            </div>
             <h2 className="text-2xl sm:text-3xl font-serif text-[#FAF8F5] tracking-tight">
               La confiance de nos patients
             </h2>
