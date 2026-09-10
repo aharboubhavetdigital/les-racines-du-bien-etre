@@ -207,234 +207,255 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
         </div>
       </section>
 
-      {/* 2. NUMBERED SECTIONS (01 TO 06) — EXACT REPRODUCTION OF SCREENSHOTS 2, 3, 4 */}
-      {/* 2. NUMBERED SECTIONS (01 TO 06) — MODERN CARD GRID FOR HIGH READABILITY */}
-      <section className="py-16 sm:py-24 lg:py-32 px-6 sm:px-12 lg:px-16 xl:px-24 max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 sm:mb-16 pb-8 border-b border-[#D8CFBF]/60">
-          <div className="space-y-3 max-w-2xl">
-            <span className="font-mono text-xs tracking-[0.25em] text-[#506456] uppercase font-bold block">
-              EN QUELQUES MOTS
-            </span>
-            <h2 className="font-serif-editorial text-3xl sm:text-4xl lg:text-5xl text-[#1C1A17] font-normal tracking-tight">
-              Des repères clairs & faciles à mettre en pratique.
-            </h2>
-            <p className="font-sans text-base sm:text-lg text-[#555048] font-light leading-relaxed">
-              Une démarche globale, individualisée et toujours située dans les limites du champ d'accompagnement.
-            </p>
-          </div>
-
-          {/* Quick Badges */}
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#506456]/10 text-[#506456] text-xs font-medium border border-[#506456]/20">
-              <CheckCircle2 className="w-4 h-4 text-[#506456]" />
-              <span>Pédagogie & autonomie</span>
-            </div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#736355]/10 text-[#736355] text-xs font-medium border border-[#736355]/20">
-              <CheckCircle2 className="w-4 h-4 text-[#736355]" />
-              <span>Respect de votre rythme</span>
-            </div>
-          </div>
-        </div>
-
-        {/* 6 Modern Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {/* 2. MAIN PEDAGOGICAL CONTENT SECTION — 6 CARDS EDITORIAL GRID */}
+      <section className="py-16 sm:py-24 bg-[#F8F7F3] border-t border-[#20352B]/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 xl:px-24">
           
-          {/* Card 01: Observer */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[0] = el;
-            }}
-            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#506456] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
-                  01
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#506456]/10 text-[#506456] font-semibold border border-[#506456]/20">
-                  Observation
-                </span>
-              </div>
-
-              <h3 className="font-serif-editorial text-2xl text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors">
-                Observer avant de vouloir corriger
-              </h3>
-
-              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
-                Pendant quelques jours, noter simplement ses horaires, ses repas, son niveau d'énergie perçu, ses pauses et ses temps de récupération peut aider à faire apparaître des régularités sans se surveiller.
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+            <div className="space-y-3 max-w-2xl">
+              <span className="font-mono text-xs tracking-[0.25em] text-[#6F8275] uppercase font-bold block">
+                EN QUELQUES MOTS
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#20352B] leading-tight">
+                Des repères clairs & faciles à mettre en pratique.
+              </h2>
+              <p className="font-sans text-sm sm:text-base text-[#20352B]/75 font-light leading-relaxed">
+                Une démarche globale, individualisée et toujours située dans les limites du champ d'accompagnement.
               </p>
+            </div>
+
+            {/* Quick Badges */}
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#506456]/10 text-[#506456] text-xs font-semibold border border-[#506456]/20">
+                <CheckCircle2 className="w-4 h-4 text-[#506456]" />
+                <span>Pédagogie & autonomie</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6F8275]/10 text-[#6F8275] text-xs font-semibold border border-[#6F8275]/20">
+                <CheckCircle2 className="w-4 h-4 text-[#6F8275]" />
+                <span>Respect de votre rythme</span>
+              </div>
             </div>
           </div>
 
-          {/* Card 02: Sommeil */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[1] = el;
-            }}
-            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#506456] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
-                  02
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#506456]/10 text-[#506456] font-semibold border border-[#506456]/20">
-                  Récupération
-                </span>
+          {/* 6 Cards Grid: 3 columns x 2 rows on desktop, stacked on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            
+            {/* Card 01: Observation */}
+            <div
+              ref={(el) => {
+                if (el) listItemsRef.current[0] = el;
+              }}
+              onMouseMove={(e) => handleCardMouseMove(e, 0)}
+              onMouseLeave={() => handleCardMouseLeave(0)}
+              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
+                    01
+                  </span>
+                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    Observation
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
+                  Observer avant de vouloir corriger
+                </h3>
+
+                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
+                  Pendant quelques jours, noter simplement ses horaires, ses repas, son niveau d’énergie perçu, ses pauses et ses temps de récupération peut aider à faire apparaître des régularités sans se surveiller.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 02: Récupération */}
+            <div
+              ref={(el) => {
+                if (el) listItemsRef.current[1] = el;
+              }}
+              onMouseMove={(e) => handleCardMouseMove(e, 1)}
+              onMouseLeave={() => handleCardMouseLeave(1)}
+              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
+                    02
+                  </span>
+                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    Récupération
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
+                  Sommeil et récupération
+                </h3>
+
+                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
+                  La récupération ne dépend pas d'une seule astuce. Les horaires, la lumière, les écrans et l'environnement de la chambre peuvent être observés ensemble.
+                </p>
+
+                <ul className="space-y-2.5 pt-4 border-t border-[#E8EDE6] text-xs text-[#20352B]/85 font-light">
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
+                    <span>Transition activité / repos</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
+                    <span>Horaires réguliers & vraies pauses</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Card 03: Équilibre */}
+            <div
+              ref={(el) => {
+                if (el) listItemsRef.current[2] = el;
+              }}
+              onMouseMove={(e) => handleCardMouseMove(e, 2)}
+              onMouseLeave={() => handleCardMouseLeave(2)}
+              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
+                    03
+                  </span>
+                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    Équilibre
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
+                  Stress et équilibre émotionnel
+                </h3>
+
+                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
+                  Identifier ce qui sollicite le plus, reconnaître les signaux d’alerte et mettre en place des pratiques courtes et répétables au quotidien.
+                </p>
+
+                <ul className="space-y-2.5 pt-4 border-t border-[#E8EDE6] text-xs text-[#20352B]/85 font-light">
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
+                    <span>Respiration et relaxation</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
+                    <span>Pauses sans écran</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Card 04: Vitalité */}
+            <div
+              ref={(el) => {
+                if (el) listItemsRef.current[3] = el;
+              }}
+              onMouseMove={(e) => handleCardMouseMove(e, 3)}
+              onMouseLeave={() => handleCardMouseLeave(3)}
+              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
+                    04
+                  </span>
+                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    Vitalité
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
+                  Alimentation et hydratation
+                </h3>
+
+                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
+                  Avant de chercher un régime idéal, observer la régularité, la variété, les sensations, le contexte des repas et l’hydratation régulière.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 05: Mouvement */}
+            <div
+              ref={(el) => {
+                if (el) listItemsRef.current[4] = el;
+              }}
+              onMouseMove={(e) => handleCardMouseMove(e, 4)}
+              onMouseLeave={() => handleCardMouseLeave(4)}
+              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
+                    05
+                  </span>
+                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                    Mouvement
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
+                  Mouvement et vie quotidienne
+                </h3>
+
+                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
+                  Marche, mobilité douce et interruptions régulières de la sédentarité forment une base physique accessible et pérenne.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 06: Durabilité (Highlight Dark Forest Green Card) */}
+            <div
+              ref={(el) => {
+                if (el) listItemsRef.current[5] = el;
+              }}
+              onMouseMove={(e) => handleCardMouseMove(e, 5)}
+              onMouseLeave={() => handleCardMouseLeave(5)}
+              className="group relative bg-[#1D3027] text-white rounded-[28px] p-7 sm:p-9 border border-[#1D3027] shadow-[0_12px_35px_rgba(29,48,39,0.25)] hover:shadow-[0_20px_45px_rgba(29,48,39,0.35)] transition-all duration-400 flex flex-col justify-between overflow-hidden"
+            >
+              {/* Subtle Botanical Leaf Corner Watermark */}
+              <div className="absolute -bottom-10 -right-10 opacity-10 pointer-events-none transition-opacity group-hover:opacity-15">
+                <svg width="180" height="180" viewBox="0 0 100 100" fill="currentColor" className="text-white">
+                  <path d="M50 0C50 27.614 27.614 50 0 50C27.614 50 50 72.386 50 100C50 72.386 72.386 50 100 50C72.386 50 50 27.614 50 0Z" />
+                </svg>
               </div>
 
-              <h3 className="font-serif-editorial text-2xl text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors">
-                Sommeil et récupération
-              </h3>
+              <div className="space-y-5 relative z-10">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs tracking-wider text-[#A8B7A7] font-bold">
+                    06
+                  </span>
+                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-white/10 text-white font-semibold border border-white/20">
+                    Durabilité
+                  </span>
+                </div>
 
-              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
-                La récupération ne dépend pas d'une seule astuce. Les horaires, la lumière, les écrans et l'environnement de la chambre peuvent être observés ensemble.
-              </p>
+                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-white leading-snug">
+                  Installer une habitude durable
+                </h3>
 
-              <ul className="space-y-2 pt-3 border-t border-[#F0EBE1] text-xs text-[#555048] font-light">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#506456] flex-shrink-0" />
-                  <span>Transition activité / repos</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#506456] flex-shrink-0" />
-                  <span>Horaires réguliers & vraies pauses</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+                <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed">
+                  Un changement durable est précis, simple à répéter et ancré dans un moment déjà présent dans votre journée.
+                </p>
 
-          {/* Card 03: Stress */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[2] = el;
-            }}
-            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#506456] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
-                  03
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#506456]/10 text-[#506456] font-semibold border border-[#506456]/20">
-                  Équilibre
-                </span>
+                <ul className="space-y-2.5 pt-4 border-t border-white/15 text-xs text-white/90 font-light">
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
+                    <span>Priorité unique & version minimale</span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
+                    <span>Ajustements bienveillants sans perfectionnisme</span>
+                  </li>
+                </ul>
               </div>
-
-              <h3 className="font-serif-editorial text-2xl text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors">
-                Stress et équilibre émotionnel
-              </h3>
-
-              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
-                Identifier ce qui sollicite le plus, reconnaître les signes d'alerte et mettre en place des pratiques courtes répétables au quotidien.
-              </p>
-
-              <ul className="space-y-2 pt-3 border-t border-[#F0EBE1] text-xs text-[#555048] font-light">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#506456] flex-shrink-0" />
-                  <span>Respiration et relaxation</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#506456] flex-shrink-0" />
-                  <span>Pauses sans écran</span>
-                </li>
-              </ul>
             </div>
+
           </div>
-
-          {/* Card 04: Alimentation */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[3] = el;
-            }}
-            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#506456] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
-                  04
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#506456]/10 text-[#506456] font-semibold border border-[#506456]/20">
-                  Vitalité
-                </span>
-              </div>
-
-              <h3 className="font-serif-editorial text-2xl text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors">
-                Alimentation et hydratation
-              </h3>
-
-              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
-                Avant de chercher un régime idéal, observer la régularité, la variété, les sensations, le contexte des repas et l'hydratation régulière.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 05: Mouvement */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[4] = el;
-            }}
-            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#506456] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
-                  05
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#506456]/10 text-[#506456] font-semibold border border-[#506456]/20">
-                  Mouvement
-                </span>
-              </div>
-
-              <h3 className="font-serif-editorial text-2xl text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors">
-                Mouvement et vie quotidienne
-              </h3>
-
-              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
-                Marche, mobilité douce et interruptions régulières de la sédentarité forment une base physique accessible et pérenne.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 06: Habitude durable */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[5] = el;
-            }}
-            className="group relative bg-[#20352B] text-white rounded-3xl p-8 sm:p-10 border border-[#20352B] shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#AEB9A9] font-bold">
-                  06
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-white/10 text-white font-semibold border border-white/20">
-                  Durabilité
-                </span>
-              </div>
-
-              <h3 className="font-serif-editorial text-2xl text-white font-normal">
-                Installer une habitude durable
-              </h3>
-
-              <p className="font-sans text-sm text-white/80 font-light leading-relaxed">
-                Un changement durable est précis, simple à répéter et ancré dans un moment déjà présent dans votre journée.
-              </p>
-
-              <ul className="space-y-2 pt-3 border-t border-white/15 text-xs text-white/90 font-light">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AEB9A9] flex-shrink-0" />
-                  <span>Priorité unique & version minimale</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#AEB9A9] flex-shrink-0" />
-                  <span>Ajustements bienveillants sans perfectionnisme</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
         </div>
       </section>
 
