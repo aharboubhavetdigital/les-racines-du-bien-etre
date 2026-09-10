@@ -224,7 +224,7 @@ export const PRODUCTS_DATA: Product[] = [
     description: 'Une référence éditoriale pour présenter le futur univers des compléments alimentaires.',
     ingredients: ['Extrait d’Ortie piquante bio', 'Mélisse bio', 'Magnésium marin', 'Zinc végétal'],
     usage: 'Prendre 2 gélules chaque matin avec un grand verre d’eau au cours du petit déjeuner.',
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=85',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStx7l_rl16ySlLl7CigWgMh3Cw9O_Z0uVFKfvn0bVE5rqsdPzVJGTjbow&s=10',
     isBestseller: true
   },
   {

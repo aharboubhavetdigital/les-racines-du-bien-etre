@@ -12,7 +12,7 @@ export const BOUTIQUE_PRODUCTS: Product[] = [
     description: 'Une référence éditoriale pour présenter le futur univers des compléments alimentaires.',
     ingredients: ['Ortie bio', 'Poudre de Moringa', 'Zinc végétal', 'Vitamine C naturelle'],
     usage: '2 gélules par jour au cours du petit-déjeuner avec un grand verre d’eau.',
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=85',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStx7l_rl16ySlLl7CigWgMh3Cw9O_Z0uVFKfvn0bVE5rqsdPzVJGTjbow&s=10',
     isBestseller: true,
     route: '/boutique/complexe-vegetal-quotidien'
   },
