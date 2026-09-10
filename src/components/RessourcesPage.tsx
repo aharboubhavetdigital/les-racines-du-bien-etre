@@ -159,13 +159,13 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
   return (
     <div ref={containerRef} className="min-h-screen bg-[#FAF8F5] text-[#1C1A17] font-sans antialiased selection:bg-[#506456]/20 selection:text-[#1C1A17]">
       
-      {/* 1. HERO VERTICAL AUTO LAYOUT SECTION — TEXT ON TOP & CIRCULAR GALLERY BELOW */}
-      <section className="relative w-full min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex flex-col justify-between bg-[#506456] text-white overflow-hidden pt-20 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 lg:pb-16 px-4 sm:px-8 lg:px-16">
+      {/* 1. HERO FULL-WIDTH SECTION — TEXT ON TOP & FULL SCREEN CIRCULAR GALLERY BELOW */}
+      <section className="relative w-full min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex flex-col justify-between bg-[#506456] text-white overflow-hidden pt-20 sm:pt-28 lg:pt-32 pb-6 sm:pb-10 lg:pb-12 px-0">
         
         {/* TOP: Responsive Editorial Text Block */}
         <div
           ref={heroLeftRef}
-          className="w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-4 sm:space-y-6 lg:space-y-8 relative z-10 py-2 sm:py-6"
+          className="w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-4 sm:space-y-6 lg:space-y-8 relative z-10 py-2 sm:py-6 px-6 sm:px-12"
         >
           {/* Top Tag */}
           <span className="gsap-hero-el block font-mono text-[10px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
@@ -173,12 +173,12 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
           </span>
 
           {/* Display Editorial Title */}
-          <h1 className="gsap-hero-el font-serif-editorial text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal leading-[1.12] text-white tracking-tight max-w-3xl px-2">
+          <h1 className="gsap-hero-el font-serif-editorial text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal leading-[1.12] text-white tracking-tight max-w-3xl">
             Des repères pour mieux comprendre votre équilibre.
           </h1>
 
           {/* Subtitle */}
-          <p className="gsap-hero-el font-sans text-xs sm:text-base lg:text-lg text-white/90 font-light leading-relaxed max-w-xl px-2">
+          <p className="gsap-hero-el font-sans text-xs sm:text-base lg:text-lg text-white/90 font-light leading-relaxed max-w-xl">
             Une bibliothèque pédagogique pour observer vos habitudes, préparer vos questions et avancer par ajustements, sans diagnostic ni promesse thérapeutique.
           </p>
 
@@ -194,14 +194,14 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
           </div>
         </div>
 
-        {/* BOTTOM: CircularGallery Auto-Layout Carousel */}
+        {/* BOTTOM: Full Screen Width CircularGallery Carousel */}
         <div
           ref={heroRightRef}
-          className="w-full max-w-6xl mx-auto h-[340px] sm:h-[460px] lg:h-[540px] relative flex items-center justify-center overflow-hidden my-auto"
+          className="w-full h-[380px] sm:h-[500px] lg:h-[600px] relative flex items-center justify-center overflow-hidden my-auto"
         >
           <CircularGallery
             items={CIRCULAR_GALLERY_ITEMS}
-            bend={2}
+            bend={2.5}
             textColor="#ffffff"
             borderRadius={0.06}
             scrollSpeed={2}
