@@ -22,7 +22,7 @@ const UNIVERSES: CategoryUniverse[] = [
     title: 'Compléments alimentaires',
     categoryFilter: 'Compléments alimentaires',
     description: 'Des gélules et compléments naturels présentés avec clarté, précautions et transparence.',
-    image: 'https://emballagemaroc.com/wp-content/uploads/2026/02/Gelules-vides-halal-pour-complements-alimentaires-Emballage-Maroc-votre-fournisseur-de-confiance.webp',
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1000&q=85',
     ctaText: 'EXPLORER'
   },
   {
@@ -31,7 +31,7 @@ const UNIVERSES: CategoryUniverse[] = [
     title: 'Huiles',
     categoryFilter: 'Huiles',
     description: 'Des textures sensorielles et huiles essentielles pour accompagner les gestes de bien-être.',
-    image: 'https://touhafinegoce.com/wp-content/uploads/2026/07/les-meilleures-huiles-essentielles-huile-essentielle-top-10.jpg',
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1000&q=85',
     ctaText: 'EXPLORER'
   },
   {
@@ -126,7 +126,7 @@ export const BoutiqueCategoryUniverses: React.FC<BoutiqueCategoryUniversesProps>
           </div>
         </div>
 
-        {/* 3 LARGE IMAGE CARDS IN ONE ROW WITH RESPONSIVE AUTO LAYOUT */}
+        {/* 3 LARGE IMAGE CARDS MATCHING IMAGE 2 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {UNIVERSES.map((universe, index) => (
             <div
@@ -135,37 +135,40 @@ export const BoutiqueCategoryUniverses: React.FC<BoutiqueCategoryUniversesProps>
                 if (el) cardsRef.current[index] = el;
               }}
               onClick={() => handleUniverseClick(universe.categoryFilter)}
-              className="group relative min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] rounded-2xl overflow-hidden cursor-pointer bg-[#181D1A] border border-[#20352B]/15 shadow-md flex flex-col justify-between p-6 sm:p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl"
+              className="group relative min-h-[480px] sm:min-h-[540px] lg:min-h-[580px] rounded-2xl sm:rounded-3xl overflow-hidden cursor-pointer bg-[#181D1A] border border-white/10 shadow-lg flex flex-col justify-between p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-white/30"
             >
-              {/* PARALLAX BACKGROUND IMAGE */}
+              {/* FULL-HEIGHT BACKGROUND IMAGE */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <img
                   src={universe.image}
                   alt={universe.title}
                   loading="lazy"
-                  className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05] transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.08] transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                {/* DARK GRADIENT OVERLAY */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
+                {/* DARK GRADIENT OVERLAY FOR DYNAMIC LEGIBILITY & DEEP MOOD */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
               </div>
 
-              {/* TOP: CIRCULAR OUTLINE NUMBER BADGE */}
+              {/* TOP BAR: CIRCULAR BADGES */}
               <div className="relative z-10 flex justify-between items-center">
-                <div className="w-11 h-11 rounded-full border border-white/40 backdrop-blur-xs bg-black/20 flex items-center justify-center font-mono text-xs font-semibold text-white tracking-wider">
+                {/* TOP LEFT NUMBER BADGE */}
+                <div className="w-10 h-10 rounded-full border border-white/30 bg-white/20 backdrop-blur-md flex items-center justify-center font-mono text-xs font-semibold text-white tracking-wider shadow-xs">
                   {universe.number}
                 </div>
-                <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xs border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+                {/* TOP RIGHT ARROW BADGE */}
+                <div className="w-10 h-10 rounded-full border border-white/30 bg-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-white group-hover:text-[#181D1A] group-hover:scale-110 shadow-xs">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
 
-              {/* BOTTOM: TITLE, DESCRIPTION, CTA */}
+              {/* BOTTOM: TITLE, DESCRIPTION, EXPLORER CTA */}
               <div className="relative z-10 space-y-3 sm:space-y-4">
                 <h3 className="font-serif text-2xl sm:text-3xl font-light text-white leading-tight">
                   {universe.title}
                 </h3>
 
-                <p className="font-sans text-xs sm:text-sm text-white/85 font-light leading-relaxed max-w-sm">
+                <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-xs sm:max-w-sm">
                   {universe.description}
                 </p>
 
