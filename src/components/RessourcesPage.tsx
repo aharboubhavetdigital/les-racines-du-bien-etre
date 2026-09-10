@@ -177,11 +177,6 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
             Des repères pour mieux comprendre votre équilibre.
           </h1>
 
-          {/* Subtitle */}
-          <p className="gsap-hero-el font-sans text-xs sm:text-base lg:text-lg text-white/90 font-light leading-relaxed max-w-xl">
-            Une bibliothèque pédagogique pour observer vos habitudes, préparer vos questions et avancer par ajustements, sans diagnostic ni promesse thérapeutique.
-          </p>
-
           {/* Bottom Action Button */}
           <div className="gsap-hero-el pt-1 sm:pt-3">
             <button
@@ -444,22 +439,14 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
       </section>
 
       {/* 3. CONTINUER SECTION — ELEGANT EDITORIAL DESIGN SYSTEM CARDS */}
-      <section className="py-20 sm:py-28 bg-[#E7ECE5] text-[#20352B] border-t border-[#20352B]/15">
+      <section className="py-16 sm:py-24 bg-[#E7ECE5] text-[#20352B] border-t border-[#20352B]/15">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 xl:px-24">
           
-          <div className="space-y-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <div>
-                <span className="font-mono text-xs tracking-[0.25em] text-[#6F8275] uppercase font-semibold block mb-2">
-                  CONTINUER
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl font-light text-[#20352B] leading-tight">
-                  Poursuivre <span className="italic font-normal text-[#6F8275]">votre exploration.</span>
-                </h2>
-              </div>
-              <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light max-w-md leading-relaxed">
-                Des étapes claires pour approfondir votre démarche ou réserver un bilan personnalisé.
-              </p>
+          <div className="space-y-6">
+            <div>
+              <span className="font-mono text-xs tracking-[0.25em] text-[#6F8275] uppercase font-semibold block">
+                CONTINUER
+              </span>
             </div>
 
             {/* Two Elegant Luxury Editorial Outlined Cards */}
@@ -468,18 +455,12 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               {/* Card 1: Comprendre la naturopathie */}
               <div
                 onClick={() => onNavigatePage('prestations')}
-                className="group relative w-full p-8 sm:p-10 bg-[#F8F7F3] border border-[#20352B]/15 hover:border-[#20352B]/40 rounded-2xl sm:rounded-3xl text-left flex items-center justify-between transition-all duration-400 shadow-sm hover:shadow-xl hover:-translate-y-1.5 cursor-pointer"
+                className="group relative w-full p-7 sm:p-9 bg-[#F8F7F3] border border-[#20352B]/15 hover:border-[#20352B]/40 rounded-2xl sm:rounded-3xl text-left flex items-center justify-between transition-all duration-400 shadow-sm hover:shadow-xl hover:-translate-y-1.5 cursor-pointer"
               >
-                <div className="space-y-2 pr-4">
-                  <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase text-[#6F8275] font-semibold block">
-                    01 — ÉQUILIBRE & SOINS
-                  </span>
+                <div className="pr-4">
                   <h3 className="font-serif text-xl sm:text-2xl font-light text-[#20352B] group-hover:text-[#506456] transition-colors leading-snug">
                     Comprendre la naturopathie
                   </h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#20352B]/70 font-light leading-relaxed">
-                    Découvrez les piliers de l’accompagnement et nos prestations sur-mesure.
-                  </p>
                 </div>
 
                 <div className="w-12 h-12 rounded-full bg-[#20352B] text-white flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#9EAC99] group-hover:text-[#181D1A] group-hover:scale-110 shadow-sm">
@@ -490,18 +471,12 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               {/* Card 2: Parler de vos besoins */}
               <div
                 onClick={() => onOpenBooking('bilan-vitalite')}
-                className="group relative w-full p-8 sm:p-10 bg-[#F8F7F3] border border-[#20352B]/15 hover:border-[#20352B]/40 rounded-2xl sm:rounded-3xl text-left flex items-center justify-between transition-all duration-400 shadow-sm hover:shadow-xl hover:-translate-y-1.5 cursor-pointer"
+                className="group relative w-full p-7 sm:p-9 bg-[#F8F7F3] border border-[#20352B]/15 hover:border-[#20352B]/40 rounded-2xl sm:rounded-3xl text-left flex items-center justify-between transition-all duration-400 shadow-sm hover:shadow-xl hover:-translate-y-1.5 cursor-pointer"
               >
-                <div className="space-y-2 pr-4">
-                  <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase text-[#6F8275] font-semibold block">
-                    02 — RÉSERVATION & ÉCHANGE
-                  </span>
+                <div className="pr-4">
                   <h3 className="font-serif text-xl sm:text-2xl font-light text-[#20352B] group-hover:text-[#506456] transition-colors leading-snug">
                     Parler de vos besoins
                   </h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#20352B]/70 font-light leading-relaxed">
-                    Réservez votre bilan de vitalité ou posez vos questions directement.
-                  </p>
                 </div>
 
                 <div className="w-12 h-12 rounded-full bg-[#20352B] text-white flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#9EAC99] group-hover:text-[#181D1A] group-hover:scale-110 shadow-sm">
