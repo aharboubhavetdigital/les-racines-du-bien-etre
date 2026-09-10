@@ -192,7 +192,44 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
       {/* 1. HERO SPLIT SECTION — EXACT FIDELITY TO SCREENSHOT 1 WITH 3D DEPTH */}
       <section className="relative w-full min-h-[90vh] lg:min-h-screen flex flex-col lg:flex-row bg-[#506456] text-white overflow-hidden pt-24 lg:pt-0">
         
-        {/* Left Half: Sage Green Editorial Block */}
+        {/* Left Half: HaloReel Orbit Auto-Animation Carousel */}
+        <div
+          ref={heroRightRef}
+          className="w-full lg:w-1/2 min-h-[460px] sm:min-h-[540px] lg:min-h-[600px] relative flex items-center justify-center overflow-hidden p-2 sm:p-6 my-auto"
+        >
+          <HaloReel
+            items={HALO_REEL_ITEMS}
+            aria-label="Ressources et thématiques du bien-être"
+            centerLabel={
+              <div className="flex flex-col items-center justify-center text-center space-y-1.5 z-0 pointer-events-none px-4">
+                <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
+                  LES RACINES
+                </span>
+                <span className="font-serif-editorial text-2xl sm:text-4xl font-light text-white tracking-tight leading-none drop-shadow-md">
+                  Du Bien-Être
+                </span>
+                <span className="font-mono text-[9px] sm:text-[10px] text-white/70 tracking-widest uppercase">
+                  Bibliothèque Vitalité
+                </span>
+              </div>
+            }
+            cardWidth={140}
+            cardHeight={190}
+            minScale={0.45}
+            radiusXRatio={0.34}
+            radiusYRatio={0.32}
+            centerXRatio={0.5}
+            autoPlay={true}
+            holdDuration={800}
+            stepDuration={900}
+            pauseOnHover={false}
+            draggable={false}
+            showCenterLabel={true}
+            className="w-full h-[450px] sm:h-[520px] lg:h-[580px]"
+          />
+        </div>
+
+        {/* Right Half: Sage Green Editorial Block */}
         <div
           ref={heroLeftRef}
           className="w-full lg:w-1/2 flex flex-col justify-between p-8 sm:p-12 lg:p-16 xl:p-20 relative z-10 my-auto"
@@ -224,42 +261,6 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               <span>Prendre rendez-vous</span>
             </button>
           </div>
-        </div>
-
-        {/* Right Half: HaloReel Orbit Auto-Animation Carousel */}
-        <div
-          ref={heroRightRef}
-          className="w-full lg:w-1/2 min-h-[460px] sm:min-h-[540px] lg:min-h-[600px] relative flex items-center justify-center overflow-hidden p-2 sm:p-6"
-        >
-          <HaloReel
-            items={HALO_REEL_ITEMS}
-            aria-label="Ressources et thématiques du bien-être"
-            centerLabel={
-              <div className="flex flex-col items-center justify-center text-center space-y-1.5 z-0 pointer-events-none px-4">
-                <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
-                  LES RACINES
-                </span>
-                <span className="font-serif-editorial text-2xl sm:text-4xl font-light text-white tracking-tight leading-none drop-shadow-md">
-                  Du Bien-Être
-                </span>
-                <span className="font-mono text-[9px] sm:text-[10px] text-white/70 tracking-widest uppercase">
-                  Bibliothèque Vitalité
-                </span>
-              </div>
-            }
-            cardWidth={140}
-            cardHeight={190}
-            minScale={0.42}
-            radiusXRatio={0.38}
-            radiusYRatio={0.32}
-            autoPlay={true}
-            holdDuration={800}
-            stepDuration={900}
-            pauseOnHover={false}
-            draggable={false}
-            showCenterLabel={true}
-            className="w-full h-[450px] sm:h-[520px] lg:h-[580px]"
-          />
         </div>
       </section>
 

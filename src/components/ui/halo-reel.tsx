@@ -91,8 +91,8 @@ export function HaloReel({
   cardWidth = 140,
   cardHeight = 190,
   minScale = 0.45,
-  radiusXRatio = 0.38,
-  centerXRatio = 0,
+  radiusXRatio = 0.35,
+  centerXRatio = 0.5,
   radiusYRatio = 0.32,
   autoPlay = true,
   holdDuration = 1200,
@@ -281,13 +281,7 @@ export function HaloReel({
       {...props}
     >
       {showCenterLabel && centerLabel ? (
-        <div
-          className="pointer-events-none absolute inset-y-0 z-0 flex items-center justify-center px-4 text-center"
-          style={{
-            left: size.w * centerXRatio + radiusX + cardW / 2,
-            right: 0,
-          }}
-        >
+        <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center p-4 text-center">
           {centerLabel}
         </div>
       ) : null}
