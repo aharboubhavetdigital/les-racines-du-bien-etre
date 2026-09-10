@@ -422,16 +422,16 @@ class Media {
       }
     }
     const isMobile = this.screen.width < 768;
-    const baseScaleDivider = isMobile ? 1000 : 1300;
-    this.scale = Math.max(0.4, this.screen.height / baseScaleDivider);
+    const baseScaleDivider = isMobile ? 1100 : 1500;
+    this.scale = Math.max(0.35, this.screen.height / baseScaleDivider);
 
-    const planeYRatio = isMobile ? 820 : 980;
-    const planeXRatio = isMobile ? 620 : 760;
+    const planeYRatio = isMobile ? 780 : 900;
+    const planeXRatio = isMobile ? 580 : 700;
 
     this.plane.scale.y = (this.viewport.height * (planeYRatio * this.scale)) / this.screen.height;
     this.plane.scale.x = (this.viewport.width * (planeXRatio * this.scale)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-    this.padding = isMobile ? 1.5 : 2.2;
+    this.padding = isMobile ? 2.2 : 3.4;
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
