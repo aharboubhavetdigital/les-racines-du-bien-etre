@@ -1,45 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Calendar, ArrowUpRight, CheckCircle2, Sparkles, Compass, BookOpen, Heart, Activity, Moon, Utensils, Feather, Compass as CompassIcon, ChevronRight, ArrowLeft } from 'lucide-react';
 import gsap from 'gsap';
-import { HaloReel, type HaloReelItem } from './ui/halo-reel';
+import CircularGallery, { CircularGalleryItem } from './ui/CircularGallery';
 
-const HALO_REEL_ITEMS: HaloReelItem[] = [
-  {
-    src: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
-    alt: 'Séance de relaxation et méditation',
-    title: 'ÉQUILIBRE',
-    subtitle: 'Hygiène de vie'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80',
-    alt: 'Soins naturels et huiles essentielles',
-    title: 'HUILES',
-    subtitle: 'Plantes & Énergies'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1512290900676-26c2a7a795b1?auto=format&fit=crop&w=800&q=80',
-    alt: 'Tisanes et phytothérapie',
-    title: 'PHYTOTHÉRAPIE',
-    subtitle: 'Herboristerie'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
-    alt: 'Gestion du stress et respiration',
-    title: 'SOMMEIL',
-    subtitle: 'Rythmes naturels'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
-    alt: 'Micronutrition et compléments',
-    title: 'VITALITÉ',
-    subtitle: 'Micronutrition'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80',
-    alt: 'Feuillage vert et nature',
-    title: 'HARMONIE',
-    subtitle: 'Nature & Santé'
-  }
+const CIRCULAR_GALLERY_ITEMS: CircularGalleryItem[] = [
+  { image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', text: '01. Équilibre & Vitalité' },
+  { image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80', text: '02. Huiles Essentielles' },
+  { image: 'https://images.unsplash.com/photo-1512290900676-26c2a7a795b1?auto=format&fit=crop&w=800&q=80', text: '03. Phytothérapie & Plantes' },
+  { image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80', text: '04. Sommeil & Sérénité' },
+  { image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80', text: '05. Micronutrition Bio' },
+  { image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80', text: '06. Harmonie Naturelle' }
 ];
 
 interface RessourcesPageProps {
@@ -189,30 +159,23 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
   return (
     <div ref={containerRef} className="min-h-screen bg-[#FAF8F5] text-[#1C1A17] font-sans antialiased selection:bg-[#506456]/20 selection:text-[#1C1A17]">
       
-      {/* 1. HERO SPLIT SECTION — EXACT FIDELITY TO SCREENSHOT 1 WITH 3D DEPTH */}
+      {/* 1. HERO SPLIT SECTION */}
       <section className="relative w-full min-h-[90vh] lg:min-h-screen flex flex-col lg:flex-row bg-[#506456] text-white overflow-hidden pt-24 lg:pt-0">
         
-        {/* Left Half: HaloReel Orbit Auto-Animation Carousel */}
+        {/* Left Half: CircularGallery Auto-Animation Carousel */}
         <div
           ref={heroRightRef}
-          className="w-full lg:w-1/2 min-h-[460px] sm:min-h-[540px] lg:min-h-[600px] relative flex items-center justify-center overflow-hidden p-2 sm:p-6 my-auto"
+          className="w-full lg:w-1/2 min-h-[460px] sm:min-h-[540px] lg:min-h-[600px] h-[520px] sm:h-[580px] lg:h-[620px] relative flex items-center justify-center overflow-hidden p-2 sm:p-6 my-auto"
         >
-          <HaloReel
-            items={HALO_REEL_ITEMS}
-            aria-label="Ressources et thématiques du bien-être"
-            cardWidth={140}
-            cardHeight={190}
-            minScale={0.45}
-            radiusXRatio={0.34}
-            radiusYRatio={0.32}
-            centerXRatio={0.5}
+          <CircularGallery
+            items={CIRCULAR_GALLERY_ITEMS}
+            bend={2.5}
+            textColor="#ffffff"
+            borderRadius={0.06}
+            scrollSpeed={2}
+            scrollEase={0.04}
             autoPlay={true}
-            holdDuration={800}
-            stepDuration={900}
-            pauseOnHover={false}
-            draggable={false}
-            showCenterLabel={false}
-            className="w-full h-[450px] sm:h-[520px] lg:h-[580px]"
+            autoSpeed={0.04}
           />
         </div>
 

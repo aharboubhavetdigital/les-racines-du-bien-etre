@@ -16,6 +16,8 @@ export interface CircularGalleryProps {
   fontUrl?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  autoPlay?: boolean;
+  autoSpeed?: number;
 }
 
 function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
@@ -448,6 +450,9 @@ class AppEngine {
   start = 0;
   raf = 0;
 
+  autoPlay = true;
+  autoSpeed = 0.05;
+
   boundOnResize!: () => void;
   boundOnWheel!: (e: any) => void;
   boundOnTouchDown!: (e: any) => void;
@@ -464,12 +469,16 @@ class AppEngine {
       borderRadius = 0.05,
       font = DEFAULT_FONT,
       scrollSpeed = 2,
-      scrollEase = 0.05
+      scrollEase = 0.05,
+      autoPlay = true,
+      autoSpeed = 0.05
     }: any = {}
   ) {
     document.documentElement.classList.remove('no-js');
     this.container = container;
     this.scrollSpeed = scrollSpeed;
+    this.autoPlay = autoPlay;
+    this.autoSpeed = autoSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
 
@@ -619,6 +628,9 @@ class AppEngine {
   }
 
   update() {
+    if (this.autoPlay && !this.isDown) {
+      this.scroll.target += this.autoSpeed;
+    }
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     if (this.medias) {
@@ -672,12 +684,14 @@ class AppEngine {
 export const CircularGallery: React.FC<CircularGalleryProps> = ({
   items,
   bend = 2.5,
-  textColor = '#181D1A',
+  textColor = '#ffffff',
   borderRadius = 0.05,
   font = DEFAULT_FONT,
   fontUrl,
   scrollSpeed = 2,
-  scrollEase = 0.05
+  scrollEase = 0.05,
+  autoPlay = true,
+  autoSpeed = 0.04
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -695,7 +709,9 @@ export const CircularGallery: React.FC<CircularGalleryProps> = ({
         borderRadius,
         font: resolvedFont,
         scrollSpeed,
-        scrollEase
+        scrollEase,
+        autoPlay,
+        autoSpeed
       });
     });
 
@@ -703,7 +719,7 @@ export const CircularGallery: React.FC<CircularGalleryProps> = ({
       isMounted = false;
       if (app) app.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
+  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, autoPlay, autoSpeed]);
 
   return (
     <div
