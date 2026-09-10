@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Product } from '../../types';
-import { ShoppingBag, ArrowUpRight, Check, Leaf, Pill, Droplet, Coffee } from 'lucide-react';
+import { ShoppingBag, ArrowUpRight, Check, Leaf, Pill, Droplet, Coffee, Heart } from 'lucide-react';
 import gsap from 'gsap';
 
 interface BoutiqueCatalogueSectionProps {
@@ -28,7 +28,13 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
 }) => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [addedProductId, setAddedProductId] = useState<string | null>(null);
+  const [favorites, setFavorites] = useState<Record<string, boolean>>({});
   const gridRef = useRef<HTMLDivElement>(null);
+
+  const toggleFavorite = (productId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFavorites((prev) => ({ ...prev, [productId]: !prev[productId] }));
+  };
 
   const filteredProducts = selectedCategory === 'Tout' || !selectedCategory
     ? products
@@ -136,115 +142,111 @@ export const BoutiqueCatalogueSection: React.FC<BoutiqueCatalogueSectionProps> =
           </div>
         </div>
 
-        {/* PRODUCT GRID */}
+        {/* PRODUCT GRID: grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 justify-start */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 justify-start"
         >
           {filteredProducts.map((product) => {
             const isAdded = addedProductId === product.id;
+            const isFav = !!favorites[product.id];
             const categoryDisplay =
               product.fullCategory ||
               (product.category === 'complements'
-                ? 'Compléments alimentaires'
+                ? 'COMPLÉMENTS ALIMENTAIRES'
                 : product.category === 'huiles'
-                ? 'Huiles'
-                : 'Maison & rituel');
+                ? 'HUILES'
+                : 'MAISON & RITUEL');
 
             return (
               <div
                 key={product.id}
                 onClick={() => onQuickViewProduct(product)}
-                className="group relative bg-white rounded-2xl border border-[#20352B]/12 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between p-5 sm:p-6 cursor-pointer"
+                className="group relative bg-white rounded-[20px] border border-[#20352B]/10 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-350 ease-out flex flex-col justify-between p-4 sm:p-5 cursor-pointer"
               >
-                {/* IMAGE CONTAINER */}
-                <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-[#E7ECE5]/50 mb-5">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
+                <div>
+                  {/* PRODUCT IMAGE AREA (55-60% Height) */}
+                  <div className="relative aspect-[4/4.4] w-full rounded-[16px] overflow-hidden bg-[#F4F3EE] mb-4">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 filter brightness-[0.98] contrast-[1.02]"
+                    />
 
-                  {/* TOP-LEFT CATEGORY PILL */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="bg-white/90 backdrop-blur-xs text-[#20352B] font-mono text-[10px] tracking-widest uppercase font-semibold px-3 py-1 rounded-full shadow-xs border border-black/5">
-                      {categoryDisplay}
-                    </span>
+                    {/* TOP-LEFT CATEGORY PILL BADGE */}
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="bg-[#FAF9F5]/90 backdrop-blur-xs text-[#1B2B22] font-mono text-[10px] tracking-wider uppercase font-semibold px-3 py-1.5 rounded-full shadow-2xs border border-black/5">
+                        {categoryDisplay}
+                      </span>
+                    </div>
+
+                    {/* TOP-RIGHT CIRCULAR ARROW BUTTON */}
+                    <div className="absolute top-3 right-3 z-10">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onQuickViewProduct(product);
+                        }}
+                        className="w-8.5 h-8.5 rounded-full bg-white/95 text-[#1B2B22] hover:bg-[#173D2C] hover:text-white flex items-center justify-center transition-all duration-300 shadow-xs border border-black/5 cursor-pointer"
+                        title="Aperçu rapide"
+                        aria-label="Aperçu rapide"
+                      >
+                        <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:rotate-45" />
+                      </button>
+                    </div>
                   </div>
 
-                  {/* QUICK VIEW OVERLAY ICON */}
-                  <div className="absolute top-3 right-3 z-10">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onQuickViewProduct(product);
-                      }}
-                      className="w-9 h-9 rounded-full bg-white/90 text-[#20352B] hover:bg-[#20352B] hover:text-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
-                      title="Aperçu rapide"
-                      aria-label="Aperçu rapide"
-                    >
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* CONTENT AREA */}
-                <div className="flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-1.5">
-                    {/* INDICATIVE PRICE */}
-                    <span className="font-mono text-xs font-semibold tracking-wider text-[#6F8275] block">
-                      {product.price.toFixed(2).replace('.', ',')} €
-                    </span>
+                  {/* CONTENT AREA BELOW IMAGE */}
+                  <div className="space-y-2 px-1">
+                    {/* PRICE & FAVORITE HEART ROW */}
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-sm sm:text-base font-semibold tracking-wider text-[#506456]">
+                        {product.price.toFixed(2).replace('.', ',')} €
+                      </span>
+                      <button
+                        onClick={(e) => toggleFavorite(product.id, e)}
+                        className="p-1 cursor-pointer transition-colors"
+                        title="Ajouter aux favoris"
+                      >
+                        <Heart className={`w-4.5 h-4.5 transition-colors ${isFav ? 'fill-[#173D2C] text-[#173D2C]' : 'text-[#1B2B22]/40 hover:text-[#1B2B22]'}`} />
+                      </button>
+                    </div>
 
                     {/* PRODUCT TITLE */}
-                    <h3 className="font-serif text-xl font-medium text-[#20352B] group-hover:text-[#6F8275] transition-colors leading-snug">
+                    <h3 className="font-serif text-lg sm:text-xl font-normal text-[#1B2B22] group-hover:text-[#506456] transition-colors leading-snug tracking-tight mt-1 mb-1">
                       {product.name}
                     </h3>
 
                     {/* SHORT DESCRIPTION */}
-                    <p className="font-sans text-xs text-[#26372E]/75 font-light leading-relaxed line-clamp-2">
+                    <p className="font-sans text-xs sm:text-sm text-[#1B2B22]/70 font-light leading-relaxed line-clamp-2">
                       {product.description}
                     </p>
                   </div>
+                </div>
 
-                  {/* BOTTOM ACTIONS */}
-                  <div className="pt-2 flex items-center gap-2">
-                    {/* PRIMARY CTA: AJOUTER AU PANIER */}
-                    <button
-                      onClick={(e) => handleAddToCart(product, e)}
-                      className={`flex-1 py-3 px-2 sm:px-3.5 rounded-full font-mono text-[10px] sm:text-xs font-semibold tracking-[0.04em] uppercase whitespace-nowrap flex items-center justify-center gap-1.5 transition-all cursor-pointer shrink-0 ${
-                        isAdded
-                          ? 'bg-[#6F8275] text-white'
-                          : 'bg-[#20352B] hover:bg-[#182820] text-white shadow-xs'
-                      }`}
-                    >
-                      {isAdded ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 shrink-0" />
-                          <span className="whitespace-nowrap">Ajouté</span>
-                        </>
-                      ) : (
-                        <>
-                          <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
-                          <span className="whitespace-nowrap">Ajouter au panier</span>
-                        </>
-                      )}
-                    </button>
-
-                    {/* SECONDARY CTA: ARROW BUTTON */}
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onQuickViewProduct(product);
-                      }}
-                      className="w-10 h-10 rounded-full border border-[#20352B]/20 text-[#20352B] hover:bg-[#20352B] hover:text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer"
-                      title="Détails"
-                      aria-label="Voir les détails"
-                    >
-                      <ArrowUpRight className="w-4 h-4" />
-                    </button>
-                  </div>
+                {/* FULL-WIDTH DARK FOREST GREEN CTA BUTTON */}
+                <div className="pt-4 px-1">
+                  <button
+                    onClick={(e) => handleAddToCart(product, e)}
+                    className={`w-full min-h-[48px] py-3.5 px-4 rounded-full font-mono text-xs font-semibold tracking-widest uppercase whitespace-nowrap flex items-center justify-center gap-2.5 transition-all duration-300 cursor-pointer shadow-xs ${
+                      isAdded
+                        ? 'bg-[#506456] text-white'
+                        : 'bg-[#173D2C] hover:bg-[#204A37] active:scale-[0.98] text-white'
+                    }`}
+                  >
+                    {isAdded ? (
+                      <>
+                        <Check className="w-4 h-4 shrink-0" />
+                        <span>AJOUTÉ AU PANIER</span>
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingBag className="w-4 h-4 shrink-0 text-white" />
+                        <span>AJOUTER AU PANIER</span>
+                      </>
+                    )}
+                  </button>
                 </div>
               </div>
             );
