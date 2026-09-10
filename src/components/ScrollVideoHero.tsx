@@ -193,9 +193,9 @@ export const ScrollVideoHero: React.FC<ScrollVideoHeroProps> = ({
             ref={subtitleRef}
             className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-auto"
           >
-            <p className="text-xl sm:text-3xl md:text-4xl font-light text-[#FAF8F5]/95 tracking-wide max-w-3xl leading-relaxed drop-shadow-2xl font-serif-editorial italic">
+            <h4 className="text-xl sm:text-3xl md:text-4xl font-light text-[#FAF8F5]/95 tracking-wide max-w-3xl leading-relaxed drop-shadow-2xl font-serif-editorial italic">
               Naturopathie • Réflexologie • Hygiène de vie au centre de Saint-Lô
-            </p>
+            </h4>
           </div>
 
           {/* STEP 3: BUTTONS */}

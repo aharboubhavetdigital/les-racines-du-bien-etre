@@ -41,6 +41,8 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
+  const isNavigatingRef = useRef<boolean>(false);
+
   // Helper to get active menu button center coordinates in viewport
   const getButtonCoords = () => {
     if (typeof document === 'undefined') return 'calc(100% - 48px) 36px';
@@ -60,17 +62,26 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
   const handleSmoothClose = (afterCloseAction?: () => void) => {
     if (isClosing) return;
     setIsClosing(true);
+    if (afterCloseAction) {
+      isNavigatingRef.current = true;
+    }
 
     if (timelineRef.current) {
       timelineRef.current.timeScale(1.2).reverse().then(() => {
         setIsClosing(false);
         onClose();
-        afterCloseAction?.();
+        if (afterCloseAction) {
+          afterCloseAction();
+          window.scrollTo(0, 0);
+        }
       });
     } else {
       setIsClosing(false);
       onClose();
-      afterCloseAction?.();
+      if (afterCloseAction) {
+        afterCloseAction();
+        window.scrollTo(0, 0);
+      }
     }
   };
 
@@ -151,7 +162,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
     return () => ctx.revert();
   }, [isOpen]);
 
-  // Lock body scroll and preserve scroll position when modal is open
+  // Lock body scroll and handle scroll position
   useEffect(() => {
     if (isOpen) {
       const scrollY = window.scrollY;
@@ -165,7 +176,10 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       document.body.style.top = '';
       document.body.style.width = '';
       document.body.style.overflow = '';
-      if (scrollY) {
+      if (isNavigatingRef.current) {
+        window.scrollTo(0, 0);
+        isNavigatingRef.current = false;
+      } else if (scrollY) {
         window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
       }
     }
@@ -175,7 +189,10 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       document.body.style.top = '';
       document.body.style.width = '';
       document.body.style.overflow = '';
-      if (scrollY) {
+      if (isNavigatingRef.current) {
+        window.scrollTo(0, 0);
+        isNavigatingRef.current = false;
+      } else if (scrollY) {
         window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
       }
     };

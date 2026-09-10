@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Calendar, ArrowLeft, Clock, CheckCircle2, Info } from 'lucide-react';
 import { BoutiqueSoin } from '../../types';
 
@@ -38,9 +39,10 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
   };
 
   if (!soin) return null;
+  if (typeof document === 'undefined') return null;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#131210]/85 backdrop-blur-md overflow-y-auto animate-fade-in p-4 sm:p-6 lg:p-10">
+  return createPortal(
+    <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#131210]/85 backdrop-blur-md overflow-y-auto animate-fade-in p-4 sm:p-6 lg:p-10">
       <div className="bg-[#F7F5F0] text-[#181D1A] rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto relative shadow-2xl border border-[#131210]/10 flex flex-col">
         {/* CLOSE BUTTON */}
         <button
@@ -192,6 +194,7 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

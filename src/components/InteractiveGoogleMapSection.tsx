@@ -250,74 +250,74 @@ export const InteractiveGoogleMapSection: React.FC<InteractiveGoogleMapSectionPr
       </div>
 
       {/* 3 ADDRESS SELECTOR BUTTONS (HORIZONTAL 3-COLUMN ROW ABOVE THE MAP) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-3 lg:gap-4 mb-6">
         {LOCATIONS.map((loc) => {
           const isSelected = selectedLocation.id === loc.id;
           return (
             <div
               key={loc.id}
               onClick={() => setSelectedLocation(loc)}
-              className={`group relative p-5 rounded-3xl border transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between ${
+              className={`group relative p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between ${
                 isSelected
-                  ? 'bg-[#20352B] border-[#20352B] text-white shadow-xl -translate-y-1'
+                  ? 'bg-[#9EAC99] border-[#9EAC99] text-[#181D1A] shadow-md -translate-y-0.5'
                   : 'bg-white border-[#E5DFD5] hover:border-[#506456]/50 hover:bg-[#FAF8F5] text-[#1C1A17] shadow-xs'
               }`}
             >
               {/* Subtle Ambient Glow for selected card */}
               {isSelected && (
-                <div className="absolute top-0 right-0 w-28 h-28 bg-[#8BB28A]/20 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-white/30 rounded-full blur-xl pointer-events-none" />
               )}
 
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="flex items-center gap-3">
+              <div className="flex items-start justify-between gap-2 mb-1.5">
+                <div className="flex items-center gap-2">
                   {/* Number Badge */}
-                  <span className={`font-mono text-xs font-bold ${
-                    isSelected ? 'text-[#8BB28A]' : 'text-[#A39A8E]'
+                  <span className={`font-mono text-[10px] font-bold ${
+                    isSelected ? 'text-[#181D1A]' : 'text-[#A39A8E]'
                   }`}>
                     {loc.number}
                   </span>
 
                   {/* Icon */}
-                  <div className={`p-2 rounded-xl shrink-0 transition-colors duration-300 ${
-                    isSelected ? 'bg-white/15 text-[#8BB28A]' : 'bg-[#F0EBE1] text-[#60564C]'
+                  <div className={`p-1 sm:p-1.5 rounded-md shrink-0 transition-colors duration-300 ${
+                    isSelected ? 'bg-[#181D1A]/10 text-[#181D1A]' : 'bg-[#F0EBE1] text-[#60564C]'
                   }`}>
                     {loc.badgeType === 'saint-lo' ? (
-                      <Building2 className="w-4 h-4" />
+                      <Building2 className="w-3 h-3" />
                     ) : loc.badgeType === 'chant-oiseaux' ? (
-                      <Waves className="w-4 h-4" />
+                      <Waves className="w-3 h-3" />
                     ) : (
-                      <Phone className="w-4 h-4" />
+                      <Phone className="w-3 h-3" />
                     )}
                   </div>
                 </div>
 
                 {/* Chevron */}
-                <div className="flex items-center gap-2">
-                  <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${
-                    isSelected ? 'translate-x-0.5 text-[#8BB28A]' : 'text-[#C5BEB3] group-hover:text-[#506456]'
+                <div className="flex items-center gap-1">
+                  <ChevronRight className={`w-3 h-3 transition-transform duration-300 ${
+                    isSelected ? 'translate-x-0.5 text-[#181D1A]' : 'text-[#C5BEB3] group-hover:text-[#506456]'
                   }`} />
                 </div>
               </div>
 
               {/* Title & Subtitle */}
-              <div className="space-y-1">
-                <h3 className={`font-serif-editorial text-base sm:text-lg font-normal leading-snug ${
-                  isSelected ? 'text-white font-medium' : 'text-[#1C1A17]'
+              <div className="space-y-0.5">
+                <h3 className={`font-serif-editorial text-xs sm:text-sm font-semibold leading-tight ${
+                  isSelected ? 'text-[#181D1A]' : 'text-[#1C1A17]'
                 }`}>
                   {loc.name}
                 </h3>
-                <p className={`font-sans text-xs line-clamp-1 ${
-                  isSelected ? 'text-[#D8CFBF]' : 'text-[#7A7267]'
+                <p className={`font-sans text-[10px] sm:text-[11px] line-clamp-1 ${
+                  isSelected ? 'text-[#181D1A]/80' : 'text-[#7A7267]'
                 }`}>
                   {loc.subtitle}
                 </p>
               </div>
 
               {/* Bottom Address preview */}
-              <div className={`mt-3 pt-2.5 border-t text-[11px] font-mono flex items-center gap-1.5 truncate ${
-                isSelected ? 'border-white/15 text-[#AEB9A9]' : 'border-[#E5DFD5] text-[#8C8275]'
+              <div className={`mt-2 pt-1.5 border-t text-[9px] sm:text-[10px] font-mono flex items-center gap-1.5 truncate ${
+                isSelected ? 'border-[#181D1A]/20 text-[#181D1A]' : 'border-[#E5DFD5] text-[#8C8275]'
               }`}>
-                <MapPin className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#8BB28A]' : 'text-[#506456]'}`} />
+                <MapPin className={`w-2.5 h-2.5 shrink-0 ${isSelected ? 'text-[#181D1A]' : 'text-[#506456]'}`} />
                 <span className="truncate">{loc.address.split(',')[0]}</span>
               </div>
             </div>
@@ -366,7 +366,7 @@ export const InteractiveGoogleMapSection: React.FC<InteractiveGoogleMapSectionPr
             ref={card3dRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative w-full h-full min-h-[450px] sm:min-h-[520px] lg:min-h-[640px] rounded-3xl p-7 sm:p-9 flex flex-col justify-between bg-[#20352B] text-white shadow-2xl border border-[#20352B] overflow-hidden transition-shadow duration-500"
+            className="relative w-full h-full min-h-[450px] sm:min-h-[520px] lg:min-h-[640px] rounded-3xl p-7 sm:p-9 flex flex-col justify-between bg-[#9EAC99] text-[#181D1A] shadow-2xl border border-[#9EAC99] overflow-hidden transition-shadow duration-500"
             style={{ transformStyle: 'preserve-3d' }}
           >
             {/* Background Ambient Image Overlay */}
@@ -374,42 +374,42 @@ export const InteractiveGoogleMapSection: React.FC<InteractiveGoogleMapSectionPr
               src={selectedLocation.imageUrl}
               alt={selectedLocation.name}
               referrerPolicy="no-referrer"
-              className="absolute inset-0 w-full h-full object-cover filter brightness-[0.28] contrast-[1.12] pointer-events-none transition-transform duration-700 hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover filter opacity-15 mix-blend-multiply pointer-events-none transition-transform duration-700 hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#14231B] via-[#20352B]/90 to-[#20352B]/75 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#9EAC99] via-[#9EAC99]/95 to-[#9EAC99]/85 pointer-events-none" />
 
             {/* Inner Card Content */}
             <div ref={cardContentRef} className="relative z-10 space-y-6">
 
               {/* Title & Address */}
               <div className="gsap-3d-child space-y-2 pt-2">
-                <h3 className="font-serif-editorial text-2xl sm:text-3xl lg:text-4xl text-white font-normal leading-tight">
+                <h3 className="font-serif-editorial text-2xl sm:text-3xl lg:text-4xl text-[#181D1A] font-medium leading-tight">
                   {selectedLocation.name}
                 </h3>
-                <p className="font-sans text-xs sm:text-sm text-[#D8CFBF] font-light flex items-center gap-2 pt-1">
-                  <MapPin className="w-4 h-4 text-[#8BB28A] shrink-0" />
+                <p className="font-sans text-xs sm:text-sm text-[#181D1A]/85 font-medium flex items-center gap-2 pt-1">
+                  <MapPin className="w-4 h-4 text-[#181D1A] shrink-0" />
                   <span>{selectedLocation.address}</span>
                 </p>
               </div>
 
               {/* Description */}
-              <p className="gsap-3d-child font-sans text-xs sm:text-sm text-white/85 font-light leading-relaxed">
+              <p className="gsap-3d-child font-sans text-xs sm:text-sm text-[#181D1A]/90 font-light leading-relaxed">
                 {selectedLocation.description}
               </p>
 
               {/* Hours */}
               {selectedLocation.hours && (
-                <div className="gsap-3d-child flex items-center gap-2 text-xs font-mono text-[#AEB9A9]">
-                  <Clock className="w-3.5 h-3.5 text-[#8BB28A]" />
+                <div className="gsap-3d-child flex items-center gap-2 text-xs font-mono text-[#181D1A] font-semibold">
+                  <Clock className="w-3.5 h-3.5 text-[#181D1A]" />
                   <span>{selectedLocation.hours}</span>
                 </div>
               )}
 
               {/* Features List */}
-              <div className="gsap-3d-child space-y-2.5 pt-3 border-t border-white/15 text-xs text-white/90">
+              <div className="gsap-3d-child space-y-2.5 pt-3 border-t border-[#181D1A]/15 text-xs text-[#181D1A]">
                 {selectedLocation.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 bg-white/10 p-2.5 rounded-xl backdrop-blur-xs">
-                    <CheckCircle2 className="w-4 h-4 text-[#8BB28A] shrink-0" />
+                  <div key={idx} className="flex items-center gap-2.5 bg-[#181D1A]/8 border border-[#181D1A]/12 p-2.5 rounded-xl backdrop-blur-xs font-medium">
+                    <CheckCircle2 className="w-4 h-4 text-[#181D1A] shrink-0" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -417,10 +417,10 @@ export const InteractiveGoogleMapSection: React.FC<InteractiveGoogleMapSectionPr
             </div>
 
             {/* Action Buttons */}
-            <div className="relative z-10 pt-6 mt-6 border-t border-white/15 space-y-3">
+            <div className="relative z-10 pt-6 mt-6 border-t border-[#181D1A]/15 space-y-3">
               <button
                 onClick={() => onOpenBooking?.(selectedLocation.bookingServiceId, selectedLocation.name)}
-                className="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-full bg-[#181D1A] hover:bg-[#2A3F34] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
                 <Calendar className="w-4 h-4 text-white" />
                 <span>Prendre rendez-vous</span>
@@ -429,9 +429,9 @@ export const InteractiveGoogleMapSection: React.FC<InteractiveGoogleMapSectionPr
               <div className="grid grid-cols-2 gap-3">
                 <a
                   href={`tel:${selectedLocation.phone.replace(/\s+/g, '')}`}
-                  className="inline-flex items-center justify-center gap-2 p-2.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-all duration-200 border border-white/15 truncate"
+                  className="inline-flex items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#181D1A]/10 hover:bg-[#181D1A]/20 text-[#181D1A] text-xs font-medium transition-all duration-200 border border-[#181D1A]/20 truncate"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#D8CFBF] shrink-0" />
+                  <Phone className="w-3.5 h-3.5 text-[#181D1A] shrink-0" />
                   <span className="truncate">{selectedLocation.phone}</span>
                 </a>
 
@@ -439,9 +439,9 @@ export const InteractiveGoogleMapSection: React.FC<InteractiveGoogleMapSectionPr
                   href={selectedLocation.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 p-2.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-all duration-200 border border-white/15 truncate"
+                  className="inline-flex items-center justify-center gap-2 p-2.5 rounded-2xl bg-[#181D1A]/10 hover:bg-[#181D1A]/20 text-[#181D1A] text-xs font-medium transition-all duration-200 border border-[#181D1A]/20 truncate"
                 >
-                  <Navigation className="w-3.5 h-3.5 text-[#D8CFBF] shrink-0" />
+                  <Navigation className="w-3.5 h-3.5 text-[#181D1A] shrink-0" />
                   <span className="truncate">Itinéraire</span>
                 </a>
               </div>

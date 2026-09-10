@@ -22,10 +22,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 }) => {
   // Height sizing for desktop & phone logo image
   const logoHeight = {
-    sm: 'h-[44px] sm:h-16 md:h-[76px]',
-    md: 'h-[52px] sm:h-20 md:h-[86px]',
-    lg: 'h-[64px] sm:h-24 md:h-[96px]',
-    xl: 'h-24 sm:h-28 md:h-[96px]'
+    sm: 'h-[44px] sm:h-14 md:h-[72px]',
+    md: 'h-[52px] sm:h-18 md:h-[82px]',
+    lg: 'h-[60px] sm:h-22 md:h-[84px]',
+    xl: 'h-[68px] sm:h-26 md:h-[96px]'
   }[size];
 
   // Optional filter adjustments for dark vs light variants

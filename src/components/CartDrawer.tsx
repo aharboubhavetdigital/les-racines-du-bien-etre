@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { CartItem } from '../types';
 import { X, ShoppingBag, Plus, Minus, Trash2, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 
@@ -24,6 +25,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   const [isOrdered, setIsOrdered] = useState(false);
 
   if (!isOpen) return null;
+  if (typeof document === 'undefined') return null;
 
   const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
   const freeShippingThreshold = 60;
@@ -47,8 +49,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
     }, 4000);
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-black/80 backdrop-blur-md animate-fade-in">
+  return createPortal(
+    <div className="fixed inset-0 z-[99999] flex justify-end bg-black/80 backdrop-blur-md animate-fade-in">
       <div className="relative w-full max-w-md bg-[#181614] text-white h-full shadow-2xl flex flex-col justify-between border-l border-white/15">
         
         {/* Header */}
@@ -251,6 +253,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         )}
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

@@ -108,7 +108,7 @@ export const SplitColumnInfiniteHero: React.FC<SplitColumnInfiniteHeroProps> = (
     let animFrameId: number;
 
     const loop = () => {
-      if (!isInteractingRef.current && !isHoveredRef.current) {
+      if (!isInteractingRef.current) {
         targetRef.current += 0.0022;
       }
       posRef.current += (targetRef.current - posRef.current) * 0.05;
@@ -158,8 +158,6 @@ export const SplitColumnInfiniteHero: React.FC<SplitColumnInfiniteHeroProps> = (
 
   return (
     <section
-      onMouseEnter={() => (isHoveredRef.current = true)}
-      onMouseLeave={() => (isHoveredRef.current = false)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}

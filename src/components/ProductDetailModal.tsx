@@ -1,4 +1,5 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import { Product } from '../types';
 import { X, ShoppingBag, Check, ShieldCheck, Leaf, Sparkles, ChevronDown, FileText, Award, PackageCheck } from 'lucide-react';
 
@@ -21,6 +22,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   }, [product?.id]);
 
   if (!product) return null;
+  if (typeof document === 'undefined') return null;
 
   const handleAdd = () => {
     onAddToCart(product);
@@ -41,8 +43,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     ]
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md animate-fade-in">
+  return createPortal(
+    <div className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md animate-fade-in">
       <div className="relative w-full max-w-2xl bg-white text-[#344E41] rounded-2xl shadow-2xl border border-[#344E41]/20 overflow-hidden my-auto max-h-[92vh] sm:max-h-[90vh] flex flex-col">
 
         {/* Header */}
@@ -236,6 +238,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

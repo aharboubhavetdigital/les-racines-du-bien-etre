@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { SERVICES_DATA } from '../data/brandData';
 import { X, Clock, MapPin, CheckCircle2, ArrowRight, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Bell } from 'lucide-react';
 
@@ -67,6 +68,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
+  if (typeof document === 'undefined') return null;
 
   const toggleService = (id: string) => {
     setSelectedServiceIds((prev) => {
@@ -191,13 +193,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     onClose();
   };
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#181D1A]/60 backdrop-blur-xs animate-fade-in"
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 bg-[#181D1A]/60 backdrop-blur-xs animate-fade-in"
       onClick={resetAndClose}
     >
       <div
-        className="relative w-full max-w-3xl bg-[#FFFFFF] rounded-3xl shadow-2xl border border-[#181D1A]/10 overflow-hidden flex flex-col h-auto max-h-[85vh] my-auto"
+        className="relative w-full max-w-3xl bg-[#FFFFFF] rounded-3xl shadow-2xl border border-[#181D1A]/10 overflow-hidden flex flex-col h-auto max-h-[92vh] sm:max-h-[88vh] my-auto"
         onClick={(e) => e.stopPropagation()}
       >
 
@@ -733,6 +735,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
