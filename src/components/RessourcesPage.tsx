@@ -157,21 +157,8 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
           ref={heroLeftRef}
           className="w-full lg:w-1/2 flex flex-col justify-between p-8 sm:p-12 lg:p-16 xl:p-20 relative z-10 my-auto"
         >
-          {/* Top Breadcrumb & Tag */}
+          {/* Top Tag */}
           <div className="space-y-6 pt-4 sm:pt-6">
-            <div className="gsap-hero-el flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] text-white/80 uppercase">
-              <button
-                onClick={() => onNavigateHome('#hero')}
-                className="inline-flex items-center gap-1.5 hover:text-white transition-all duration-300 cursor-pointer group bg-white/15 hover:bg-white/30 text-white font-medium px-3.5 py-1.5 rounded-full border border-white/20 shadow-xs"
-                title="Retour à l'accueil"
-              >
-                <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-[#D8CFBF]" />
-                <span>ACCUEIL</span>
-              </button>
-              <span className="opacity-60">—</span>
-              <span className="text-white font-semibold">RESSOURCES</span>
-            </div>
-
             <span className="gsap-hero-el block font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
               RESSOURCES
             </span>

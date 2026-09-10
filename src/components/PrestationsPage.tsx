@@ -252,20 +252,6 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
       >
         <div ref={heroRef} className="max-w-7xl mx-auto relative z-10">
 
-          {/* BREADCRUMB */}
-          <div className="hero-anim mb-10 flex items-center gap-3 font-mono text-xs tracking-[0.25em] uppercase text-white/70">
-            <button
-              onClick={() => onNavigateHome?.()}
-              className="inline-flex items-center gap-1.5 hover:text-white transition-all duration-300 cursor-pointer group bg-white/15 hover:bg-white/30 text-white font-medium px-3.5 py-1.5 rounded-full border border-white/20 shadow-xs"
-              title="Retour à l'accueil"
-            >
-              <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-[#C5D0C2]" />
-              <span>ACCUEIL</span>
-            </button>
-            <span>—</span>
-            <span className="text-white font-semibold">PRESTATIONS</span>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start backdrop-blur-md bg-[#536859]/75 p-6 sm:p-10 lg:p-12 rounded-3xl border border-white/15 shadow-2xl">
 
             {/* LEFT COLUMN */}
