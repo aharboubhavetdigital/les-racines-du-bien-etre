@@ -443,53 +443,71 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
         </div>
       </section>
 
-      {/* 3. SECTION 3 — SCREENSHOT 5: "CONTINUER" CARDS WITH 3D HOVER EFFECT */}
-      <section className="py-20 sm:py-28 bg-[#E3ECE5] border-t border-[#D0DDD3] text-[#1C1A17]">
+      {/* 3. CONTINUER SECTION — ELEGANT EDITORIAL DESIGN SYSTEM CARDS */}
+      <section className="py-20 sm:py-28 bg-[#E7ECE5] text-[#20352B] border-t border-[#20352B]/15">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 xl:px-24">
           
-          <div className="space-y-6">
-            <span className="font-mono text-xs tracking-[0.25em] text-[#506456] uppercase font-semibold block">
-              CONTINUER
-            </span>
+          <div className="space-y-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span className="font-mono text-xs tracking-[0.25em] text-[#6F8275] uppercase font-semibold block mb-2">
+                  CONTINUER
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-light text-[#20352B] leading-tight">
+                  Poursuivre <span className="italic font-normal text-[#6F8275]">votre exploration.</span>
+                </h2>
+              </div>
+              <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light max-w-md leading-relaxed">
+                Des étapes claires pour approfondir votre démarche ou réserver un bilan personnalisé.
+              </p>
+            </div>
 
-            {/* Two Rectangular Interactive Outlined Cards matching screenshot 5 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2">
+            {/* Two Elegant Luxury Editorial Outlined Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-2">
               
               {/* Card 1: Comprendre la naturopathie */}
-              <button
-                ref={(el) => {
-                  if (el) cards3dRef.current[0] = el;
-                }}
-                onMouseMove={(e) => handleCardMouseMove(e, 0)}
-                onMouseLeave={() => handleCardMouseLeave(0)}
+              <div
                 onClick={() => onNavigatePage('prestations')}
-                className="group relative w-full p-8 sm:p-10 bg-white border border-[#2E3C32]/30 hover:border-[#2E3C32] rounded-none text-left flex items-center justify-between transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
-                style={{ transformStyle: 'preserve-3d' }}
+                className="group relative w-full p-8 sm:p-10 bg-[#F8F7F3] border border-[#20352B]/15 hover:border-[#20352B]/40 rounded-2xl sm:rounded-3xl text-left flex items-center justify-between transition-all duration-400 shadow-sm hover:shadow-xl hover:-translate-y-1.5 cursor-pointer"
               >
-                <span className="font-sans text-base sm:text-lg text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors" style={{ transform: 'translateZ(20px)' }}>
-                  Comprendre la naturopathie
-                </span>
+                <div className="space-y-2 pr-4">
+                  <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase text-[#6F8275] font-semibold block">
+                    01 — ÉQUILIBRE & SOINS
+                  </span>
+                  <h3 className="font-serif text-xl sm:text-2xl font-light text-[#20352B] group-hover:text-[#506456] transition-colors leading-snug">
+                    Comprendre la naturopathie
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-[#20352B]/70 font-light leading-relaxed">
+                    Découvrez les piliers de l’accompagnement et nos prestations sur-mesure.
+                  </p>
+                </div>
 
-                <ArrowUpRight className="w-6 h-6 text-[#1C1A17] group-hover:text-[#506456] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 flex-shrink-0" style={{ transform: 'translateZ(25px)' }} />
-              </button>
+                <div className="w-12 h-12 rounded-full bg-[#20352B] text-white flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#9EAC99] group-hover:text-[#181D1A] group-hover:scale-110 shadow-sm">
+                  <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </div>
 
               {/* Card 2: Parler de vos besoins */}
-              <button
-                ref={(el) => {
-                  if (el) cards3dRef.current[1] = el;
-                }}
-                onMouseMove={(e) => handleCardMouseMove(e, 1)}
-                onMouseLeave={() => handleCardMouseLeave(1)}
+              <div
                 onClick={() => onOpenBooking('bilan-vitalite')}
-                className="group relative w-full p-8 sm:p-10 bg-white border border-[#2E3C32]/30 hover:border-[#2E3C32] rounded-none text-left flex items-center justify-between transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
-                style={{ transformStyle: 'preserve-3d' }}
+                className="group relative w-full p-8 sm:p-10 bg-[#F8F7F3] border border-[#20352B]/15 hover:border-[#20352B]/40 rounded-2xl sm:rounded-3xl text-left flex items-center justify-between transition-all duration-400 shadow-sm hover:shadow-xl hover:-translate-y-1.5 cursor-pointer"
               >
-                <span className="font-sans text-base sm:text-lg text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors" style={{ transform: 'translateZ(20px)' }}>
-                  Parler de vos besoins
-                </span>
+                <div className="space-y-2 pr-4">
+                  <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase text-[#6F8275] font-semibold block">
+                    02 — RÉSERVATION & ÉCHANGE
+                  </span>
+                  <h3 className="font-serif text-xl sm:text-2xl font-light text-[#20352B] group-hover:text-[#506456] transition-colors leading-snug">
+                    Parler de vos besoins
+                  </h3>
+                  <p className="font-sans text-xs sm:text-sm text-[#20352B]/70 font-light leading-relaxed">
+                    Réservez votre bilan de vitalité ou posez vos questions directement.
+                  </p>
+                </div>
 
-                <ArrowUpRight className="w-6 h-6 text-[#1C1A17] group-hover:text-[#506456] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 flex-shrink-0" style={{ transform: 'translateZ(25px)' }} />
-              </button>
+                <div className="w-12 h-12 rounded-full bg-[#20352B] text-white flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#9EAC99] group-hover:text-[#181D1A] group-hover:scale-110 shadow-sm">
+                  <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+              </div>
 
             </div>
           </div>
