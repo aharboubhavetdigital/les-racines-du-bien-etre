@@ -200,19 +200,6 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
           <HaloReel
             items={HALO_REEL_ITEMS}
             aria-label="Ressources et thématiques du bien-être"
-            centerLabel={
-              <div className="flex flex-col items-center justify-center text-center space-y-1.5 z-0 pointer-events-none px-4">
-                <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
-                  LES RACINES
-                </span>
-                <span className="font-serif-editorial text-2xl sm:text-4xl font-light text-white tracking-tight leading-none drop-shadow-md">
-                  Du Bien-Être
-                </span>
-                <span className="font-mono text-[9px] sm:text-[10px] text-white/70 tracking-widest uppercase">
-                  Bibliothèque Vitalité
-                </span>
-              </div>
-            }
             cardWidth={140}
             cardHeight={190}
             minScale={0.45}
@@ -224,7 +211,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
             stepDuration={900}
             pauseOnHover={false}
             draggable={false}
-            showCenterLabel={true}
+            showCenterLabel={false}
             className="w-full h-[450px] sm:h-[520px] lg:h-[580px]"
           />
         </div>
