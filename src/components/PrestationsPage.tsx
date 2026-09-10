@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ImageStreamHero } from './ui/image-stream-hero';
 import { StatementStripSection } from './StatementStripSection';
+import { ToutesLesPrestationsSection } from './ToutesLesPrestationsSection';
 import reflexologiePlantaireNewImg from '../assets/images/reflexologie_plantaire_new.png';
 import whatsAppImg from '../assets/images/WhatsApp Image 2026-08-22 .jpeg';
 import firefly1Img from '../assets/images/Firefly (1).jpg';
@@ -323,98 +324,9 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
       <StatementStripSection items={PRESTATIONS_STRIP_ITEMS} />
 
       {/* ==========================================
-          SECTION 2 — "LA CARTE COMPLÈTE" GRID (OFF-WHITE BACKGROUND)
+          SECTION 2 — "TOUTES LES PRESTATIONS" PREMUM GLASSMORPHIHC GRID
           ========================================== */}
-      <section className="w-full bg-[#F8F6F1] text-[#20352B] py-20 sm:py-28 px-6 sm:px-12 lg:px-16 border-b border-[#20352B]/10">
-        <div className="max-w-7xl mx-auto space-y-16">
-
-          {/* HEADER */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-8 border-b border-[#20352B]/15">
-            <div className="lg:col-span-3">
-              <span className="font-mono text-xs tracking-[0.3em] uppercase text-[#6F8275] font-medium block">
-                LA CARTE COMPLÈTE
-              </span>
-            </div>
-
-            <div className="lg:col-span-6">
-              <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#20352B] leading-tight">
-                Des soins manuels<br />
-                à{' '}
-                <span className="italic font-normal text-[#6F8275]">
-                  l'accompagnement global.
-                </span>
-              </h2>
-            </div>
-
-            <div className="lg:col-span-3 lg:text-right">
-              <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed">
-                Cliquez sur une prestation pour découvrir son approche, son déroulement et les modalités disponibles.
-              </p>
-            </div>
-          </div>
-
-          {/* GRID OF CARDS (2-COLUMNS ON DESKTOP, CARD 7 IS FULL-WIDTH) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {PRESTATIONS_DATA.map((item, index) => {
-              const isFullWidth = index === PRESTATIONS_DATA.length - 1 && PRESTATIONS_DATA.length % 2 !== 0;
-              return (
-                <div
-                  key={item.id}
-                  id={`card-${item.id}`}
-                  ref={(el) => {
-                    if (el) cardsRef.current[index] = el;
-                  }}
-                  onClick={() => handleItemClick(item)}
-                  className={`group relative p-8 sm:p-10 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden ${isFullWidth
-                      ? 'md:col-span-2 bg-[#E7ECE5] border-[#20352B]/20 hover:border-[#20352B]/40 hover:shadow-xl'
-                      : 'bg-white border-[#20352B]/15 hover:border-[#20352B]/40 hover:shadow-xl'
-                    }`}
-                >
-                  {/* IMAGE THUMBNAIL / BANNER */}
-                  <div className="relative w-full h-52 sm:h-60 rounded-xl overflow-hidden mb-8">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#20352B]/40 via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-xs font-mono text-[10px] tracking-[0.2em] uppercase text-[#20352B] font-medium">
-                      {item.categoryLabel}
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    {/* TOP LINE */}
-                    <div className="flex items-center justify-between font-mono text-xs tracking-[0.18em] text-[#6F8275] uppercase">
-                      <span>{item.number} — PRESTATION</span>
-                      <div className="w-9 h-9 rounded-full border border-[#20352B]/20 flex items-center justify-center text-[#20352B] group-hover:bg-[#20352B] group-hover:text-white transition-all">
-                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </div>
-                    </div>
-
-                    {/* TITLE */}
-                    <h3 className="font-serif text-2xl sm:text-3xl font-light text-[#20352B] group-hover:text-[#6F8275] transition-colors">
-                      {item.title}
-                    </h3>
-
-                    {/* DESCRIPTION */}
-                    <p className="font-sans text-sm text-[#20352B]/80 font-light leading-relaxed max-w-xl">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-8 mt-6 border-t border-[#20352B]/10 flex items-center justify-between font-mono text-xs tracking-[0.16em] uppercase text-[#20352B] font-medium group-hover:text-[#6F8275]">
-                    <span>Découvrir la prestation</span>
-                    <span className="text-lg leading-none">↗</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
+      <ToutesLesPrestationsSection onSelectPrestation={(serviceId) => onOpenBooking(serviceId)} />
 
       {/* ==========================================
           SECTION 3 — "EN QUELQUES MOTS" (REDESIGNED FOR EASY READING & ELEGANCE)
