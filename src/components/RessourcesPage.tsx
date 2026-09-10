@@ -159,34 +159,34 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
   return (
     <div ref={containerRef} className="min-h-screen bg-[#FAF8F5] text-[#1C1A17] font-sans antialiased selection:bg-[#506456]/20 selection:text-[#1C1A17]">
       
-      {/* 1. HERO VERTICAL SECTION — TEXT BLOCK ON TOP & CIRCULAR GALLERY BELOW */}
-      <section className="relative w-full min-h-[90vh] lg:min-h-screen flex flex-col justify-between bg-[#506456] text-white overflow-hidden pt-28 sm:pt-32 pb-12 sm:pb-16 px-6 sm:px-12 lg:px-16">
+      {/* 1. HERO VERTICAL AUTO LAYOUT SECTION — TEXT ON TOP & CIRCULAR GALLERY BELOW */}
+      <section className="relative w-full min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex flex-col justify-between bg-[#506456] text-white overflow-hidden pt-20 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 lg:pb-16 px-4 sm:px-8 lg:px-16">
         
-        {/* TOP: Editorial Text Block */}
+        {/* TOP: Responsive Editorial Text Block */}
         <div
           ref={heroLeftRef}
-          className="w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-6 sm:space-y-8 relative z-10 py-4 sm:py-6"
+          className="w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-4 sm:space-y-6 lg:space-y-8 relative z-10 py-2 sm:py-6"
         >
           {/* Top Tag */}
-          <span className="gsap-hero-el block font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
+          <span className="gsap-hero-el block font-mono text-[10px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
             RESSOURCES
           </span>
 
           {/* Display Editorial Title */}
-          <h1 className="gsap-hero-el font-serif-editorial text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal leading-[1.10] text-white tracking-tight max-w-3xl">
+          <h1 className="gsap-hero-el font-serif-editorial text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal leading-[1.12] text-white tracking-tight max-w-3xl px-2">
             Des repères pour mieux comprendre votre équilibre.
           </h1>
 
           {/* Subtitle */}
-          <p className="gsap-hero-el font-sans text-base sm:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-2xl">
+          <p className="gsap-hero-el font-sans text-xs sm:text-base lg:text-lg text-white/90 font-light leading-relaxed max-w-xl px-2">
             Une bibliothèque pédagogique pour observer vos habitudes, préparer vos questions et avancer par ajustements, sans diagnostic ni promesse thérapeutique.
           </p>
 
           {/* Bottom Action Button */}
-          <div className="gsap-hero-el pt-2">
+          <div className="gsap-hero-el pt-1 sm:pt-3">
             <button
               onClick={() => onOpenBooking('bilan-vitalite')}
-              className="group inline-flex items-center gap-3 px-8 py-4 sm:px-9 sm:py-4 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white active:scale-[0.98] text-xs sm:text-sm font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              className="group inline-flex items-center gap-2.5 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white active:scale-[0.98] text-xs sm:text-sm font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
             >
               <Calendar className="w-4 h-4 text-white transition-transform group-hover:scale-110" />
               <span>Prendre rendez-vous</span>
@@ -194,14 +194,14 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
           </div>
         </div>
 
-        {/* BOTTOM: CircularGallery Auto-Animation Carousel */}
+        {/* BOTTOM: CircularGallery Auto-Layout Carousel */}
         <div
           ref={heroRightRef}
-          className="w-full max-w-6xl mx-auto h-[440px] sm:h-[500px] lg:h-[560px] relative flex items-center justify-center overflow-hidden my-auto"
+          className="w-full max-w-6xl mx-auto h-[340px] sm:h-[460px] lg:h-[540px] relative flex items-center justify-center overflow-hidden my-auto"
         >
           <CircularGallery
             items={CIRCULAR_GALLERY_ITEMS}
-            bend={2.5}
+            bend={2}
             textColor="#ffffff"
             borderRadius={0.06}
             scrollSpeed={2}
