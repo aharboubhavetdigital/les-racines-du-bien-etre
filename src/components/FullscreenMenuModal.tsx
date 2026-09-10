@@ -280,7 +280,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
     <div
       ref={modalRef}
       id="fullscreen-menu-modal"
-      className="fixed inset-0 z-50 flex flex-col lg:flex-row overflow-hidden bg-[#FAF8F5]/98 backdrop-blur-2xl font-sans select-none shadow-2xl"
+      className="fixed inset-0 z-[4000] flex flex-col lg:flex-row overflow-hidden bg-[#FAF8F5]/98 backdrop-blur-2xl font-sans select-none shadow-2xl"
       style={{
         clipPath: 'circle(0% at calc(100% - 48px) 36px)',
       }}

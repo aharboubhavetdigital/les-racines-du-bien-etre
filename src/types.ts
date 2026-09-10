@@ -35,6 +35,15 @@ export interface Service {
   quote: string;
 }
 
+export interface TechnicalSpecs {
+  origin?: string;
+  certification?: string;
+  packaging?: string;
+  conservation?: string;
+  precautions?: string;
+  commitments?: string[];
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -50,6 +59,7 @@ export interface Product {
   image: string;
   isNew?: boolean;
   isBestseller?: boolean;
+  technicalSpecs?: TechnicalSpecs;
 }
 
 export interface CartItem {

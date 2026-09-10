@@ -1,5 +1,5 @@
 import React from 'react';
-import logoV10Png from '../assets/images/logo v10.png';
+import logoRectanglePng from '../assets/images/logo rectangle .png';
 
 export interface BrandLogoProps {
   variant?: 'dark' | 'light' | 'original';
@@ -22,10 +22,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 }) => {
   // Height sizing for desktop & phone logo image
   const logoHeight = {
-    sm: 'h-[40px] sm:h-16 md:h-[76px]',
-    md: 'h-[52px] sm:h-20 md:h-[92px]',
-    lg: 'h-[80px] sm:h-24 md:h-[110px]',
-    xl: 'h-28 sm:h-36 md:h-[160px]'
+    sm: 'h-[44px] sm:h-16 md:h-[76px]',
+    md: 'h-[52px] sm:h-20 md:h-[86px]',
+    lg: 'h-[64px] sm:h-24 md:h-[96px]',
+    xl: 'h-24 sm:h-28 md:h-[96px]'
   }[size];
 
   // Optional filter adjustments for dark vs light variants
@@ -44,7 +44,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
       <img
-        src={logoV10Png}
+        src={logoRectanglePng}
         alt="Les Racines du Bien-Être"
         className={`${logoHeight} w-auto object-contain ${getVariantFilter()}`}
       />

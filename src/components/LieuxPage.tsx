@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Calendar, MapPin, Clock, Sparkles, ArrowUpRight, Compass, Waves, Building2, CheckCircle2, ChevronRight, Phone, Mail, ArrowLeft } from 'lucide-react';
+import { Calendar, Compass, Waves, Building2, CheckCircle2, Phone, Mail, ArrowLeft, ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
+import { SplitColumnInfiniteHero } from './SplitColumnInfiniteHero';
+import { InteractiveGoogleMapSection } from './InteractiveGoogleMapSection';
 
 interface LieuxPageProps {
   onNavigateHome: (targetSection?: string) => void;
@@ -12,71 +14,7 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
   onOpenBooking,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const heroLeftRef = useRef<HTMLDivElement>(null);
-  const heroRightRef = useRef<HTMLDivElement>(null);
-  const imageCardRef = useRef<HTMLDivElement>(null);
-  const listItemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const cards3dRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  const [activeTab, setActiveTab] = useState<'all' | 'saint-lo' | 'chant-oiseaux'>('all');
-  const [isHoveringImage, setIsHoveringImage] = useState(false);
-
-  // GSAP Entrance Animations
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hero Left Content Stagger
-      if (heroLeftRef.current) {
-        const leftElements = heroLeftRef.current.querySelectorAll('.gsap-hero-el');
-        gsap.fromTo(
-          leftElements,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            stagger: 0.12,
-            ease: 'power3.out',
-            delay: 0.15,
-          }
-        );
-      }
-
-      // Hero Right Image Card 3D Entrance
-      if (heroRightRef.current) {
-        gsap.fromTo(
-          heroRightRef.current,
-          { opacity: 0, scale: 0.94, rotateY: -8 },
-          {
-            opacity: 1,
-            scale: 1,
-            rotateY: 0,
-            duration: 1.1,
-            ease: 'power2.out',
-            delay: 0.25,
-          }
-        );
-      }
-
-      // List Items Stagger
-      listItemsRef.current.forEach((item, index) => {
-        if (item) {
-          gsap.fromTo(
-            item,
-            { opacity: 0, y: 25 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              delay: 0.4 + index * 0.15,
-              ease: 'power3.out',
-            }
-          );
-        }
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
 
   // 3D Card Interactive Tilt Effect on Mouse Move
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, cardIndex: number) => {
@@ -86,10 +24,10 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     const rotateX = ((y - centerY) / centerY) * -7;
     const rotateY = ((x - centerX) / centerX) * 7;
 
@@ -114,314 +52,22 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
     });
   };
 
-  // Hero Image 3D Tilt Effect
-  const handleHeroImageMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!imageCardRef.current) return;
-    const rect = imageCardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * -6;
-    const rotateY = ((x - centerX) / centerX) * 6;
-
-    gsap.to(imageCardRef.current, {
-      rotateX: rotateX,
-      rotateY: rotateY,
-      transformPerspective: 1200,
-      duration: 0.4,
-      ease: 'power2.out',
-    });
-  };
-
-  const handleHeroImageLeave = () => {
-    if (!imageCardRef.current) return;
-    gsap.to(imageCardRef.current, {
-      rotateX: 0,
-      rotateY: 0,
-      duration: 0.7,
-      ease: 'power2.out',
-    });
-  };
-
   return (
     <div ref={containerRef} className="min-h-screen bg-[#FAF8F5] text-[#1C1A17] font-sans antialiased selection:bg-[#556B5D]/20 selection:text-[#1C1A17]">
-      
-      {/* 1. HERO SPLIT SECTION — EXACT FIDELITY TO SCREENSHOT 1 WITH 3D DEPTH */}
-      <section className="relative w-full min-h-[90vh] lg:min-h-screen flex flex-col lg:flex-row bg-[#506456] text-white overflow-hidden pt-24 lg:pt-0">
-        
-        {/* Left Half: Sage Green Editorial Block */}
-        <div
-          ref={heroLeftRef}
-          className="w-full lg:w-1/2 flex flex-col justify-between p-8 sm:p-12 lg:p-16 xl:p-20 relative z-10 my-auto"
-        >
-          {/* Top Breadcrumb & Tag */}
-          <div className="space-y-6 pt-4 sm:pt-6">
-            <div className="gsap-hero-el flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] text-white/80 uppercase">
-              <button
-                onClick={() => onNavigateHome('#hero')}
-                className="inline-flex items-center gap-1.5 hover:text-white transition-all duration-300 cursor-pointer group bg-white/15 hover:bg-white/30 text-white font-medium px-3.5 py-1.5 rounded-full border border-white/20 shadow-xs"
-                title="Retour à l'accueil"
-              >
-                <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1 text-[#D8CFBF]" />
-                <span>ACCUEIL</span>
-              </button>
-              <span className="opacity-60">—</span>
-              <span className="text-white font-semibold">DEUX ATMOSPHÈRES</span>
-            </div>
 
-            <span className="gsap-hero-el block font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#D8CFBF] uppercase font-semibold">
-              DEUX ATMOSPHÈRES
-            </span>
+      {/* 1. HERO SPLIT SECTION — SPLIT COLUMN INFINITE SLIDER */}
+      <SplitColumnInfiniteHero
+        onNavigateHome={onNavigateHome}
+        onOpenBooking={onOpenBooking}
+      />
 
-            {/* Display Editorial Title */}
-            <h1 className="gsap-hero-el font-serif-editorial text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] font-normal leading-[1.10] text-white tracking-tight">
-              Deux lieux d’accueil, une même qualité de présence.
-            </h1>
-
-            {/* Subtitle */}
-            <p className="gsap-hero-el font-sans text-base sm:text-lg text-white/90 font-light leading-relaxed max-w-xl">
-              Un espace pratique à Saint-Lô et un environnement plus ressourçant au bord de l'eau.
-            </p>
-          </div>
-
-          {/* Bottom Action Button (White Pill with Calendar Icon) */}
-          <div className="gsap-hero-el pt-8 sm:pt-12">
-            <button
-              onClick={() => onOpenBooking('bilan-vitalite')}
-              className="group inline-flex items-center gap-3 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#8BB28A] hover:bg-[#7AA179] text-white active:scale-[0.98] text-xs sm:text-sm font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
-            >
-              <Calendar className="w-4 h-4 text-white transition-transform group-hover:scale-110" />
-              <span>Prendre rendez-vous</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Right Half: Visual Photo & 3D Interactive Depth Container */}
-        <div
-          ref={heroRightRef}
-          onMouseMove={handleHeroImageMove}
-          onMouseLeave={handleHeroImageLeave}
-          className="w-full lg:w-1/2 min-h-[420px] sm:min-h-[520px] lg:min-h-full relative flex items-center justify-center p-4 sm:p-8 lg:p-12 overflow-hidden"
-          style={{ perspective: '1200px' }}
-        >
-          {/* Interactive 3D Card Container */}
-          <div
-            ref={imageCardRef}
-            onMouseEnter={() => setIsHoveringImage(true)}
-            onMouseLeave={() => setIsHoveringImage(false)}
-            className="relative w-full h-full min-h-[420px] sm:min-h-[520px] lg:h-[88%] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transition-shadow duration-500 border border-white/15 bg-[#20352B]"
-            style={{ transformStyle: 'preserve-3d' }}
-          >
-            {/* Main Consultation Photo by the Water */}
-            <img
-              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85"
-              alt="Consultation de naturopathie au bord de l'eau avec Anne-Laure Jourdan"
-              referrerPolicy="no-referrer"
-              className={`w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05] transition-transform duration-700 ease-out ${
-                isHoveringImage ? 'scale-105' : 'scale-100'
-              }`}
-            />
-
-            {/* Subtle Vignette & Natural Gradients */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
-
-            {/* Floating 3D Depth Badge: Bottom Left */}
-            <div
-              className="absolute bottom-6 left-6 right-6 sm:right-auto bg-black/40 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/20 text-white transition-transform duration-300 pointer-events-none"
-              style={{ transform: 'translateZ(30px)' }}
-            >
-              <div className="flex items-center gap-2 text-[#D8CFBF] font-mono text-[10px] tracking-widest uppercase mb-1">
-                <Compass className="w-3.5 h-3.5" />
-                <span>Saint-Lô & Vallée de la Vire</span>
-              </div>
-              <p className="font-serif-editorial text-sm sm:text-base font-normal text-white">
-                Cabinet professionnel & sanctuaire au fil de l'eau
-              </p>
-            </div>
-
-            {/* Floating 3D Badge: Top Right */}
-            <div
-              className="absolute top-6 right-6 bg-white/90 text-[#1C1A17] backdrop-blur-md px-3.5 py-1.5 rounded-full text-[11px] font-medium tracking-wide shadow-lg border border-white/40 flex items-center gap-1.5"
-              style={{ transform: 'translateZ(25px)' }}
-            >
-              <span className="w-2 h-2 rounded-full bg-[#506456] animate-pulse" />
-              <span>2 atmosphères au choix</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. SECTION 2 — EXACT FIDELITY TO SCREENSHOT 2 WITH EDITORIAL TYPOGRAPHY & 3D REVEAL */}
-      {/* 2. SECTION 2 — MODERN & ULTRA READABLE LOCATIONS & PRACTICAL INFO GRID */}
-      <section className="py-16 sm:py-24 lg:py-32 px-6 sm:px-12 lg:px-16 xl:px-24 max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 sm:mb-16 pb-8 border-b border-[#D8CFBF]/60">
-          <div className="space-y-3 max-w-2xl">
-            <span className="font-mono text-xs tracking-[0.25em] text-[#506456] uppercase font-bold block">
-              EN QUELQUES MOTS
-            </span>
-            <h2 className="font-serif-editorial text-3xl sm:text-4xl lg:text-5xl text-[#1C1A17] font-normal tracking-tight">
-              Une démarche claire & deux cadres adaptés.
-            </h2>
-            <p className="font-sans text-base sm:text-lg text-[#555048] font-light leading-relaxed">
-              Une approche individualisée, toujours située dans les limites du champ d'accompagnement.
-            </p>
-          </div>
-
-          {/* Quick Badges */}
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#506456]/10 text-[#506456] text-xs font-medium border border-[#506456]/20">
-              <CheckCircle2 className="w-4 h-4 text-[#506456]" />
-              <span>Rendez-vous simple & sur-mesure</span>
-            </div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#736355]/10 text-[#736355] text-xs font-medium border border-[#736355]/20">
-              <CheckCircle2 className="w-4 h-4 text-[#736355]" />
-              <span>Choix du lieu à la confirmation</span>
-            </div>
-          </div>
-        </div>
-
-        {/* 3 Modern Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-          
-          {/* Card 01: Saint-Lô */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[0] = el;
-            }}
-            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#506456] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-5">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
-                  01
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#506456]/10 text-[#506456] font-semibold border border-[#506456]/20">
-                  Centre-Ville
-                </span>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="font-serif-editorial text-2xl sm:text-3xl text-[#1C1A17] font-normal group-hover:text-[#506456] transition-colors">
-                  Institut Belle et Zen
-                </h3>
-                <p className="font-mono text-xs text-[#736355]">Saint-Lô</p>
-              </div>
-
-              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
-                Un environnement professionnel, pratique et confortable, dans une ambiance feutrée en parfaite cohérence avec l'univers du bien-être.
-              </p>
-            </div>
-
-            <div className="pt-6 mt-6 border-t border-[#F0EBE1] space-y-2.5 text-xs text-[#605A52]">
-              <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-[#506456] shrink-0" />
-                <span>Consultations & Soins manuels</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#506456] shrink-0" />
-                <span>Accès rapide & stationnement proche</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 02: Le Chant des Oiseaux */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[1] = el;
-            }}
-            className="group relative bg-white rounded-3xl p-8 sm:p-10 border border-[#E5DFD5] hover:border-[#736355] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-5">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#736355] font-bold">
-                  02
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-[#736355]/10 text-[#736355] font-semibold border border-[#736355]/20">
-                  Bord de l'eau
-                </span>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="font-serif-editorial text-2xl sm:text-3xl text-[#1C1A17] font-normal group-hover:text-[#736355] transition-colors">
-                  Le Chant des Oiseaux
-                </h3>
-                <p className="font-mono text-xs text-[#736355]">Vallée de la Vire</p>
-              </div>
-
-              <p className="font-sans text-sm text-[#555048] font-light leading-relaxed">
-                Un lieu apaisant et ressourçant au bord de l'eau, conçu pour la déconnexion et l'accueil de futurs ateliers et masterclasses.
-              </p>
-            </div>
-
-            <div className="pt-6 mt-6 border-t border-[#F0EBE1] space-y-2.5 text-xs text-[#605A52]">
-              <div className="flex items-center gap-2">
-                <Waves className="w-4 h-4 text-[#506456] shrink-0" />
-                <span>Immersion naturelle & silence</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#506456] shrink-0" />
-                <span>Futur accueil d'ateliers thématiques</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 03: Informations Pratiques */}
-          <div
-            ref={(el) => {
-              if (el) listItemsRef.current[2] = el;
-            }}
-            className="group relative bg-[#20352B] text-white rounded-3xl p-8 sm:p-10 border border-[#20352B] shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
-          >
-            <div className="space-y-5">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs tracking-widest text-[#AEB9A9] font-bold">
-                  03
-                </span>
-                <span className="text-[11px] font-mono tracking-wider px-3 py-1 rounded-full bg-white/10 text-white font-semibold border border-white/20">
-                  Contact
-                </span>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="font-serif-editorial text-2xl sm:text-3xl text-white font-normal">
-                  Informations pratiques
-                </h3>
-                <p className="font-mono text-xs text-[#AEB9A9]">Saint-Lô & environs</p>
-              </div>
-
-              <p className="font-sans text-sm text-white/80 font-light leading-relaxed">
-                Adresses précises et accès fournis dès la confirmation de votre rendez-vous. Pour toute question, contactez le cabinet.
-              </p>
-            </div>
-
-            <div className="pt-6 mt-6 border-t border-white/15 space-y-3">
-              <a
-                href="tel:0612345678"
-                className="flex items-center gap-3 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white transition-all duration-200 text-xs font-medium"
-              >
-                <Phone className="w-4 h-4 text-[#AEB9A9]" />
-                <span>06 12 34 56 78</span>
-              </a>
-              <a
-                href="mailto:contact@lesracinesdubienetre.fr"
-                className="flex items-center gap-3 p-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white transition-all duration-200 text-xs font-medium truncate"
-              >
-                <Mail className="w-4 h-4 text-[#AEB9A9] shrink-0" />
-                <span className="truncate">contact@lesracinesdubienetre.fr</span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      {/* 2. SECTION 2 — INTERACTIVE GOOGLE MAPS WITH 3D GSAP ANIMATED LOCATION CARDS */}
+      <InteractiveGoogleMapSection onOpenBooking={onOpenBooking} />
 
       {/* 3. SECTION 3 — 3D INTERACTIVE ATMOSPHERE CARDS (MODERN PARALLAX TILT) */}
       <section className="py-16 sm:py-24 bg-[#F2EDE4] border-t border-[#E5DFD5]">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          
+
           <div className="text-center max-w-2xl mx-auto space-y-3 mb-14 sm:mb-20">
             <span className="font-mono text-xs tracking-[0.25em] text-[#736355] uppercase font-semibold block">
               EXPÉRIENCE IMMERSIVE
@@ -435,7 +81,7 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-            
+
             {/* 3D Card 1: Institut Belle et Zen */}
             <div
               ref={(el) => {
@@ -467,7 +113,7 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
               {/* Bottom Card Content */}
               <div className="relative z-10 space-y-4" style={{ transform: 'translateZ(40px)' }}>
                 <h4 className="font-serif-editorial text-2xl sm:text-3xl text-white font-normal">
-                  Institut Belle et Zen
+                  Institut Belle et Zen Saint-Lô
                 </h4>
                 <p className="font-sans text-xs sm:text-sm text-white/90 font-light leading-relaxed max-w-md">
                   Un cadre feutré et professionnel au cœur de Saint-Lô, idéal pour vos bilans de vitalité et rituels de réflexologie réguliers.
@@ -516,7 +162,7 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
               {/* Bottom Card Content */}
               <div className="relative z-10 space-y-4" style={{ transform: 'translateZ(40px)' }}>
                 <h4 className="font-serif-editorial text-2xl sm:text-3xl text-white font-normal">
-                  Le Chant des Oiseaux
+                  Le Chant des Oiseaux Vallée de la Vire
                 </h4>
                 <p className="font-sans text-xs sm:text-sm text-white/90 font-light leading-relaxed max-w-md">
                   Une immersion apaisante en pleine nature et au bord de l'eau, conçue pour déconnecter du quotidien et approfondir votre ressourcement.

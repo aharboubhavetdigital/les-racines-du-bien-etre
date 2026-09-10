@@ -116,9 +116,9 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${scrolled
-          ? 'bg-[#131210]/90 backdrop-blur-xl border-b border-white/10 py-3 sm:py-4 shadow-2xl'
-          : 'bg-gradient-to-b from-black/85 via-black/45 to-transparent py-4 sm:py-6 lg:py-7'
+      className={`fixed top-0 left-0 right-0 z-[3000] transition-all duration-500 ${scrolled
+        ? 'bg-white/90 backdrop-blur-xl border-b border-[#E5DFD5] py-3 sm:py-4 shadow-md'
+        : 'bg-gradient-to-b from-white/[0.86] via-white/[0.86] to-white/20 backdrop-blur-md py-4 sm:py-5 lg:py-6'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="flex items-center cursor-pointer"
             >
               <BrandLogo
-                variant="light"
+                variant="dark"
                 size={scrolled ? "sm" : "md"}
                 className="py-0.5 transition-all duration-300"
               />
@@ -153,25 +153,22 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="relative">
               <button
                 onClick={() => setNavMenuOpen(!navMenuOpen)}
-                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 border border-white/15 cursor-pointer shadow-lg flex items-center justify-center transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#344E41] hover:bg-[#2A3F34] active:scale-95 border border-white cursor-pointer shadow-md flex items-center justify-center transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group"
                 aria-label="Menu"
                 title="Menu"
               >
                 <div className="w-5 h-3.5 flex flex-col justify-between items-center relative">
                   <span
-                    className={`block h-[2px] w-5 bg-[#AEB9A9] rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
-                      navMenuOpen ? 'translate-y-[6px] rotate-45 bg-white' : 'group-hover:scale-x-110'
-                    }`}
+                    className={`block h-[2px] w-5 bg-white rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${navMenuOpen ? 'translate-y-[6px] rotate-45' : 'group-hover:scale-x-110'
+                      }`}
                   />
                   <span
-                    className={`block h-[2px] w-5 bg-[#AEB9A9] rounded-full transition-all duration-200 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
-                      navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
-                    }`}
+                    className={`block h-[2px] w-5 bg-white rounded-full transition-all duration-200 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+                      }`}
                   />
                   <span
-                    className={`block h-[2px] w-5 bg-[#AEB9A9] rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
-                      navMenuOpen ? '-translate-y-[6px] -rotate-45 bg-white' : 'group-hover:scale-x-90'
-                    }`}
+                    className={`block h-[2px] w-5 bg-white rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${navMenuOpen ? '-translate-y-[6px] -rotate-45' : 'group-hover:scale-x-90'
+                      }`}
                   />
                 </div>
               </button>
@@ -183,25 +180,22 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setNavMenuOpen(!navMenuOpen)}
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 cursor-pointer shadow-sm flex items-center justify-center transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] active:scale-95 hover:bg-white/20 group"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#344E41] hover:bg-[#2A3F34] backdrop-blur-md border border-white cursor-pointer shadow-sm flex items-center justify-center transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] active:scale-95 group"
               aria-label="Menu"
               title="Menu"
             >
               <div className="w-4.5 h-3.5 flex flex-col justify-between items-center relative">
                 <span
-                  className={`block h-[2px] w-4.5 bg-[#AEB9A9] rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
-                    navMenuOpen ? 'translate-y-[6px] rotate-45 bg-white' : ''
-                  }`}
+                  className={`block h-[2px] w-4.5 bg-white rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${navMenuOpen ? 'translate-y-[6px] rotate-45' : ''
+                    }`}
                 />
                 <span
-                  className={`block h-[2px] w-4.5 bg-[#AEB9A9] rounded-full transition-all duration-200 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
-                    navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
-                  }`}
+                  className={`block h-[2px] w-4.5 bg-white rounded-full transition-all duration-200 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${navMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'
+                    }`}
                 />
                 <span
-                  className={`block h-[2px] w-4.5 bg-[#AEB9A9] rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${
-                    navMenuOpen ? '-translate-y-[6px] -rotate-45 bg-white' : ''
-                  }`}
+                  className={`block h-[2px] w-4.5 bg-white rounded-full transition-all duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] transform origin-center ${navMenuOpen ? '-translate-y-[6px] -rotate-45' : ''
+                    }`}
                 />
               </div>
             </button>
