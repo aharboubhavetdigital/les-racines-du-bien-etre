@@ -241,217 +241,292 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
           {/* 6 Cards Grid: 3 columns x 2 rows on desktop, stacked on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             
-            {/* Card 01: Observation */}
+            {/* CARD 01: Observation */}
             <div
               ref={(el) => {
                 if (el) listItemsRef.current[0] = el;
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 0)}
               onMouseLeave={() => handleCardMouseLeave(0)}
-              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
-                    01
-                  </span>
-                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
-                    Observation
-                  </span>
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
+                <div className="flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">01</span>
+                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3.5 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                        Observation
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                      Observer avant de vouloir corriger
+                    </h3>
+
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                      Pendant quelques jours, noter simplement ses horaires, ses repas, son niveau d’énergie perçu, ses pauses et ses temps de récupération peut aider à faire apparaître des régularités sans se surveiller.
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
-                  Observer avant de vouloir corriger
-                </h3>
-
-                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
-                  Pendant quelques jours, noter simplement ses horaires, ses repas, son niveau d’énergie perçu, ses pauses et ses temps de récupération peut aider à faire apparaître des régularités sans se surveiller.
-                </p>
+                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                  <img
+                    src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80"
+                    alt="Observation"
+                    loading="lazy"
+                    className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Card 02: Récupération */}
+            {/* CARD 02: Récupération */}
             <div
               ref={(el) => {
                 if (el) listItemsRef.current[1] = el;
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 1)}
               onMouseLeave={() => handleCardMouseLeave(1)}
-              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
-                    02
-                  </span>
-                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
-                    Récupération
-                  </span>
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
+                <div className="flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">02</span>
+                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3.5 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                        Récupération
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                      Sommeil et récupération
+                    </h3>
+
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                      La récupération ne dépend pas d'une seule astuce. Les horaires, la lumière, les écrans et l'environnement de la chambre peuvent être observés ensemble.
+                    </p>
+                  </div>
+
+                  <ul className="space-y-2 pt-3.5 border-t border-[#20352B]/10 text-xs text-[#20352B]/80 font-light">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
+                      <span>Transition activité / repos</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
+                      <span>Horaires réguliers & vraies pauses</span>
+                    </li>
+                  </ul>
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
-                  Sommeil et récupération
-                </h3>
-
-                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
-                  La récupération ne dépend pas d'une seule astuce. Les horaires, la lumière, les écrans et l'environnement de la chambre peuvent être observés ensemble.
-                </p>
-
-                <ul className="space-y-2.5 pt-4 border-t border-[#E8EDE6] text-xs text-[#20352B]/85 font-light">
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
-                    <span>Transition activité / repos</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
-                    <span>Horaires réguliers & vraies pauses</span>
-                  </li>
-                </ul>
+                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                  <img
+                    src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80"
+                    alt="Récupération"
+                    loading="lazy"
+                    className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Card 03: Équilibre */}
+            {/* CARD 03: Équilibre */}
             <div
               ref={(el) => {
                 if (el) listItemsRef.current[2] = el;
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 2)}
               onMouseLeave={() => handleCardMouseLeave(2)}
-              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
-                    03
-                  </span>
-                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
-                    Équilibre
-                  </span>
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
+                <div className="flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">03</span>
+                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                        Équilibre
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                      Stress et équilibre émotionnel
+                    </h3>
+
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                      Identifier ce qui sollicite le plus, reconnaître les signaux d’alerte et mettre en place des pratiques courtes et répétables au quotidien.
+                    </p>
+                  </div>
+
+                  <ul className="space-y-2 pt-3.5 border-t border-[#20352B]/10 text-xs text-[#20352B]/80 font-light">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
+                      <span>Respiration et relaxation</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
+                      <span>Pauses sans écran</span>
+                    </li>
+                  </ul>
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
-                  Stress et équilibre émotionnel
-                </h3>
-
-                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
-                  Identifier ce qui sollicite le plus, reconnaître les signaux d’alerte et mettre en place des pratiques courtes et répétables au quotidien.
-                </p>
-
-                <ul className="space-y-2.5 pt-4 border-t border-[#E8EDE6] text-xs text-[#20352B]/85 font-light">
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
-                    <span>Respiration et relaxation</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#506456] shrink-0" />
-                    <span>Pauses sans écran</span>
-                  </li>
-                </ul>
+                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                  <img
+                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80"
+                    alt="Équilibre"
+                    loading="lazy"
+                    className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Card 04: Vitalité */}
+            {/* CARD 04: Vitalité */}
             <div
               ref={(el) => {
                 if (el) listItemsRef.current[3] = el;
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 3)}
               onMouseLeave={() => handleCardMouseLeave(3)}
-              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
-                    04
-                  </span>
-                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
-                    Vitalité
-                  </span>
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
+                <div className="flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">04</span>
+                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                        Vitalité
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                      Alimentation et hydratation
+                    </h3>
+
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                      Avant de chercher un régime idéal, observer la régularité, la variété, les sensations, le contexte des repas et l’hydratation régulière.
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
-                  Alimentation et hydratation
-                </h3>
-
-                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
-                  Avant de chercher un régime idéal, observer la régularité, la variété, les sensations, le contexte des repas et l’hydratation régulière.
-                </p>
+                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                  <img
+                    src="https://images.unsplash.com/photo-1534531141161-e49d137061d4?auto=format&fit=crop&w=600&q=80"
+                    alt="Vitalité"
+                    loading="lazy"
+                    className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Card 05: Mouvement */}
+            {/* CARD 05: Mouvement */}
             <div
               ref={(el) => {
                 if (el) listItemsRef.current[4] = el;
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 4)}
               onMouseLeave={() => handleCardMouseLeave(4)}
-              className="group relative bg-white rounded-[28px] p-7 sm:p-9 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400 flex flex-col justify-between"
+              className="group relative bg-white rounded-[28px] p-6 sm:p-8 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-wider text-[#6F8275] font-bold">
-                    05
-                  </span>
-                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
-                    Mouvement
-                  </span>
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 justify-between h-full">
+                <div className="flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider">05</span>
+                      <span className="h-[1px] w-6 sm:w-8 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3]">
+                        Mouvement
+                      </span>
+                    </div>
+
+                    <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-[#20352B] leading-snug mt-4 group-hover:text-[#506456] transition-colors">
+                      Mouvement et vie quotidienne
+                    </h3>
+
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-3">
+                      Marche, mobilité douce et interruptions régulières de la sédentarité forment une base physique accessible et pérenne.
+                    </p>
+                  </div>
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-[#20352B] leading-snug group-hover:text-[#506456] transition-colors">
-                  Mouvement et vie quotidienne
-                </h3>
-
-                <p className="font-sans text-xs sm:text-sm text-[#20352B]/80 font-light leading-relaxed">
-                  Marche, mobilité douce et interruptions régulières de la sédentarité forment une base physique accessible et pérenne.
-                </p>
+                <div className="w-full sm:w-[130px] lg:w-[150px] h-[160px] sm:h-auto shrink-0 relative overflow-hidden rounded-tl-[75px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                  <img
+                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80"
+                    alt="Mouvement"
+                    loading="lazy"
+                    className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Card 06: Durabilité (Highlight Dark Forest Green Card) */}
+            {/* CARD 06: Durabilité (Highlight Dark Forest Green Card with Branch Overlay & Script Text) */}
             <div
               ref={(el) => {
                 if (el) listItemsRef.current[5] = el;
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 5)}
               onMouseLeave={() => handleCardMouseLeave(5)}
-              className="group relative bg-[#1D3027] text-white rounded-[28px] p-7 sm:p-9 border border-[#1D3027] shadow-[0_12px_35px_rgba(29,48,39,0.25)] hover:shadow-[0_20px_45px_rgba(29,48,39,0.35)] transition-all duration-400 flex flex-col justify-between overflow-hidden"
+              className="group relative bg-[#162920] text-white rounded-[28px] p-6 sm:p-8 border border-[#162920] shadow-[0_12px_35px_rgba(22,41,32,0.25)] hover:shadow-[0_20px_45px_rgba(22,41,32,0.35)] transition-all duration-400 flex flex-col justify-between overflow-hidden"
             >
-              {/* Subtle Botanical Leaf Corner Watermark */}
-              <div className="absolute -bottom-10 -right-10 opacity-10 pointer-events-none transition-opacity group-hover:opacity-15">
-                <svg width="180" height="180" viewBox="0 0 100 100" fill="currentColor" className="text-white">
-                  <path d="M50 0C50 27.614 27.614 50 0 50C27.614 50 50 72.386 50 100C50 72.386 72.386 50 100 50C72.386 50 50 27.614 50 0Z" />
+              {/* Right Side Botanical Branch Visual Overlay */}
+              <div className="absolute top-0 right-0 w-[160px] sm:w-[190px] h-full pointer-events-none opacity-45 group-hover:opacity-60 transition-opacity">
+                <svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#A8B7A7]">
+                  <path d="M130 10C130 100 180 180 145 290" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M130 35C100 25 70 40 60 60C75 70 105 60 128 40" fill="currentColor" fillOpacity="0.5" />
+                  <path d="M135 65C165 55 195 70 205 90C190 100 160 90 137 70" fill="currentColor" fillOpacity="0.5" />
+                  <path d="M140 105C110 95 80 110 70 130C85 140 115 130 138 110" fill="currentColor" fillOpacity="0.5" />
+                  <path d="M145 145C175 135 205 150 215 170C200 180 170 170 147 150" fill="currentColor" fillOpacity="0.5" />
+                  <path d="M148 185C120 175 90 190 80 210C95 220 125 210 146 190" fill="currentColor" fillOpacity="0.5" />
                 </svg>
               </div>
 
-              <div className="space-y-5 relative z-10">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs tracking-wider text-[#A8B7A7] font-bold">
-                    06
-                  </span>
-                  <span className="font-mono text-[11px] tracking-wider px-3.5 py-1 rounded-full bg-white/10 text-white font-semibold border border-white/20">
-                    Durabilité
-                  </span>
+              <div className="flex flex-col justify-between h-full space-y-4 relative z-10">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs text-[#A8B7A7] font-semibold tracking-wider">06</span>
+                    <span className="h-[1px] w-6 sm:w-8 bg-white/20 shrink-0" />
+                    <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-white/10 text-white font-semibold border border-white/20">
+                      Durabilité
+                    </span>
+                  </div>
+
+                  <h3 className="font-serif text-2xl sm:text-[25px] font-normal text-white leading-snug">
+                    Installer une habitude durable
+                  </h3>
+
+                  <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-[260px] sm:max-w-none">
+                    Un changement durable est précis, simple à répéter et ancré dans un moment déjà présent dans votre journée.
+                  </p>
                 </div>
 
-                <h3 className="font-serif text-2xl sm:text-[26px] font-normal text-white leading-snug">
-                  Installer une habitude durable
-                </h3>
+                <div>
+                  <ul className="space-y-2 pt-3.5 border-t border-white/15 text-xs text-white/90 font-light mb-3">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
+                      <span>Priorité unique & version minimale</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
+                      <span>Ajustements bienveillants sans perfectionnisme</span>
+                    </li>
+                  </ul>
 
-                <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed">
-                  Un changement durable est précis, simple à répéter et ancré dans un moment déjà présent dans votre journée.
-                </p>
-
-                <ul className="space-y-2.5 pt-4 border-t border-white/15 text-xs text-white/90 font-light">
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
-                    <span>Priorité unique & version minimale</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
-                    <span>Ajustements bienveillants sans perfectionnisme</span>
-                  </li>
-                </ul>
+                  {/* Handwritten Accent Text */}
+                  <div className="text-right pt-1 pr-1">
+                    <span className="font-serif italic text-sm text-[#C8D6C6] tracking-wide block transform -rotate-1 font-light">
+                      Des petits pas qui comptent
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
