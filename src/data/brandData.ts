@@ -1,5 +1,6 @@
 import { Service, Product, JournalArticle, Testimonial } from '../types';
 import fireflyImg from '../assets/images/Firefly (2).jpg';
+import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
 
 export const SERVICES_DATA: Service[] = [
   {

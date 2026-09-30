@@ -3,6 +3,7 @@ import logoV5Url from '../assets/images/logo v5 .svg';
 import { Instagram, MapPin, Mail, Phone, ShieldCheck } from 'lucide-react';
 import soundbathBlogImg from '../assets/images/soundbath-blog.jpg';
 import guaShaImg from '../assets/images/Capture d’écran 2026-09-30 à 14.55.20.png';
+import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
 
 interface FooterProps {
   onOpenLegal: (type: 'mentions' | 'privacy') => void;
@@ -13,7 +14,7 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenBooking, onNavigate }) => {
   const instagramFeed = [
     {
-      img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=400&q=80',
+      img: rituelSaugeImg,
       caption: 'Rituel d’huile essentielle de sauge'
     },
     {
@@ -33,10 +34,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenBooking, onNa
   return (
     <footer className="bg-[#0D0C0A] border-t border-white/10 text-white pt-20 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        
+
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
-          
+
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-4 space-y-6">
             <div className="flex items-center">
@@ -145,7 +146,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenBooking, onNa
             <h3 className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-[#AEB9A9]">
               Cabinets & Contact
             </h3>
-            
+
             <div className="space-y-3 font-sans text-xs text-white/80 font-light">
               <div>
                 <strong className="font-medium text-white block">Institut Belle et Zen</strong>

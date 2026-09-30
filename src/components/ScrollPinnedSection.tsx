@@ -32,9 +32,9 @@ const CARDS_DATA: ProductCardData[] = [
 ];
 
 const TRANSFORMS: [number[], number[]][] = [
-  [ [10, 50, -10, 10], [20, -10, -45, 20] ],   // card 0
-  [ [0, 47.5, -10, 15], [-25, 15, -45, 30] ],  // card 1
-  [ [0, 52.5, -10, 5], [15, -5, -40, 60] ]     // card 2
+  [[10, 50, -10, 10], [20, -10, -45, 20]],   // card 0
+  [[0, 47.5, -10, 15], [-25, 15, -45, 30]],  // card 1
+  [[0, 52.5, -10, 5], [15, -5, -40, 60]]     // card 2
 ];
 
 export function ScrollPinnedSection() {

@@ -18,7 +18,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 opacity-70">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Column: Editorial Typography & CTAs */}
           <div className="lg:col-span-7 space-y-8">
             {/* Top Editorial Label */}
@@ -77,7 +77,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Right Column: Editorial Visual Photography Layout */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              
+
               {/* Main Editorial Image Frame */}
               <div className="relative aspect-4/5 rounded-xs overflow-hidden shadow-xl border border-[#D8CCBC]/60">
                 <img
@@ -85,10 +85,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   alt="Les Racines du Bien-Être — Soin holistique et huiles botaniques"
                   className="w-full h-full object-cover filter brightness-[0.98] contrast-[0.98] transition-transform duration-700 hover:scale-103"
                 />
-                
+
                 {/* Subtle overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#343633]/20 via-transparent to-transparent pointer-events-none" />
-                
+
                 {/* Embedded Quote Badge */}
                 <div className="absolute bottom-5 left-5 right-5 bg-[#FAF8F5]/90 backdrop-blur-md p-4 rounded-xs border border-[#D8CCBC]/60 shadow-xs">
                   <p className="font-serif-editorial italic text-xs md:text-sm text-[#343633] leading-snug">

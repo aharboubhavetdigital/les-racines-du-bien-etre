@@ -136,7 +136,7 @@ export const CurvedVideoWall: React.FC<CurvedVideoWallProps> = ({
         // Try binding video texture dynamically
         const videoSrc =
           DEFAULT_VIDEO_SOURCES[
-            (r * params.columns + c) % DEFAULT_VIDEO_SOURCES.length
+          (r * params.columns + c) % DEFAULT_VIDEO_SOURCES.length
           ];
         const video = document.createElement("video");
         video.src = videoSrc;
@@ -157,7 +157,7 @@ export const CurvedVideoWall: React.FC<CurvedVideoWallProps> = ({
 
         video.addEventListener("loadeddata", showVideo);
         video.addEventListener("playing", showVideo);
-        video.play().catch(() => {});
+        video.play().catch(() => { });
         videosToClean.push(video);
 
         const plane = new THREE.Mesh(geometry, material);

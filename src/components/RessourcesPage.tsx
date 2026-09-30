@@ -4,9 +4,10 @@ import gsap from 'gsap';
 import CircularGallery, { CircularGalleryItem } from './ui/CircularGallery';
 import complementsAlimentairesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.44.21.png';
 import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
+import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
 
 const CIRCULAR_GALLERY_ITEMS: CircularGalleryItem[] = [
-  { image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', text: '' },
+  { image: rituelSaugeImg, text: '' },
   { image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80', text: '' },
   { image: 'https://images.unsplash.com/photo-1512290900676-26c2a7a795b1?auto=format&fit=crop&w=800&q=80', text: '' },
   { image: sonotherapieImg, text: '' },
@@ -130,10 +131,10 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     const rotateX = ((y - centerY) / centerY) * -5;
     const rotateY = ((x - centerX) / centerX) * 5;
 
@@ -160,10 +161,10 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
 
   return (
     <div ref={containerRef} className="min-h-screen bg-[#FAF8F5] text-[#1C1A17] font-sans antialiased selection:bg-[#506456]/20 selection:text-[#1C1A17]">
-      
+
       {/* 1. HERO FULL-WIDTH SECTION — TEXT ON TOP & FULL SCREEN CIRCULAR GALLERY BELOW */}
       <section className="relative w-full min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex flex-col justify-between bg-[#506456] text-white overflow-hidden pt-20 sm:pt-28 lg:pt-32 pb-6 sm:pb-10 lg:pb-12 px-0">
-        
+
         {/* TOP: Responsive Editorial Text Block */}
         <div
           ref={heroLeftRef}
@@ -212,7 +213,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
       {/* 2. MAIN PEDAGOGICAL CONTENT SECTION — 6 CARDS EDITORIAL GRID */}
       <section className="py-16 sm:py-24 bg-[#F8F7F3] border-t border-[#20352B]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 xl:px-24">
-          
+
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
             <div className="space-y-3 max-w-2xl">
@@ -242,7 +243,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
 
           {/* 6 Cards Grid: 3 columns x 2 rows on desktop, stacked on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            
+
             {/* CARD 01: Observation */}
             <div
               ref={(el) => {
@@ -420,7 +421,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
 
                 <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
                   <img
-                    src="https://images.unsplash.com/photo-1534531141161-e49d137061d4?auto=format&fit=crop&w=600&q=80"
+                    src={rituelSaugeImg}
                     alt="Vitalité"
                     loading="lazy"
                     className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"
@@ -539,7 +540,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
       {/* 3. CONTINUER SECTION — ELEGANT EDITORIAL DESIGN SYSTEM CARDS */}
       <section className="py-16 sm:py-24 bg-[#E7ECE5] text-[#20352B] border-t border-[#20352B]/15">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 xl:px-24">
-          
+
           <div className="space-y-6">
             <div>
               <span className="font-mono text-xs tracking-[0.25em] text-[#6F8275] uppercase font-semibold block">
@@ -549,7 +550,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
 
             {/* Two Elegant Luxury Editorial Outlined Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-2">
-              
+
               {/* Card 1: Comprendre la naturopathie */}
               <div
                 onClick={() => onNavigatePage('prestations')}
