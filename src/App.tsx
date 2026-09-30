@@ -66,6 +66,7 @@ export default function App() {
   // Modal states
   const [isBookingOpen, setIsBookingOpen] = useState<boolean>(false);
   const [bookingServiceId, setBookingServiceId] = useState<string>('naturopathie');
+  const [bookingNotes, setBookingNotes] = useState<string>('');
 
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -128,9 +129,14 @@ export default function App() {
   };
 
   // Booking trigger helper
-  const handleOpenBooking = (serviceId?: string) => {
-    if (serviceId) {
+  const handleOpenBooking = (serviceId?: string, initialNotes?: string) => {
+    if (serviceId !== undefined) {
       setBookingServiceId(serviceId);
+    }
+    if (initialNotes !== undefined) {
+      setBookingNotes(initialNotes);
+    } else {
+      setBookingNotes('');
     }
     setIsBookingOpen(true);
   };
@@ -261,6 +267,7 @@ export default function App() {
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
         initialServiceId={bookingServiceId}
+        initialNotes={bookingNotes}
       />
 
       <CartDrawer
@@ -293,7 +300,6 @@ export default function App() {
         isOpen={isQuizOpen}
         onClose={() => setIsQuizOpen(false)}
         onOpenBooking={handleOpenBooking}
-        onQuickViewProduct={(product) => setSelectedProduct(product)}
       />
 
       <LegalModal

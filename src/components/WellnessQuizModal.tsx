@@ -1,68 +1,98 @@
 import React, { useState } from 'react';
-import { SERVICES_DATA, PRODUCTS_DATA } from '../data/brandData';
-import { X, Sparkles, ArrowRight, CheckCircle2, RefreshCw } from 'lucide-react';
+import { X, Sparkles, CheckCircle2, RefreshCw, ArrowRight } from 'lucide-react';
 
 interface WellnessQuizModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpenBooking: (serviceId: string) => void;
-  onQuickViewProduct: (product: any) => void;
+  onOpenBooking: (serviceId?: string, initialNotes?: string) => void;
+}
+
+interface QuizOption {
+  id: string;
+  title: string;
+  desc: string;
+  serviceId?: string;
 }
 
 export const WellnessQuizModal: React.FC<WellnessQuizModalProps> = ({
   isOpen,
   onClose,
-  onOpenBooking,
-  onQuickViewProduct
+  onOpenBooking
 }) => {
   const [step, setStep] = useState<number>(1);
-  const [answer1, setAnswer1] = useState<string>('');
-  const [answer2, setAnswer2] = useState<string>('');
+  const [selectedQ1, setSelectedQ1] = useState<QuizOption | null>(null);
+  const [selectedQ2, setSelectedQ2] = useState<QuizOption | null>(null);
 
   if (!isOpen) return null;
 
   const handleReset = () => {
     setStep(1);
-    setAnswer1('');
-    setAnswer2('');
+    setSelectedQ1(null);
+    setSelectedQ2(null);
   };
 
-  const q1Options = [
-    { id: 'stress', title: 'Fatigue, surcharge mentale & anxiété', desc: 'Besoin d’apaiser le système nerveux et de lâcher-prise.' },
-    { id: 'digestion', title: 'Troubles digestifs ou déséquilibres alimentaires', desc: 'Besoin de réorganiser votre hygiène de vie et traiter la cause.' },
-    { id: 'peau', title: 'Peau terne, tensions du visage ou fatigue oculaire', desc: 'Recherche d’éclat naturel, de lissage et de décongestion.' },
-    { id: 'prevention', title: 'Démarche préventive & maintien de la vitalité', desc: 'Soutenir votre organisme à chaque changement de saison.' }
+  const q1Options: QuizOption[] = [
+    {
+      id: 'fatigue-anxiete',
+      title: 'Fatigue, surcharge mentale & anxiété',
+      desc: "Besoin d'apaiser le système nerveux et de lâcher prise."
+    },
+    {
+      id: 'digestion-alimentation',
+      title: 'Digestion & alimentation',
+      desc: 'Besoin de retrouver un meilleur équilibre au quotidien.'
+    },
+    {
+      id: 'tensions-detente',
+      title: 'Tensions, stress & besoin de détente',
+      desc: 'Besoin de relâcher les tensions du corps et du visage.'
+    },
+    {
+      id: 'preventif-vitalite',
+      title: 'Démarche préventive & maintien de la vitalité',
+      desc: 'Soutenir votre organisme à chaque changement de saison.'
+    }
   ];
 
-  const q2Options = [
-    { id: 'touch', title: 'Un soin corporel manuel doux et enveloppant', desc: 'Priorité au lâcher-prise physique direct.' },
-    { id: 'bilan', title: 'Un bilan approfondi avec conseils personnalisés', desc: 'Comprendre et recevoir un protocole complet d’hygiène de vie.' },
-    { id: 'facial', title: 'Un soin ciblé du visage et de l’esprit', desc: 'Lier beauté holistique et relaxation profonde.' }
+  const q2Options: QuizOption[] = [
+    {
+      id: 'bilan-naturopathie',
+      title: 'Bilan de naturopathie',
+      desc: 'Faire le point sur votre hygiène de vie et vos priorités.',
+      serviceId: 'naturopathie'
+    },
+    {
+      id: 'reflexologie-plantaire',
+      title: 'Réflexologie plantaire',
+      desc: 'Une séance de bien-être centrée sur les pieds.',
+      serviceId: 'reflexologie-plantaire'
+    },
+    {
+      id: 'reflexologie-visage',
+      title: 'Réflexologie du visage',
+      desc: 'Une séance douce centrée sur le visage.',
+      serviceId: 'reflexologie-faciale'
+    },
+    {
+      id: 'indecis',
+      title: 'Je ne sais pas encore',
+      desc: 'Je souhaite en discuter avant de choisir.',
+      serviceId: ''
+    }
   ];
 
-  const getResult = () => {
-    if (answer1 === 'peau' || answer2 === 'facial') {
-      return {
-        service: SERVICES_DATA.find((s) => s.id === 'reflexologie-faciale') || SERVICES_DATA[2],
-        product: PRODUCTS_DATA[0], // Huile Botanique
-        reason: 'La Réflexologie faciale est idéale pour détendre vos traits et stimuler la micro-circulation faciale.'
-      };
-    }
-    if (answer1 === 'digestion' || answer2 === 'bilan') {
-      return {
-        service: SERVICES_DATA.find((s) => s.id === 'naturopathie') || SERVICES_DATA[0],
-        product: PRODUCTS_DATA[1], // Tisane Racines
-        reason: 'Un Bilan de Naturopathie permettra de rechercher l’origine de vos déséquilibres digestifs et vitaux.'
-      };
-    }
-    return {
-      service: SERVICES_DATA.find((s) => s.id === 'reflexologie-plantaire') || SERVICES_DATA[1],
-      product: PRODUCTS_DATA[3], // Baume Alpes
-      reason: 'La Réflexologie plantaire agira directement sur le système nerveux autonome pour libérer le stress accumulé.'
-    };
+  const handleBookingClick = () => {
+    const notesSummary = [
+      "[Réponses au Questionnaire d'Équilibre]",
+      selectedQ1 ? `• Besoin prioritaire : ${selectedQ1.title}` : null,
+      selectedQ2 ? `• Format souhaité : ${selectedQ2.title}` : null
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    onClose();
+    onOpenBooking(selectedQ2?.serviceId || '', notesSummary);
   };
-
-  const result = getResult();
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#343633]/60 backdrop-blur-xs animate-fade-in">
@@ -102,7 +132,7 @@ export const WellnessQuizModal: React.FC<WellnessQuizModalProps> = ({
                   <button
                     key={opt.id}
                     onClick={() => {
-                      setAnswer1(opt.id);
+                      setSelectedQ1(opt);
                       setStep(2);
                     }}
                     className="w-full p-4 text-left rounded-xs bg-[#F5F1E8] border border-[#D8CCBC]/80 hover:border-[#667467] transition-all group"
@@ -125,7 +155,7 @@ export const WellnessQuizModal: React.FC<WellnessQuizModalProps> = ({
                 Question 2 / 2
               </span>
               <h3 className="font-serif-editorial text-2xl text-[#343633]">
-                Quel format de rendez-vous préférez-vous ?
+                Quel format de rendez-vous vous intéresse ?
               </h3>
 
               <div className="space-y-3 pt-2">
@@ -133,7 +163,7 @@ export const WellnessQuizModal: React.FC<WellnessQuizModalProps> = ({
                   <button
                     key={opt.id}
                     onClick={() => {
-                      setAnswer2(opt.id);
+                      setSelectedQ2(opt);
                       setStep(3);
                     }}
                     className="w-full p-4 text-left rounded-xs bg-[#F5F1E8] border border-[#D8CCBC]/80 hover:border-[#667467] transition-all group"
@@ -150,7 +180,7 @@ export const WellnessQuizModal: React.FC<WellnessQuizModalProps> = ({
 
               <button
                 onClick={() => setStep(1)}
-                className="text-xs text-[#756456] underline pt-2"
+                className="text-xs text-[#756456] underline pt-2 hover:text-[#667467]"
               >
                 Retour à la question 1
               </button>
@@ -158,81 +188,45 @@ export const WellnessQuizModal: React.FC<WellnessQuizModalProps> = ({
           )}
 
           {step === 3 && (
-            <div className="space-y-6 animate-fade-in">
-              <div className="text-center space-y-2">
-                <div className="w-12 h-12 rounded-full bg-[#667467]/10 text-[#667467] flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-6 h-6" />
-                </div>
-                <span className="font-sans text-xs font-semibold tracking-wider uppercase text-[#667467]">
-                  Votre recommandation sur-mesure
-                </span>
+            <div className="space-y-6 text-center animate-fade-in py-2">
+              <div className="w-14 h-14 rounded-full bg-[#667467]/10 text-[#667467] flex items-center justify-center mx-auto">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+
+              <div className="space-y-2">
                 <h3 className="font-serif-editorial text-3xl text-[#343633]">
-                  {result.service.title}
+                  Merci pour vos réponses
                 </h3>
-                <p className="font-sans text-xs text-[#756456] font-light max-w-md mx-auto">
-                  {result.reason}
+                <p className="font-sans text-sm text-[#756456] font-light max-w-md mx-auto leading-relaxed">
+                  Vos réponses m'aideront à préparer notre rendez-vous.
                 </p>
               </div>
 
-              {/* Recommended Service Card */}
-              <div className="p-4 bg-[#F5F1E8] border border-[#667467] rounded-xs flex items-center justify-between gap-4">
-                <div>
-                  <h4 className="font-serif-editorial text-lg text-[#343633] font-medium">
-                    {result.service.title}
-                  </h4>
-                  <p className="font-sans text-xs text-[#756456]">
-                    Durée : {result.service.duration} • {result.service.price} €
-                  </p>
+              <div className="pt-4 flex flex-col items-center gap-4">
+                <button
+                  onClick={handleBookingClick}
+                  className="w-full sm:w-auto px-8 py-3.5 bg-[#667467] hover:bg-[#525E53] text-[#FAF8F5] text-xs uppercase font-semibold tracking-wider rounded-xs transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02]"
+                >
+                  <span>Prendre rendez-vous</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+
+                <div className="flex items-center justify-between w-full pt-4 border-t border-[#D8CCBC]/60 text-xs">
+                  <button
+                    onClick={handleReset}
+                    className="text-[#756456] flex items-center gap-1.5 hover:text-[#667467]"
+                  >
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    <span>Recommencer le test</span>
+                  </button>
+
+                  <button
+                    onClick={onClose}
+                    className="text-[#343633] font-semibold hover:text-[#667467]"
+                  >
+                    Fermer
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    onClose();
-                    onOpenBooking(result.service.id);
-                  }}
-                  className="px-4 py-2 bg-[#667467] text-[#FAF8F5] text-xs uppercase font-semibold rounded-xs shrink-0"
-                >
-                  Réserver ce soin
-                </button>
-              </div>
-
-              {/* Recommended Product */}
-              <div className="p-4 bg-[#F5F1E8]/60 border border-[#D8CCBC] rounded-xs flex items-center gap-4">
-                <img
-                  src={result.product.image}
-                  alt={result.product.name}
-                  className="w-14 h-14 object-cover rounded-xs border border-[#D8CCBC]"
-                />
-                <div className="flex-1 min-w-0">
-                  <span className="font-sans text-[10px] uppercase text-[#756456]">Soin complémentaire recommandé</span>
-                  <h5 className="font-serif-editorial text-base text-[#343633] truncate">{result.product.name}</h5>
-                  <span className="font-sans text-xs font-semibold text-[#667467]">{result.product.price} €</span>
-                </div>
-                <button
-                  onClick={() => {
-                    onClose();
-                    onQuickViewProduct(result.product);
-                  }}
-                  className="px-3 py-1.5 border border-[#D8CCBC] text-[#343633] text-[11px] font-semibold uppercase rounded-xs shrink-0 hover:bg-[#FAF8F5]"
-                >
-                  Voir
-                </button>
-              </div>
-
-              <div className="pt-2 flex justify-between items-center text-xs">
-                <button
-                  onClick={handleReset}
-                  className="text-[#756456] flex items-center gap-1 hover:text-[#667467]"
-                >
-                  <RefreshCw className="w-3.5 h-3.5" />
-                  <span>Recommencer le test</span>
-                </button>
-
-                <button
-                  onClick={onClose}
-                  className="text-[#343633] font-semibold"
-                >
-                  Fermer
-                </button>
               </div>
             </div>
           )}

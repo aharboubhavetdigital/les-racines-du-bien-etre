@@ -7,16 +7,19 @@ interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialServiceId?: string;
+  initialNotes?: string;
 }
 
 export const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
   onClose,
-  initialServiceId = 'naturopathie'
+  initialServiceId = 'naturopathie',
+  initialNotes = ''
 }) => {
   const [step, setStep] = useState<number>(1);
   const [showAllPrestations, setShowAllPrestations] = useState<boolean>(false);
   const [selectedServiceIds, setSelectedServiceIds] = useState<string[]>(() => {
+    if (initialServiceId === '') return [];
     const match = SERVICES_DATA.find((s) =>
       s.id === initialServiceId ||
       s.id.replace('la-', '') === initialServiceId.replace('la-', '') ||
@@ -38,9 +41,30 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     name: '',
     email: '',
     phone: '',
-    notes: ''
+    notes: initialNotes
   });
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      if (initialNotes) {
+        setClientInfo((prev) => ({ ...prev, notes: initialNotes }));
+      }
+      if (initialServiceId === '') {
+        setSelectedServiceIds([]);
+      } else {
+        const match = SERVICES_DATA.find((s) =>
+          s.id === initialServiceId ||
+          s.id.replace('la-', '') === initialServiceId.replace('la-', '') ||
+          (s.id === 'moyens-naturels' && initialServiceId === 'hygiene-de-vie') ||
+          (s.id === 'bilan-de-vitalite' && initialServiceId === 'bilan-vitalite')
+        );
+        if (match) {
+          setSelectedServiceIds([match.id]);
+        }
+      }
+    }
+  }, [isOpen, initialServiceId, initialNotes]);
 
   // Lock background body scroll when popup is open
   useEffect(() => {

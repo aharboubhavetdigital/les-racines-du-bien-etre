@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
-import chamomileTisaneImg from '../assets/images/chamomile_tisane.jpg';
+import reflexologieFacialeImg from '../assets/images/Reflexologie faciale.jpg';
 import './ScrollPinnedSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,7 +27,7 @@ const CARDS_DATA: ProductCardData[] = [
   {
     title: 'Un suivi rapproché',
     description: 'De courts échanges par SMS peuvent soutenir les avancées entre les rendez-vous.',
-    image: chamomileTisaneImg
+    image: reflexologieFacialeImg
   }
 ];
 

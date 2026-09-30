@@ -109,4 +109,3 @@ export const LieuxSection: React.FC<LieuxSectionProps> = ({ onOpenQuiz }) => {
     </section>
   );
 };
-
