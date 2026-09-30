@@ -2,7 +2,7 @@ import React from 'react';
 import { ExpandingCards, CardItem } from './ui/expanding-cards';
 import { Activity, BookOpen, Sparkles, Waves, Sprout, Heart } from 'lucide-react';
 import ancrageCaptureImg from '../assets/images/Capture d’écran 2026-09-30 à 13.49.15.png';
-import firefly2Img from '../assets/images/Firefly (2).jpg';
+import suiviCaptureImg from '../assets/images/Capture d’écran 2026-09-30 à 13.52.49.png';
 
 interface ParcoursSectionProps {
   onOpenBooking?: (serviceName?: string) => void;
@@ -27,7 +27,7 @@ const PARCOURS_CARDS: CardItem[] = [
     id: "suivi-rapproche",
     title: "03. Suivi rapproché",
     description: "Accompagnement régulier pour consolider les acquis, Réajuster les objectifs selon les ressentis et répondre à l'évolution naturelle de votre corps.",
-    imgSrc: firefly2Img,
+    imgSrc: suiviCaptureImg,
     icon: <Sparkles className="w-6 h-6" />,
   },
   {

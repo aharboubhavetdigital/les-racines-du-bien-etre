@@ -1,6 +1,8 @@
 import React from 'react';
 import InfiniteSpiral, { SpiralItem } from './InfiniteSpiral';
 import { Sparkles } from 'lucide-react';
+import pointsReflexesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.12.19.png';
+import lacherPriseImg from '../assets/images/Capture d’écran 2026-09-30 à 14.15.47.png';
 
 const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
   {
@@ -9,7 +11,7 @@ const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
     label: 'Réflexologie Plantaire'
   },
   {
-    src: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80',
+    src: 'https://media.istockphoto.com/id/1329642945/fr/photo/gros-plan-de-la-r%C3%A9flexologie-plantaire-montrant-les-mains-f%C3%A9minines-sur-un-point.jpg?s=612x612&w=0&k=20&c=oHwpizeIw9_pe-Lr791NmKHqZIuW0hevhD8r4pyLpGo=',
     alt: 'Massage crânien et soin visage apaisant',
     label: 'Soin Apaisant Visage'
   },
@@ -24,12 +26,12 @@ const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
     label: 'Réflexologie Palmaire'
   },
   {
-    src: 'https://images.unsplash.com/photo-1512290900673-7002ddb928f2?auto=format&fit=crop&w=600&q=80',
+    src: lacherPriseImg,
     alt: 'Lâcher-prise profond et relaxation',
     label: 'Lâcher-prise'
   },
   {
-    src: 'https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=600&q=80',
+    src: pointsReflexesImg,
     alt: 'Point de pression réflexe et bien-être',
     label: 'Points Réflexes'
   },
