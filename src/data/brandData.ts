@@ -4,6 +4,28 @@ import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15
 
 export const SERVICES_DATA: Service[] = [
   {
+    id: 'bilan-de-vitalite',
+    title: 'Bilan de vitalité',
+    subtitle: 'Première consultation globale',
+    description: 'Le premier rendez-vous pour comprendre votre histoire, vos habitudes et vos priorités.',
+    fullDescription: 'Une analyse complète de votre terrain biologique et émotionnel afin de co-construire votre plan de santé naturelle.',
+    duration: '1h00',
+    price: 85,
+    category: 'naturopathie',
+    benefits: [
+      'Évaluation globale de votre hygiène de vie',
+      'Bilan naturopathique personnalisé',
+      'Fiche de conseils sur-mesure'
+    ],
+    protocolSteps: [
+      'Anamnèse approfondie',
+      'Analyse des fonctions d’élimination',
+      'Recommandations alimentaires et phyto'
+    ],
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+    quote: '« Écouter son corps est la première étape vers la vitalité. »'
+  },
+  {
     id: 'la-naturopathie',
     title: 'La naturopathie',
     subtitle: 'Bilan de vitalité & accompagnement personnalisé',
@@ -26,6 +48,50 @@ export const SERVICES_DATA: Service[] = [
     ],
     image: rituelSaugeImg,
     quote: '« La médecine de demain consistera à donner à chacun l’envie et les outils de prendre soin de son propre équilibre. »'
+  },
+  {
+    id: 'programme-de-vitalite',
+    title: 'Programme de vitalité',
+    subtitle: 'Plan d’action individualisé',
+    description: 'Un programme individualisé, réaliste et adapté à ce que vous pouvez mettre en place.',
+    fullDescription: 'Un plan d’action concret et structuré sur plusieurs semaines pour optimiser votre vitalité au quotidien.',
+    duration: '1h00',
+    price: 70,
+    category: 'naturopathie',
+    benefits: [
+      'Plan d’action clair et progressif',
+      'Optimisation de l’énergie vitale',
+      'Adaptation aux contraintes de votre quotidien'
+    ],
+    protocolSteps: [
+      'Définition des objectifs',
+      'Mise en place des piliers naturopathiques',
+      'Transmission du guide personnalisé'
+    ],
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+    quote: '« La régularité des gestes simples crée les grands équilibres. »'
+  },
+  {
+    id: 'suivi-personnalise',
+    title: 'Suivi personnalisé',
+    subtitle: 'Accompagnement continu',
+    description: 'Une continuité entre les rendez-vous avec des points réguliers et des encouragements.',
+    fullDescription: 'Consultation de suivi pour faire le point sur vos progrès, ajuster le programme et approfondir votre autonomie.',
+    duration: '1h00',
+    price: 60,
+    category: 'naturopathie',
+    benefits: [
+      'Ajustement des conseils naturopathiques',
+      'Ancrage des nouvelles habitudes',
+      'Soutien motivant et écoute attentive'
+    ],
+    protocolSteps: [
+      'Retour sur l’expérience écoulée',
+      'Adaptations ciblées',
+      'Prochaine feuille de route'
+    ],
+    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80',
+    quote: '« Avancer pas à pas vers un bien-être serein et durable. »'
   },
   {
     id: 'reflexologie-plantaire',
@@ -74,72 +140,6 @@ export const SERVICES_DATA: Service[] = [
     ],
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=85',
     quote: '« Le visage est le reflet de nos équilibres intérieurs : un soin doux ravive sa lumière native. »'
-  },
-  {
-    id: 'bilan-de-vitalite',
-    title: 'Bilan de vitalité',
-    subtitle: 'Première consultation globale',
-    description: 'Le premier rendez-vous pour comprendre votre histoire, vos habitudes et vos priorités.',
-    fullDescription: 'Une analyse complète de votre terrain biologique et émotionnel afin de co-construire votre plan de santé naturelle.',
-    duration: '1h00',
-    price: 85,
-    category: 'naturopathie',
-    benefits: [
-      'Évaluation globale de votre hygiène de vie',
-      'Bilan naturopathique personnalisé',
-      'Fiche de conseils sur-mesure'
-    ],
-    protocolSteps: [
-      'Anamnèse approfondie',
-      'Analyse des fonctions d’élimination',
-      'Recommandations alimentaires et phyto'
-    ],
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
-    quote: '« Écouter son corps est la première étape vers la vitalité. »'
-  },
-  {
-    id: 'programme-de-vitalite',
-    title: 'Programme de vitalité',
-    subtitle: 'Plan d’action individualisé',
-    description: 'Un programme individualisé, réaliste et adapté à ce que vous pouvez mettre en place.',
-    fullDescription: 'Un plan d’action concret et structuré sur plusieurs semaines pour optimiser votre vitalité au quotidien.',
-    duration: '1h00',
-    price: 70,
-    category: 'naturopathie',
-    benefits: [
-      'Plan d’action clair et progressif',
-      'Optimisation de l’énergie vitale',
-      'Adaptation aux contraintes de votre quotidien'
-    ],
-    protocolSteps: [
-      'Définition des objectifs',
-      'Mise en place des piliers naturopathiques',
-      'Transmission du guide personnalisé'
-    ],
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
-    quote: '« La régularité des gestes simples crée les grands équilibres. »'
-  },
-  {
-    id: 'suivi-personnalise',
-    title: 'Suivi personnalisé',
-    subtitle: 'Accompagnement continu',
-    description: 'Une continuité entre les rendez-vous avec des points réguliers et des encouragements.',
-    fullDescription: 'Consultation de suivi pour faire le point sur vos progrès, ajuster le programme et approfondir votre autonomie.',
-    duration: '1h00',
-    price: 60,
-    category: 'naturopathie',
-    benefits: [
-      'Ajustement des conseils naturopathiques',
-      'Ancrage des nouvelles habitudes',
-      'Soutien motivant et écoute attentive'
-    ],
-    protocolSteps: [
-      'Retour sur l’expérience écoulée',
-      'Adaptations ciblées',
-      'Prochaine feuille de route'
-    ],
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80',
-    quote: '« Avancer pas à pas vers un bien-être serein et durable. »'
   },
   {
     id: 'moyens-naturels',
