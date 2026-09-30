@@ -47,32 +47,27 @@ const NATUROPATHIE_GALLERY_ITEMS: SpotlightItem[] = [
     image: bilanVitalite2Img
   },
   {
-    tag: 'PILIER 06 // MASSAGES CORPORELS',
-    title: 'Massages drainants, enveloppements aux huiles tièdes & relaxation',
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    tag: 'PILIER 07 // RITUELS DE BOTANIQUE',
+    tag: 'PILIER 06 // RITUELS DE BOTANIQUE',
     title: 'Infusions de fleurs séchées, décoctions & remèdes ancestraux',
     image: chamomileTisaneImg
   },
   {
-    tag: 'PILIER 08 // ÉCLAT NATUREL & KOBIDO',
+    tag: 'PILIER 07 // ÉCLAT NATUREL & KOBIDO',
     title: 'Gua Sha, réflexologie faciale & soin regalbant du visage',
     image: reflexologieFacialeImg
   },
   {
-    tag: 'PILIER 09 // HARMONIZATION VIBRATOIRE',
+    tag: 'PILIER 08 // HARMONIZATION VIBRATOIRE',
     title: 'Sonothérapie, bols tibétains & apaisement du système nerveux',
     image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
   },
   {
-    tag: 'PILIER 10 // GESTION DU STRESS',
+    tag: 'PILIER 09 // GESTION DU STRESS',
     title: 'Respiration consciente, sophrologie & méditation d’ancrage',
     image: phytotherapieImg
   },
   {
-    tag: 'PILIER 11 // JARDIN BOTANIQUE',
+    tag: 'PILIER 10 // JARDIN BOTANIQUE',
     title: 'Culture bio de plantes aromatiques & herbes de santé',
     image: reflexologieImg
   }

@@ -89,7 +89,7 @@ export default function ParallaxUnfurlingGallery({
       },
       {
         src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80",
-        title: "Massage Kobido & réflexologie faciale",
+        title: "Réflexologie faciale & soins",
         tag: "Éclat naturel"
       }
     ];

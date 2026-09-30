@@ -7,17 +7,17 @@ import lacherPriseImg from '../assets/images/Capture d’écran 2026-09-30 à 14
 const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
   {
     src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80',
-    alt: 'Réflexologie plantaire et massage des pieds',
+    alt: 'Réflexologie plantaire et détente des pieds',
     label: 'Réflexologie Plantaire'
   },
   {
     src: 'https://media.istockphoto.com/id/1329642945/fr/photo/gros-plan-de-la-r%C3%A9flexologie-plantaire-montrant-les-mains-f%C3%A9minines-sur-un-point.jpg?s=612x612&w=0&k=20&c=oHwpizeIw9_pe-Lr791NmKHqZIuW0hevhD8r4pyLpGo=',
-    alt: 'Massage crânien et soin visage apaisant',
+    alt: 'Soin crânien et visage apaisant',
     label: 'Soin Apaisant Visage'
   },
   {
     src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80',
-    alt: 'Huiles de massage naturelles et phytothérapie',
+    alt: 'Huiles relaxantes naturelles et phytothérapie',
     label: 'Huiles Végétales'
   },
   {

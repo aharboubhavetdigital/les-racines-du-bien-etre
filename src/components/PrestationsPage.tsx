@@ -11,7 +11,7 @@ import firefly1Img from '../assets/images/Firefly (1).jpg';
 gsap.registerPlugin(ScrollTrigger);
 
 const PRESTATIONS_STRIP_ITEMS = [
-  "Massage bien-être & Réflexologie",
+  "Réflexologie plantaire & faciale",
   "Bilan de vitalité & Suivi sur-mesure",
   "Soins holistiques & Équilibre naturel",
   "Retrouver vitalité et sérénité",
@@ -20,7 +20,7 @@ const PRESTATIONS_STRIP_ITEMS = [
 const STREAM_IMAGES = [
   {
     src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
-    alt: 'Massage bien-être',
+    alt: 'Détente globale',
   },
   {
     src: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
@@ -81,75 +81,66 @@ export const PRESTATIONS_DATA: PrestationItem[] = [
     image: 'https://www.sante-sur-le-net.com/wp-content/uploads/2018/10/naturopathie.jpg'
   },
   {
-    id: 'massage-bien-etre',
+    id: 'reflexologie-plantaire',
     number: '02',
     category: 'Soin manuel & relaxation',
     categoryLabel: '02 · Soin manuel & relaxation',
-    title: 'Massage bien-être',
-    description: 'Un moment de détente manuelle adapté à votre confort, dans un cadre non thérapeutique.',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'reflexologie-plantaire',
-    number: '03',
-    category: 'Soin manuel & relaxation',
-    categoryLabel: '03 · Soin manuel & relaxation',
     title: 'Réflexologie plantaire',
     description: 'Une technique manuelle douce intégrée à une démarche globale de bien-être.',
     image: 'https://www.centre-europeen-formation.fr/wp-content/uploads/2023/12/reflexologie-plantaire.jpeg'
   },
   {
     id: 'reflexologie-faciale',
-    number: '04',
+    number: '03',
     category: 'Soin manuel & relaxation',
-    categoryLabel: '04 · Soin manuel & relaxation',
+    categoryLabel: '03 · Soin manuel & relaxation',
     title: 'Réflexologie faciale',
     description: "Une pratique manuelle proposée selon vos besoins et le cadre de l'accompagnement.",
     image: whatsAppImg
   },
   {
     id: 'bilan-de-vitalite',
-    number: '05',
+    number: '04',
     category: 'Naturopathie & vitalité',
-    categoryLabel: '05 · Naturopathie & vitalité',
+    categoryLabel: '04 · Naturopathie & vitalité',
     title: 'Bilan de vitalité',
     description: 'Le premier rendez-vous pour comprendre votre histoire, vos habitudes et vos priorités.',
     image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'programme-de-vitalite',
-    number: '06',
+    number: '05',
     category: 'Naturopathie & vitalité',
-    categoryLabel: '06 · Naturopathie & vitalité',
+    categoryLabel: '05 · Naturopathie & vitalité',
     title: 'Programme de vitalité',
     description: 'Un programme individualisé, réaliste et adapté à ce que vous pouvez mettre en place.',
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'suivi-personnalise',
-    number: '07',
+    number: '06',
     category: 'Naturopathie & vitalité',
-    categoryLabel: '07 · Naturopathie & vitalité',
+    categoryLabel: '06 · Naturopathie & vitalité',
     title: 'Suivi personnalisé',
     description: 'Une continuité entre les rendez-vous avec des points réguliers et des encouragements.',
     image: firefly1Img
   },
   {
     id: 'moyens-naturels',
-    number: '08',
+    number: '07',
     category: 'Naturopathie & vitalité',
-    categoryLabel: '08 · Naturopathie & vitalité',
+    categoryLabel: '07 · Naturopathie & vitalité',
     title: 'Moyens naturels & hygiène de vie',
     description: 'Alimentation, activité, gestion du stress et moyens naturels en complément.',
     image: 'https://www.katerijouveaux.com/wp-content/uploads/2022/11/naturopathie-kateri-jouveaux-antioxidants-scaled.jpg'
   },
   {
     id: 'location-jacuzzi-5-places',
-    number: '09',
+    number: '08',
     category: 'Espace spa & relaxation',
-    categoryLabel: '09 · Espace spa & relaxation',
+    categoryLabel: '08 · Espace spa & relaxation',
     title: 'Location de jacuzzi – 5 places',
-    description: 'Privatisez notre jacuzzi d’hydrothérapie 5 places pour une séance d’hydromassage, de détente et de bien-être en toute intimité.',
+    description: 'Privatisez notre jacuzzi d’hydrothérapie 5 places pour une séance de détente et de bien-être en toute intimité.',
     image: 'https://viskanspa.fr/media/cache/adv_content_block_boxed/2020/07/2502-spa-jade-5-places-pas-cher-qualite-europe-detente-massage-expedition-france.jpg'
   }
 ];
@@ -268,7 +259,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
               </h1>
 
               <p className="hero-anim font-sans text-sm sm:text-base text-white/85 font-light leading-relaxed max-w-lg">
-                Massage bien-être, réflexologie, bilan et suivi : découvrez les différentes façons d'être accompagné·e, selon vos besoins et votre rythme.
+                Réflexologie, bilan et suivi : découvrez les différentes façons d'être accompagné·e, selon vos besoins et votre rythme.
               </p>
 
               <div className="hero-anim pt-2">
@@ -616,7 +607,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
                   <span className="italic font-normal text-[#D6E0D3]">— 5 places privatisées.</span>
                 </h2>
                 <p className="font-sans text-sm sm:text-base text-white/80 font-light leading-relaxed">
-                  Profitez d’un moment d’hydromassage et de relaxation absolue en toute intimité. Notre jacuzzi haut de gamme 5 places combine chromothérapie, buses de massage ciblées et eau à température idéale pour évacuer la fatigue et relâcher les tensions musculaires.
+                  Profitez d’un moment de relaxation absolue en toute intimité. Notre jacuzzi haut de gamme 5 places combine chromothérapie, buses relaxantes ciblées et eau à température idéale pour évacuer la fatigue et relâcher les tensions musculaires.
                 </p>
               </div>
 
@@ -627,7 +618,7 @@ export const PrestationsPage: React.FC<PrestationsPageProps> = ({
                     <span>💧</span>
                     <span>5 Assises Ergonomiques</span>
                   </div>
-                  <p className="font-sans text-xs text-white/70 font-light">Buses orientables et massages lombaires &amp; cervicales.</p>
+                  <p className="font-sans text-xs text-white/70 font-light">Buses orientables et détente lombaires &amp; cervicales.</p>
                 </div>
 
                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-1">

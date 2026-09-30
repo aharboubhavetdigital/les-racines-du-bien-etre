@@ -22,7 +22,7 @@ export const FlowpathSection: React.FC<FlowpathSectionProps> = ({ onOpenBooking,
     <section id="hero" className="h-screen w-full overflow-hidden relative flex flex-col font-helvetica-now bg-[#131210] text-white selection:bg-white/20 selection:text-white">
       {/* Background Image */}
       <img
-        src="https://static.vecteezy.com/ti/photos-gratuite/t1/50835043-une-therapeute-est-performant-une-relaxant-pied-massage-sur-une-client-qui-est-mensonge-bas-ensemble-contre-une-toile-de-fond-de-doux-chaud-ambiant-eclairage-cette-suggere-un-soir-atmosphere-concu-pour-relaxation-photo.jpg"
+        src=""
         alt="Soin de réflexologie et de relaxation — Les Racines du Bien-Être"
         referrerPolicy="no-referrer"
         className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.70] contrast-[1.08]"

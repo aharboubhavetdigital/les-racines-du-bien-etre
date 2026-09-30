@@ -529,7 +529,7 @@ class AppEngine {
 
   createMedias(items: CircularGalleryItem[] | undefined, bend = 1, textColor: string, borderRadius: number, font: string) {
     const defaultItems: CircularGalleryItem[] = [
-      { image: `https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80`, text: '01. Massage Bien-être' },
+      { image: `https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80`, text: '01. Soin Bien-être' },
       { image: `https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80`, text: '02. Réflexologie Plantaire' },
       { image: `https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80`, text: '03. Bilan de Vitalité' },
       { image: `https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80`, text: '04. Aromathérapie' },

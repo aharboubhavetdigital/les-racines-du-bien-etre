@@ -26,17 +26,6 @@ const REVIEWS: Review[] = [
     service: 'Naturopathie & Réflexologie',
   },
   {
-    id: '2',
-    author: 'Alexandre P.',
-    role: 'Patient suivi',
-    rating: 5,
-    date: 'Il y a 1 semaine',
-    title: 'Une écoute bienveillante et des conseils très ciblés',
-    content: 'Les séances de massage bien-être et le bilan de vitalité sont d’une qualité rare. Une approche globale et respectueuse du rythme de chacun. Je recommande les yeux fermés.',
-    verified: true,
-    service: 'Massage bien-être & Bilan',
-  },
-  {
     id: '3',
     author: 'Sophie L.',
     role: 'Patiente',
@@ -124,7 +113,7 @@ export function TrustpilotSection() {
         </div>
 
         {/* REVIEWS GRID (DESKTOP) / CAROUSEL (MOBILE) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {REVIEWS.map((review, idx) => (
             <div
               key={review.id}

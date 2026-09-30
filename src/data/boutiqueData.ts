@@ -64,6 +64,7 @@ export const BOUTIQUE_SOINS: BoutiqueSoin[] = [
     quote: '« Le corps possède les clés de son propre équilibre lorsqu’on lui offre l’environnement adapté. »',
     bookingServiceId: 'naturopathie'
   },
+
   {
     id: 'reflexologie-faciale',
     slug: 'reflexologie-faciale-kobido',
@@ -72,7 +73,7 @@ export const BOUTIQUE_SOINS: BoutiqueSoin[] = [
     categoryTag: 'RÉFLEXOLOGIE FACIALE',
     filterCategories: ['VISAGE', 'DÉTENTE'],
     description: 'Un soin doux et sculptant combinant stimulation des points réflexes du visage et lissage des traits de fatigue.',
-    fullDescription: 'Inspiré des traditions asiatiques et du soin réflexe faciale, ce massage stimule la circulation micro-capillaire et le drainage lymphatique du visage. Il dénoue les crispations des mâchoires et du front pour révéler un teint lumineux et apaiser la charge mentale.',
+    fullDescription: 'Inspiré des traditions asiatiques et du soin réflexe faciale, ce soin stimule la circulation micro-capillaire et le drainage lymphatique du visage. Il dénoue les crispations des mâchoires et du front pour révéler un teint lumineux et apaiser la charge mentale.',
     duration: '45 MIN',
     price: 65,
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=85',
@@ -85,11 +86,11 @@ export const BOUTIQUE_SOINS: BoutiqueSoin[] = [
     sessionFlow: [
       'Purification douce du visage à la brume florale et aux huiles pures',
       'Pression rythmée des points réflexes du visage et du cuir chevelu',
-      'Massage sculptant aux pierres naturelles de quartz rose et huiles botaniques',
+      'Soin lissant aux pierres naturelles de quartz rose et huiles botaniques',
       'Application d’un baume réconfortant'
     ],
     practicalInfo: [
-      'Séance réalisée allongé(e) sur table de massage chauffée',
+      'Séance réalisée installé(e) confortablement sur table chauffée',
       'Soin idéal en préparation d’un événement ou en routine mensuelle'
     ],
     quote: '« Le visage reflète les équilibres intérieurs : un geste attentif ravive sa lumière. »',
@@ -126,36 +127,6 @@ export const BOUTIQUE_SOINS: BoutiqueSoin[] = [
     bookingServiceId: 'hygiene-de-vie'
   },
   {
-    id: 'massage-pierres-chaudes',
-    slug: 'massage-aux-pierres-chaudes',
-    title: 'Massages aux pierres chaudes de volcan',
-    subtitle: 'Chaleur volcanique & relaxation musculaire',
-    categoryTag: 'MASSAGE HOLISTIQUE',
-    filterCategories: ['CORPS', 'DÉTENTE', 'ÉNERGIE'],
-    description: 'L’enveloppement de la chaleur des galets de basalte pour relâcher les tensions musculaires en profondeur.',
-    fullDescription: 'Les galets volcaniques lisses emmagasinent la chaleur pour la restituer progressivement aux tissus musculaires. Combinés à des effleurages doux et aux huiles essentielles bio, ils dissolvent la raideur du dos et des épaules tout en réchauffant l’organisme.',
-    duration: '75 MIN',
-    price: 90,
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85',
-    isFeatured: false,
-    forWhom: [
-      'Sensations de froid intérieur, fatigue hivernale ou raideurs musculaires',
-      'Tensions accumulées dans les cervicales, les épaules et le bas du dos',
-      'Envie d’un voyage sensoriel profondément réconfortant'
-    ],
-    sessionFlow: [
-      'Chauffage des galets volcaniques à température optimale',
-      'Application d’huile botaniques tièdes sur l’ensemble du corps',
-      'Glissés harmonieux et pressions ciblées avec les pierres chaudes',
-      'Temps de repos pour prolonger l’infusion de chaleur'
-    ],
-    practicalInfo: [
-      'Prévoir un temps calme après la séance pour savourer le lâcher-prise'
-    ],
-    quote: '« La chaleur de la terre au service de la détente du corps. »',
-    bookingServiceId: 'reflexologie-plantaire'
-  },
-  {
     id: 'rituel-phyto-energie',
     slug: 'rituel-vitalite-phyto-energie',
     title: 'Rituel Vitalité Phyto & Énergie',
@@ -184,36 +155,6 @@ export const BOUTIQUE_SOINS: BoutiqueSoin[] = [
     ],
     quote: '« Les plantes sauvages transmettent leur puissance vitale à ceux qui les accueillent. »',
     bookingServiceId: 'naturopathie'
-  },
-  {
-    id: 'soin-drainant-vegetal',
-    slug: 'soin-drainant-vegetal-reconnexion',
-    title: 'Soin Drainant Végétal & Reconnexion',
-    subtitle: 'Legèreté corporelle & circulation des fluides',
-    categoryTag: 'DRAINAGE & DÉTOX',
-    filterCategories: ['CORPS', 'ÉNERGIE'],
-    description: 'Un massage fluide et rythmé qui stimule la lymphe pour alléger le corps et favoriser l’élimination.',
-    fullDescription: 'Par des effleurages doux et indolores dirigés vers les carrefours ganglionnaires, ce soin relance la circulation de la lymphe. Il aide à dégonfler les sensations d’engorgement cutané et redonne une impulsion d’agilité.',
-    duration: '50 MIN',
-    price: 70,
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=85',
-    isFeatured: false,
-    forWhom: [
-      'Sensation de jambes lourdes ou de rétention d’eau',
-      'Accompagnement d’une cure de détoxification printanière',
-      'Besoin de légèreté physique générale'
-    ],
-    sessionFlow: [
-      'Évaluation des zones de tension et d’engorgement',
-      'Brossage à sec préparatoire doux',
-      'Effleurages rythmés et pompages lymphatiques ciblés',
-      'Conseils d’hydratation et de mouvements doux'
-    ],
-    practicalInfo: [
-      'Boire abondamment de l’eau pure après la séance'
-    ],
-    quote: '« Fluidifier les rythmes du corps pour retrouver la légèreté de l’être. »',
-    bookingServiceId: 'reflexologie-plantaire'
   },
   {
     id: 'suivi-saison',

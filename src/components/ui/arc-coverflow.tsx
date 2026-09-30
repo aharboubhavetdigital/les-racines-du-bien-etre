@@ -12,8 +12,8 @@ const SCROLL_LERP = 0.05;
 export const slideData = [
   {
     src: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=85",
-    alt: "Massage relaxant aux huiles essentielles et fleurs fraîches",
-    title: "Massage relaxant & drainant"
+    alt: "Détente relaxante aux huiles essentielles et fleurs fraîches",
+    title: "Détente relaxante & drainante"
   },
   {
     src: "https://images.unsplash.com/photo-1512290900676-26c2a6a095ae?auto=format&fit=crop&w=800&q=85",
@@ -32,8 +32,8 @@ export const slideData = [
   },
   {
     src: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=85",
-    alt: "Massage holistique aux pierres chaudes de volcan",
-    title: "Massages aux pierres chaudes"
+    alt: "Soin holistique aux pierres chaudes de volcan",
+    title: "Soins aux pierres chaudes"
   },
   {
     src: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=85",
@@ -207,10 +207,10 @@ export const ArcCoverflowSlider: React.FC = () => {
       {/* Masthead */}
       <header className="px-6 sm:px-12 pt-4 pb-2 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 z-20 relative pointer-events-none">
         <span className="font-serif-editorial text-xl sm:text-2xl font-semibold tracking-wide text-white">
-          Univers du Soin & Massages
+          Univers du Soin
         </span>
         <p className="font-mono text-xs text-[#AEB9A9] tracking-[0.2em] uppercase">
-          Naturopathie • Massages • Rituels Végétaux
+          Naturopathie • Rituels Végétaux
         </p>
       </header>
 
@@ -218,7 +218,7 @@ export const ArcCoverflowSlider: React.FC = () => {
       <section
         ref={containerRef}
         className="relative w-full h-[520px] sm:h-[580px] md:h-[620px] overflow-hidden cursor-grab active:cursor-grabbing touch-none"
-        aria-label="Galerie interactive naturopathie et massages"
+        aria-label="Galerie interactive naturopathie"
       >
         {slideData.map((item, index) => (
           <div

@@ -90,8 +90,8 @@ export const BarometreVitaliteSection: React.FC<BarometreVitaliteSectionProps> =
         level: 'Vitalité Fluide & Robuste',
         statusColor: 'text-emerald-400',
         badgeBg: 'bg-emerald-400/10 border-emerald-400/30',
-        summary: 'Excellente dynamique corporelle ! Une séance de massage bien-être ou de réflexologie est idéale pour entretenir cet état de grâce et prévenir les déséquilibres saisonniers.',
-        recommendedService: 'Massage bien-être'
+        summary: 'Excellente dynamique corporelle ! Une séance de réflexologie est idéale pour entretenir cet état de grâce et prévenir les déséquilibres saisonniers.',
+        recommendedService: 'Réflexologie plantaire'
       };
     }
   };

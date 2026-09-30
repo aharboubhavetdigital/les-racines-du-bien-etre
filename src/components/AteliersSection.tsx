@@ -39,7 +39,7 @@ const WORKSHOPS: Workshop[] = [
     duration: '2h00 (18h30 - 20h30)',
     location: 'Institut Belle et Zen, Saint-Lô',
     seatsLeft: 3,
-    description: 'Une soirée immersive d’apprentissage des gestes d’auto-massage du visage et des protocoles d’aromathérapie apaisante pour retrouver des nuits sereines.',
+    description: 'Une soirée immersive d’apprentissage des gestes d’auto-réflexologie du visage et des protocoles d’aromathérapie apaisante pour retrouver des nuits sereines.',
     image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=85',
     highlights: ['Synergie d’huiles essentielles personnalisée', 'Atelier pratique de réflexologie faciale', 'Cadre intimiste et bienveillant']
   }

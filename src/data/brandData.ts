@@ -27,28 +27,6 @@ export const SERVICES_DATA: Service[] = [
     quote: '« La médecine de demain consistera à donner à chacun l’envie et les outils de prendre soin de son propre équilibre. »'
   },
   {
-    id: 'massage-bien-etre',
-    title: 'Massage bien-être',
-    subtitle: 'Soin manuel & relaxation profonde',
-    description: 'Un moment de détente manuelle adapté à votre confort, dans un cadre non thérapeutique.',
-    fullDescription: 'Un massage relaxant complet du corps aux huiles botaniques tièdes, conçu pour dénouer les tensions musculaires, réduire le stress et favoriser un lâcher-prise total.',
-    duration: '1h00',
-    price: 75,
-    category: 'soin-manuel',
-    benefits: [
-      'Relâchement des tensions musculaires',
-      'Apaisement du système nerveux',
-      'Amélioration de la circulation et élimination du stress'
-    ],
-    protocolSteps: [
-      'Accueil et échange sur vos besoins',
-      'Massage relaxant aux huiles bio',
-      'Temps de réveil et conseils de réhydratation'
-    ],
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
-    quote: '« Le massage est le langage silencieux qui apaise le corps et l’esprit. »'
-  },
-  {
     id: 'reflexologie-plantaire',
     title: 'Réflexologie plantaire',
     subtitle: 'Soin neuro-tégumentaire & reconnexion corporelle',
@@ -65,7 +43,7 @@ export const SERVICES_DATA: Service[] = [
     ],
     protocolSteps: [
       'Temps d’échange court et bain de pieds chaud aux sels minéraux et lavande',
-      'Massage relaxant préparatoire aux huiles botaniques bio',
+      'Lissage préparatoire aux huiles botaniques bio',
       'Travail réflexe ciblé selon vos besoins du moment',
       'Réveil musculaire doux et conseils d’ancrage'
     ],
@@ -77,7 +55,7 @@ export const SERVICES_DATA: Service[] = [
     title: 'Réflexologie faciale',
     subtitle: 'Soin doux & lissage des tensions du visage',
     description: 'Un soin doux et précis autour du visage pour accompagner votre bien-être.',
-    fullDescription: 'Inspiré de la réflexologie Dien Chan et du soin Kobido holistique, ce massage facial stimule les points réflexes et les trajets lymphatiques du visage. Il favorise l’éclat naturel du teint tout en apportant une relaxation nerveuse d’une grande finesse.',
+    fullDescription: 'Inspiré de la réflexologie Dien Chan et du soin Kobido holistique, ce soin facial stimule les points réflexes et les trajets lymphatiques du visage. Il favorise l’éclat naturel du teint tout en apportant une relaxation nerveuse d’une grande finesse.',
     duration: '1h00',
     price: 65,
     category: 'reflexologie-faciale',
@@ -90,7 +68,7 @@ export const SERVICES_DATA: Service[] = [
     protocolSteps: [
       'Nettoyage doux avec nos huiles végétales pures',
       'Pression des zones réflexes avec outils en quartz et doigts',
-      'Massage sculptant et lissant aux élixirs botaniques',
+      'Soin lissant aux élixirs botaniques',
       'Application d’une brume florale rafraîchissante'
     ],
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=85',
@@ -185,30 +163,6 @@ export const SERVICES_DATA: Service[] = [
     ],
     image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85',
     quote: '« La simplicité des rituels quotidiens est le fondement de la santé durable. »'
-  },
-  {
-    id: 'location-jacuzzi-5-places',
-    title: 'Location de jacuzzi – 5 places',
-    subtitle: 'Espace spa privatif & relaxation hydrothérapique',
-    description: 'Privatisez notre jacuzzi 5 places pour une séance de détente et d’hydromassage intense en toute intimité.',
-    fullDescription: 'Profitez d’un espace spa privatif pensé pour relâcher les tensions musculaires et favoriser un apaisement mental profond. Notre jacuzzi ergonomique 5 places dispose de buses d’hydromassage réglables, d’une eau chauffée à 37,5°C et d’un éclairage de chromothérapie apaisant.',
-    duration: '1h30',
-    price: 90,
-    category: 'spa-jacuzzi',
-    benefits: [
-      'Relâchement musculaire et décompression des articulations',
-      'Stimulation de la circulation sanguine et lymphatique',
-      'Ambiance privatisée avec musique douce et aromathérapie',
-      'Accès jusqu’à 5 personnes en formule solo, duo ou groupe'
-    ],
-    protocolSteps: [
-      'Accueil personnalisé et présentation des équipements du spa',
-      'Session d’hydromassage privatisée avec chromothérapie',
-      'Mise à disposition de serviettes moelleuses et tisane bio',
-      'Espace retour au calme et réhydratation'
-    ],
-    image: 'https://viskanspa.fr/media/cache/adv_content_block_boxed/2020/07/2502-spa-jade-5-places-pas-cher-qualite-europe-detente-massage-expedition-france.jpg',
-    quote: '« L’eau chaude et le massage doux ramènent le corps à un état de fluidité et d’apaisement originel. »'
   }
 ];
 
@@ -251,22 +205,8 @@ export const PRODUCTS_DATA: Product[] = [
     fullCategory: 'Huiles',
     description: 'Une huile de soin imaginée pour accompagner un moment calme en fin de journée.',
     ingredients: ['Huile de Jojoba bio', 'Macérat de Calendula bio', 'Huile essentielle de Lavande fine AOP'],
-    usage: 'Appliquer 4 à 5 gouttes sur le visage et le cou en automassage lent avant le coucher.',
+    usage: 'Appliquer 4 à 5 gouttes sur le visage et le cou en soin apaisant avant le coucher.',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLIcyzzs-0h3oERMaM9zvmzI5TdUNWAUlQasZPx0iFXSPqzs-o37iWNac&s=10'
-  },
-  {
-    id: 'huile-massage-ancrage',
-    name: 'Huile de massage Ancrage',
-    subtitle: 'Corps & Équilibre',
-    price: 28,
-    volume: '100 ml',
-    category: 'huiles',
-    fullCategory: 'Huiles',
-    description: 'Un exemple d’huile de massage au geste lent, pensée pour l’univers de la marque.',
-    ingredients: ['Huile de Sésame toasté bio', 'Huile de Macadamia', 'Cèdre de l’Atlas', 'Petitgrain Bigarade'],
-    usage: 'Chauffer quelques pressions entre les paumes et masser par mouvements amples et profonds.',
-    image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=800&q=85',
-    isBestseller: true
   }
 ];
 

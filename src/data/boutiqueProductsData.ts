@@ -47,20 +47,6 @@ export const BOUTIQUE_PRODUCTS: Product[] = [
     route: '/boutique/huile-botanique-rituel-du-soir'
   },
   {
-    id: 'huile-massage-ancrage',
-    name: 'Huile de massage Ancrage',
-    subtitle: 'Geste lent & réenracinement',
-    price: 28,
-    volume: '100 ml',
-    category: 'huiles',
-    fullCategory: 'Huiles',
-    description: 'Un exemple d’huile de massage au geste lent, pensée pour l’univers de la marque.',
-    ingredients: ['Huile de Sésame bio', 'Macérat d’Arnica', 'Bois de Cèdre', 'Vétiver'],
-    usage: 'Chauffer quelques gouttes au creux des mains et masser la voûte plantaire ou les épaules.',
-    image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=85',
-    route: '/boutique/huile-massage-ancrage'
-  },
-  {
     id: 'tote-bag-les-racines',
     name: 'Tote bag Les Racines',
     subtitle: 'Coton écru certifié GOTS',

@@ -94,7 +94,7 @@ export const SoinsAuSuiviSection: React.FC<SoinsAuSuiviSectionProps> = ({
 
           <div className="lg:col-span-4 lg:pt-4">
             <p className="font-sans text-base sm:text-[1.05rem] text-[#4A554E] font-light leading-relaxed">
-              Massage bien-être, réflexologie ou accompagnement en naturopathie : choisissez la démarche qui correspond à votre besoin du moment.
+              Réflexologie ou accompagnement en naturopathie : choisissez la démarche qui correspond à votre besoin du moment.
             </p>
           </div>
         </div>

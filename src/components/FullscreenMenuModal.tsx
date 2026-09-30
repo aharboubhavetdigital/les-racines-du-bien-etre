@@ -237,7 +237,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       id: 'prestations',
       num: '(3)',
       title: 'Prestations',
-      subtitle: 'Soins naturels, Réflexologie, Naturopathie & Massages',
+      subtitle: 'Soins naturels, Réflexologie & Naturopathie',
       tag: '(3) SOINS & RITUELS SUR-MESURE',
       image: 'https://racines-v2.vercel.app/images/reflexologie-plantaire.jpeg',
       action: () => {
@@ -245,7 +245,6 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       },
       subItems: [
         { id: 'la-naturopathie', name: 'La naturopathie' },
-        { id: 'massage-bien-etre', name: 'Massage bien-être' },
         { id: 'reflexologie-plantaire', name: 'Réflexologie plantaire' },
         { id: 'reflexologie-faciale', name: 'Réflexologie faciale' },
         { id: 'location-jacuzzi-5-places', name: 'Location de jacuzzi – 5 places' },
