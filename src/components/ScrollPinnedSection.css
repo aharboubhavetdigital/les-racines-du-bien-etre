@@ -57,7 +57,7 @@
   top: 10%;
   left: 100%;
   width: 325px;
-  height: 500px;
+  height: 520px;
   background-color: #000000;
   border-radius: 1em;
   padding: 0.5em;
@@ -71,7 +71,7 @@
 
 .scroll-pinned-wrapper .card .card-img {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 1 / 1;
   border-radius: 0.5em;
   overflow: hidden;
   flex-shrink: 0;
@@ -81,17 +81,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
 .scroll-pinned-wrapper .card-content {
   width: 100%;
-  height: 275px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: #ffffff;
-  padding: 0.5em;
+  padding: 0.6em 0.5em 0.3em;
   box-sizing: border-box;
 }
 
@@ -121,16 +122,18 @@
   .scroll-pinned-wrapper .card {
     top: 14%;
     width: min(84vw, 290px);
-    height: 420px;
+    height: 450px;
     padding: 0.4em;
   }
 
   .scroll-pinned-wrapper .card .card-img {
-    height: 160px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .scroll-pinned-wrapper .card-content {
-    height: 230px;
+    flex: 1;
+    height: auto;
     padding: 0.4em;
   }
 
@@ -148,15 +151,17 @@
   .scroll-pinned-wrapper .card {
     top: 16%;
     width: min(86vw, 270px);
-    height: 390px;
+    height: 420px;
   }
 
   .scroll-pinned-wrapper .card .card-img {
-    height: 145px;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .scroll-pinned-wrapper .card-content {
-    height: 215px;
+    flex: 1;
+    height: auto;
   }
 
   .scroll-pinned-wrapper .card-content h2 {

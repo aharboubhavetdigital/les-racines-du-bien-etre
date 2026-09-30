@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
-import fireflyImg from '../assets/images/Firefly (2).jpg';
+import chamomileTisaneImg from '../assets/images/chamomile_tisane.jpg';
 import './ScrollPinnedSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,14 +20,14 @@ const CARDS_DATA: ProductCardData[] = [
     image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=85'
   },
   {
-    title: 'Un programme individualisé',
+    title: 'Un programme de vitalité individualisé',
     description: 'Votre histoire, votre mode de vie et vos possibilités guident chaque proposition.',
     image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=85'
   },
   {
     title: 'Un suivi rapproché',
     description: 'De courts échanges par SMS peuvent soutenir les avancées entre les rendez-vous.',
-    image: fireflyImg
+    image: chamomileTisaneImg
   }
 ];
 

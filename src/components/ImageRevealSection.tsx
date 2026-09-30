@@ -2,11 +2,12 @@ import React, { useMemo } from 'react';
 import ParallaxUnfurlingGallery from './ui/3d-parallax-unfurling-gallery';
 import bilanVitaliteImg from '../assets/images/naturopathie_vitalite_assessment_1788190900642.jpg';
 import nutritionVivanteImg from '../assets/images/nutrition_vivante_naturopathie_1788191302696.jpg';
-import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg';
+import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg.jpg';
 import phytotherapieImg from '../assets/images/phytotherapie_herboristerie_naturopathie_1788191340631.jpg';
 import vitaliteNatureImg from '../assets/images/vitalite_reconnexion_nature_1788191355171.jpg';
 import bilanVitalite2Img from '../assets/images/bilan_vitalite_1788190672705.jpg';
-import fireflyImg from '../assets/images/Firefly (2).jpg';
+import chamomileTisaneImg from '../assets/images/chamomile_tisane.jpg';
+import reflexologieFacialeImg from '../assets/images/Reflexologie faciale.jpg';
 
 interface SpotlightItem {
   tag: string;
@@ -53,12 +54,12 @@ const NATUROPATHIE_GALLERY_ITEMS: SpotlightItem[] = [
   {
     tag: 'PILIER 07 // RITUELS DE BOTANIQUE',
     title: 'Infusions de fleurs séchées, décoctions & remèdes ancestraux',
-    image: fireflyImg
+    image: chamomileTisaneImg
   },
   {
     tag: 'PILIER 08 // ÉCLAT NATUREL & KOBIDO',
     title: 'Gua Sha, réflexologie faciale & soin regalbant du visage',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80'
+    image: reflexologieFacialeImg
   },
   {
     tag: 'PILIER 09 // HARMONIZATION VIBRATOIRE',

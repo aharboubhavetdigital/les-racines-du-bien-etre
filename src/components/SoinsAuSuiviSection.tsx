@@ -2,7 +2,7 @@ import React from 'react';
 import { GradientCard } from './ui/gradient-card';
 import bilanVitaliteImg from '../assets/images/naturopathie_vitalite_assessment_1788190900642.jpg';
 import nutritionVivanteImg from '../assets/images/nutrition_vivante_naturopathie_1788191302696.jpg';
-import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg';
+import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg.jpg';
 import phytotherapieImg from '../assets/images/phytotherapie_herboristerie_naturopathie_1788191340631.jpg';
 import vitaliteNatureImg from '../assets/images/vitalite_reconnexion_nature_1788191355171.jpg';
 import whatsAppImg from '../assets/images/WhatsApp Image 2026-08-22 .jpeg';
@@ -24,16 +24,6 @@ interface CareCardItem {
 }
 
 const CARE_CARDS: CareCardItem[] = [
-  {
-    id: 'massage',
-    badgeText: '01 // SOIN MANUEL',
-    badgeColor: '#55695B',
-    title: 'Massage bien-être',
-    description: 'Un moment de détente manuelle adapté à votre confort, dans un cadre apaisant et non thérapeutique.',
-    ctaText: 'Prendre rendez-vous',
-    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
-    gradient: 'sage'
-  },
   {
     id: 'reflexologie-plantaire',
     badgeText: '02 // RÉFLEXOLOGIE',
@@ -92,7 +82,7 @@ export const SoinsAuSuiviSection: React.FC<SoinsAuSuiviSectionProps> = ({
   return (
     <section id="soins-et-suivi" className="py-24 md:py-36 bg-[#F6F3EC] text-[#1E2420] border-t border-[#2C362F]/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* HEADER ROW — KEEPING ORIGINAL H2 AND P AS REQUESTED */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-14 md:mb-20">
           <div className="lg:col-span-8">

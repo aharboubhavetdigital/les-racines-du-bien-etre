@@ -309,7 +309,7 @@ export const AccompagnementSection: React.FC<AccompagnementSectionProps> = ({ on
                     <Sparkles className="w-5 h-5 text-[#3B3428]" />
                   </div>
                   <h4 className="font-serif-editorial text-2xl font-normal text-[#1F1D1B] mb-2">
-                    Un programme individualisé
+                    Un programme de vitalité individualisé
                   </h4>
                   <p className="text-sm text-[#575550] font-light leading-relaxed mb-4">
                     Votre histoire, vos habitudes et vos contraintes guident un protocole sur-mesure alliant nutrition bienveillante, phytothérapie et réflexologie.
@@ -439,7 +439,7 @@ export const AccompagnementSection: React.FC<AccompagnementSectionProps> = ({ on
                       <Sparkles className="w-5 h-5 text-[#3B3428] stroke-[1.8]" />
                     </div>
                     <h4 className="font-serif-editorial text-2xl font-medium text-[#1F1D1B] mb-2 leading-tight">
-                      Un programme individualisé
+                      Un programme de vitalité individualisé
                     </h4>
                     <p className="text-xs sm:text-[0.82rem] text-[#575550] font-light leading-relaxed mb-4">
                       Votre histoire et votre rythme guident chaque conseil : ajustements nutritionnels, phytothérapie adaptée et pratiques réflexologiques ciblées.
