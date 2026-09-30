@@ -1,6 +1,6 @@
 import React from 'react';
 import logoV5Url from '../assets/images/logo v5 .svg';
-import { Instagram, MapPin, Mail, Phone, ShieldCheck } from 'lucide-react';
+import { Instagram, MapPin, Mail, Phone, ShieldCheck, Linkedin, Facebook } from 'lucide-react';
 import soundbathBlogImg from '../assets/images/soundbath-blog.jpg';
 import guaShaImg from '../assets/images/Capture d’écran 2026-09-30 à 14.55.20.png';
 import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
@@ -56,7 +56,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenBooking, onNa
               Naturopathie holistique, réflexologie plantaire & faciale. Un accompagnement doux et rigoureux pour réenraciner votre vitalité.
             </p>
 
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3 pt-2 flex-wrap">
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -65,6 +65,24 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenBooking, onNa
                 aria-label="Instagram Les Racines du Bien-Être"
               >
                 <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-9 h-9 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all"
+                aria-label="Facebook Les Racines du Bien-Être"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="w-9 h-9 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all"
+                aria-label="LinkedIn Les Racines du Bien-Être"
+              >
+                <Linkedin className="w-4 h-4" />
               </a>
 
               <button
