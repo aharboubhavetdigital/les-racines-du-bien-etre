@@ -8,6 +8,7 @@ import React, {
   useCallback,
 } from "react";
 import fireflyImg from '../../assets/images/Firefly (2).jpg';
+import rituelSaugeImg from '../../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 interface ImageCardItem {
@@ -35,7 +36,7 @@ const ImageCard = ({ item, onLoad }: ImageCardProps) => {
         referrerPolicy="no-referrer"
         onError={() => {
           // Fallback to reliable high quality unsplash image if source fails
-          setImgSrc('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80');
+          setImgSrc(rituelSaugeImg);
         }}
         className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
       />
@@ -73,7 +74,7 @@ export default function ParallaxUnfurlingGallery({
     if (items && items.length > 0) return items;
     return [
       {
-        src: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80",
+        src: rituelSaugeImg,
         title: "Bilan de vitalité & écoute attentive",
         tag: "Naturopathie"
       },

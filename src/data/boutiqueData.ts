@@ -1,4 +1,5 @@
 import { BoutiqueSoin } from '../types';
+import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
 
 export const BOUTIQUE_SOINS: BoutiqueSoin[] = [
   {
@@ -44,7 +45,7 @@ export const BOUTIQUE_SOINS: BoutiqueSoin[] = [
     fullDescription: 'La naturopathie holistique explore votre fonctionnement global (alimentation, sommeil, stress, digestion, rythmes). Lors de ce bilan, nous identifions vos leviers d’énergie et définissons un programme clair et réaliste pour agir sur l’origine des symptômes.',
     duration: '75 MIN',
     price: 85,
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85',
+    image: rituelSaugeImg,
     isFeatured: false,
     forWhom: [
       'Fatigue tenace, baisse de vitalité ou coups de pompe quotidiens',

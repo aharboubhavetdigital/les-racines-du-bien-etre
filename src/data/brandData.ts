@@ -24,7 +24,7 @@ export const SERVICES_DATA: Service[] = [
       'Co-construction d’un plan d’action réaliste et personnalisé',
       'Fiche de synthèse claire remise sous 48h avec suivi dédié'
     ],
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85',
+    image: rituelSaugeImg,
     quote: '« La médecine de demain consistera à donner à chacun l’envie et les outils de prendre soin de son propre équilibre. »'
   },
   {

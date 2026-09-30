@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDownRight, Sparkles, Leaf } from 'lucide-react';
+import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
@@ -81,7 +82,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Main Editorial Image Frame */}
               <div className="relative aspect-4/5 rounded-xs overflow-hidden shadow-xl border border-[#D8CCBC]/60">
                 <img
-                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=85"
+                  src={rituelSaugeImg}
                   alt="Les Racines du Bien-Être — Soin holistique et huiles botaniques"
                   className="w-full h-full object-cover filter brightness-[0.98] contrast-[0.98] transition-transform duration-700 hover:scale-103"
                 />
