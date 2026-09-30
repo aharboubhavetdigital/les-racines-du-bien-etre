@@ -2,7 +2,7 @@ import React from 'react';
 import { GradientCard } from './ui/gradient-card';
 import bilanVitaliteImg from '../assets/images/naturopathie_vitalite_assessment_1788190900642.jpg';
 import nutritionVivanteImg from '../assets/images/nutrition_vivante_naturopathie_1788191302696.jpg';
-import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg.jpg';
+import reflexologieImg from '../assets/images/Capture d’écran 2026-09-30 à 16.28.05.png';
 import phytotherapieImg from '../assets/images/phytotherapie_herboristerie_naturopathie_1788191340631.jpg';
 import vitaliteNatureImg from '../assets/images/vitalite_reconnexion_nature_1788191355171.jpg';
 import whatsAppImg from '../assets/images/WhatsApp Image 2026-08-22 .jpeg';

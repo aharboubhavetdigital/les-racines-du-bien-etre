@@ -26,6 +26,10 @@ interface ImageCardProps {
 const ImageCard = ({ item, onLoad }: ImageCardProps) => {
   const [imgSrc, setImgSrc] = useState<string>(item.src);
 
+  useEffect(() => {
+    setImgSrc(item.src);
+  }, [item.src]);
+
   return (
     <div className="w-full h-[220px] sm:h-[320px] md:h-[420px] flex-shrink-0 bg-[#131210] rounded-2xl overflow-hidden transition-transform duration-500 hover:scale-[1.03] cursor-pointer relative will-change-transform backface-hidden preserve-3d border border-white/10 group shadow-2xl">
       <img

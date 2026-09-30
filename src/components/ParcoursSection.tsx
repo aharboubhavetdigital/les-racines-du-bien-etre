@@ -1,8 +1,9 @@
 import React from 'react';
 import { ExpandingCards, CardItem } from './ui/expanding-cards';
 import { Activity, BookOpen, Sparkles, Waves, Sprout, Heart } from 'lucide-react';
+import firefly1Img from '../assets/images/Firefly (1).jpg';
 import ancrageCaptureImg from '../assets/images/Capture d’écran 2026-09-30 à 13.49.15.png';
-import suiviCaptureImg from '../assets/images/Capture d’écran 2026-09-30 à 13.52.49.png';
+import reflexologieImg from '../assets/images/Capture d’écran 2026-09-30 à 16.28.05.png';
 
 interface ParcoursSectionProps {
   onOpenBooking?: (serviceName?: string) => void;
@@ -24,11 +25,11 @@ const PARCOURS_CARDS: CardItem[] = [
     icon: <BookOpen className="w-6 h-6" />,
   },
   {
-    id: "suivi-rapproche",
-    title: "03. Suivi rapproché",
-    description: "Accompagnement régulier pour consolider les acquis, Réajuster les objectifs selon les ressentis et répondre à l'évolution naturelle de votre corps.",
-    imgSrc: suiviCaptureImg,
-    icon: <Sparkles className="w-6 h-6" />,
+    id: "soins-manuels",
+    title: "03. Soins manuels & Réflexologie",
+    description: "Réflexologie plantaire et massages bien-être pour libérer le système nerveux, stimuler les émonctoires et dénouer les tensions physiques.",
+    imgSrc: reflexologieImg,
+    icon: <Waves className="w-6 h-6" />,
   },
   {
     id: "hygiene-equilibre",
@@ -36,6 +37,13 @@ const PARCOURS_CARDS: CardItem[] = [
     description: "Gestion du stress, optimisation du sommeil et reconnexion au rythme circadien pour régénérer l'énergie vitale au quotidien.",
     imgSrc: "https://ekisantenaturopathie.be/wp-content/uploads/2024/10/DALL%C2%B7E-2024-10-03-08.50.35-A-minimalist-and-clean-illustration-with-sage-and-terracotta-tones-featuring-a-person-with-a-healthy-lifestyle.-Show-the-figure-in-a-balanced-pose-s.webp",
     icon: <Sprout className="w-6 h-6" />,
+  },
+  {
+    id: "suivi-rapproche",
+    title: "05. Suivi rapproché",
+    description: "Accompagnement régulier pour consolider les acquis, ajuster la cure selon les ressentis et répondre à l'évolution naturelle de votre corps.",
+    imgSrc: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    icon: <Sparkles className="w-6 h-6" />,
   },
 ];
 

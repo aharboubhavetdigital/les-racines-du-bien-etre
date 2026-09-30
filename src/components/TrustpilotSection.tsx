@@ -1,52 +1,28 @@
 import React, { useState } from 'react';
-import { Star, CheckCircle2, ChevronLeft, ChevronRight, Quote, ExternalLink } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote, ExternalLink, CornerDownRight } from 'lucide-react';
 
 interface Review {
   id: string;
   author: string;
-  role?: string;
   rating: number;
-  date: string;
-  title: string;
   content: string;
-  verified: boolean;
-  service?: string;
+  response?: string;
 }
 
 const REVIEWS: Review[] = [
   {
     id: '1',
-    author: 'Élodie M.',
-    role: 'Patiente depuis 1 an',
+    author: 'Lucienne Joly',
     rating: 5,
-    date: 'Il y a 3 jours',
-    title: 'Une prise en charge d’une grande humanité et précision',
-    content: 'Accompagnement exceptionnel en naturopathie et réflexologie. Après quelques semaines d’ajustements doux et personnalisés, j’ai retrouvé un sommeil profond et une vraie énergie au quotidien.',
-    verified: true,
-    service: 'Naturopathie & Réflexologie',
+    content: 'Entretien très positif et approfondi sans être intrusif pour aller au bout de sa recherche pour notre bien-être. J’ai été très en confiance et très à l’aise avec Laura. Elle a su faire ressortir en moi des choses très enfouies…',
+    response: 'Merci beaucoup pour votre confiance et ce beau retour. C\'est un plaisir de vous accompagner.',
   },
   {
-    id: '3',
-    author: 'Sophie L.',
-    role: 'Patiente',
+    id: '2',
+    author: 'Claudine Montegut',
     rating: 5,
-    date: 'Il y a 2 semaines',
-    title: 'Soin holistique transformateur',
-    content: 'Un lieu apaisant dès qu’on franchit la porte. Le suivi personnalisé m’a permis de mieux comprendre mon digestion et de réguler mon stress avec des plantes simples et efficaces.',
-    verified: true,
-    service: 'Suivi personnalisé',
-  },
-  {
-    id: '4',
-    author: 'Marc-Antoine G.',
-    role: 'Patient',
-    rating: 5,
-    date: 'Il y a 3 semaines',
-    title: 'Professionnalisme et bienveillance remarquable',
-    content: 'Des explications très claires sur le fonctionnement de l’organisme. On se sent écouté sans jugement. Les résultats sur mes douleurs chroniques se font ressentir rapidement.',
-    verified: true,
-    service: 'Réflexologie faciale',
-  },
+    content: 'Un grand merci à Laura pour son accompagnement et sa bienveillance. Je souffrais de constipation depuis des années. Et les laxatifs étaient mon seul recours. Après seulement 3 séances, j’ai retrouvé un transit naturel. À ce jour…',
+  }
 ];
 
 export function TrustpilotSection() {
@@ -62,132 +38,149 @@ export function TrustpilotSection() {
 
   return (
     <section className="py-20 bg-[#171614] border-t border-b border-[#2A2824] relative overflow-hidden">
-      {/* Background ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#00b67a]/5 blur-[120px] pointer-events-none rounded-full" />
+      {/* Background ambient glow - Google Blue */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#4285F4]/5 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* TOP HEADER / TRUSTPILOT SCORE BADGE */}
+        {/* TOP HEADER / SCORE BADGE */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-[#2A2824] gap-6">
           <div>
             <h2 className="text-2xl sm:text-3xl font-serif text-[#FAF8F5] tracking-tight">
               La confiance de nos clients
             </h2>
             <p className="text-sm text-[#AEB9A9]/80 mt-1 font-light max-w-lg">
-              Découvrez les retours d’expérience de ceux qui ont suivi un accompagnement naturopathique ou un soin en cabinet.
+              Découvrez les retours d’expérience de ceux qui ont suivi un accompagnement naturopathique.
             </p>
           </div>
 
-          {/* TRUSTPILOT OVERALL SCORE */}
+          {/* GOOGLE OVERALL SCORE */}
           <div className="flex items-center gap-4 bg-[#1C1A17] p-4 sm:p-5 rounded-2xl border border-[#2A2824] shrink-0">
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                {/* TRUSTPILOT STAR LOGO ICON */}
-                <div className="bg-[#00b67a] p-1.5 rounded-xs flex items-center justify-center">
-                  <Star className="w-4 h-4 fill-white text-white" />
+                {/* GOOGLE LOGO ICON */}
+                <div className="bg-white p-1 rounded-full flex items-center justify-center w-6 h-6">
+                  <span className="font-bold text-sm text-[#4285F4]">G</span>
                 </div>
-                <span className="font-serif text-lg font-bold text-white tracking-wide">Trustpilot</span>
+                <span className="font-serif text-lg font-bold text-white tracking-wide">Avis Google</span>
               </div>
               <div className="flex items-center gap-1.5 mt-2">
                 <div className="flex items-center gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <div key={i} className="bg-[#00b67a] p-1 rounded-xs">
+                    <div key={i} className="bg-[#FBBC05] p-1 rounded-xs">
                       <Star className="w-3 h-3 fill-white text-white" />
                     </div>
                   ))}
                 </div>
-                <span className="text-xs font-bold text-white ml-1">4.9 / 5</span>
+                <span className="text-xs font-bold text-white ml-1">4.7 / 5</span>
               </div>
-              <span className="text-[11px] text-white/50 mt-1">Basé sur +120 avis vérifiés</span>
+              <span className="text-[11px] text-white/50 mt-1">Basé sur 3 avis</span>
             </div>
 
             <a
-              href="https://www.trustpilot.com"
+              href="https://www.google.com/search?q=les+racines+du+bien+etre#lrd=0xd56a1539bebb53d:0x86d678131c620bd3,1"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-white/80 hover:text-white transition-colors border border-white/10"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#4285F4]/10 hover:bg-[#4285F4]/20 text-xs text-[#4285F4] hover:text-[#4285F4] transition-colors border border-[#4285F4]/20"
             >
-              <span>Voir la page</span>
+              <span>Voir sur Google</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
         </div>
 
         {/* REVIEWS GRID (DESKTOP) / CAROUSEL (MOBILE) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {REVIEWS.map((review, idx) => (
             <div
               key={review.id}
-              className={`bg-[#1C1A17] p-6 rounded-2xl border border-[#2A2824] hover:border-[#00b67a]/40 transition-all duration-300 flex flex-col justify-between group ${
+              className={`bg-[#1C1A17] p-6 rounded-2xl border border-[#2A2824] hover:border-[#4285F4]/40 transition-all duration-300 flex flex-col justify-between group ${
                 idx === currentIndex ? 'block' : 'hidden md:flex'
               }`}
             >
               <div>
-                {/* STAR RATING */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1">
+                {/* AUTHOR & STAR RATING */}
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/5">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                      <span className="text-sm font-semibold text-white/90">
+                        {review.author.charAt(0)}
+                      </span>
+                    </div>
+                    <span className="text-sm font-semibold text-white">{review.author}</span>
+                  </div>
+                  <div className="flex items-center gap-0.5">
                     {[...Array(review.rating)].map((_, i) => (
-                      <div key={i} className="bg-[#00b67a] p-1 rounded-xs">
+                      <div key={i} className="bg-[#FBBC05] p-0.5 rounded-xs">
                         <Star className="w-2.5 h-2.5 fill-white text-white" />
                       </div>
                     ))}
                   </div>
-                  <span className="text-[11px] text-white/40 font-mono">{review.date}</span>
                 </div>
 
-                {/* TITLE & CONTENT */}
-                <h3 className="text-sm font-semibold text-white mb-2 line-clamp-2 group-hover:text-[#AEB9A9] transition-colors">
-                  « {review.title} »
-                </h3>
-                <p className="text-xs text-white/70 leading-relaxed font-light mb-6">
-                  {review.content}
+                {/* CONTENT */}
+                <p className="text-sm text-white/80 leading-relaxed font-light mb-6">
+                  « {review.content} »
                 </p>
+
+                {/* OPTIONAL RESPONSE */}
+                {review.response && (
+                  <div className="mt-4 pt-4 border-t border-dashed border-[#2A2824] relative">
+                    <div className="flex items-center gap-2 mb-2 text-[#4285F4]/90">
+                      <CornerDownRight className="w-4 h-4" />
+                      <span className="text-xs font-semibold uppercase tracking-wider">Réponse de l'établissement</span>
+                    </div>
+                    <p className="text-xs text-white/60 pl-6 italic leading-relaxed">
+                      {review.response}
+                    </p>
+                  </div>
+                )}
               </div>
 
-              {/* AUTHOR INFO */}
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-semibold text-white">{review.author}</span>
-                    {review.verified && (
-                      <span title="Avis vérifié" className="inline-flex items-center">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00b67a]" />
-                      </span>
-                    )}
-                  </div>
-                  {review.service && (
-                    <span className="text-[10px] text-[#AEB9A9]/70 block font-light mt-0.5">
-                      {review.service}
-                    </span>
-                  )}
-                </div>
-                <Quote className="w-4 h-4 text-white/10 group-hover:text-[#00b67a]/30 transition-colors" />
+              {/* QUOTE ICON */}
+              <div className="pt-4 flex justify-end">
+                <Quote className="w-4 h-4 text-white/10 group-hover:text-[#4285F4]/30 transition-colors" />
               </div>
             </div>
           ))}
         </div>
 
         {/* MOBILE CAROUSEL CONTROLS */}
-        <div className="flex md:hidden items-center justify-between mt-6 pt-4 border-t border-[#2A2824]">
-          <span className="text-xs text-white/50">
-            Avis {currentIndex + 1} sur {REVIEWS.length}
-          </span>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handlePrev}
-              className="p-2 rounded-full border border-white/15 bg-white/5 text-white hover:bg-white/10 transition-colors cursor-pointer"
-              aria-label="Avis précédent"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-2 rounded-full border border-white/15 bg-white/5 text-white hover:bg-white/10 transition-colors cursor-pointer"
-              aria-label="Avis suivant"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
+        {REVIEWS.length > 1 && (
+          <div className="flex md:hidden items-center justify-between mt-6 pt-4 border-t border-[#2A2824]">
+            <span className="text-xs text-white/50">
+              Avis {currentIndex + 1} sur {REVIEWS.length}
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handlePrev}
+                className="p-2 rounded-full border border-white/15 bg-white/5 text-white hover:bg-white/10 transition-colors cursor-pointer"
+                aria-label="Avis précédent"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="p-2 rounded-full border border-white/15 bg-white/5 text-white hover:bg-white/10 transition-colors cursor-pointer"
+                aria-label="Avis suivant"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
+        )}
+
+        <div className="mt-8 flex justify-center md:hidden">
+            <a
+              href="https://www.google.com/search?q=les+racines+du+bien+etre#lrd=0xd56a1539bebb53d:0x86d678131c620bd3,1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#4285F4] text-white text-sm font-medium transition-colors w-full"
+            >
+              <span>Voir tous les avis Google</span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
         </div>
+
       </div>
     </section>
   );

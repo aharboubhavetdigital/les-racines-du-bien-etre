@@ -2,14 +2,13 @@ import React, { useMemo } from 'react';
 import ParallaxUnfurlingGallery from './ui/3d-parallax-unfurling-gallery';
 import bilanVitaliteImg from '../assets/images/naturopathie_vitalite_assessment_1788190900642.jpg';
 import nutritionVivanteImg from '../assets/images/nutrition_vivante_naturopathie_1788191302696.jpg';
-import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg.jpg';
 import phytotherapieImg from '../assets/images/phytotherapie_herboristerie_naturopathie_1788191340631.jpg';
 import vitaliteNatureImg from '../assets/images/vitalite_reconnexion_nature_1788191355171.jpg';
 import bilanVitalite2Img from '../assets/images/bilan_vitalite_1788190672705.jpg';
 import reflexologieFacialeImg from '../assets/images/Reflexologie faciale.jpg';
-import chamomileTisaneImg from '../assets/images/chamomile_tisane.jpg';
-import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
-import synergiesHuilesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.15.47.png';
+import whatsAppImg from '../assets/images/WhatsApp Image 2026-08-22 .jpeg';
+import firefly1Img from '../assets/images/Firefly (1).jpg';
+import reflexologieSoinImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg.jpg';
 
 interface SpotlightItem {
   tag: string;
@@ -31,7 +30,7 @@ const NATUROPATHIE_GALLERY_ITEMS: SpotlightItem[] = [
   {
     tag: 'PILIER 02 // RÉFLEXOLOGIE & DÉTENTE',
     title: 'Réflexologie plantaire, régulation nerveuse & relance énergétique',
-    image: reflexologieImg
+    image: phytotherapieImg
   },
   {
     tag: 'PILIER 03 // PHYTOTHÉRAPIE & HERBORISTERIE',
@@ -46,12 +45,12 @@ const NATUROPATHIE_GALLERY_ITEMS: SpotlightItem[] = [
   {
     tag: 'PILIER 05 // AROMATHÉRAPIE HOLISTIQUE',
     title: 'Synergies d’huiles essentielles pures & diffusion bien-être',
-    image: synergiesHuilesImg
+    image: firefly1Img
   },
   {
     tag: 'PILIER 06 // RITUELS DE BOTANIQUE',
     title: 'Infusions de fleurs séchées, décoctions & remèdes ancestraux',
-    image: chamomileTisaneImg
+    image: bilanVitalite2Img
   },
   {
     tag: 'PILIER 07 // ÉCLAT NATUREL & KOBIDO',
@@ -61,17 +60,17 @@ const NATUROPATHIE_GALLERY_ITEMS: SpotlightItem[] = [
   {
     tag: 'PILIER 08 // HARMONIZATION VIBRATOIRE',
     title: 'Sonothérapie, bols tibétains & apaisement du système nerveux',
-    image: sonotherapieImg
+    image: firefly1Img
   },
   {
     tag: 'PILIER 09 // GESTION DU STRESS',
     title: 'Respiration consciente, sophrologie & méditation d’ancrage',
-    image: phytotherapieImg
+    image: bilanVitalite2Img
   },
   {
     tag: 'PILIER 10 // JARDIN BOTANIQUE',
     title: 'Culture bio de plantes aromatiques & herbes de santé',
-    image: reflexologieImg
+    image: reflexologieSoinImg
   }
 ];
 
