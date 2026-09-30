@@ -1,6 +1,8 @@
 import React from 'react';
 import logoV5Url from '../assets/images/logo v5 .svg';
 import { Instagram, MapPin, Mail, Phone, ShieldCheck } from 'lucide-react';
+import soundbathBlogImg from '../assets/images/soundbath-blog.jpg';
+import guaShaImg from '../assets/images/Capture d’écran 2026-09-30 à 14.55.20.png';
 
 interface FooterProps {
   onOpenLegal: (type: 'mentions' | 'privacy') => void;
@@ -15,7 +17,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenBooking, onNa
       caption: 'Rituel d’huile essentielle de sauge'
     },
     {
-      img: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=400&q=80',
+      img: soundbathBlogImg,
       caption: 'Réflexologie et ancrage'
     },
     {
@@ -23,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onOpenBooking, onNa
       caption: 'Infusion des plantes du jardin'
     },
     {
-      img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=400&q=80',
+      img: guaShaImg,
       caption: 'Gua Sha et éclat naturel'
     }
   ];

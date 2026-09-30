@@ -6,8 +6,10 @@ import reflexologieImg from '../assets/images/reflexologie_soin_naturopathie_178
 import phytotherapieImg from '../assets/images/phytotherapie_herboristerie_naturopathie_1788191340631.jpg';
 import vitaliteNatureImg from '../assets/images/vitalite_reconnexion_nature_1788191355171.jpg';
 import bilanVitalite2Img from '../assets/images/bilan_vitalite_1788190672705.jpg';
-import chamomileTisaneImg from '../assets/images/chamomile_tisane.jpg';
 import reflexologieFacialeImg from '../assets/images/Reflexologie faciale.jpg';
+import chamomileTisaneImg from '../assets/images/chamomile_tisane.jpg';
+import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
+import synergiesHuilesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.15.47.png';
 
 interface SpotlightItem {
   tag: string;
@@ -44,7 +46,7 @@ const NATUROPATHIE_GALLERY_ITEMS: SpotlightItem[] = [
   {
     tag: 'PILIER 05 // AROMATHÉRAPIE HOLISTIQUE',
     title: 'Synergies d’huiles essentielles pures & diffusion bien-être',
-    image: bilanVitalite2Img
+    image: synergiesHuilesImg
   },
   {
     tag: 'PILIER 06 // RITUELS DE BOTANIQUE',
@@ -59,7 +61,7 @@ const NATUROPATHIE_GALLERY_ITEMS: SpotlightItem[] = [
   {
     tag: 'PILIER 08 // HARMONIZATION VIBRATOIRE',
     title: 'Sonothérapie, bols tibétains & apaisement du système nerveux',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    image: sonotherapieImg
   },
   {
     tag: 'PILIER 09 // GESTION DU STRESS',

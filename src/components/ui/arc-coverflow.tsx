@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import chantDesOiseauxImg from '../../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
+import soundbathBlogImg from '../../assets/images/soundbath-blog.jpg';
 
 const SLIDE_WIDTH = 200;
 const SLIDE_HEIGHT = 275;
@@ -11,7 +13,7 @@ const SCROLL_LERP = 0.05;
 
 export const slideData = [
   {
-    src: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=85",
+    src: chantDesOiseauxImg,
     alt: "Détente relaxante aux huiles essentielles et fleurs fraîches",
     title: "Détente relaxante & drainante"
   },
@@ -31,7 +33,7 @@ export const slideData = [
     title: "Bilan de vitalité & Conseils"
   },
   {
-    src: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=85",
+    src: soundbathBlogImg,
     alt: "Soin holistique aux pierres chaudes de volcan",
     title: "Soins aux pierres chaudes"
   },

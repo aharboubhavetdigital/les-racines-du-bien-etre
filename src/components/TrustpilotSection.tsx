@@ -70,7 +70,7 @@ export function TrustpilotSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-[#2A2824] gap-6">
           <div>
             <h2 className="text-2xl sm:text-3xl font-serif text-[#FAF8F5] tracking-tight">
-              La confiance de nos patients
+              La confiance de nos clients
             </h2>
             <p className="text-sm text-[#AEB9A9]/80 mt-1 font-light max-w-lg">
               Découvrez les retours d’expérience de ceux qui ont suivi un accompagnement naturopathique ou un soin en cabinet.

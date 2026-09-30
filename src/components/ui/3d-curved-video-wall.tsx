@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { ArrowDown } from "lucide-react";
+import soundbathBlogImg from "../../assets/images/soundbath-blog.jpg";
 
 interface CurvedVideoWallProps {
   title?: string;
@@ -25,7 +26,7 @@ const FALLBACK_IMAGE_SOURCES = [
   "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80",
   "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=600&q=80",
+  soundbathBlogImg,
   "https://images.unsplash.com/photo-1512290900673-700200411798?auto=format&fit=crop&w=600&q=80",
   "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80",
   "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",

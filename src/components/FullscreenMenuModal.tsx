@@ -4,6 +4,8 @@ import gsap from 'gsap';
 import { X, Calendar, ArrowUpRight, ChevronDown, ArrowLeft } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 import logoRectanglePng from '../assets/images/logo rectangle .png';
+import institutBelleEtZenImg from '../assets/images/Capture d’écran 2026-09-30 à 14.37.59.png';
+import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
 
 export interface SubMenuItem {
   id: string;
@@ -223,7 +225,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       title: 'À propos',
       subtitle: 'Votre praticienne certifiée & démarche holistique',
       tag: '(2) PARCOURS & PHILOSOPHIE',
-      image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85',
+      image: chantDesOiseauxImg,
       action: () => {
         handleSmoothClose(() => {
           if (window.history && window.history.pushState) {
@@ -257,7 +259,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       title: 'Les lieux',
       subtitle: 'Institut Belle & Zen (Saint-Lô) & Le Chant des Oiseaux',
       tag: '(4) SANCTUAIRES & LIEUX DE SOIN',
-      image: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=85',
+      image: institutBelleEtZenImg,
       action: () => {
         handleSmoothClose(() => {
           if (window.history && window.history.pushState) {

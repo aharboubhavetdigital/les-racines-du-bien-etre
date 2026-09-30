@@ -2,13 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Calendar, ArrowUpRight, CheckCircle2, Sparkles, Compass, BookOpen, Heart, Activity, Moon, Utensils, Feather, Compass as CompassIcon, ChevronRight, ArrowLeft } from 'lucide-react';
 import gsap from 'gsap';
 import CircularGallery, { CircularGalleryItem } from './ui/CircularGallery';
+import complementsAlimentairesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.44.21.png';
+import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
 
 const CIRCULAR_GALLERY_ITEMS: CircularGalleryItem[] = [
   { image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80', text: '' },
   { image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80', text: '' },
   { image: 'https://images.unsplash.com/photo-1512290900676-26c2a7a795b1?auto=format&fit=crop&w=800&q=80', text: '' },
-  { image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80', text: '' },
-  { image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80', text: '' },
+  { image: sonotherapieImg, text: '' },
+  { image: complementsAlimentairesImg, text: '' },
   { image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80', text: '' }
 ];
 
@@ -377,7 +379,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
 
                 <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
                   <img
-                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80"
+                    src={sonotherapieImg}
                     alt="Équilibre"
                     loading="lazy"
                     className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"

@@ -3,6 +3,8 @@ import { Calendar, Compass, Waves, Building2, CheckCircle2, Phone, Mail, ArrowLe
 import gsap from 'gsap';
 import { SplitColumnInfiniteHero } from './SplitColumnInfiniteHero';
 import { InteractiveGoogleMapSection } from './InteractiveGoogleMapSection';
+import institutBelleEtZenImg from '../assets/images/Capture d’écran 2026-09-30 à 14.37.59.png';
+import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
 
 interface LieuxPageProps {
   onNavigateHome: (targetSection?: string) => void;
@@ -95,12 +97,12 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
             >
               {/* Background Ambient Image */}
               <img
-                src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=85"
+                src={institutBelleEtZenImg}
                 alt="Institut Belle et Zen Saint-Lô"
                 referrerPolicy="no-referrer"
-                className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] contrast-[1.08] transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-[#344439]/60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-[#344439]/60 opacity-30" />
 
               {/* Top Card Badge */}
               <div className="relative z-10 flex items-center justify-between" style={{ transform: 'translateZ(30px)' }}>
@@ -144,12 +146,12 @@ export const LieuxPage: React.FC<LieuxPageProps> = ({
             >
               {/* Background Ambient Image */}
               <img
-                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85"
+                src={chantDesOiseauxImg}
                 alt="Le Chant des Oiseaux au bord de l'eau"
                 referrerPolicy="no-referrer"
-                className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] contrast-[1.08] transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-[#504135]/60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-[#504135]/60 opacity-30" />
 
               {/* Top Card Badge */}
               <div className="relative z-10 flex items-center justify-between" style={{ transform: 'translateZ(30px)' }}>

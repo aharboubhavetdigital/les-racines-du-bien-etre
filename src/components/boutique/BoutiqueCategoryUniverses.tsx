@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Leaf, Droplet, Home, ArrowRight } from 'lucide-react';
+import complementsAlimentairesImg from '../../assets/images/Capture d’écran 2026-09-30 à 14.44.21.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,14 +24,14 @@ const UNIVERSES: CategoryUniverse[] = [
     title: 'Compléments alimentaires',
     categoryFilter: 'Compléments alimentaires',
     description: 'Des gélules et compléments naturels présentés avec clarté, précautions et transparence.',
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1000&q=85',
+    image: complementsAlimentairesImg,
     icon: Leaf,
     buttonBg: 'bg-[#3D5245] hover:bg-[#20352B]'
   },
   {
     id: 'huiles',
     number: '02',
-    title: 'Huiles',
+    title: 'Huiles et hydrolats',
     categoryFilter: 'Huiles',
     description: 'Des textures sensorielles et huiles essentielles pour accompagner les gestes de bien-être.',
     image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1000&q=85',

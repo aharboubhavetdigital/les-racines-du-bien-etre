@@ -14,7 +14,7 @@ interface BoutiqueCatalogueSectionProps {
 const CATEGORY_FILTERS = [
   { id: 'tous', label: 'Tous', categoryValue: 'Tout', icon: Leaf },
   { id: 'complements', label: 'Compléments', categoryValue: 'Compléments alimentaires', icon: Pill },
-  { id: 'huiles', label: 'Huiles', categoryValue: 'Huiles', icon: Droplet },
+  { id: 'huiles', label: 'Huiles et hydrolats', categoryValue: 'Huiles', icon: Droplet },
   { id: 'infusions', label: 'Infusions', categoryValue: 'Infusions', icon: Coffee },
   { id: 'maison-rituel', label: 'Maison & rituel', categoryValue: 'Maison & rituel', icon: ShoppingBag },
 ];

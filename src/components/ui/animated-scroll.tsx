@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronUp, ChevronDown } from 'lucide-react';
+import institutBelleEtZenImg from '../../assets/images/Capture d’écran 2026-09-30 à 14.37.59.png';
+import chantDesOiseauxImg from '../../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
 
 export interface PageItem {
   leftBgImage?: string | null;
@@ -38,7 +40,7 @@ const defaultPages: PageItem[] = [
     rightContent: null,
   },
   {
-    leftBgImage: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=85',
+    leftBgImage: institutBelleEtZenImg,
     rightBgImage: null,
     leftContent: null,
     rightContent: {
@@ -201,7 +203,7 @@ export default function ScrollAdventure({ customPages, className = '', autoPlayI
         const isActive = currentPage === idx;
         const isPast = idx < currentPage;
 
-        const bgImage = page.leftBgImage || page.rightBgImage || 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85';
+        const bgImage = page.leftBgImage || page.rightBgImage || chantDesOiseauxImg;
         const content = page.rightContent || page.leftContent;
 
         // Desktop offsets

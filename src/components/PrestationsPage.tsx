@@ -7,6 +7,9 @@ import { StatementStripSection } from './StatementStripSection';
 import reflexologiePlantaireNewImg from '../assets/images/reflexologie_plantaire_new.png';
 import whatsAppImg from '../assets/images/WhatsApp Image 2026-08-22 .jpeg';
 import firefly1Img from '../assets/images/Firefly (1).jpg';
+import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
+import soundbathBlogImg from '../assets/images/soundbath-blog.jpg';
+import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,11 +22,11 @@ const PRESTATIONS_STRIP_ITEMS = [
 
 const STREAM_IMAGES = [
   {
-    src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
+    src: chantDesOiseauxImg,
     alt: 'Détente globale',
   },
   {
-    src: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
+    src: soundbathBlogImg,
     alt: 'Réflexologie plantaire',
   },
   {
@@ -31,7 +34,7 @@ const STREAM_IMAGES = [
     alt: 'Réflexologie faciale',
   },
   {
-    src: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
+    src: sonotherapieImg,
     alt: 'Bilan de vitalité',
   },
   {
@@ -105,7 +108,7 @@ export const PRESTATIONS_DATA: PrestationItem[] = [
     categoryLabel: '04 · Naturopathie & vitalité',
     title: 'Bilan de vitalité',
     description: 'Le premier rendez-vous pour comprendre votre histoire, vos habitudes et vos priorités.',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    image: sonotherapieImg
   },
   {
     id: 'programme-de-vitalite',

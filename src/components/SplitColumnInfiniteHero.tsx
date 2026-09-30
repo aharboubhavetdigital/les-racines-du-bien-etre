@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Calendar } from 'lucide-react';
+import institutBelleEtZenImg from '../assets/images/Capture d’écran 2026-09-30 à 14.37.59.png';
+import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
+import soundbathBlogImg from '../assets/images/soundbath-blog.jpg';
+import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
 
 export interface LieuxProject {
   id: string;
@@ -18,7 +22,7 @@ const PROJECTS: LieuxProject[] = [
     title: 'Saint-Lô',
     subtitle: 'Cabinet professionnel & atmosphère feutrée au cœur de Saint-Lô',
     tags: ['SAINT-LÔ', 'CENTRE-VILLE', 'CABINET'],
-    leftImg: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1600&q=85',
+    leftImg: institutBelleEtZenImg,
     rightImg: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85',
     bookingServiceId: 'naturopathie',
     locationName: 'Institut Belle et Zen — Saint-Lô'
@@ -28,7 +32,7 @@ const PROJECTS: LieuxProject[] = [
     title: 'Le Chant des Oiseaux',
     subtitle: 'Immersion apaisante en pleine nature et au bord de l’eau dans la Vallée de la Vire',
     tags: ['VALLÉE DE LA VIRE', 'BORD DE L’EAU', 'SANCTUAIRE'],
-    leftImg: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=85',
+    leftImg: chantDesOiseauxImg,
     rightImg: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1600&q=85',
     bookingServiceId: 'bilan-vitalite',
     locationName: 'Le Chant des Oiseaux — Normandie'
@@ -39,7 +43,7 @@ const PROJECTS: LieuxProject[] = [
     subtitle: 'Analyse globale des 4 piliers de santé & accompagnement sur-mesure',
     tags: ['NATUROPATHIE', 'BILAN GLOBAL', 'INDIVIDUALISÉ'],
     leftImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1600&q=85',
-    rightImg: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=85',
+    rightImg: sonotherapieImg,
     bookingServiceId: 'bilan-vitalite',
     locationName: 'Consultation Globale'
   },
@@ -48,7 +52,7 @@ const PROJECTS: LieuxProject[] = [
     title: 'Réflexologie Plantaire',
     subtitle: 'Toucher thérapeutique, libération des tensions & rééquilibrage nerveux',
     tags: ['RÉFLEXOLOGIE', 'DÉTENTE', 'SOINS MANUELS'],
-    leftImg: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1600&q=85',
+    leftImg: soundbathBlogImg,
     rightImg: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85',
     bookingServiceId: 'reflexologie-plantaire',
     locationName: 'Soin Réflexologique'

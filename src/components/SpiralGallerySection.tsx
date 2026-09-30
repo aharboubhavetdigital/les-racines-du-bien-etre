@@ -3,10 +3,11 @@ import InfiniteSpiral, { SpiralItem } from './InfiniteSpiral';
 import { Sparkles } from 'lucide-react';
 import pointsReflexesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.12.19.png';
 import lacherPriseImg from '../assets/images/Capture d’écran 2026-09-30 à 14.15.47.png';
+import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
 
 const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
   {
-    src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80',
+    src: chantDesOiseauxImg,
     alt: 'Réflexologie plantaire et détente des pieds',
     label: 'Réflexologie Plantaire'
   },

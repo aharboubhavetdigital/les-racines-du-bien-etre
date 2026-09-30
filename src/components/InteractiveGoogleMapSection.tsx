@@ -14,6 +14,8 @@ import {
   Layers,
   Map as MapIcon
 } from 'lucide-react';
+import institutBelleEtZenImg from '../assets/images/Capture d’écran 2026-09-30 à 14.37.59.png';
+import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
 
 export interface LocationData {
   id: string;
@@ -53,7 +55,7 @@ export const LOCATIONS: LocationData[] = [
       'Accès rapide & stationnement proche',
       'Atmosphère calme & feutrée',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=85',
+    imageUrl: institutBelleEtZenImg,
     bookingServiceId: 'naturopathie',
     hours: 'Lun - Sam : 09h00 - 19h00',
   },
@@ -75,7 +77,7 @@ export const LOCATIONS: LocationData[] = [
       'Futur accueil d’ateliers thématiques',
       'Bord de l’eau & havre de paix',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85',
+    imageUrl: chantDesOiseauxImg,
     bookingServiceId: 'bilan-vitalite',
     hours: 'Sur rendez-vous préalable',
   },

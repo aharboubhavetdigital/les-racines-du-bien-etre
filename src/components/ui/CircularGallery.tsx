@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import './CircularGallery.css';
+import chantDesOiseauxImg from '../../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
+import soundbathBlogImg from '../../assets/images/soundbath-blog.jpg';
 
 export interface CircularGalleryItem {
   image: string;
@@ -529,8 +531,8 @@ class AppEngine {
 
   createMedias(items: CircularGalleryItem[] | undefined, bend = 1, textColor: string, borderRadius: number, font: string) {
     const defaultItems: CircularGalleryItem[] = [
-      { image: `https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80`, text: '01. Soin Bien-être' },
-      { image: `https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80`, text: '02. Réflexologie Plantaire' },
+      { image: chantDesOiseauxImg, text: '01. Soin Bien-être' },
+      { image: soundbathBlogImg, text: '02. Réflexologie Plantaire' },
       { image: `https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80`, text: '03. Bilan de Vitalité' },
       { image: `https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80`, text: '04. Aromathérapie' },
       { image: `https://images.unsplash.com/photo-1512290900673-7002ddb928f2?auto=format&fit=crop&w=800&q=80`, text: '05. Lâcher-Prise' },

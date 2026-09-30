@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,7 +55,7 @@ const CARDS: CardData[] = [
     sku: 'T98-462',
     name: 'RITUEL SIGNATURE №06',
     subtitle: 'Harmonie Holistique Corps & Esprit',
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=85',
+    image: sonotherapieImg,
   },
 ];
 
