@@ -11,11 +11,11 @@ interface ParcoursSectionProps {
 
 const PARCOURS_CARDS: CardItem[] = [
   {
-    id: "ancrage-serenite",
-    title: "01. Ancrage & Sérénité",
-    description: "Ancrage durable des habitudes saines pour vivre en pleine santé, en autonomie et en parfaite harmonie avec vos cycles.",
-    imgSrc: ancrageCaptureImg,
-    icon: <Heart className="w-6 h-6" />,
+    id: "bilan-vitalite",
+    title: "01. Bilan de vitalité",
+    description: "Le premier rendez-vous pour comprendre votre histoire, vos habitudes et co-construire votre plan de santé naturelle.",
+    imgSrc: firefly1Img,
+    icon: <Activity className="w-6 h-6" />,
   },
   {
     id: "programme-individualise",
@@ -44,6 +44,13 @@ const PARCOURS_CARDS: CardItem[] = [
     description: "Accompagnement régulier pour consolider les acquis, ajuster la cure selon les ressentis et répondre à l'évolution naturelle de votre corps.",
     imgSrc: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
     icon: <Sparkles className="w-6 h-6" />,
+  },
+  {
+    id: "ancrage-serenite",
+    title: "06. Ancrage & Sérénité",
+    description: "Ancrage durable des habitudes saines pour vivre en pleine santé, en autonomie et en parfaite harmonie avec vos cycles.",
+    imgSrc: ancrageCaptureImg,
+    icon: <Heart className="w-6 h-6" />,
   },
 ];
 
