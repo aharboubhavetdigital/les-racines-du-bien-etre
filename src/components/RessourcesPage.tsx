@@ -7,6 +7,7 @@ import observationImg from '../assets/images/9f344cf8-1b5d-4aee-92b9-e701f2b58af
 import recuperationImg from '../assets/images/ed3a4508-6fd3-41c2-9e3d-6d7251bf881a.png';
 import equilibreImg from '../assets/images/841162c9-9548-4b68-9d1d-83082658947d.png';
 import vitaliteImg from '../assets/images/61700b8a-4f97-41b2-bc97-0ca70b0e6b3f.png';
+import durabiliteImg from '../assets/images/b4a59f4d-87dc-4b41-af16-6cc451f83c5d.png';
 import complementsAlimentairesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.44.21.png';
 import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
 import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
@@ -476,69 +477,65 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
               </div>
             </div>
 
-            {/* CARD 06: Durabilité (Highlight Dark Forest Green Card with Branch Overlay & Script Text) */}
+            {/* CARD 06: Durabilité */}
             <div
               ref={(el) => {
                 if (el) listItemsRef.current[5] = el;
               }}
               onMouseMove={(e) => handleCardMouseMove(e, 5)}
               onMouseLeave={() => handleCardMouseLeave(5)}
-              className="group relative bg-[#162920] text-white rounded-[28px] overflow-hidden p-5 sm:p-6 lg:p-7 border border-[#162920] shadow-[0_12px_35px_rgba(22,41,32,0.25)] hover:shadow-[0_20px_45px_rgba(22,41,32,0.35)] transition-all duration-400 flex flex-col justify-between"
+              className="group relative bg-white rounded-[28px] overflow-hidden p-5 sm:p-6 lg:p-7 border border-[#20352B]/10 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgb(0,0,0,0.07)] transition-all duration-400"
             >
-              {/* Right Side Botanical Branch Visual Overlay */}
-              <div className="absolute top-0 right-0 w-[140px] sm:w-[170px] h-full pointer-events-none opacity-40 group-hover:opacity-55 transition-opacity">
-                <svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#A8B7A7]">
-                  <path d="M130 10C130 100 180 180 145 290" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                  <path d="M130 35C100 25 70 40 60 60C75 70 105 60 128 40" fill="currentColor" fillOpacity="0.5" />
-                  <path d="M135 65C165 55 195 70 205 90C190 100 160 90 137 70" fill="currentColor" fillOpacity="0.5" />
-                  <path d="M140 105C110 95 80 110 70 130C85 140 115 130 138 110" fill="currentColor" fillOpacity="0.5" />
-                  <path d="M145 145C175 135 205 150 215 170C200 180 170 170 147 150" fill="currentColor" fillOpacity="0.5" />
-                  <path d="M148 185C120 175 90 190 80 210C95 220 125 210 146 190" fill="currentColor" fillOpacity="0.5" />
-                </svg>
-              </div>
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-between h-full">
+                <div className="flex-1 min-w-0 flex flex-col justify-between space-y-3 sm:space-y-4">
+                  <div>
+                    <div className="flex items-center gap-2.5">
+                      <span className="font-mono text-xs text-[#506456] font-bold tracking-wider shrink-0">06</span>
+                      <span className="h-[1px] w-5 sm:w-7 bg-[#20352B]/20 shrink-0" />
+                      <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-[#E8EDE6] text-[#45584B] font-semibold border border-[#D5DDD3] truncate">
+                        Durabilité
+                      </span>
+                    </div>
 
-              <div className="flex flex-col justify-between h-full space-y-4 relative z-10">
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-mono text-xs text-[#A8B7A7] font-semibold tracking-wider shrink-0">06</span>
-                    <span className="h-[1px] w-5 sm:w-7 bg-white/20 shrink-0" />
-                    <span className="font-mono text-[11px] tracking-wider px-3 py-0.5 rounded-full bg-white/10 text-white font-semibold border border-white/20 truncate">
-                      Durabilité
-                    </span>
+                    <h3 className="font-serif text-xl sm:text-2xl lg:text-[23px] font-normal text-[#20352B] leading-snug mt-3 group-hover:text-[#506456] transition-colors">
+                      Installer une habitude durable
+                    </h3>
+
+                    <p className="font-sans text-xs sm:text-sm text-[#20352B]/75 font-light leading-relaxed mt-2.5">
+                      Un changement durable est précis, simple à répéter et ancré dans un moment déjà présent dans votre journée.
+                    </p>
                   </div>
 
-                  <h3 className="font-serif text-xl sm:text-2xl lg:text-[23px] font-normal text-white leading-snug">
-                    Installer une habitude durable
-                  </h3>
-
-                  <p className="font-sans text-xs sm:text-sm text-white/80 font-light leading-relaxed max-w-[240px] sm:max-w-none">
-                    Un changement durable est précis, simple à répéter et ancré dans un moment déjà présent dans votre journée.
-                  </p>
-                </div>
-
-                <div>
-                  <ul className="space-y-1.5 pt-3 border-t border-white/15 text-xs text-white/90 font-light mb-3">
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
-                      <span className="truncate">Priorité unique & version minimale</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#A8B7A7] shrink-0" />
-                      <span className="truncate">Ajustements bienveillants sans perfectionnisme</span>
-                    </li>
-                  </ul>
-
-                  {/* Handwritten Accent Text */}
-                  <div className="text-right pt-1 pr-1">
-                    <span className="font-serif italic text-sm text-[#C8D6C6] tracking-wide block transform -rotate-1 font-light">
-                      Des petits pas qui comptent
-                    </span>
+                  <div>
+                    <ul className="space-y-1.5 pt-3 border-t border-[#20352B]/10 text-xs sm:text-sm text-[#20352B]/80 font-light">
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#8BB28A] shrink-0" />
+                        <span className="truncate">Priorité unique & version minimale</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#8BB28A] shrink-0" />
+                        <span className="truncate">Ajustements bienveillants sans perfectionnisme</span>
+                      </li>
+                    </ul>
+                    {/* Handwritten Accent Text */}
+                    <div className="text-left pt-3">
+                      <span className="font-serif italic text-sm sm:text-base text-[#506456] tracking-wide block transform -rotate-1 font-light">
+                        Des petits pas qui comptent
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-          </div>
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                  <img
+                    src={durabiliteImg}
+                    alt="Durabilité"
+                    loading="lazy"
+                    className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            </div>          </div>
         </div>
       </section>
 
