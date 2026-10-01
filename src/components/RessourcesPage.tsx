@@ -6,6 +6,7 @@ import mouvementImg from '../assets/images/abb7a5d9-9155-4edb-91ac-5eba48446177.
 import observationImg from '../assets/images/9f344cf8-1b5d-4aee-92b9-e701f2b58aff.png';
 import recuperationImg from '../assets/images/ed3a4508-6fd3-41c2-9e3d-6d7251bf881a.png';
 import equilibreImg from '../assets/images/841162c9-9548-4b68-9d1d-83082658947d.png';
+import vitaliteImg from '../assets/images/61700b8a-4f97-41b2-bc97-0ca70b0e6b3f.png';
 import complementsAlimentairesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.44.21.png';
 import sonotherapieImg from '../assets/images/Capture d’écran 2026-09-30 à 14.57.24.png';
 import rituelSaugeImg from '../assets/images/Capture d’écran 2026-09-30 à 15.08.30.png';
@@ -425,7 +426,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
 
                 <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
                   <img
-                    src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80"
+                    src={vitaliteImg}
                     alt="Vitalité"
                     loading="lazy"
                     className="w-full h-full object-cover filter brightness-[0.97] contrast-[1.02] transition-transform duration-500 ease-out group-hover:scale-105"
