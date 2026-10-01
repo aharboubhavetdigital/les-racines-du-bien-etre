@@ -27,7 +27,7 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     id: 'la-naturopathie',
-    title: 'La naturopathie',
+    title: 'Rdv Naturo de suivi',
     subtitle: 'Bilan de vitalité & accompagnement personnalisé',
     description: 'Comprendre votre équilibre et mettre en place des habitudes adaptées à votre quotidien.',
     fullDescription: 'La naturopathie holistique considère l’individu dans sa globalité physique, émotionnelle et environnementale. À travers un bilan approfondi, nous identifions la cause profonde de vos déséquilibres (fatigue chronique, troubles digestifs, stress, désordres hormonaux) pour restaurer votre vitalité naturelle.',
@@ -48,50 +48,6 @@ export const SERVICES_DATA: Service[] = [
     ],
     image: rituelSaugeImg,
     quote: '« La médecine de demain consistera à donner à chacun l’envie et les outils de prendre soin de son propre équilibre. »'
-  },
-  {
-    id: 'programme-de-vitalite',
-    title: 'Programme de vitalité',
-    subtitle: 'Plan d’action individualisé',
-    description: 'Un programme individualisé, réaliste et adapté à ce que vous pouvez mettre en place.',
-    fullDescription: 'Un plan d’action concret et structuré sur plusieurs semaines pour optimiser votre vitalité au quotidien.',
-    duration: '1h00',
-    price: 70,
-    category: 'naturopathie',
-    benefits: [
-      'Plan d’action clair et progressif',
-      'Optimisation de l’énergie vitale',
-      'Adaptation aux contraintes de votre quotidien'
-    ],
-    protocolSteps: [
-      'Définition des objectifs',
-      'Mise en place des piliers naturopathiques',
-      'Transmission du guide personnalisé'
-    ],
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
-    quote: '« La régularité des gestes simples crée les grands équilibres. »'
-  },
-  {
-    id: 'suivi-personnalise',
-    title: 'Suivi personnalisé',
-    subtitle: 'Accompagnement continu',
-    description: 'Une continuité entre les rendez-vous avec des points réguliers et des encouragements.',
-    fullDescription: 'Consultation de suivi pour faire le point sur vos progrès, ajuster le programme et approfondir votre autonomie.',
-    duration: '1h00',
-    price: 60,
-    category: 'naturopathie',
-    benefits: [
-      'Ajustement des conseils naturopathiques',
-      'Ancrage des nouvelles habitudes',
-      'Soutien motivant et écoute attentive'
-    ],
-    protocolSteps: [
-      'Retour sur l’expérience écoulée',
-      'Adaptations ciblées',
-      'Prochaine feuille de route'
-    ],
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80',
-    quote: '« Avancer pas à pas vers un bien-être serein et durable. »'
   },
   {
     id: 'reflexologie-plantaire',
@@ -142,28 +98,26 @@ export const SERVICES_DATA: Service[] = [
     quote: '« Le visage est le reflet de nos équilibres intérieurs : un soin doux ravive sa lumière native. »'
   },
   {
-    id: 'moyens-naturels',
-    title: 'Moyens naturels & hygiène de vie',
-    subtitle: 'Conseils personnalisés & routines de saison',
-    description: 'Alimentation, activité, gestion du stress et moyens naturels en complément.',
-    fullDescription: 'L’équilibre ne s’obtient pas par la rigidité, mais par l’écoute harmonieuse de vos rythmes de vie. Cette séance thématique se concentre sur la création de routines durables : alimentation vivante, chronobiologie, respiration guidée et rituels saisonniers.',
-    duration: '1h00',
-    price: 60,
-    category: 'hygiene-de-vie',
+    id: 'location-jacuzzi',
+    title: 'Location Jacuzzi',
+    subtitle: 'Détente sur-mesure',
+    description: 'Une parenthèse de relaxation dans notre jacuzzi chauffé, durée au choix.',
+    fullDescription: 'Profitez d\'un moment de pure détente dans notre jacuzzi chauffé pour relâcher le stress et les tensions accumulées. Idéal avant ou après un soin.',
+    duration: 'Au choix',
+    price: 8,
+    category: 'bien-etre',
     benefits: [
-      'Compréhension de votre chronobiologie naturelle',
-      'Routines matinales et nocturnes sur-mesure',
-      'Exercices de cohérence cardiaque et de respiration',
-      'Adaptation de votre mode de vie au fil des saisons'
+      'Relâchement des tensions musculaires',
+      'Apaisement profond',
+      'Déconnexion mentale'
     ],
     protocolSteps: [
-      'Analyse de votre rythme quotidien (travail, repos, alimentation)',
-      'Définition d’objectifs simples et non-culpabilisants',
-      'Expérimentation guidée de techniques respiratoires',
-      'Remise du guide pratique « Routines de Saison »'
+      'Accueil et préparation',
+      'Bain bouillonnant relaxant',
+      'Retour au calme'
     ],
-    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85',
-    quote: '« La simplicité des rituels quotidiens est le fondement de la santé durable. »'
+    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
+    quote: '« L’eau est la force motrice de toute la nature. »'
   }
 ];
 

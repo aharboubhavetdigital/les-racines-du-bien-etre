@@ -29,6 +29,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     return match ? [match.id] : [SERVICES_DATA[0].id];
   });
   const [location, setLocation] = useState<'Institut Belle et Zen — Saint-Lô' | 'Le Chant des Oiseaux — Normandie' | 'Consultation en Ligne (Visio)'>('Institut Belle et Zen — Saint-Lô');
+  const [jacuzziDuration, setJacuzziDuration] = useState<'15' | '30' | '60'>('15');
 
   // Calendar State
   const [currentMonthDate, setCurrentMonthDate] = useState<Date>(new Date(2026, 8, 1)); // Sept 2026
@@ -105,16 +106,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   const selectedServices = SERVICES_DATA.filter((s) => selectedServiceIds.includes(s.id));
-  const totalPrice = selectedServices.reduce((sum, s) => sum + s.price, 0);
+  const totalPrice = selectedServices.reduce((sum, s) => {
+    if (s.id === 'location-jacuzzi') {
+      if (jacuzziDuration === '15') return sum + 8;
+      if (jacuzziDuration === '30') return sum + 15;
+      if (jacuzziDuration === '60') return sum + 25;
+    }
+    return sum + s.price;
+  }, 0);
 
   const nonAppelServices = SERVICES_DATA.filter((srv) => srv.id !== 'appel-decouverte');
-  const displayedPrestations = showAllPrestations ? nonAppelServices : nonAppelServices.slice(0, 4);
-  const hiddenCount = nonAppelServices.length - 4;
+  const displayedPrestations = nonAppelServices;
 
   // Calculate total duration in minutes
   const totalDurationMinutes = selectedServices.reduce((acc, srv) => {
     if (srv.id === 'appel-decouverte') return acc + 20;
-    if (srv.id === 'location-jacuzzi') return acc + 90;
+    if (srv.id === 'location-jacuzzi') return acc + parseInt(jacuzziDuration);
     return acc + 60;
   }, 0);
 
@@ -337,7 +344,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         return (
                           <div
                             key={srv.id}
-                            onClick={() => toggleService(srv.id)}
+                            onClick={(e) => {
+                              if ((e.target as HTMLElement).closest('.jacuzzi-select')) return;
+                              toggleService(srv.id);
+                            }}
                             className={`p-4 rounded-2xl border cursor-pointer transition-all relative ${isSelected
                                 ? 'bg-[#F2F6F3] border-[#55695B] ring-1 ring-[#55695B] shadow-xs'
                                 : 'bg-white border-[#EAE7DF] hover:border-[#55695B]/50'
@@ -356,7 +366,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                                 </span>
                               </div>
                               <span className={`font-sans text-xs font-semibold shrink-0 ${srv.price === 0 ? 'text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200' : 'text-[#55695B]'}`}>
-                                {srv.price === 0 ? 'Gratuit' : `${srv.price} €`}
+                                {srv.id === 'location-jacuzzi' 
+                                  ? (jacuzziDuration === '15' ? '8 €' : jacuzziDuration === '30' ? '15 €' : '25 €')
+                                  : srv.price === 0 ? 'Gratuit' : `${srv.price} €`}
                               </span>
                             </div>
                             <p className="font-sans text-xs text-[#48534C] font-light leading-snug line-clamp-2 pl-6">
@@ -364,33 +376,31 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                             </p>
                             <div className="mt-2 text-[11px] text-[#617467] flex items-center gap-1 font-medium pl-6">
                               <Clock className="w-3.5 h-3.5" />
-                              <span>{srv.duration}</span>
+                              <span>{srv.id === 'location-jacuzzi' ? (jacuzziDuration === '60' ? '1h00' : `${jacuzziDuration} min`) : srv.duration}</span>
                             </div>
+                            {srv.id === 'location-jacuzzi' && isSelected && (
+                              <div className="mt-3 pl-6 jacuzzi-select flex flex-wrap gap-2">
+                                {['15', '30', '60'].map(dur => (
+                                  <button
+                                    key={dur}
+                                    type="button"
+                                    onClick={(e) => { 
+                                      e.stopPropagation(); 
+                                      setJacuzziDuration(dur as '15' | '30' | '60'); 
+                                    }}
+                                    className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${jacuzziDuration === dur ? 'bg-[#55695B] text-white border-[#55695B] shadow-sm' : 'bg-white text-[#48534C] border-[#EAE7DF] hover:border-[#55695B]/50'}`}
+                                  >
+                                    {dur === '60' ? '1h00' : `${dur} min`} ({dur === '15' ? '8' : dur === '30' ? '15' : '25'} €)
+                                  </button>
+                                ))}
+                              </div>
+                            )}
                           </div>
                         );
                       })}
                     </div>
 
-                    {/* Toggle expand/collapse prestations button */}
-                    {nonAppelServices.length > 4 && (
-                      <button
-                        type="button"
-                        onClick={() => setShowAllPrestations(!showAllPrestations)}
-                        className="w-full py-3 px-4 mt-3 bg-[#F2F6F3] hover:bg-[#E4ECE6] text-[#55695B] border border-[#55695B]/30 rounded-xl font-sans text-xs font-semibold tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
-                      >
-                        {showAllPrestations ? (
-                          <>
-                            <span>Voir moins</span>
-                            <ChevronUp className="w-4 h-4" />
-                          </>
-                        ) : (
-                          <>
-                            <span>Voir plus de prestations ({hiddenCount} autres soins)</span>
-                            <ChevronDown className="w-4 h-4" />
-                          </>
-                        )}
-                      </button>
-                    )}
+
                   </div>
 
                   {/* Location selection */}
@@ -624,8 +634,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         <ul className="space-y-1 font-medium text-[#181D1A] pl-1">
                           {selectedServices.map((srv) => (
                             <li key={srv.id} className="flex justify-between items-center py-0.5 border-b border-[#EAE7DF]/60 last:border-none">
-                              <span>• {srv.title} ({srv.duration})</span>
-                              <span className="text-[#55695B] font-semibold">{srv.price === 0 ? 'Gratuit' : `${srv.price} €`}</span>
+                              <span>• {srv.title} ({srv.id === 'location-jacuzzi' ? (jacuzziDuration === '60' ? '1h00' : `${jacuzziDuration} min`) : srv.duration})</span>
+                              <span className="text-[#55695B] font-semibold">
+                                {srv.id === 'location-jacuzzi' 
+                                  ? (jacuzziDuration === '15' ? '8 €' : jacuzziDuration === '30' ? '15 €' : '25 €')
+                                  : srv.price === 0 ? 'Gratuit' : `${srv.price} €`}
+                              </span>
                             </li>
                           ))}
                         </ul>

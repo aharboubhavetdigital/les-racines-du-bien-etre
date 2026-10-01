@@ -4,6 +4,7 @@ import { Sparkles } from 'lucide-react';
 import pointsReflexesImg from '../assets/images/Capture d’écran 2026-09-30 à 14.12.19.png';
 import lacherPriseImg from '../assets/images/Capture d’écran 2026-09-30 à 14.15.47.png';
 import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
+import reflexologieSoinImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg.jpg';
 
 const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
   {
@@ -22,7 +23,7 @@ const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
     label: 'Huiles Végétales'
   },
   {
-    src: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=600&q=80',
+    src: reflexologieSoinImg,
     alt: 'Technique manuelle réflexe des mains',
     label: 'Réflexologie Palmaire'
   },
