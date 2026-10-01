@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { SplitColumnInfiniteHero } from './SplitColumnInfiniteHero';
 import { InteractiveGoogleMapSection } from './InteractiveGoogleMapSection';
 import institutBelleEtZenImg from '../assets/images/Capture d’écran 2026-09-30 à 14.37.59.png';
-import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
+import chantDesOiseauxImg from '../assets/images/WhatsApp Image 2026-09-30 at 20.23.16 (3) copy.jpeg';
 
 interface LieuxPageProps {
   onNavigateHome: (targetSection?: string) => void;
