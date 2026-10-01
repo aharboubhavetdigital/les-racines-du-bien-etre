@@ -4,6 +4,7 @@ import { Activity, BookOpen, Sparkles, Waves, Sprout, Heart } from 'lucide-react
 import firefly1Img from '../assets/images/Firefly (1).jpg';
 import ancrageCaptureImg from '../assets/images/Capture d’écran 2026-09-30 à 13.49.15.png';
 import reflexologieImg from '../assets/images/Capture d’écran 2026-09-30 à 16.28.05.png';
+import suiviRapprocheImg from '../assets/images/Capture d’écran 2026-09-30 à 13.52.49.png';
 
 interface ParcoursSectionProps {
   onOpenBooking?: (serviceName?: string) => void;
@@ -42,7 +43,7 @@ const PARCOURS_CARDS: CardItem[] = [
     id: "suivi-rapproche",
     title: "05. Suivi rapproché",
     description: "Accompagnement régulier pour consolider les acquis, ajuster la cure selon les ressentis et répondre à l'évolution naturelle de votre corps.",
-    imgSrc: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    imgSrc: suiviRapprocheImg,
     icon: <Sparkles className="w-6 h-6" />,
   },
   {
