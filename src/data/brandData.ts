@@ -27,9 +27,9 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     id: 'la-naturopathie',
-    title: 'Rdv Naturo de suivi',
+    title: 'RDV Naturopathie de suivi',
     subtitle: 'Bilan de vitalité & accompagnement personnalisé',
-    description: 'Comprendre votre équilibre et mettre en place des habitudes adaptées à votre quotidien.',
+    description: 'Comprendre votre équilibre et mettre en place des habitudes adaptées à votre quotidien. Alimentation, activité, gestion du stress et moyens naturels en complément.',
     fullDescription: 'La naturopathie holistique considère l’individu dans sa globalité physique, émotionnelle et environnementale. À travers un bilan approfondi, nous identifions la cause profonde de vos déséquilibres (fatigue chronique, troubles digestifs, stress, désordres hormonaux) pour restaurer votre vitalité naturelle.',
     duration: '1h00',
     price: 85,

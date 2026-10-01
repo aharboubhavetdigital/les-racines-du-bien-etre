@@ -280,7 +280,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
                   </div>
                 </div>
 
-                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[180px] sm:h-full min-h-[180px] sm:min-h-[150px] shrink-0 relative overflow-hidden rounded-[20px] sm:rounded-tl-[65px] sm:rounded-bl-[16px] sm:rounded-tr-[16px] sm:rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src={observationImg}
                     alt="Observation"
@@ -332,7 +332,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
                   </ul>
                 </div>
 
-                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[180px] sm:h-full min-h-[180px] sm:min-h-[150px] shrink-0 relative overflow-hidden rounded-[20px] sm:rounded-tl-[65px] sm:rounded-bl-[16px] sm:rounded-tr-[16px] sm:rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src={recuperationImg}
                     alt="Récupération"
@@ -384,7 +384,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
                   </ul>
                 </div>
 
-                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[180px] sm:h-full min-h-[180px] sm:min-h-[150px] shrink-0 relative overflow-hidden rounded-[20px] sm:rounded-tl-[65px] sm:rounded-bl-[16px] sm:rounded-tr-[16px] sm:rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src={equilibreImg}
                     alt="Équilibre"
@@ -425,7 +425,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
                   </div>
                 </div>
 
-                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[180px] sm:h-full min-h-[180px] sm:min-h-[150px] shrink-0 relative overflow-hidden rounded-[20px] sm:rounded-tl-[65px] sm:rounded-bl-[16px] sm:rounded-tr-[16px] sm:rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src={vitaliteImg}
                     alt="Vitalité"
@@ -466,7 +466,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
                   </div>
                 </div>
 
-                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[180px] sm:h-full min-h-[180px] sm:min-h-[150px] shrink-0 relative overflow-hidden rounded-[20px] sm:rounded-tl-[65px] sm:rounded-bl-[16px] sm:rounded-tr-[16px] sm:rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src={mouvementImg}
                     alt="Mouvement"
@@ -526,7 +526,7 @@ export const RessourcesPage: React.FC<RessourcesPageProps> = ({
                   </div>
                 </div>
 
-                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[150px] sm:h-full min-h-[150px] shrink-0 relative overflow-hidden rounded-tl-[65px] rounded-bl-[16px] rounded-tr-[16px] rounded-br-[16px] bg-[#EAE8E3]">
+                <div className="w-full sm:w-[110px] lg:w-[125px] xl:w-[135px] h-[180px] sm:h-full min-h-[180px] sm:min-h-[150px] shrink-0 relative overflow-hidden rounded-[20px] sm:rounded-tl-[65px] sm:rounded-bl-[16px] sm:rounded-tr-[16px] sm:rounded-br-[16px] bg-[#EAE8E3]">
                   <img
                     src={durabiliteImg}
                     alt="Durabilité"

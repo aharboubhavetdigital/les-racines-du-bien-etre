@@ -311,8 +311,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     <div
                       onClick={() => toggleService('appel-decouverte')}
                       className={`mb-4 p-4 sm:p-5 rounded-2xl transition-all cursor-pointer flex items-center justify-between gap-3 shadow-sm ${selectedServiceIds.includes('appel-decouverte')
-                          ? 'bg-[#7E9C7F] text-white ring-2 ring-[#55695B] shadow-md'
-                          : 'bg-[#8BB28A] hover:bg-[#7E9C7F] text-white'
+                        ? 'bg-[#7E9C7F] text-white ring-2 ring-[#55695B] shadow-md'
+                        : 'bg-[#8BB28A] hover:bg-[#7E9C7F] text-white'
                         }`}
                     >
                       <div className="flex items-center gap-3">
@@ -349,8 +349,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                               toggleService(srv.id);
                             }}
                             className={`p-4 rounded-2xl border cursor-pointer transition-all relative ${isSelected
-                                ? 'bg-[#F2F6F3] border-[#55695B] ring-1 ring-[#55695B] shadow-xs'
-                                : 'bg-white border-[#EAE7DF] hover:border-[#55695B]/50'
+                              ? 'bg-[#F2F6F3] border-[#55695B] ring-1 ring-[#55695B] shadow-xs'
+                              : 'bg-white border-[#EAE7DF] hover:border-[#55695B]/50'
                               }`}
                           >
                             <div className="flex justify-between items-start mb-1 gap-2">
@@ -366,12 +366,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                                 </span>
                               </div>
                               <span className={`font-sans text-xs font-semibold shrink-0 ${srv.price === 0 ? 'text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200' : 'text-[#55695B]'}`}>
-                                {srv.id === 'location-jacuzzi' 
+                                {srv.id === 'location-jacuzzi'
                                   ? (jacuzziDuration === '15' ? '8 €' : jacuzziDuration === '30' ? '15 €' : '25 €')
                                   : srv.price === 0 ? 'Gratuit' : `${srv.price} €`}
                               </span>
                             </div>
-                            <p className="font-sans text-xs text-[#48534C] font-light leading-snug line-clamp-2 pl-6">
+                            <p className="font-sans text-xs text-[#48534C] font-light leading-snug line-clamp-4 pl-6">
                               {srv.description}
                             </p>
                             <div className="mt-2 text-[11px] text-[#617467] flex items-center gap-1 font-medium pl-6">
@@ -384,9 +384,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                                   <button
                                     key={dur}
                                     type="button"
-                                    onClick={(e) => { 
-                                      e.stopPropagation(); 
-                                      setJacuzziDuration(dur as '15' | '30' | '60'); 
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setJacuzziDuration(dur as '15' | '30' | '60');
                                     }}
                                     className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${jacuzziDuration === dur ? 'bg-[#55695B] text-white border-[#55695B] shadow-sm' : 'bg-white text-[#48534C] border-[#EAE7DF] hover:border-[#55695B]/50'}`}
                                   >
@@ -636,7 +636,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                             <li key={srv.id} className="flex justify-between items-center py-0.5 border-b border-[#EAE7DF]/60 last:border-none">
                               <span>• {srv.title} ({srv.id === 'location-jacuzzi' ? (jacuzziDuration === '60' ? '1h00' : `${jacuzziDuration} min`) : srv.duration})</span>
                               <span className="text-[#55695B] font-semibold">
-                                {srv.id === 'location-jacuzzi' 
+                                {srv.id === 'location-jacuzzi'
                                   ? (jacuzziDuration === '15' ? '8 €' : jacuzziDuration === '30' ? '15 €' : '25 €')
                                   : srv.price === 0 ? 'Gratuit' : `${srv.price} €`}
                               </span>
