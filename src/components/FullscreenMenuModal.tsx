@@ -6,6 +6,7 @@ import { BrandLogo } from './BrandLogo';
 import logoRectanglePng from '../assets/images/logo rectangle .png';
 import institutBelleEtZenImg from '../assets/images/Capture d’écran 2026-09-30 à 14.37.59.png';
 import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
+import aproposMenuImg from '../assets/images/807143df-07b2-42b1-9966-03f37dc611f8 (1).png';
 
 export interface SubMenuItem {
   id: string;
@@ -225,7 +226,7 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
       title: 'À propos',
       subtitle: 'Votre praticienne certifiée & démarche holistique',
       tag: '(2) PARCOURS & PHILOSOPHIE',
-      image: chantDesOiseauxImg,
+      image: aproposMenuImg,
       action: () => {
         handleSmoothClose(() => {
           if (window.history && window.history.pushState) {
@@ -315,9 +316,8 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
     <div className="fixed inset-0 z-[99999]">
       {/* Dark translucent overlay with subtle background blur */}
       <div
-        className={`fixed inset-0 bg-black/45 backdrop-blur-md transition-opacity duration-500 ${
-          isClosing ? 'opacity-0' : 'opacity-100'
-        }`}
+        className={`fixed inset-0 bg-black/45 backdrop-blur-md transition-opacity duration-500 ${isClosing ? 'opacity-0' : 'opacity-100'
+          }`}
         onClick={() => handleSmoothClose()}
       />
 
@@ -327,10 +327,10 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
         id="fullscreen-menu-modal"
         className="fixed inset-0 w-screen h-screen min-h-screen z-[100000] flex flex-col lg:flex-row overflow-hidden bg-[#FAF8F5]/98 text-[#1C1A17] font-sans select-none shadow-2xl"
       >
-        
+
         {/* LEFT PANEL - Menu Items & Details */}
         <div className="w-full lg:w-[58%] h-full flex flex-col justify-between p-4 sm:p-8 lg:p-10 xl:p-12 overflow-y-auto lg:overflow-hidden bg-[#FAF8F5] text-[#1C1A17] z-10 border-r border-[#E5E0D8]">
-          
+
           {/* Top Header with Brand & Close/Book actions */}
           <div className="stagger-menu-detail flex items-center justify-between gap-3 mb-2 sm:mb-4 lg:mb-6 shrink-0 pb-3 border-b border-[#E8E3DA]">
             <div className="flex items-center gap-3">
@@ -402,9 +402,8 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
                       setPrestationsSubOpen(true);
                     }
                   }}
-                  className={`stagger-menu-item group border-b border-[#E8E3DA] pb-2 sm:pb-3 transition-all duration-300 ${
-                    isHovered ? 'border-[#20352B]' : ''
-                  }`}
+                  className={`stagger-menu-item group border-b border-[#E8E3DA] pb-2 sm:pb-3 transition-all duration-300 ${isHovered ? 'border-[#20352B]' : ''
+                    }`}
                 >
                   <div
                     onClick={() => {
@@ -415,28 +414,23 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
                         item.action();
                       }
                     }}
-                    className={`flex items-baseline gap-2 sm:gap-3 cursor-pointer select-none rounded-lg p-1.5 -ml-1.5 transition-all duration-200 ${
-                      isHovered ? 'pl-2.5 bg-[#506456]/10' : 'hover:pl-2'
-                    }`}
+                    className={`flex items-baseline gap-2 sm:gap-3 cursor-pointer select-none rounded-lg p-1.5 -ml-1.5 transition-all duration-200 ${isHovered ? 'pl-2.5 bg-[#506456]/10' : 'hover:pl-2'
+                      }`}
                   >
-                    <span className={`font-mono text-xs tracking-wider transition-colors shrink-0 ${
-                      isHovered ? 'text-[#344E41] font-bold' : 'text-neutral-400'
-                    }`}>
+                    <span className={`font-mono text-xs tracking-wider transition-colors shrink-0 ${isHovered ? 'text-[#344E41] font-bold' : 'text-neutral-400'
+                      }`}>
                       {item.num}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <h3 className={`font-serif text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight transition-all duration-300 flex items-center justify-between ${
-                        isHovered ? 'text-[#20352B] italic' : 'text-[#1C1A17]'
-                      }`}>
+                      <h3 className={`font-serif text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light tracking-tight transition-all duration-300 flex items-center justify-between ${isHovered ? 'text-[#20352B] italic' : 'text-[#1C1A17]'
+                        }`}>
                         <span className="truncate">{item.title}</span>
                         {isPrestations ? (
-                          <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform duration-300 ${
-                            prestationsSubOpen ? 'rotate-180 text-[#344E41]' : 'text-neutral-400'
-                          }`} />
+                          <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform duration-300 ${prestationsSubOpen ? 'rotate-180 text-[#344E41]' : 'text-neutral-400'
+                            }`} />
                         ) : (
-                          <ArrowUpRight className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-all duration-300 ${
-                            isHovered ? 'opacity-100 text-[#344E41] translate-x-0' : 'opacity-0 -translate-x-2'
-                          }`} />
+                          <ArrowUpRight className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-all duration-300 ${isHovered ? 'opacity-100 text-[#344E41] translate-x-0' : 'opacity-0 -translate-x-2'
+                            }`} />
                         )}
                       </h3>
                       <p className="font-sans text-[11px] sm:text-xs text-neutral-500 font-light mt-0.5 truncate">
@@ -490,14 +484,13 @@ export const FullscreenMenuModal: React.FC<FullscreenMenuModalProps> = ({
 
         {/* RIGHT PANEL - Image Preview & Actions (Desktop) */}
         <div className="hidden lg:flex w-full lg:w-[42%] h-full relative flex-col justify-between p-12 overflow-hidden bg-[#16161a]">
-          
+
           {/* Dynamic Background Image with Smooth Fade */}
           {menuItems.map((item, index) => (
             <div
               key={item.id}
-              className={`absolute inset-0 transition-all duration-400 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
-                activeItemIndex === index ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-              }`}
+              className={`absolute inset-0 transition-all duration-400 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${activeItemIndex === index ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                }`}
             >
               <img
                 src={item.image}
