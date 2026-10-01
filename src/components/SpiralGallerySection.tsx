@@ -5,6 +5,7 @@ import pointsReflexesImg from '../assets/images/Capture d’écran 2026-09-30 à
 import lacherPriseImg from '../assets/images/Capture d’écran 2026-09-30 à 14.15.47.png';
 import chantDesOiseauxImg from '../assets/images/Capture d’écran 2026-09-30 à 14.38.07.png';
 import reflexologieSoinImg from '../assets/images/reflexologie_soin_naturopathie_1788191325082.jpg.jpg';
+import consultationImg from '../assets/images/Capture d’écran 2026-09-30 à 13.52.49.png';
 
 const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
   {
@@ -38,7 +39,7 @@ const NATUROPATHY_SPIRAL_IMAGES: SpiralItem[] = [
     label: 'Points Réflexes'
   },
   {
-    src: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80',
+    src: consultationImg,
     alt: 'Consultation personnalisée et écoute',
     label: 'Accompagnement'
   },
